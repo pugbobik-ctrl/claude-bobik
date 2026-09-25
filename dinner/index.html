@@ -1,0 +1,250 @@
+<title>Dinner 10.10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Geist+Mono:wght@300;400;500&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --ground: #1d140d;
+    --cream: #f4ecc2;
+    --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    /* one row of the info grid at 1280px wide: 62px */
+    --row: 4.84cqw;
+  }
+  html, body { background: var(--ground); }
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding-inline: 16px;
+    padding-block: 24px;
+    box-sizing: border-box;
+  }
+
+  /* 1280 × 1009 poster; every size below is in cqw so it scales as one piece */
+  .poster {
+    position: relative;
+    width: min(100%, 1280px);
+    aspect-ratio: 1280 / 1009;
+    container-type: inline-size;
+    overflow: hidden;
+    background: #c9822f;
+    color: var(--cream);
+    font-family: var(--mono);
+    font-weight: 300;
+    text-transform: uppercase;
+    font-feature-settings: "zero" 1;
+    box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .7);
+  }
+  .poster > svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .poster p { margin: 0; }
+
+  /* partner logos: swap the text for <img> when the files arrive */
+  .logos {
+    position: absolute;
+    top: 4.06cqw;
+    left: 5cqw;
+    right: 5cqw;
+    height: 4.69cqw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    height: 100%;
+    width: 22cqw;
+    display: flex;
+    align-items: center;
+    font-size: 2.34cqw;
+    font-weight: 500;
+    letter-spacing: .06em;
+    white-space: nowrap;
+  }
+  .logo + .logo { justify-content: flex-end; }
+  .logo img { max-height: 100%; max-width: 100%; }
+
+  .info {
+    position: absolute;
+    left: 5cqw;
+    right: 5cqw;
+    bottom: 4.53cqw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 3.6cqw;
+    line-height: var(--row);
+    white-space: nowrap;
+  }
+  .when, .lineup {
+    display: grid;
+    grid-auto-rows: var(--row);
+  }
+  .date {
+    grid-row: span 2;
+    align-self: end;
+    font-size: 8.6cqw;
+    line-height: 1;
+    letter-spacing: -.03em;
+    margin-bottom: -.2cqw;
+  }
+  .lineup { text-align: right; }
+  .label {
+    font-size: 1.88cqw;
+    font-weight: 400;
+    letter-spacing: .24em;
+    margin-right: -.24em;
+  }
+</style>
+
+<main class="poster" aria-label="Dinner, 10 October 2026">
+  <svg viewBox="0 0 1280 1009" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <!-- blur the colour fields so they read as baked gradients, not shapes -->
+      <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="55"/>
+      </filter>
+      <filter id="softer" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="28"/>
+      </filter>
+
+      <!-- crust: blistered height map lit from the upper left -->
+      <filter id="crust" filterUnits="userSpaceOnUse" x="0" y="0" width="1280" height="1009" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.0028 0.0045" numOctaves="4" seed="4" result="big"/>
+        <feTurbulence type="turbulence" baseFrequency="0.0085 0.014" numOctaves="4" seed="12" result="blister"/>
+        <feTurbulence type="fractalNoise" baseFrequency="0.28" numOctaves="2" seed="2" result="grain"/>
+        <feComposite in="big" in2="blister" operator="arithmetic" k2="0.6" k3="0.6" result="height"/>
+
+        <feDiffuseLighting in="height" surfaceScale="7" diffuseConstant="1.22" lighting-color="#fff1d8" result="lit">
+          <feDistantLight azimuth="225" elevation="52"/>
+        </feDiffuseLighting>
+        <feSpecularLighting in="height" surfaceScale="7" specularConstant=".45" specularExponent="22" lighting-color="#ffe7b4" result="spec">
+          <feDistantLight azimuth="225" elevation="58"/>
+        </feSpecularLighting>
+        <feDiffuseLighting in="grain" surfaceScale=".9" diffuseConstant="1.08" lighting-color="#ffffff" result="crumb">
+          <feDistantLight azimuth="225" elevation="60"/>
+        </feDiffuseLighting>
+
+        <feBlend in="SourceGraphic" in2="lit" mode="multiply" result="shaded"/>
+        <feBlend in="shaded" in2="crumb" mode="multiply" result="grained"/>
+        <feComposite in="grained" in2="spec" operator="arithmetic" k2="1.1" k3=".35" result="out"/>
+        <feComposite in="out" in2="SourceGraphic" operator="in"/>
+      </filter>
+
+      <!-- flour dust: fine noise thresholded into specks -->
+      <filter id="flour" filterUnits="userSpaceOnUse" x="0" y="0" width="1280" height="1009">
+        <feTurbulence type="fractalNoise" baseFrequency="0.16" numOctaves="3" seed="9" result="n"/>
+        <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.95  0 0 0 0 0.9  0 0 0 0 0.8  0 0 0 5 -2.3"/>
+        <feComposite in2="SourceGraphic" operator="in"/>
+      </filter>
+
+      <!-- flour sits in the gaps between blocks so it never sits under text -->
+      <mask id="flourZones" maskUnits="userSpaceOnUse" x="0" y="0" width="1280" height="1009">
+        <g filter="url(#softer)" fill="#fff">
+          <ellipse cx="1080" cy="525" rx="190" ry="48" transform="rotate(-8 1080 525)"/>
+          <ellipse cx="1245" cy="430" rx="30" ry="120"/>
+          <ellipse cx="70" cy="520" rx="80" ry="40"/>
+          <ellipse cx="400" cy="18" rx="110" ry="26"/>
+          <ellipse cx="830" cy="130" rx="60" ry="22" opacity=".6"/>
+          <ellipse cx="620" cy="560" rx="50" ry="26" opacity=".5"/>
+        </g>
+      </mask>
+
+      <!-- melts letters into one another: blur, then snap the alpha back to a hard edge -->
+      <filter id="goo" x="-10%" y="-20%" width="120%" height="140%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="7.5" result="b"/>
+        <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -12"/>
+      </filter>
+      <filter id="gooSmall" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2.6" result="b"/>
+        <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -12"/>
+      </filter>
+
+      <radialGradient id="vignette" cx="50%" cy="48%" r="72%">
+        <stop offset="55%" stop-color="#3a1a05" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#3a1a05" stop-opacity=".42"/>
+      </radialGradient>
+      <!-- a touch of shade under the info block so the small type holds up -->
+      <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="52%" stop-color="#3a1a05" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#3a1a05" stop-opacity=".26"/>
+      </linearGradient>
+    </defs>
+
+    <!-- colour of the bake -->
+    <g filter="url(#crust)">
+      <rect width="1280" height="1009" fill="#d58f3a"/>
+      <g filter="url(#soft)">
+        <ellipse cx="640" cy="330" rx="540" ry="210" fill="#eeb25a"/>
+        <ellipse cx="900" cy="760" rx="240" ry="150" fill="#f0b458"/>
+        <ellipse cx="300" cy="700" rx="220" ry="140" fill="#e9a54c"/>
+        <ellipse cx="1150" cy="220" rx="160" ry="160" fill="#e7a24a"/>
+        <ellipse cx="560" cy="960" rx="300" ry="90" fill="#e9aa52"/>
+      </g>
+      <g filter="url(#softer)" fill="#7c3a10">
+        <ellipse cx="130" cy="50" rx="150" ry="70" opacity=".85"/>
+        <ellipse cx="640" cy="40" rx="130" ry="40" opacity=".6"/>
+        <ellipse cx="1110" cy="35" rx="130" ry="45" opacity=".75"/>
+        <ellipse cx="150" cy="560" rx="130" ry="55" opacity=".8"/>
+        <ellipse cx="1000" cy="610" rx="70" ry="110" opacity=".7"/>
+        <ellipse cx="470" cy="540" rx="90" ry="40" opacity=".5"/>
+        <ellipse cx="860" cy="470" rx="60" ry="35" opacity=".5"/>
+        <ellipse cx="160" cy="880" rx="170" ry="70" opacity=".6"/>
+        <ellipse cx="760" cy="850" rx="110" ry="50" opacity=".5"/>
+        <ellipse cx="1180" cy="900" rx="120" ry="70" opacity=".6"/>
+        <ellipse cx="1240" cy="330" rx="50" ry="110" opacity=".5"/>
+        <ellipse cx="40" cy="280" rx="50" ry="110" opacity=".5"/>
+      </g>
+      <g filter="url(#softer)" fill="#4f2008">
+        <ellipse cx="90" cy="30" rx="70" ry="35" opacity=".8"/>
+        <ellipse cx="185" cy="560" rx="60" ry="26" opacity=".75"/>
+        <ellipse cx="1005" cy="590" rx="30" ry="55" opacity=".7"/>
+        <ellipse cx="1100" cy="20" rx="60" ry="22" opacity=".7"/>
+        <ellipse cx="120" cy="960" rx="90" ry="30" opacity=".6"/>
+      </g>
+    </g>
+
+    <rect width="1280" height="1009" fill="#fff" mask="url(#flourZones)" filter="url(#flour)"/>
+    <rect width="1280" height="1009" fill="url(#vignette)"/>
+    <rect width="1280" height="1009" fill="url(#shade)"/>
+
+    <!-- collab mark between the two logos -->
+    <g filter="url(#gooSmall)" fill="#f4ecc2">
+      <rect x="614" y="74" width="52" height="16" rx="8" transform="rotate(45 640 82)"/>
+      <rect x="614" y="74" width="52" height="16" rx="8" transform="rotate(-45 640 82)"/>
+    </g>
+
+    <!-- title -->
+    <g filter="url(#goo)" fill="#f4ecc2">
+      <text x="64" y="454" font-family="'Bagel Fat One', 'Arial Black', sans-serif" font-size="380" stroke="#f4ecc2" stroke-width="8" stroke-linejoin="round" textLength="1152" lengthAdjust="spacingAndGlyphs">DINNER</text>
+    </g>
+  </svg>
+
+  <div class="logos">
+    <div class="logo" data-logo="colorblock">Colorblock</div>
+    <div class="logo" data-logo="dna-kitchen">DNA Kitchen</div>
+  </div>
+
+  <div class="info">
+    <div class="when">
+      <p class="date">10.10.26</p>
+      <p>Суббота</p>
+      <p>Старт 18:00</p>
+      <p>Финиш 23:00</p>
+      <p>Самокатная 4 стр. 13</p>
+    </div>
+    <div class="lineup">
+      <p class="label">Line-up</p>
+      <p>Tatyana Andrianova</p>
+      <p>Liza Gromova</p>
+      <p>Igor Zotov</p>
+      <p>David Chebanov</p>
+      <p>Cherta</p>
+    </div>
+  </div>
+</main>
