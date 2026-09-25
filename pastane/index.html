@@ -1,0 +1,211 @@
+<title>Pastane Bakery Poster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Mono:wght@300;400&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --ground: #1d140d;
+    --cream: #f4ecc2;
+    --cream-soft: #f1e4b3;
+    --mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  html, body { background: var(--ground); }
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding-inline: 16px;
+    padding-block: 24px;
+    box-sizing: border-box;
+  }
+
+  /* 1280 × 1009 poster; every size below is in cqw so it scales as one piece */
+  .poster {
+    position: relative;
+    width: min(100%, 1280px);
+    aspect-ratio: 1280 / 1009;
+    container-type: inline-size;
+    overflow: hidden;
+    background: #c9822f;
+    box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .7);
+  }
+  .poster > svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .tagline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 26.7cqw;
+    margin: 0;
+    padding-right: 1.25cqw;
+    text-align: center;
+    font: 400 2.04cqw/2.88cqw var(--mono);
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+  }
+
+  .info {
+    position: absolute;
+    left: 5.15cqw;
+    right: 5.3cqw;
+    top: 61.6cqw;
+    margin: 0;
+    font: 300 3.46cqw/4.43cqw var(--mono);
+    font-variant-numeric: slashed-zero;
+    font-feature-settings: "zero" 1;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+  }
+  .info span {
+    display: block;
+    text-align: justify;
+    text-align-last: justify;
+    white-space: nowrap;
+  }
+</style>
+
+<main class="poster" aria-label="Pastane bakery poster">
+  <svg viewBox="0 0 1280 1009" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <!-- blur the colour fields so they read as baked gradients, not shapes -->
+      <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="55"/>
+      </filter>
+      <filter id="softer" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="28"/>
+      </filter>
+
+      <!-- crust: blistered height map lit from the upper left -->
+      <filter id="crust" filterUnits="userSpaceOnUse" x="0" y="0" width="1280" height="1009" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.0028 0.0045" numOctaves="4" seed="4" result="big"/>
+        <feTurbulence type="turbulence" baseFrequency="0.0085 0.014" numOctaves="4" seed="12" result="blister"/>
+        <feTurbulence type="fractalNoise" baseFrequency="0.28" numOctaves="2" seed="2" result="grain"/>
+        <feComposite in="big" in2="blister" operator="arithmetic" k2="0.6" k3="0.6" result="height"/>
+
+        <feDiffuseLighting in="height" surfaceScale="7" diffuseConstant="1.22" lighting-color="#fff1d8" result="lit">
+          <feDistantLight azimuth="225" elevation="52"/>
+        </feDiffuseLighting>
+        <feSpecularLighting in="height" surfaceScale="7" specularConstant=".45" specularExponent="22" lighting-color="#ffe7b4" result="spec">
+          <feDistantLight azimuth="225" elevation="58"/>
+        </feSpecularLighting>
+        <feDiffuseLighting in="grain" surfaceScale=".9" diffuseConstant="1.08" lighting-color="#ffffff" result="crumb">
+          <feDistantLight azimuth="225" elevation="60"/>
+        </feDiffuseLighting>
+
+        <feBlend in="SourceGraphic" in2="lit" mode="multiply" result="shaded"/>
+        <feBlend in="shaded" in2="crumb" mode="multiply" result="grained"/>
+        <feComposite in="grained" in2="spec" operator="arithmetic" k2="1.1" k3=".35" result="out"/>
+        <feComposite in="out" in2="SourceGraphic" operator="in"/>
+      </filter>
+
+      <!-- flour dust: fine noise thresholded into specks -->
+      <filter id="flour" filterUnits="userSpaceOnUse" x="0" y="0" width="1280" height="1009">
+        <feTurbulence type="fractalNoise" baseFrequency="0.16" numOctaves="3" seed="9" result="n"/>
+        <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.95  0 0 0 0 0.9  0 0 0 0 0.8  0 0 0 5 -2.3"/>
+        <feComposite in2="SourceGraphic" operator="in"/>
+      </filter>
+
+      <mask id="flourZones" maskUnits="userSpaceOnUse" x="0" y="0" width="1280" height="1009">
+        <g filter="url(#softer)" fill="#fff">
+          <ellipse cx="1140" cy="230" rx="90" ry="210" transform="rotate(-28 1140 230)"/>
+          <ellipse cx="1215" cy="330" rx="45" ry="120"/>
+          <ellipse cx="1025" cy="110" rx="55" ry="40"/>
+          <ellipse cx="40" cy="505" rx="70" ry="80"/>
+          <ellipse cx="120" cy="430" rx="40" ry="30"/>
+          <ellipse cx="275" cy="15" rx="80" ry="30"/>
+          <ellipse cx="610" cy="120" rx="40" ry="30" opacity=".6"/>
+          <ellipse cx="160" cy="860" rx="60" ry="30" opacity=".35"/>
+        </g>
+      </mask>
+
+      <!-- melts letters into one another: blur, then snap the alpha back to a hard edge -->
+      <filter id="goo" x="-10%" y="-20%" width="120%" height="140%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="b"/>
+        <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -12"/>
+      </filter>
+      <filter id="gooSmall" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2.6" result="b"/>
+        <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -12"/>
+      </filter>
+
+      <radialGradient id="vignette" cx="50%" cy="48%" r="72%">
+        <stop offset="55%" stop-color="#3a1a05" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#3a1a05" stop-opacity=".42"/>
+      </radialGradient>
+
+      <!-- badge ring: starts at the bottom and runs clockwise -->
+      <path id="ring" d="M 628 245 A 80 80 0 1 1 628 85 A 80 80 0 1 1 628 245"/>
+    </defs>
+
+    <!-- colour of the bake -->
+    <g filter="url(#crust)">
+      <rect width="1280" height="1009" fill="#d58f3a"/>
+      <g filter="url(#soft)">
+        <ellipse cx="640" cy="620" rx="520" ry="260" fill="#eeb25a"/>
+        <ellipse cx="860" cy="240" rx="220" ry="150" fill="#f0b458"/>
+        <ellipse cx="330" cy="250" rx="200" ry="130" fill="#e9a54c"/>
+        <ellipse cx="1180" cy="720" rx="160" ry="200" fill="#e7a24a"/>
+        <ellipse cx="520" cy="930" rx="300" ry="100" fill="#e9aa52"/>
+      </g>
+      <g filter="url(#softer)" fill="#7c3a10">
+        <ellipse cx="130" cy="50" rx="150" ry="70" opacity=".85"/>
+        <ellipse cx="455" cy="150" rx="90" ry="45" opacity=".7"/>
+        <ellipse cx="720" cy="25" rx="120" ry="40" opacity=".7"/>
+        <ellipse cx="1110" cy="35" rx="130" ry="45" opacity=".75"/>
+        <ellipse cx="165" cy="370" rx="130" ry="60" opacity=".9"/>
+        <ellipse cx="1000" cy="360" rx="70" ry="120" opacity=".8"/>
+        <ellipse cx="920" cy="480" rx="80" ry="40" opacity=".55"/>
+        <ellipse cx="560" cy="470" rx="80" ry="40" opacity=".5"/>
+        <ellipse cx="880" cy="170" rx="45" ry="35" opacity=".55"/>
+        <ellipse cx="130" cy="850" rx="150" ry="55" opacity=".6"/>
+        <ellipse cx="930" cy="690" rx="130" ry="60" opacity=".55"/>
+        <ellipse cx="700" cy="990" rx="200" ry="40" opacity=".5"/>
+        <ellipse cx="1230" cy="600" rx="60" ry="120" opacity=".5"/>
+      </g>
+      <g filter="url(#softer)" fill="#4f2008">
+        <ellipse cx="90" cy="30" rx="70" ry="35" opacity=".8"/>
+        <ellipse cx="200" cy="365" rx="60" ry="28" opacity=".8"/>
+        <ellipse cx="1005" cy="330" rx="30" ry="60" opacity=".7"/>
+        <ellipse cx="1100" cy="20" rx="60" ry="22" opacity=".7"/>
+      </g>
+    </g>
+
+    <rect width="1280" height="1009" fill="#fff" mask="url(#flourZones)" filter="url(#flour)"/>
+    <rect width="1280" height="1009" fill="url(#vignette)"/>
+
+    <!-- badge -->
+    <g fill="#f4ecc2">
+      <text font-family="'DM Mono', ui-monospace, monospace" font-weight="400" font-size="21" letter-spacing="2">
+        <textPath href="#ring" startOffset="63" textLength="360" lengthAdjust="spacing">FOR YOU FLUFFY BAKED GOODS</textPath>
+      </text>
+      <g filter="url(#gooSmall)">
+        <text x="628" y="193" text-anchor="middle" font-family="'Bagel Fat One', 'Arial Black', sans-serif" font-size="98" stroke="#f4ecc2" stroke-width="5" stroke-linejoin="round">P</text>
+      </g>
+    </g>
+
+    <!-- wordmark -->
+    <g filter="url(#goo)" fill="#f4ecc2">
+      <text id="wordmark" x="64" y="766" font-family="'Bagel Fat One', 'Arial Black', sans-serif" font-size="322" stroke="#f4ecc2" stroke-width="14" stroke-linejoin="round" textLength="1152" lengthAdjust="spacingAndGlyphs">PASTANE</text>
+    </g>
+  </svg>
+
+  <p class="tagline">
+    Enjoy our freshly baked, fluffy, and<br>
+    flavour-filled buns every day<br>
+    at Pastane Bakery
+  </p>
+
+  <p class="info">
+    <span>Bklyn, N.Y 05 G.P. Ave.</span>
+    <span>IG: pastanebakery www.pastanebakery.com</span>
+    <span>Zip code: 11342, T:518-446-9400</span>
+  </p>
+</main>
