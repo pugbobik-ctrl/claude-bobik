@@ -1,0 +1,6 @@
+gen/
+out/
+refs/
+board_*.html
+board_*.png
+poster.jpg
