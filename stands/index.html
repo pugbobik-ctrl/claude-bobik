@@ -1,0 +1,299 @@
+<title>Table Stands</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@500;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --ground: #0e0e0d;
+    --paper: #f1ede0;
+    --muted: #8f8b80;
+    --label: #4b53c6;
+    --lilac: #c7a3dc;
+    --copper: #c8873a;
+    --sans: "Onest", "Helvetica Neue", Arial, sans-serif;
+    --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { background: var(--ground); }
+  body {
+    margin: 0;
+    padding: 24px 16px 64px;
+    color: var(--paper);
+    font-family: var(--mono);
+  }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+  h1, h2, h3, p { margin: 0; }
+  svg { display: block; overflow: visible; }
+
+  /* copper foil and the ring text on the glass stand */
+  .eng { fill: none; stroke: var(--copper); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .ring { fill: var(--copper); font-family: var(--mono); font-weight: 500; text-transform: uppercase; }
+
+  /* hero: the box sleeve */
+  .label {
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    background: var(--label);
+    color: var(--lilac);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .label-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4cqw;
+    padding: 3.4cqw 0 3.4cqw 3.4cqw;
+  }
+  .label h1 {
+    font: 700 4.7cqw/0.92 var(--sans);
+    letter-spacing: -.03em;
+    text-transform: uppercase;
+  }
+  .label h1 > span { display: flex; justify-content: space-between; gap: .3em; }
+  .lede { font: 500 1.6cqw/1.25 var(--sans); max-width: 30ch; }
+  .specs {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6cqw 2cqw;
+    font-size: 1.05cqw;
+    line-height: 1.3;
+  }
+  .specs dt { opacity: .7; text-transform: uppercase; letter-spacing: .04em; }
+  .specs dd { margin: .3cqw 0 0; font: 500 1.6cqw/1.15 var(--sans); }
+  .label-art { padding: 1cqw 1cqw 1cqw 0; }
+  .label-art svg { width: 100%; height: auto; }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin: 72px 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #2a2925;
+  }
+  .section-head h2 { font: 700 clamp(24px, 3.4vw, 40px)/1 var(--sans); letter-spacing: -.02em; text-transform: uppercase; }
+  .section-head p { color: var(--muted); font-size: 13px; text-align: right; max-width: 42ch; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: #161614;
+    border-radius: 6px;
+    padding: 20px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .card svg { width: 100%; height: auto; aspect-ratio: 1; padding: 6%; }
+  .cap {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 14px;
+    align-items: baseline;
+    padding-top: 12px;
+    border-top: 1px solid #2a2925;
+  }
+  .num { color: var(--copper); font-size: 13px; }
+  .cap h3 { font: 700 22px/1.05 var(--sans); letter-spacing: -.01em; text-transform: uppercase; }
+  .cap h3 + p { margin-top: 4px; font-size: 13px; color: var(--paper); text-transform: uppercase; letter-spacing: .04em; }
+  .size { font-size: 13px; color: var(--muted); white-space: nowrap; }
+  .note { font-size: 12.5px; line-height: 1.45; color: var(--muted); }
+
+  .materials {
+    margin-top: 72px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+    gap: 20px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .materials b { display: block; margin-bottom: 6px; color: var(--paper); font: 700 15px/1.2 var(--sans); text-transform: uppercase; }
+
+  @media (max-width: 760px) {
+    .label { grid-template-columns: 1fr; }
+    .label-text { gap: 18px; padding: 24px 20px 8px; }
+    .label h1 { font-size: 10.5cqw; }
+    .lede { font-size: 16px; }
+    .specs { font-size: 11px; gap: 14px; }
+    .specs dd { font-size: 15px; }
+    .label-art { padding: 0 8px 8px; }
+    .section-head { flex-direction: column; }
+    .section-head p { text-align: left; }
+  }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- melts overlapping circles into one die-cut outline -->
+    <filter id="goo" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10"/>
+    </filter>
+    <!-- thick card stock: paper grain on the face, a darker cut edge below, soft cast shadow -->
+    <filter id="paper" x="-20%" y="-20%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="5" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values=".28 0 0 0 .84  .28 0 0 0 .84  .28 0 0 0 .84  0 0 0 0 1" result="grain"/>
+      <feBlend in="SourceGraphic" in2="grain" mode="multiply" result="g"/>
+      <feComposite in="g" in2="SourceAlpha" operator="in" result="face"/>
+      <feColorMatrix in="SourceGraphic" type="matrix" values=".62 0 0 0 0  0 .62 0 0 0  0 0 .62 0 0  0 0 0 1 0" result="dark"/>
+      <feOffset in="dark" dx="1" dy="5" result="edge"/>
+      <feOffset in="SourceAlpha" dx="10" dy="16" result="so"/>
+      <feGaussianBlur in="so" stdDeviation="10" result="sb"/>
+      <feFlood flood-color="#000" flood-opacity=".42"/>
+      <feComposite in2="sb" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="edge"/><feMergeNode in="face"/></feMerge>
+    </filter>
+    <path id="arc-glass" d="M212 306A92 92 0 1 1 212.1 306"/><clipPath id="c-cupgrid"><circle cx="182" cy="210" r="70"/></clipPath><clipPath id="c-bite140"><ellipse cx="140" cy="214" rx="62" ry="78" transform="rotate(-18 140 214)"/></clipPath><clipPath id="c-bite268"><ellipse cx="268" cy="186" rx="60" ry="74" transform="rotate(-14 268 186)"/></clipPath><clipPath id="c-biteR"><ellipse cx="268" cy="186" rx="88" ry="104" transform="rotate(-14 268 186)"/></clipPath><g id="b-plate"><g filter="url(#goo)" fill="#ef5440"><circle cx="200" cy="200" r="130"/><circle cx="326" cy="200" r="40"/><circle cx="309.1" cy="263" r="40"/><circle cx="263" cy="309.1" r="40"/><circle cx="200" cy="326" r="40"/><circle cx="137" cy="309.1" r="40"/><circle cx="90.9" cy="263" r="40"/><circle cx="74" cy="200" r="40"/><circle cx="90.9" cy="137" r="40"/><circle cx="137" cy="90.9" r="40"/><circle cx="200" cy="74" r="40"/><circle cx="263" cy="90.9" r="40"/><circle cx="309.1" cy="137" r="40"/></g></g><g id="a-plate"><g class="eng"><circle cx="200" cy="200" r="96"/><circle cx="200" cy="200" r="88" stroke-dasharray="1 9"/><path d="M154 182L168 152M172 184L186 154M148 168H192"/><path d="M216 182L230 152M234 184L248 154M210 168H254"/><path d="M154 246L168 216M172 248L186 218M148 232H192"/><path d="M216 246L230 216M234 248L248 218M210 232H254"/></g></g><g id="b-cutlery"><g filter="url(#goo)" fill="#6f8a5b"><rect x="60" y="178" width="280" height="138" rx="34"/><circle cx="120" cy="182" r="58"/><circle cx="204" cy="164" r="64"/><circle cx="286" cy="178" r="56"/></g></g><g id="a-cutlery"><g class="eng"><path d="M113 140V184Q113 204 125 209Q137 204 137 184V140M121 140V180M129 140V180"/><rect x="121" y="209" width="8" height="84" rx="4"/><path d="M198 124Q214 128 213 198H198Z"/><rect x="199" y="198" width="13" height="96" rx="6.5"/><ellipse cx="286" cy="158" rx="17" ry="25"/><rect x="282" y="183" width="8" height="110" rx="4"/></g></g><g id="b-glass"><g filter="url(#goo)" fill="#c7a3dc"><circle cx="212" cy="214" r="118"/><circle cx="116" cy="110" r="44"/></g></g><g id="a-glass"><g class="eng"><circle cx="212" cy="214" r="62"/><path d="M104 98V122H124"/></g><text class="ring" font-size="15" letter-spacing="1.5"><textPath href="#arc-glass" textLength="540" lengthAdjust="spacing">под бокал · к ужину · под бокал · к ужину ·</textPath></text></g><mask id="m-bowl" maskUnits="userSpaceOnUse" x="-50" y="-50" width="500" height="500"><rect x="-50" y="-50" width="500" height="500" fill="#fff"/><g fill="#000"><path d="M200 136 L203 194.8 L255.4 168 L206 200 L255.4 232 L203 205.2 L200 264 L197 205.2 L144.6 232 L194 200 L144.6 168 L197 194.8Z"/></g></mask><g id="b-bowl" mask="url(#m-bowl)"><g fill="#f2b3c4"><path d="M141.2 119.1Q139.8 25.1 200 35Q260.2 25.1 258.8 119.1Q347.7 88.7 356.9 149Q385 203.2 295.1 230.9Q351.5 306.1 297 333.5Q254.1 376.9 200 300Q145.9 376.9 103 333.5Q48.5 306.1 104.9 230.9Q15 203.2 43.1 149Q52.3 88.7 141.2 119.1Z"/></g></g><g id="a-bowl"><g class="eng"><circle cx="200" cy="88" r="2.6" fill="#c8873a" stroke="none"/><circle cx="306.5" cy="165.4" r="2.6" fill="#c8873a" stroke="none"/><circle cx="265.8" cy="290.6" r="2.6" fill="#c8873a" stroke="none"/><circle cx="134.2" cy="290.6" r="2.6" fill="#c8873a" stroke="none"/><circle cx="93.5" cy="165.4" r="2.6" fill="#c8873a" stroke="none"/></g></g><mask id="m-cup" maskUnits="userSpaceOnUse" x="-50" y="-50" width="500" height="500"><rect x="-50" y="-50" width="500" height="500" fill="#fff"/><g fill="#000"><circle cx="310" cy="210" r="19"/></g></mask><g id="b-cup" mask="url(#m-cup)"><g filter="url(#goo)" fill="#f2c43c"><circle cx="182" cy="210" r="110"/><circle cx="302" cy="210" r="48"/></g></g><g id="a-cup"><g class="eng" clip-path="url(#c-cupgrid)"><path d="M110 140V280"/><path d="M130 140V280"/><path d="M150 140V280"/><path d="M170 140V280"/><path d="M190 140V280"/><path d="M210 140V280"/><path d="M230 140V280"/><path d="M250 140V280"/><path d="M110 140H250"/><path d="M110 160H250"/><path d="M110 180H250"/><path d="M110 200H250"/><path d="M110 220H250"/><path d="M110 240H250"/><path d="M110 260H250"/><path d="M110 280H250"/></g><g class="eng"><circle cx="182" cy="210" r="70"/></g></g><mask id="m-bite" maskUnits="userSpaceOnUse" x="-50" y="-50" width="500" height="500"><rect x="-50" y="-50" width="500" height="500" fill="#fff"/><g fill="#000"><circle cx="340" cy="112" r="20"/><circle cx="328" cy="90" r="15"/><circle cx="352" cy="136" r="15"/><circle cx="312" cy="76" r="13"/><circle cx="360" cy="160" r="12"/><circle cx="296" cy="66" r="10"/></g></mask><g id="b-bite" mask="url(#m-bite)"><g filter="url(#goo)" fill="#f1ede0"><ellipse cx="140" cy="214" rx="90" ry="108" transform="rotate(-18 140 214)"/><ellipse cx="268" cy="186" rx="88" ry="104" transform="rotate(-14 268 186)"/></g></g><g id="a-bite"><g class="eng"><g transform="rotate(-18 140 214)" clip-path="url(#c-bite140)"><path d="M90 154V274"/><path d="M106 154V274"/><path d="M122 154V274"/><path d="M138 154V274"/><path d="M154 154V274"/><path d="M170 154V274"/><path d="M186 154V274"/><path d="M90 158H190"/><path d="M90 174H190"/><path d="M90 190H190"/><path d="M90 206H190"/><path d="M90 222H190"/><path d="M90 238H190"/><path d="M90 254H190"/><path d="M90 270H190"/></g><g transform="rotate(-14 268 186)" clip-path="url(#c-bite268)"><path d="M218 126V246"/><path d="M234 126V246"/><path d="M250 126V246"/><path d="M266 126V246"/><path d="M282 126V246"/><path d="M298 126V246"/><path d="M314 126V246"/><path d="M218 130H318"/><path d="M218 146H318"/><path d="M218 162H318"/><path d="M218 178H318"/><path d="M218 194H318"/><path d="M218 210H318"/><path d="M218 226H318"/><path d="M218 242H318"/></g></g><g mask="url(#m-bite)" clip-path="url(#c-biteR)"><circle cx="338" cy="108" r="58" fill="#c8873a"/></g></g><g id="b-ghost"><g fill="#babcbe"><path d="M110 330V176A90 90 0 0 1 290 176V330Q267.5 352 245 330Q222.5 352 200 330Q177.5 352 155 330Q132.5 352 110 330Z"/></g></g><g id="a-ghost"><g fill="#fff"><path d="M168 174a13 9 0 0 1 26 0z"/><path d="M208 174a13 9 0 0 1 26 0z"/></g><g fill="#141414"><circle cx="181" cy="171" r="4"/><circle cx="221" cy="171" r="4"/></g><path d="M166 160H196M206 160H236M176 202H226" stroke="#141414" stroke-width="3" stroke-linecap="round"/></g><g id="b-cloud"><g filter="url(#goo)" fill="#4f73cf"><circle cx="128" cy="228" r="56"/><circle cx="186" cy="176" r="66"/><circle cx="258" cy="172" r="58"/><circle cx="306" cy="224" r="52"/><circle cx="214" cy="248" r="62"/><circle cx="150" cy="264" r="42"/><circle cx="276" cy="266" r="40"/></g></g><g id="a-cloud"><g fill="#141414"><ellipse cx="200" cy="214" rx="7" ry="11"/><ellipse cx="226" cy="214" rx="7" ry="11"/></g><g fill="#fff"><circle cx="202" cy="209" r="2.5"/><circle cx="228" cy="209" r="2.5"/></g><path d="M204 240Q213 248 222 240" fill="none" stroke="#141414" stroke-width="3" stroke-linecap="round"/></g><g id="b-pebbles"><g filter="url(#goo)"><g fill="#5c9a4e"><ellipse cx="124" cy="132" rx="74" ry="68"/></g><g fill="#f2c43c"><circle cx="292" cy="112" r="46"/><ellipse cx="292" cy="206" rx="70" ry="72"/></g><g fill="#ef7a2a"><circle cx="108" cy="330" r="40"/><circle cx="196" cy="330" r="40"/><circle cx="152" cy="270" r="38"/><circle cx="152" cy="314" r="46"/></g></g></g><g id="a-pebbles"><g fill="#141414"><circle cx="106" cy="122" r="5"/><circle cx="140" cy="122" r="5"/><circle cx="123" cy="132" r="3"/></g><path d="M110 146Q123 156 136 146" fill="none" stroke="#141414" stroke-width="3" stroke-linecap="round"/><circle cx="276" cy="108" r="11" fill="#fff"/><circle cx="276" cy="111.3" r="5.5" fill="#141414"/><circle cx="306" cy="108" r="11" fill="#fff"/><circle cx="306" cy="111.3" r="5.5" fill="#141414"/><path d="M282 138Q291 130 300 138" fill="none" stroke="#141414" stroke-width="3" stroke-linecap="round"/><circle cx="140" cy="296" r="9" fill="#fff"/><circle cx="143.2" cy="296" r="4.5" fill="#141414"/><circle cx="166" cy="296" r="9" fill="#fff"/><circle cx="169.2" cy="296" r="4.5" fill="#141414"/><circle cx="158" cy="316" r="3" fill="#141414"/></g><g id="b-bow"><g filter="url(#goo)" fill="#f4b5c8"><ellipse cx="128" cy="168" rx="74" ry="62" transform="rotate(-22 128 168)"/><ellipse cx="282" cy="158" rx="68" ry="74" transform="rotate(22 282 158)"/><ellipse cx="140" cy="268" rx="64" ry="52" transform="rotate(24 140 268)"/><ellipse cx="276" cy="268" rx="58" ry="50" transform="rotate(-10 276 268)"/><circle cx="206" cy="214" r="44"/></g></g><g id="a-bow"><g class="eng"><path d="M206 214Q150 186 92 196"/><path d="M206 214Q246 168 300 120"/><path d="M206 214Q196 260 140 300"/><path d="M206 214Q252 240 302 246"/><path d="M206 214Q214 172 196 128"/></g></g><mask id="m-leaf" maskUnits="userSpaceOnUse" x="-50" y="-50" width="500" height="500"><rect x="-50" y="-50" width="500" height="500" fill="#fff"/><g fill="#000"><rect x="150" y="197" width="140" height="7" rx="3.5" transform="rotate(-28 200 200)"/></g></mask><g id="b-leaf" mask="url(#m-leaf)"><g fill="#9bb05a"><path d="M52 200Q200 52 348 200Q200 348 52 200Z" transform="rotate(-28 200 200)"/></g></g><g id="a-leaf"><g class="eng" transform="rotate(-28 200 200)"><path d="M72 200H146"/><path d="M110 200Q130 176 150 162M110 200Q130 224 150 238M240 172Q262 160 282 168M240 228Q262 240 282 232"/></g></g>
+  </defs>
+</svg>
+
+<main class="wrap">
+  <header class="label">
+    <div class="label-text">
+      <h1><span><span>Table</span><span>Item</span></span><span><span>Dinner</span><span>Stands</span></span></h1>
+      <p class="lede">Подставки из плотного дизайнерского картона под посуду, приборы и бокалы</p>
+      <dl class="specs">
+        <div><dt>Количество фигур</dt><dd>11 шт</dd></div>
+        <div><dt>Толщина</dt><dd>3 мм, 4 слоя</dd></div>
+        <div><dt>Отделка</dt><dd>Медная фольга, тиснение</dd></div>
+        <div><dt>Цвет</dt><dd>Mix (№1)</dd></div>
+      </dl>
+    </div>
+    <div class="label-art">
+      <svg viewBox="0 0 1000 800" aria-hidden="true"><g filter="url(#paper)"><use href="#b-plate" transform="translate(520 300) rotate(-6) scale(1.1) translate(-200 -200)"/></g><use href="#a-plate" transform="translate(520 300) rotate(-6) scale(1.1) translate(-200 -200)"/><g filter="url(#paper)"><use href="#b-cloud" transform="translate(230 190) rotate(8) scale(0.8) translate(-200 -200)"/></g><use href="#a-cloud" transform="translate(230 190) rotate(8) scale(0.8) translate(-200 -200)"/><g filter="url(#paper)"><use href="#b-cutlery" transform="translate(800 200) rotate(14) scale(0.8) translate(-200 -200)"/></g><use href="#a-cutlery" transform="translate(800 200) rotate(14) scale(0.8) translate(-200 -200)"/><g filter="url(#paper)"><use href="#b-bowl" transform="translate(210 520) rotate(10) scale(0.8) translate(-200 -200)"/></g><use href="#a-bowl" transform="translate(210 520) rotate(10) scale(0.8) translate(-200 -200)"/><g filter="url(#paper)"><use href="#b-glass" transform="translate(770 520) rotate(-10) scale(0.8) translate(-200 -200)"/></g><use href="#a-glass" transform="translate(770 520) rotate(-10) scale(0.8) translate(-200 -200)"/><g filter="url(#paper)"><use href="#b-leaf" transform="translate(470 610) rotate(4) scale(0.7) translate(-200 -200)"/></g><use href="#a-leaf" transform="translate(470 610) rotate(4) scale(0.7) translate(-200 -200)"/><g filter="url(#paper)"><use href="#b-ghost" transform="translate(660 650) rotate(-8) scale(0.6) translate(-200 -200)"/></g><use href="#a-ghost" transform="translate(660 650) rotate(-8) scale(0.6) translate(-200 -200)"/></svg>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <h2>Вторят посуде</h2>
+      <p>Силуэт подсказывает, что сюда ставить: след донышка, ушко чашки, место под каждый прибор</p>
+    </div>
+    <div class="grid">
+    <article class="card">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Ромашка, под тарелку"><g filter="url(#paper)"><use href="#b-plate" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></g><use href="#a-plate" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></svg>
+      <div class="cap">
+        <p class="num">01</p>
+        <div><h3>Ромашка</h3><p>под тарелку</p></div>
+        <p class="size">Ø 320 мм</p>
+      </div>
+      <p class="note">вторит тарелке: медное кольцо — след донышка</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Тройка, под приборы"><g filter="url(#paper)"><use href="#b-cutlery" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></g><use href="#a-cutlery" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></svg>
+      <div class="cap">
+        <p class="num">02</p>
+        <div><h3>Тройка</h3><p>под приборы</p></div>
+        <p class="size">240 × 150 мм</p>
+      </div>
+      <p class="note">три горба — по одному на вилку, нож и ложку</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Ножка, под бокал"><g filter="url(#paper)"><use href="#b-glass" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></g><use href="#a-glass" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></svg>
+      <div class="cap">
+        <p class="num">03</p>
+        <div><h3>Ножка</h3><p>под бокал</p></div>
+        <p class="size">Ø 120 мм</p>
+      </div>
+      <p class="note">круг под ножку бокала, язычок — чтобы снять</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Колокольчик, под пиалу"><g filter="url(#paper)"><use href="#b-bowl" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></g><use href="#a-bowl" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></svg>
+      <div class="cap">
+        <p class="num">04</p>
+        <div><h3>Колокольчик</h3><p>под пиалу</p></div>
+        <p class="size">Ø 230 мм</p>
+      </div>
+      <p class="note">лепестки раскрываются вокруг чаши</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Ушко, под чашку"><g filter="url(#paper)"><use href="#b-cup" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></g><use href="#a-cup" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></svg>
+      <div class="cap">
+        <p class="num">05</p>
+        <div><h3>Ушко</h3><p>под чашку</p></div>
+        <p class="size">190 × 120 мм</p>
+      </div>
+      <p class="note">повторяет чашку с ручкой, сквозное ушко</p>
+    </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Сами по себе</h2>
+      <p>Формы, отстранённые от посуды: персонажи, облака, бант и надкусанное печенье</p>
+    </div>
+    <div class="grid">
+    <article class="card">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Надкус, под соль и перец"><g filter="url(#paper)"><use href="#b-bite" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></g><use href="#a-bite" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></svg>
+      <div class="cap">
+        <p class="num">06</p>
+        <div><h3>Надкус</h3><p>под соль и перец</p></div>
+        <p class="size">230 × 150 мм</p>
+      </div>
+      <p class="note">два овала, медная корочка на месте укуса</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Бу, под половник"><g filter="url(#paper)"><use href="#b-ghost" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></g><use href="#a-ghost" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></svg>
+      <div class="cap">
+        <p class="num">07</p>
+        <div><h3>Бу</h3><p>под половник</p></div>
+        <p class="size">120 × 150 мм</p>
+      </div>
+      <p class="note">привидение ловит капли соуса</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Тучка, под горячее"><g filter="url(#paper)"><use href="#b-cloud" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></g><use href="#a-cloud" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></svg>
+      <div class="cap">
+        <p class="num">08</p>
+        <div><h3>Тучка</h3><p>под горячее</p></div>
+        <p class="size">260 × 180 мм</p>
+      </div>
+      <p class="note">под чайник или сотейник</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Камешки, под соусники"><g filter="url(#paper)"><use href="#b-pebbles" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></g><use href="#a-pebbles" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></svg>
+      <div class="cap">
+        <p class="num">09</p>
+        <div><h3>Камешки</h3><p>под соусники</p></div>
+        <p class="size">Ø 90–110 мм</p>
+      </div>
+      <p class="note">трио характеров, ставятся вразброс</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Бант, под десерт"><g filter="url(#paper)"><use href="#b-bow" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></g><use href="#a-bow" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></svg>
+      <div class="cap">
+        <p class="num">10</p>
+        <div><h3>Бант</h3><p>под десерт</p></div>
+        <p class="size">220 × 170 мм</p>
+      </div>
+      <p class="note">праздничная форма под пирожное</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 400 400" role="img" aria-label="Лист, под нож"><g filter="url(#paper)"><use href="#b-leaf" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></g><use href="#a-leaf" transform="translate(200 200) rotate(0) scale(1) translate(-200 -200)"/></svg>
+      <div class="cap">
+        <p class="num">11</p>
+        <div><h3>Лист</h3><p>под нож</p></div>
+        <p class="size">220 × 90 мм</p>
+      </div>
+      <p class="note">лезвие заходит в прорезь по жилке</p>
+    </article>
+    </div>
+  </section>
+
+  <section class="materials">
+    <p><b>Материал</b>Склейка дизайнерского картона 4 × 0,75 мм, влагостойкая ламинация лицевой стороны. Альтернатива — пробка 4 мм или глазурованная керамика.</p>
+    <p><b>Отделка</b>Медная фольга горячим тиснением: сетка, точки, кресты, надписи по кругу. Рожицы — шелкография чёрным и белым.</p>
+    <p><b>Вырубка</b>Контур и сквозные вырезы — одним штампом: звезда в «Колокольчике», ушко в «Ушке», прорезь в «Листе», надкус.</p>
+    <p><b>Палитра</b>Коралл, шалфей, сирень, роза, горчица, молоко, графит, ультрамарин, лист — по одной форме на цвет.</p>
+  </section>
+</main>
