@@ -1,0 +1,242 @@
+<title>Cosy Dinner Stands</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f4f1ea;
+    --ink: #141414;
+    --muted: #77736a;
+    --rule: #d9d4c8;
+    --copper: #b9772e;
+    --sans: "Manrope", "Helvetica Neue", Arial, sans-serif;
+    --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { background: var(--page); }
+  body { margin: 0; padding: 20px 16px 72px; color: var(--ink); font-family: var(--mono); }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+  h1, h2, p, figure { margin: 0; }
+  svg { display: block; }
+
+  /* foil, dots and print on the top face */
+  .foil { fill: none; stroke: var(--copper); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .dots { fill: var(--copper); }
+  .print { fill: none; stroke: var(--ink); stroke-width: 3.4; stroke-linecap: round; }
+  .ring { fill: var(--ink); font: 500 19px var(--sans); letter-spacing: .02em; }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 4px 0 14px;
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--ink);
+  }
+  .cover {
+    position: relative;
+    margin-top: 16px;
+    background: #ebe7de;
+    border-radius: 4px;
+    overflow: hidden;
+    container-type: inline-size;
+  }
+  .cover svg { width: 100%; height: auto; }
+  .cover h1 {
+    position: absolute;
+    left: 3cqw;
+    top: 2.6cqw;
+    font: 800 7.4cqw/.88 var(--sans);
+    letter-spacing: -.045em;
+  }
+  .cover .sub {
+    position: absolute;
+    right: 3cqw;
+    top: 3.2cqw;
+    max-width: 30ch;
+    font-size: max(11px, 1.05cqw);
+    line-height: 1.45;
+    text-align: right;
+    color: var(--muted);
+  }
+  .cover .tag {
+    position: absolute;
+    left: 3cqw;
+    bottom: 2.6cqw;
+    font-size: max(11px, 1cqw);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  .intro {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 28px 0 56px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+  .intro b { display: block; margin-bottom: 6px; color: var(--ink); font: 700 15px/1.2 var(--sans); }
+
+  .shots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+    gap: 40px 20px;
+  }
+  .shot svg { width: 100%; height: auto; background: var(--bg); border-radius: 4px; }
+  figcaption {
+    display: grid;
+    grid-template-columns: 2.4em auto 1fr auto;
+    align-items: baseline;
+    gap: 10px;
+    margin-top: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .n { color: var(--copper); }
+  .nm { font: 800 20px/1 var(--sans); letter-spacing: -.02em; text-transform: none; }
+  .use { color: var(--muted); }
+  .sz { white-space: nowrap; }
+  .note { margin-top: 8px; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+
+  @media (max-width: 720px) {
+    .cover h1 { font-size: 8.4cqw; }
+    .cover .sub { display: none; }
+    .intro { grid-template-columns: 1fr; }
+    figcaption { grid-template-columns: 2.4em 1fr auto; }
+    .use { grid-column: 2 / -1; }
+  }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- melts overlapping primitives into one die-cut outline -->
+    <filter id="goo2" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10"/>
+    </filter>
+    <!-- matte card-stock tooth on the top face -->
+    <filter id="grain2" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="11" result="n"/>
+      <feColorMatrix in="n" type="matrix" values=".22 0 0 0 .87  .22 0 0 0 .87  .22 0 0 0 .87  0 0 0 0 1" result="g"/>
+      <feBlend in="SourceGraphic" in2="g" mode="multiply" result="m"/>
+      <feComposite in="m" in2="SourceAlpha" operator="in"/>
+    </filter>
+    <!-- low afternoon sun: crisp shadow, only slightly soft -->
+    <filter id="sun" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.2"/>
+    </filter>
+    <radialGradient id="floor-dark" cx="45%" cy="40%" r="75%">
+      <stop offset="40%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity=".1"/>
+    </radialGradient>
+    <radialGradient id="floor-light" cx="45%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#fff" stop-opacity=".07"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <path id="arc-mitten" d="M214 312A96 96 0 1 1 214.1 312"/><clipPath id="c2-bite140"><ellipse cx="140" cy="214" rx="62" ry="78" transform="rotate(-18 140 214)"/></clipPath><clipPath id="c2-bite268"><ellipse cx="268" cy="186" rx="60" ry="74" transform="rotate(-14 268 186)"/></clipPath><clipPath id="c2-biteR"><ellipse cx="268" cy="186" rx="88" ry="104" transform="rotate(-14 268 186)"/></clipPath><g id="s-puddle"><g filter="url(#goo2)"><circle cx="200" cy="200" r="124"/><circle cx="120" cy="146" r="72"/><circle cx="292" cy="138" r="64"/><circle cx="302" cy="270" r="70"/><circle cx="128" cy="284" r="62"/></g></g><g id="t-puddle"><g class="foil"><path d="M150 200a50 50 0 0 1 100 0" /><path d="M162 200a38 38 0 0 1 76 0"/></g></g><g id="s-mitten"><g filter="url(#goo2)"><circle cx="214" cy="216" r="120"/><circle cx="112" cy="116" r="50"/></g></g><g id="t-mitten"><path d="M102 104V128H124" class="print" /><text class="ring"><textPath href="#arc-mitten" textLength="560" lengthAdjust="spacing">Cosy Dinner · Cosy Dinner · Cosy Dinner ·</textPath></text></g><g id="s-wave"><g filter="url(#goo2)"><rect x="52" y="168" width="296" height="122" rx="40"/><circle cx="112" cy="172" r="50"/><circle cx="200" cy="156" r="56"/><circle cx="288" cy="172" r="50"/></g></g><g id="t-wave"><g class="dots"><circle cx="140" cy="200" r="3.2"/><circle cx="164" cy="200" r="3.2"/><circle cx="188" cy="200" r="3.2"/><circle cx="212" cy="200" r="3.2"/><circle cx="236" cy="200" r="3.2"/><circle cx="152" cy="222" r="3.2"/><circle cx="176" cy="222" r="3.2"/><circle cx="200" cy="222" r="3.2"/><circle cx="224" cy="222" r="3.2"/><circle cx="248" cy="222" r="3.2"/><circle cx="140" cy="244" r="3.2"/><circle cx="164" cy="244" r="3.2"/><circle cx="188" cy="244" r="3.2"/><circle cx="212" cy="244" r="3.2"/><circle cx="236" cy="244" r="3.2"/></g></g><g id="s-rosette"><g filter="url(#goo2)"><circle cx="200" cy="200" r="128"/><circle cx="328" cy="200" r="44"/><circle cx="303.55" cy="275.24" r="44"/><circle cx="239.55" cy="321.74" r="44"/><circle cx="160.45" cy="321.74" r="44"/><circle cx="96.45" cy="275.24" r="44"/><circle cx="72" cy="200" r="44"/><circle cx="96.45" cy="124.76" r="44"/><circle cx="160.45" cy="78.26" r="44"/><circle cx="239.55" cy="78.26" r="44"/><circle cx="303.55" cy="124.76" r="44"/></g></g><g id="t-rosette"><g class="foil"><path d="M200 200Q150 168 98 182"/><path d="M200 200Q236 152 290 118"/><path d="M200 200Q190 254 136 292"/><path d="M200 200Q250 230 302 236"/></g></g><g id="s-pebble"><g><rect x="96" y="76" width="212" height="252" rx="96" transform="rotate(-8 200 200)"/></g></g><g id="t-pebble"><g class="print"><path d="M176 186h22M214 186h22"/><circle cx="187" cy="172" r="3" fill="#141414"/><circle cx="225" cy="172" r="3" fill="#141414"/></g></g><g id="s-cloud"><g filter="url(#goo2)"><circle cx="126" cy="226" r="58"/><circle cx="186" cy="172" r="70"/><circle cx="262" cy="170" r="62"/><circle cx="310" cy="226" r="54"/><circle cx="214" cy="252" r="64"/><circle cx="150" cy="266" r="44"/><circle cx="280" cy="268" r="42"/></g></g><g id="t-cloud"><g class="foil"><path d="M162 219L174 192M178 220L190 193M156 206H196"/><path d="M232 219L244 192M248 220L260 193M226 206H266"/><path d="M198 263L210 236M214 264L226 237M192 250H232"/></g></g><mask id="m2-biscuit" maskUnits="userSpaceOnUse" x="-50" y="-50" width="500" height="500"><rect x="-50" y="-50" width="500" height="500" fill="#fff"/><g fill="#000"><circle cx="340" cy="112" r="20"/><circle cx="328" cy="90" r="15"/><circle cx="352" cy="136" r="15"/><circle cx="312" cy="76" r="13"/><circle cx="360" cy="160" r="12"/><circle cx="296" cy="66" r="10"/></g></mask><g id="s-biscuit" mask="url(#m2-biscuit)"><g filter="url(#goo2)"><ellipse cx="140" cy="214" rx="90" ry="108" transform="rotate(-18 140 214)"/><ellipse cx="268" cy="186" rx="88" ry="104" transform="rotate(-14 268 186)"/></g></g><g id="t-biscuit"><g class="foil"><g transform="rotate(-18 140 214)" clip-path="url(#c2-bite140)"><path d="M90 154V274"/><path d="M106 154V274"/><path d="M122 154V274"/><path d="M138 154V274"/><path d="M154 154V274"/><path d="M170 154V274"/><path d="M186 154V274"/><path d="M90 158H190"/><path d="M90 174H190"/><path d="M90 190H190"/><path d="M90 206H190"/><path d="M90 222H190"/><path d="M90 238H190"/><path d="M90 254H190"/><path d="M90 270H190"/></g><g transform="rotate(-14 268 186)" clip-path="url(#c2-bite268)"><path d="M218 126V246"/><path d="M234 126V246"/><path d="M250 126V246"/><path d="M266 126V246"/><path d="M282 126V246"/><path d="M298 126V246"/><path d="M314 126V246"/><path d="M218 130H318"/><path d="M218 146H318"/><path d="M218 162H318"/><path d="M218 178H318"/><path d="M218 194H318"/><path d="M218 210H318"/><path d="M218 226H318"/><path d="M218 242H318"/></g></g><g mask="url(#m2-biscuit)" clip-path="url(#c2-biteR)"><circle cx="338" cy="108" r="58" fill="#b9772e"/></g></g><g id="s-bone"><g filter="url(#goo2)"><rect x="96" y="176" width="208" height="48" rx="24"/><circle cx="92" cy="168" r="38"/><circle cx="92" cy="232" r="38"/><circle cx="308" cy="168" r="38"/><circle cx="308" cy="232" r="38"/></g></g><g id="t-bone"><g class="foil"><path d="M150 200H250"/></g></g><g id="s-star"><g><path d="M175.25 91.25Q200 32 224.75 91.25Q249.5 150.5 308.75 175.25Q368 200 308.75 224.75Q249.5 249.5 224.75 308.75Q200 368 175.25 308.75Q150.5 249.5 91.25 224.75Q32 200 91.25 175.25Q150.5 150.5 175.25 91.25Z"/></g></g><g id="t-star"><g class="foil"><circle cx="200" cy="200" r="34"/></g></g>
+  </defs>
+</svg>
+
+<main class="wrap">
+  <div class="top"><span>Cosy Dinner — Table Stands</span><span>Вариант 2 · 9 форм</span></div>
+
+  <section class="cover">
+    <svg viewBox="0 0 1280 720" aria-hidden="true">
+      <rect width="1280" height="720" fill="url(#floor-dark)"/>
+      <g transform="translate(330 330)"><use href="#s-puddle" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(25.56 20.6) scale(0.78) scale(1 .58) rotate(10) translate(-200 -200)"/><use href="#s-puddle" fill="#ff664b" transform="translate(0 12.8) scale(0.78) scale(1 .58) rotate(10) translate(-200 -200)"/><use href="#s-puddle" fill="#af4332" transform="translate(0 9.6) scale(0.78) scale(1 .58) rotate(10) translate(-200 -200)"/><use href="#s-puddle" fill="#af4332" transform="translate(0 6.4) scale(0.78) scale(1 .58) rotate(10) translate(-200 -200)"/><use href="#s-puddle" fill="#af4332" transform="translate(0 3.2) scale(0.78) scale(1 .58) rotate(10) translate(-200 -200)"/><use href="#s-puddle" fill="#ec5b43" filter="url(#grain2)" transform="scale(0.78) scale(1 .58) rotate(10) translate(-200 -200)"/><use href="#t-puddle" transform="scale(0.78) scale(1 .58) rotate(10) translate(-200 -200)"/></g><g transform="translate(700 250)"><use href="#s-mitten" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(45.72 44.6) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#e8e8e3" transform="translate(0 38.4) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 35.2) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 32) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 28.8) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#e8e8e3" transform="translate(0 25.6) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 22.4) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 19.2) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 16) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#e8e8e3" transform="translate(0 12.8) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 9.6) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 6.4) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 3.2) scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#s-mitten" fill="#cfcfcb" filter="url(#grain2)" transform="scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/><use href="#t-mitten" transform="scale(0.62) scale(1 .58) rotate(-20) translate(-200 -200)"/></g><g transform="translate(980 330)"><use href="#s-cloud" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(33.48 31.4) scale(0.58) scale(1 .58) rotate(6) translate(-200 -200)"/><use href="#s-cloud" fill="#476aea" transform="translate(0 25.6) scale(0.58) scale(1 .58) rotate(6) translate(-200 -200)"/><use href="#s-cloud" fill="#2f469b" transform="translate(0 22.4) scale(0.58) scale(1 .58) rotate(6) translate(-200 -200)"/><use href="#s-cloud" fill="#2f469b" transform="translate(0 19.2) scale(0.58) scale(1 .58) rotate(6) translate(-200 -200)"/><use href="#s-cloud" fill="#2f469b" transform="translate(0 16) scale(0.58) scale(1 .58) rotate(6) translate(-200 -200)"/><use href="#s-cloud" fill="#476aea" transform="translate(0 12.8) scale(0.58) scale(1 .58) rotate(6) translate(-200 -200)"/><use href="#s-cloud" fill="#2f469b" transform="translate(0 9.6) scale(0.58) scale(1 .58) rotate(6) translate(-200 -200)"/><use href="#s-cloud" fill="#2f469b" transform="translate(0 6.4) scale(0.58) scale(1 .58) rotate(6) translate(-200 -200)"/><use href="#s-cloud" fill="#2f469b" transform="translate(0 3.2) scale(0.58) scale(1 .58) rotate(6) translate(-200 -200)"/><use href="#s-cloud" fill="#3f5fd1" filter="url(#grain2)" transform="scale(0.58) scale(1 .58) rotate(6) translate(-200 -200)"/><use href="#t-cloud" transform="scale(0.58) scale(1 .58) rotate(6) translate(-200 -200)"/></g><g transform="translate(560 520)"><use href="#s-wave" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(22.68 19) scale(0.62) scale(1 .58) rotate(-30) translate(-200 -200)"/><use href="#s-wave" fill="#7f9967" transform="translate(0 12.8) scale(0.62) scale(1 .58) rotate(-30) translate(-200 -200)"/><use href="#s-wave" fill="#546544" transform="translate(0 9.6) scale(0.62) scale(1 .58) rotate(-30) translate(-200 -200)"/><use href="#s-wave" fill="#546544" transform="translate(0 6.4) scale(0.62) scale(1 .58) rotate(-30) translate(-200 -200)"/><use href="#s-wave" fill="#546544" transform="translate(0 3.2) scale(0.62) scale(1 .58) rotate(-30) translate(-200 -200)"/><use href="#s-wave" fill="#71895c" filter="url(#grain2)" transform="scale(0.62) scale(1 .58) rotate(-30) translate(-200 -200)"/><use href="#t-wave" transform="scale(0.62) scale(1 .58) rotate(-30) translate(-200 -200)"/></g><g transform="translate(170 560)"><use href="#s-star" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(20.52 17.8) scale(0.5) scale(1 .58) rotate(14) translate(-200 -200)"/><use href="#s-star" fill="#dcb8fb" transform="translate(0 12.8) scale(0.5) scale(1 .58) rotate(14) translate(-200 -200)"/><use href="#s-star" fill="#9179a6" transform="translate(0 9.6) scale(0.5) scale(1 .58) rotate(14) translate(-200 -200)"/><use href="#s-star" fill="#9179a6" transform="translate(0 6.4) scale(0.5) scale(1 .58) rotate(14) translate(-200 -200)"/><use href="#s-star" fill="#9179a6" transform="translate(0 3.2) scale(0.5) scale(1 .58) rotate(14) translate(-200 -200)"/><use href="#s-star" fill="#c4a4e0" filter="url(#grain2)" transform="scale(0.5) scale(1 .58) rotate(14) translate(-200 -200)"/><use href="#t-star" transform="scale(0.5) scale(1 .58) rotate(14) translate(-200 -200)"/></g><g transform="translate(870 560)"><use href="#s-bone" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(19.8 17.4) scale(0.46) scale(1 .58) rotate(30) translate(-200 -200)"/><use href="#s-bone" fill="#ff8931" transform="translate(0 12.8) scale(0.46) scale(1 .58) rotate(30) translate(-200 -200)"/><use href="#s-bone" fill="#b25a21" transform="translate(0 9.6) scale(0.46) scale(1 .58) rotate(30) translate(-200 -200)"/><use href="#s-bone" fill="#b25a21" transform="translate(0 6.4) scale(0.46) scale(1 .58) rotate(30) translate(-200 -200)"/><use href="#s-bone" fill="#b25a21" transform="translate(0 3.2) scale(0.46) scale(1 .58) rotate(30) translate(-200 -200)"/><use href="#s-bone" fill="#f07a2c" filter="url(#grain2)" transform="scale(0.46) scale(1 .58) rotate(30) translate(-200 -200)"/><use href="#t-bone" transform="scale(0.46) scale(1 .58) rotate(30) translate(-200 -200)"/></g><g transform="translate(1080 560)"><use href="#s-pebble" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(53.64 55.4) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#bde6ff" transform="translate(0 51.2) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 48) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 44.8) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 41.6) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#bde6ff" transform="translate(0 38.4) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 35.2) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 32) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 28.8) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#bde6ff" transform="translate(0 25.6) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 22.4) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 19.2) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 16) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#bde6ff" transform="translate(0 12.8) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 9.6) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 6.4) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 3.2) scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#s-pebble" fill="#a9cdf0" filter="url(#grain2)" transform="scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/><use href="#t-pebble" transform="scale(0.42) scale(1 .58) rotate(-12) translate(-200 -200)"/></g>
+    </svg>
+    <h1>Cosy<br>Dinner</h1>
+    <p class="sub">Подставки из склеенного дизайнерского картона под тарелки, приборы, бокалы и чашки. Матовый цвет, медная фольга, слои видны на срезе.</p>
+    <p class="tag">Сет 01 · картон 4 × 0,75 мм</p>
+  </section>
+
+  <section class="intro">
+    <p><b>Срез как деталь</b>Каждая подставка склеена из четырёх слоёв: цветные снаружи, светлый слой внутри. Тонкая белая полоска на торце — часть рисунка.</p>
+    <p><b>Минимум графики</b>Только медная фольга: точки, кресты, надпись по кругу, вафельная сетка. Никаких наклеек — форма говорит сама.</p>
+    <p><b>Стопками</b>Подставки продаются и хранятся стопками по 3–4 штуки. В стопке они выглядят как маленькие скульптуры на столе.</p>
+  </section>
+
+  <section class="shots">
+      <figure class="shot dark" style="--bg:#e9e5dc">
+        <svg viewBox="0 0 600 450" role="img" aria-label="Лужа, под тарелку">
+          <rect width="600" height="450" fill="url(#floor-dark)"/>
+          <g transform="translate(290 194)"><use href="#s-puddle" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(29.88 23.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-puddle" fill="#ff664b" transform="translate(0 13.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-puddle" fill="#af4332" transform="translate(0 10.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-puddle" fill="#af4332" transform="translate(0 6.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-puddle" fill="#af4332" transform="translate(0 3.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-puddle" fill="#ec5b43" filter="url(#grain2)" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#t-puddle" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/></g>
+        </svg>
+        <figcaption><span class="n">01</span><span class="nm">Лужа</span><span class="use">под тарелку</span><span class="sz">Ø 300 мм</span></figcaption>
+        <p class="note">Мягкая клякса шире тарелки — по краю остаются «берега».</p>
+      </figure>
+      <figure class="shot dark" style="--bg:#f3d8cf">
+        <svg viewBox="0 0 600 450" role="img" aria-label="Варежка, под бокал">
+          <rect width="600" height="450" fill="url(#floor-dark)"/>
+          <g transform="translate(290 182)"><use href="#s-mitten" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(54.36 50.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#e8e8e3" transform="translate(0 40.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 37.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 34) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 30.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#e8e8e3" transform="translate(0 27.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 23.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 20.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 17) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#e8e8e3" transform="translate(0 13.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 10.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 6.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#999996" transform="translate(0 3.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-mitten" fill="#cfcfcb" filter="url(#grain2)" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#t-mitten" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/></g>
+        </svg>
+        <figcaption><span class="n">02</span><span class="nm">Варежка</span><span class="use">под бокал</span><span class="sz">Ø 120 мм</span></figcaption>
+        <p class="note">Круг под ножку бокала, большой палец — чтобы поднять.</p>
+      </figure>
+      <figure class="shot light" style="--bg:#141414">
+        <svg viewBox="0 0 600 450" role="img" aria-label="Волна, под приборы">
+          <rect width="600" height="450" fill="url(#floor-light)"/>
+          <g transform="translate(290 194)"><use href="#s-wave" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(29.88 23.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-wave" fill="#7f9967" transform="translate(0 13.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-wave" fill="#546544" transform="translate(0 10.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-wave" fill="#546544" transform="translate(0 6.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-wave" fill="#546544" transform="translate(0 3.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-wave" fill="#71895c" filter="url(#grain2)" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#t-wave" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/></g>
+        </svg>
+        <figcaption><span class="n">03</span><span class="nm">Волна</span><span class="use">под приборы</span><span class="sz">240 × 140 мм</span></figcaption>
+        <p class="note">Три горба — вилка, нож, ложка. Точки фольгой — место для зубцов.</p>
+      </figure>
+      <figure class="shot light" style="--bg:#4b53c6">
+        <svg viewBox="0 0 600 450" role="img" aria-label="Розетка, под пиалу">
+          <rect width="600" height="450" fill="url(#floor-light)"/>
+          <g transform="translate(290 194)"><use href="#s-rosette" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(29.88 23.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-rosette" fill="#ffcada" transform="translate(0 13.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-rosette" fill="#b28590" transform="translate(0 10.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-rosette" fill="#b28590" transform="translate(0 6.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-rosette" fill="#b28590" transform="translate(0 3.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-rosette" fill="#f0b4c3" filter="url(#grain2)" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#t-rosette" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/></g>
+        </svg>
+        <figcaption><span class="n">04</span><span class="nm">Розетка</span><span class="use">под пиалу</span><span class="sz">Ø 220 мм</span></figcaption>
+        <p class="note">Волнистый край, как у фарфоровой розетки для варенья.</p>
+      </figure>
+      <figure class="shot dark" style="--bg:#e9e5dc">
+        <svg viewBox="0 0 600 450" role="img" aria-label="Галька, под чашку">
+          <rect width="600" height="450" fill="url(#floor-dark)"/>
+          <g transform="translate(290 176)"><use href="#s-pebble" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(66.6 64.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#bde6ff" transform="translate(0 54.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 51) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 47.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 44.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#bde6ff" transform="translate(0 40.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 37.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 34) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 30.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#bde6ff" transform="translate(0 27.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 23.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 20.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 17) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#bde6ff" transform="translate(0 13.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 10.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 6.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#7d98b2" transform="translate(0 3.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-pebble" fill="#a9cdf0" filter="url(#grain2)" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#t-pebble" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/></g>
+        </svg>
+        <figcaption><span class="n">05</span><span class="nm">Галька</span><span class="use">под чашку</span><span class="sz">110 × 130 мм</span></figcaption>
+        <p class="note">Мягкий прямоугольник, спокойное лицо тиснением.</p>
+      </figure>
+      <figure class="shot dark" style="--bg:#f1ece0">
+        <svg viewBox="0 0 600 450" role="img" aria-label="Облако, под горячее">
+          <rect width="600" height="450" fill="url(#floor-dark)"/>
+          <g transform="translate(290 188)"><use href="#s-cloud" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(42.12 37) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-cloud" fill="#476aea" transform="translate(0 27.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-cloud" fill="#2f469b" transform="translate(0 23.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-cloud" fill="#2f469b" transform="translate(0 20.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-cloud" fill="#2f469b" transform="translate(0 17) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-cloud" fill="#476aea" transform="translate(0 13.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-cloud" fill="#2f469b" transform="translate(0 10.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-cloud" fill="#2f469b" transform="translate(0 6.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-cloud" fill="#2f469b" transform="translate(0 3.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-cloud" fill="#3f5fd1" filter="url(#grain2)" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#t-cloud" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/></g>
+        </svg>
+        <figcaption><span class="n">06</span><span class="nm">Облако</span><span class="use">под горячее</span><span class="sz">260 × 180 мм</span></figcaption>
+        <p class="note">Плотная стопка в 8 слоёв держит чайник или сотейник.</p>
+      </figure>
+      <figure class="shot light" style="--bg:#141414">
+        <svg viewBox="0 0 600 450" role="img" aria-label="Печенье, под соль и перец">
+          <rect width="600" height="450" fill="url(#floor-light)"/>
+          <g transform="translate(290 194)"><use href="#s-biscuit" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(29.88 23.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-biscuit" fill="#fffdf6" transform="translate(0 13.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-biscuit" fill="#b2afa6" transform="translate(0 10.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-biscuit" fill="#b2afa6" transform="translate(0 6.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-biscuit" fill="#b2afa6" transform="translate(0 3.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-biscuit" fill="#f1ece0" filter="url(#grain2)" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#t-biscuit" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/></g>
+        </svg>
+        <figcaption><span class="n">07</span><span class="nm">Печенье</span><span class="use">под соль и перец</span><span class="sz">230 × 150 мм</span></figcaption>
+        <p class="note">Два овала-вафли и медная корочка на месте укуса.</p>
+      </figure>
+      <figure class="shot dark" style="--bg:#c4d3b2">
+        <svg viewBox="0 0 600 450" role="img" aria-label="Косточка, под нож или палочки">
+          <rect width="600" height="450" fill="url(#floor-dark)"/>
+          <g transform="translate(290 188)"><use href="#s-bone" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(42.12 37) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-bone" fill="#ff8931" transform="translate(0 27.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-bone" fill="#b25a21" transform="translate(0 23.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-bone" fill="#b25a21" transform="translate(0 20.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-bone" fill="#b25a21" transform="translate(0 17) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-bone" fill="#ff8931" transform="translate(0 13.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-bone" fill="#b25a21" transform="translate(0 10.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-bone" fill="#b25a21" transform="translate(0 6.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-bone" fill="#b25a21" transform="translate(0 3.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-bone" fill="#f07a2c" filter="url(#grain2)" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#t-bone" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/></g>
+        </svg>
+        <figcaption><span class="n">08</span><span class="nm">Косточка</span><span class="use">под нож или палочки</span><span class="sz">120 × 50 мм</span></figcaption>
+        <p class="note">Маленькая подставка, лезвие ложится в перемычку.</p>
+      </figure>
+      <figure class="shot dark" style="--bg:#f2d36b">
+        <svg viewBox="0 0 600 450" role="img" aria-label="Звезда, под свечу или соусник">
+          <rect width="600" height="450" fill="url(#floor-dark)"/>
+          <g transform="translate(290 194)"><use href="#s-star" fill="#000" opacity="0.2" filter="url(#sun)" transform="translate(29.88 23.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-star" fill="#dcb8fb" transform="translate(0 13.6) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-star" fill="#9179a6" transform="translate(0 10.2) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-star" fill="#9179a6" transform="translate(0 6.8) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-star" fill="#9179a6" transform="translate(0 3.4) scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#s-star" fill="#c4a4e0" filter="url(#grain2)" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/><use href="#t-star" transform="scale(0.98) scale(1 .58) rotate(-14) translate(-200 -200)"/></g>
+        </svg>
+        <figcaption><span class="n">09</span><span class="nm">Звезда</span><span class="use">под свечу или соусник</span><span class="sz">Ø 160 мм</span></figcaption>
+        <p class="note">Мягкая четырёхлучевая звезда, медный круг в центре.</p>
+      </figure>
+  </section>
+</main>
