@@ -3,244 +3,126 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&display=swap">
 <style>
-/* Layout: a steel tabletop; each reference is a flat cut-out shape lying on a brushed-metal tile, with notes underneath */
+/* Layout: brushed-steel tabletop; a filterable grid of real product photos from other designers, each with credits and a note on why it fits the references */
 :root{
   --steel-1:#e3e5e6; --steel-2:#cdd1d3; --steel-line:rgba(255,255,255,.55);
   --bg:#d6d9db; --fg:#1d2124; --muted:#555c61; --rule:#b4babd;
-  --tile-a:#eef0f1; --tile-b:#c9ced1;
-  --pistachio:#a9d6a0; --coral:#f0652f; --blush:#f0b3c0; --fuchsia:#de4a80;
-  --bottle:#1f5a55; --signal:#d42f26; --sky:#a3cfe8; --slate:#5d6c78; --paper:#f6f6f3; --ink:#15181a;
-  --chip:#ffffffb0; --chip-on:#15181a; --chip-on-fg:#f6f6f3;
+  --photo:#f3f3f1; --chip:#ffffffb0; --chip-on:#15181a; --chip-on-fg:#f6f6f3; --accent:#d42f26;
   --display:"Unbounded","Arial Black",system-ui,sans-serif;
   --body:"Onest","Helvetica Neue",Arial,system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#1c1f21; --fg:#eceeef; --muted:#9aa2a7; --rule:#373d41;
   --steel-1:#2b2f32; --steel-2:#202426; --steel-line:rgba(255,255,255,.05);
-  --tile-a:#33383b; --tile-b:#24282a; --chip:#2b3033; --chip-on:#eceeef; --chip-on-fg:#15181a;
-  --ink:#0d0f10; color-scheme:dark }}
+  --photo:#2a2e31; --chip:#2b3033; --chip-on:#eceeef; --chip-on-fg:#15181a; --accent:#ff6a55; color-scheme:dark }}
 :root[data-theme="dark"]{
   --bg:#1c1f21; --fg:#eceeef; --muted:#9aa2a7; --rule:#373d41;
   --steel-1:#2b2f32; --steel-2:#202426; --steel-line:rgba(255,255,255,.05);
-  --tile-a:#33383b; --tile-b:#24282a; --chip:#2b3033; --chip-on:#eceeef; --chip-on-fg:#15181a;
-  --ink:#0d0f10; color-scheme:dark }
+  --photo:#2a2e31; --chip:#2b3033; --chip-on:#eceeef; --chip-on-fg:#15181a; --accent:#ff6a55; color-scheme:dark }
 
 *{box-sizing:border-box}
 body{background:var(--bg);
   background-image:repeating-linear-gradient(90deg,transparent 0 3px,var(--steel-line) 3px 4px),linear-gradient(160deg,var(--steel-1),var(--steel-2));
   color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5}
-.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:40px 80px}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:40px 80px}
 h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
-h1{font-size:clamp(30px,5.4vw,58px);line-height:1.02;letter-spacing:-.02em;font-weight:700}
-h2{font-size:clamp(20px,2.6vw,28px);font-weight:700;letter-spacing:-.01em}
+h1{font-size:clamp(30px,5.4vw,56px);line-height:1.04;letter-spacing:-.02em;font-weight:700}
+h2{font-size:clamp(20px,2.6vw,26px);font-weight:700}
 h3{font-size:15px;font-weight:500;line-height:1.25}
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
 
-header{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:end;padding-bottom:36px;border-bottom:1px solid var(--rule)}
-header p{max-width:60ch;color:var(--muted);margin:14px 0 0}
-.hero-shapes{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-.hero-shapes svg{width:clamp(56px,8vw,92px);height:auto}
-@media (max-width:760px){header{grid-template-columns:1fr}.hero-shapes{justify-content:flex-start}}
+header{padding-bottom:28px;border-bottom:1px solid var(--rule);display:grid;gap:14px}
+header p{max-width:68ch;color:var(--muted);margin:0}
 
-section{padding-top:48px}
-.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px}
-.sec-head p{margin:6px 0 0;color:var(--muted);max-width:62ch}
-
-.palette{display:flex;flex-wrap:wrap;gap:10px}
-.sw{display:grid;gap:6px;font-size:12px;color:var(--muted)}
-.sw i{display:block;width:74px;height:46px;border-radius:23px;box-shadow:0 1px 0 rgba(0,0,0,.08)}
-
-.traits{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;margin-top:28px}
-.trait{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start}
-.trait svg{width:44px;height:44px}
-.trait b{display:block;font-weight:600;margin-bottom:2px}
-.trait span{color:var(--muted);font-size:14px}
-
+.bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:24px}
 .filters{display:flex;flex-wrap:wrap;gap:8px}
 .filters button{font:500 13px var(--body);border:0;border-radius:999px;padding:7px 14px;background:var(--chip);color:var(--fg);cursor:pointer}
 .filters button[aria-pressed="true"]{background:var(--chip-on);color:var(--chip-on-fg)}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px 22px}
-.card{display:grid;gap:12px;align-content:start;min-width:0}
-.tile{aspect-ratio:5/4;max-width:100%;border-radius:6px;display:grid;place-items:center;position:relative;
-  background:repeating-linear-gradient(90deg,transparent 0 2px,var(--steel-line) 2px 3px),linear-gradient(150deg,var(--tile-a),var(--tile-b));}
-.tile svg{width:62%;height:auto;filter:drop-shadow(0 6px 6px rgba(0,0,0,.18))}
-.num{position:absolute;top:10px;left:12px;font:500 12px var(--display);color:var(--muted);font-variant-numeric:tabular-nums}
-.tag{position:absolute;top:10px;right:10px;font-size:11px;padding:3px 8px;border-radius:999px;background:var(--chip);color:var(--muted)}
-.meta{font-size:13px;color:var(--muted);display:grid;gap:2px}
-.meta em{font-style:normal;color:var(--fg)}
-.take{font-size:14px;margin:0}
-.take::before{content:"Взять: ";font-weight:600}
-.src{font-size:13px;color:var(--muted);text-decoration-color:var(--rule);text-underline-offset:3px;overflow-wrap:anywhere}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:32px 22px}
+.card{display:grid;gap:10px;align-content:start;min-width:0}
+.photo{position:relative;aspect-ratio:1/1;max-width:100%;background:var(--photo);border-radius:4px;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.num{position:absolute;top:8px;left:8px;font:500 11px var(--display);background:var(--chip);color:var(--fg);padding:3px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.thumbs{display:flex;gap:6px}
+.thumbs button{padding:0;border:2px solid transparent;border-radius:3px;width:44px;height:44px;overflow:hidden;cursor:pointer;background:var(--photo)}
+.thumbs button[aria-pressed="true"]{border-color:var(--fg)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.by{font-size:13px;color:var(--muted)}
+.by b{color:var(--fg);font-weight:600}
+.mat{font-size:13px;color:var(--muted);margin:0}
+.why{font-size:14px;margin:0}
+.why::before{content:"Почему здесь: ";font-weight:600}
+.src{font-size:13px;color:var(--muted);text-underline-offset:3px;text-decoration-color:var(--rule)}
 .src:hover{color:var(--fg)}
-
-.concepts{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
-@media (max-width:420px){.concepts{grid-template-columns:1fr}}
-.concept{background:var(--paper);color:var(--ink);border-radius:6px;padding:20px;display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;align-items:start}
-.concept svg{width:110px;height:110px}
-.concept h3{margin-bottom:6px}
-.concept p{margin:0;font-size:14px;color:#4b5155}
-.concept .spec{margin-top:8px;font-size:12px;color:#6b7276}
-@media (max-width:420px){.concept{grid-template-columns:1fr}}
-
-.matrix{overflow-x:auto}
-table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
-th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
-.note{color:var(--muted);font-size:13px;max-width:70ch;margin-top:32px}
-@media (prefers-reduced-motion:no-preference){.tile svg{transition:transform .3s}.tile:hover svg{transform:rotate(-6deg) scale(1.04)}}
+.note{color:var(--muted);font-size:13px;max-width:72ch;margin-top:48px;padding-top:20px;border-top:1px solid var(--rule)}
 </style>
 
 <div class="wrap">
 <header>
-  <div>
-    <div class="eyebrow">Ресерч · подстаканники для сервизного набора</div>
-    <h1>Плоские формы на стали</h1>
-    <p>25 существующих подстаканников и подставок, которые близки к референсам: вырубленные силуэты посуды, звёзды-лучи, мягкие пятна с тонким контуром и наивная роспись на фоне нержавейки. Для каждого указано, что из него взять в наш набор. В конце — шесть концептов и матрица материалов.</p>
-  </div>
-  <div class="hero-shapes" id="hero"></div>
+  <div class="eyebrow">Ресерч · подстаканники для сервизного набора</div>
+  <h1>Подстаканники других авторов</h1>
+  <p>24 работы студий и дизайнеров, близкие к присланным референсам: форма предмета как силуэт, волнистый край с контуром, солнца и звёзды, яркий цвет на стали. Фото взяты со страниц магазинов, у каждой работы указан автор и ссылка. Под фото можно переключить дополнительные снимки.</p>
 </header>
 
-<section>
-  <div class="sec-head"><div><h2>ДНК референсов</h2><p>Что объединяет четыре присланные картинки и на что опираться при отборе примеров.</p></div></div>
-  <div class="palette" id="palette"></div>
-  <div class="traits" id="traits"></div>
-</section>
+<div class="bar">
+  <div class="filters" id="filters" role="group" aria-label="Фильтр по направлению"></div>
+</div>
+<div class="grid" id="grid"></div>
 
-<section>
-  <div class="sec-head">
-    <div><h2>25 примеров</h2><p>Отфильтруйте по направлению. Схема на плитке передаёт форму предмета, а не его фото: ссылки ведут на магазин или на статью.</p></div>
-    <div class="filters" id="filters" role="group" aria-label="Фильтр по направлению"></div>
-  </div>
-  <div class="grid" id="grid"></div>
-</section>
-
-<section>
-  <div class="sec-head"><div><h2>Концепты для нашего набора</h2><p>Шесть направлений, собранных из примеров выше. Каждое можно делать комплектом из 4–6 штук в палитре референсов.</p></div></div>
-  <div class="concepts" id="concepts"></div>
-</section>
-
-<section>
-  <div class="sec-head"><div><h2>Материалы и производство</h2><p>Какой материал даёт тот же плоский вырубленный эффект, что в референсах.</p></div></div>
-  <div class="matrix"><table>
-    <thead><tr><th>Материал</th><th>Как режут</th><th>Вид на столе</th><th>Плюсы</th><th>Минусы</th><th>Примеры выше</th></tr></thead>
-    <tbody>
-      <tr><td>Порошково окрашенная сталь / алюминий 1–2 мм</td><td>Лазер, затем покраска</td><td>Самый близкий к реф. 1 и 4: плоско, чётко, матовый цвет</td><td>Любой силуэт, долговечно, моется</td><td>Звенит о стекло, нужна войлочная подложка</td><td>2, 7, 8, 9, 10</td></tr>
-      <tr><td>Войлок 3–5 мм (шерсть, PET)</td><td>Лазер или штанцформа</td><td>Мягкий цветной силуэт, тише металла</td><td>Впитывает конденсат, недорого в тираже</td><td>Тонкие лучи и зубцы мнутся</td><td>20, 13</td></tr>
-      <tr><td>Хлопок / канвас со строчкой по краю</td><td>Вырубка + зигзаг или атласная строчка</td><td>Как реф. 3: красная звезда с выделенным кантом</td><td>Тёплая фактура, ресторанная подача</td><td>Ручной труд, стирка</td><td>11, 12, 19</td></tr>
-      <tr><td>Фанера / МДФ с ручной росписью</td><td>Лазер, грунт, акрил, лак</td><td>Как реф. 2: наивная живописная поверхность</td><td>Каждый предмет уникален</td><td>Боится воды без хорошего лака</td><td>22, 23</td></tr>
-      <tr><td>Цветной акрил / мягкая смола / силикон</td><td>Лазер или литьё в форму</td><td>Глянец или полупрозрачность</td><td>Влагостойкость, яркий цвет в массе</td><td>Пластиковое ощущение, царапается</td><td>4, 6, 17, 24, 25</td></tr>
-      <tr><td>Пробка или кожа</td><td>Лазер, шелкография или тиснение</td><td>Тёплая база для печати графики</td><td>Тишина, сцепление со столом</td><td>Ограничена палитра основы</td><td>14, 21</td></tr>
-    </tbody>
-  </table></div>
-  <p class="note">Источник данных: страницы магазинов и обзоры по ссылкам на карточках (поиск от 3 октября 2026). Цены и наличие могли измениться. Плитки — условные схемы формы, не точные чертежи. Звёздные плейсматы с референса 3 (Balbuzard × ANIM) в открытых магазинах найти не удалось, поэтому как прямой пример они не учтены.</p>
-</section>
+<p class="note">Фото и описания со страниц магазинов по ссылкам на карточках, собраны 3 октября 2026. Права на изображения принадлежат авторам и магазинам, страница только для внутреннего ресерча. Цены и наличие могли измениться.</p>
 </div>
 
 <script>
-const C = n => `var(--${n})`;
-const P = (pts) => 'M'+pts.map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join('L')+'Z';
-function polar(fn, steps=240, cx=50, cy=50){const a=[];for(let i=0;i<steps;i++){const t=i/steps*Math.PI*2;const r=fn(t);a.push([cx+r*Math.cos(t),cy+r*Math.sin(t)])}return P(a)}
-function star(n,ro,ri,rot=-Math.PI/2,cx=50,cy=50){const a=[];for(let i=0;i<n*2;i++){const r=i%2?ri:ro;const t=rot+i*Math.PI/n;a.push([cx+r*Math.cos(t),cy+r*Math.sin(t)])}return P(a)}
-function blob(seed,R=40,amp=.12,k=5){let s=seed;const rnd=()=>{s=(s*9301+49297)%233280;return s/233280};const ph=[...Array(4)].map(()=>rnd()*6.28),am=[...Array(4)].map(()=>rnd()*amp);return polar(t=>R*(1+am[0]*Math.sin(2*t+ph[0])+am[1]*Math.sin(3*t+ph[1])+am[2]*Math.sin(k*t+ph[2])*.5+am[3]*Math.sin(t+ph[3])))}
-const svg=(inner,vb='0 0 100 100')=>`<svg viewBox="${vb}" aria-hidden="true">${inner}</svg>`;
-const path=(d,f,extra='')=>`<path d="${d}" fill="${f}" ${extra}/>`;
-
-const S={
-  glass:(f)=>path('M30 8 H70 C72 32 62 46 54 50 V80 C54 84 66 86 72 90 V93 H28 V90 C34 86 46 84 46 80 V50 C38 46 28 32 30 8 Z',f),
-  coupe:(f)=>path('M14 30 H86 C86 34 72 48 54 52 V80 C58 84 70 86 72 90 V92 H28 V90 C30 86 42 84 46 80 V52 C28 48 14 34 14 30 Z',f)+path('M20 30 H80 V34 H20Z','var(--bg)','opacity=".0"'),
-  interlock:(f1,f2)=>path('M50 10 A40 40 0 0 0 50 90 C40 76 62 64 50 50 C38 36 60 24 50 10 Z',f1)+path('M50 10 A40 40 0 0 1 50 90 C40 76 62 64 50 50 C38 36 60 24 50 10 Z',f2),
-  tiles:(a,b,c)=>path('M50 12 L84 31 L50 50 L16 31Z',a)+path('M16 31 L50 50 V88 L16 69Z',b)+path('M84 31 L50 50 V88 L84 69Z',c),
-  lily:(f)=>path(polar(()=>40),f)+path('M50 50 L94 46 L94 54 Z','var(--tile-b)'),
-  spiral:(f)=>{let d='';for(let i=0;i<=700;i++){const t=i/700*Math.PI*2*3.6;const r=4+t*1.62;d+=(i?'L':'M')+(50+r*Math.cos(t)).toFixed(1)+' '+(50+r*Math.sin(t)).toFixed(1)}return `<path d="${d}" fill="none" stroke="${f}" stroke-width="6.5" stroke-linecap="round"/>`},
-  dot:(f,inner)=>path(polar(()=>40),f)+`<circle cx="50" cy="50" r="9" fill="${inner}"/>`,
-  fin:(f)=>path('M14 86 C14 46 40 14 86 14 C70 34 64 58 86 86 Z',f),
-  disc:(f,line)=>path(polar(()=>40),f)+`<circle cx="50" cy="50" r="33" fill="none" stroke="${line}" stroke-width="1.2"/>`,
-  lace:(f,pearl)=>path(polar(t=>36+5*Math.abs(Math.sin(t*7))),f)+[...Array(8)].map((_,i)=>{const t=i/8*6.283;return `<circle cx="${50+44*Math.cos(t)}" cy="${50+44*Math.sin(t)}" r="3.6" fill="${pearl}"/>`}).join('')+`<circle cx="50" cy="50" r="14" fill="none" stroke="${pearl}" stroke-width="1.4" stroke-dasharray="3 3"/>`,
-  gingham:(f,app)=>`<defs><pattern id="g" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#f6f6f3"/><rect width="5" height="10" fill="${f}" opacity=".5"/><rect width="10" height="5" fill="${f}" opacity=".5"/></pattern></defs><rect x="12" y="12" width="76" height="76" rx="6" fill="url(#g)"/><ellipse cx="50" cy="54" rx="22" ry="12" fill="${app}"/><ellipse cx="50" cy="52" rx="14" ry="6" fill="#f6f6f3"/><rect x="56" y="38" width="26" height="4" rx="2" fill="#f6f6f3" transform="rotate(-18 56 40)"/>`,
-  curl:(f,trim)=>path(polar(()=>34),f)+`<path d="${polar(t=>40+3*Math.sin(t*14),360)}" fill="none" stroke="${trim}" stroke-width="2.4"/>`,
-  target:(a,b,c)=>[40,31,22,13,5].map((r,i)=>`<circle cx="50" cy="50" r="${r}" fill="${[a,b,c,b,a][i]}"/>`).join(''),
-  garland:(f)=>path(polar(t=>32+8*Math.cos(t*6)),f),
-  squigglering:(f)=>path(polar(t=>40+4.5*Math.sin(t*9)),f)+path(polar(t=>17+2.5*Math.sin(t*9+1)),'var(--tile-b)'),
-  blob:(f,seed)=>path(blob(seed,40,.22),f),
-  atomic:(f,c)=>path(star(4,44,6),f)+path(star(4,30,5,-Math.PI/4),f)+`<circle cx="50" cy="50" r="7" fill="${c}"/>`,
-  burst:(f,n=22)=>path(star(n,46,34),f),
-  felt:(f)=>path(star(5,44,19),f,`stroke="rgba(255,255,255,.55)" stroke-width="1.2" stroke-dasharray="2 2" stroke-linejoin="round"`),
-  magnolia:(f)=>path(polar(t=>20+22*Math.pow(Math.abs(Math.cos(3*t)),.6)),f),
-  hokkaido:(f,c)=>path(polar(()=>40),f)+[...Array(5)].map((_,i)=>{const t=i/5*6.283-1.57;return `<ellipse cx="${50+14*Math.cos(t)}" cy="${50+14*Math.sin(t)}" rx="10" ry="6" transform="rotate(${t*57.3} ${50+14*Math.cos(t)} ${50+14*Math.sin(t)})" fill="${c}"/>`}).join('')+`<circle cx="50" cy="50" r="5" fill="#f6f6f3"/>`,
-  timber:(a,b,c)=>path('M50 12 L60 88 H40Z',a)+path('M50 12 L22 84 L34 88Z',b)+path('M50 12 L78 84 L66 88Z',c),
-  multi:(a,b,c)=>path(blob(3,30,.25),a,'transform="translate(-12,-10)"')+path(blob(11,24,.3),b,'transform="translate(14,10)"')+`<circle cx="70" cy="28" r="10" fill="${c}"/>`,
-  irregular:(f)=>path('M18 30 L52 12 L86 26 L80 70 L46 88 L14 66 Z',f,'opacity=".85"'),
-  steel:()=>`<defs><linearGradient id="st" x1="0" x2="1"><stop offset="0" stop-color="#f3f4f5"/><stop offset=".45" stop-color="#a8aeb2"/><stop offset=".55" stop-color="#d9dcde"/><stop offset="1" stop-color="#8e959a"/></linearGradient></defs><circle cx="50" cy="50" r="40" fill="url(#st)"/><circle cx="50" cy="50" r="33" fill="none" stroke="#7d8488" stroke-width="1.2"/>`,
-  rim:()=>`<defs><linearGradient id="st2" x1="0" x2="1"><stop offset="0" stop-color="#eef0f1"/><stop offset=".5" stop-color="#9ea5aa"/><stop offset="1" stop-color="#dfe2e4"/></linearGradient></defs><circle cx="50" cy="50" r="40" fill="url(#st2)"/><circle cx="50" cy="50" r="31" fill="#2a2e31"/>`,
-  brass:()=>`<defs><linearGradient id="br" x1="0" x2="1"><stop offset="0" stop-color="#f1d58a"/><stop offset=".5" stop-color="#b98a2e"/><stop offset="1" stop-color="#e9c46a"/></linearGradient></defs>`+path('M50 10 A40 40 0 0 0 50 90 C40 76 62 64 50 50 C38 36 60 24 50 10 Z','url(#br)')+path('M50 10 A40 40 0 0 1 50 90 C40 76 62 64 50 50 C38 36 60 24 50 10 Z','#a87a28')
-};
-
-const GROUPS={cut:'Силуэты и вырубка',star:'Звёзды и лучи',blob:'Пятна и волны',metal:'Металл',textile:'Текстиль и шитьё',sculpt:'Модульные и скульптурные'};
-
+const GROUPS={shape:'Силуэт предмета',wave:'Волна и контур',sun:'Солнца и звёзды',mat:'Металл, смола, стекло'};
 const items=[
- {g:'cut',t:'Подстаканник в форме силуэта бокала',m:'Winebags.com · промо-серия',mat:'бамбук, гравировка',form:'плоский силуэт винного бокала 9,5×12 см',take:'Форма подстаканника = силуэт того, что на нём стоит. Прямо продолжает бумажные бокалы и вилки с реф. 1 и 4.',url:'https://www.winebags.com/Accessories/Coasters',s:()=>S.glass(C('sky'))},
- {g:'metal',t:'Together Coasters',m:'Dan Covert для Areaware',mat:'нержавейка с латунным покрытием, пробка снизу',form:'две абстрактные половины, которые вкладываются друг в друга',take:'Парность: два подстаканника складываются в один круг. Хорошо для «сервиза на двоих».',url:'https://www.2modern.com/products/together-coasters-set-of-8',s:()=>S.brass()},
- {g:'sculpt',t:'Table Tiles',m:'Bower Studios для Areaware',mat:'набор из 6 плиток',form:'ромбы, из которых складывается объёмный «кубик» и подставка под горячее',take:'Набор как конструктор: из подстаканников собирается подставка под чайник.',url:'https://www.areaware.com/products/table-tiles-optic',s:()=>S.tiles(C('coral'),C('bottle'),C('blush'))},
- {g:'sculpt',t:'Lily Pad Coasters',m:'Aruliden для MoMA Design Store',mat:'полупрозрачный цветной TPU',form:'диски с прорезью; вставляются друг в друга и стоят как скульптура',take:'Хранение как часть дизайна: набор не лежит стопкой, а стоит на столе объектом.',url:'https://open-editions.com/products/moma-lily-pad-coasters-by-aruliden',s:()=>S.lily(C('pistachio'))},
- {g:'metal',t:'Spiral Coasters',m:'Sophie Lou Jacobsen',mat:'литой алюминий, никелирование',form:'спираль-«улитка» Ø 8,5 см',take:'Линейный рисунок вместо заливки. Перекликается с тонким чёрным кольцом на «тарелках» реф. 1 и 4.',url:'https://sonofrand.com/products/spiral-coasters',s:()=>S.spiral('#9aa1a6')},
- {g:'blob',t:'Table-Mates',m:'Gaetano Pesce · Fish Design',mat:'мягкая полиуретановая смола, ручная заливка',form:'пара одного цвета: одна с точкой в центре, другая с кантом; каждая чуть разная',take:'Пара «точка / кайма» как простая система вариаций внутри одного цвета.',url:'https://comingsoonnewyork.com/products/coasters',s:()=>S.dot(C('fuchsia'),C('sky'))},
- {g:'metal',t:'Fin Coasters',m:'Souda',mat:'металл, золотой тон',form:'геометрическая форма «плавник»',take:'Одна смелая асимметричная форма читается сильнее круга, особенно на металлическом столе.',url:'https://www.sightunseen.com/2021/02/design-coasters-vintage-new-ceramic-glass-checkerboard/',s:()=>S.fin(C('signal'))},
- {g:'metal',t:'Cylinda Coasters',m:'Arne Jacobsen для Stelton',mat:'нержавеющая сталь',form:'круг с бортом, классика 1960-х',take:'Эталон «сталь на стали»: если делать металлический набор, это нижняя планка по качеству.',url:'https://www.sightunseen.com/2021/02/design-coasters-vintage-new-ceramic-glass-checkerboard/',s:()=>S.steel()},
- {g:'metal',t:'Glass coaster',m:'Alessi',mat:'нержавеющая сталь',form:'круглая подставка с бортиком',take:'Бортик удерживает конденсат. Полезная деталь, если основная форма плоская.',url:'https://www.finnishdesignshop.com/en-us/product/glass-coaster-stainless-steel',s:()=>S.rim()},
- {g:'metal',t:'Stainless Steel Coaster',m:'atago home',mat:'нержавеющая сталь',form:'тонкий диск',take:'Минимум формы: подходит как «нейтральный» предмет в наборе рядом с цветными силуэтами.',url:'https://atagohome.com/products/stainless-steel-coaster',s:()=>S.disc('#b9bfc3','#5d6c78')},
- {g:'textile',t:'Lace Coasters, Pearls',m:'Gohar World (Laila и Nadia Gohar)',mat:'хлопковое кружево баттенберг, пресноводный жемчуг',form:'круглая салфетка с жемчугом по краю; накрывает бокал, когда гость отходит',take:'Двойная функция и театральность. Утяжелители по краю как декор.',url:'https://gohar.world/products/coaster-lace-with-pearl',s:()=>S.lace(C('paper'),'#d8d2c4')},
- {g:'textile',t:'La Fumée Coasters',m:'Steak Diane',mat:'двойной хлопок, аппликация, вышивка',form:'квадрат в клетку виши с аппликацией пепельницы и сигареты',take:'Аппликация предмета сервировки на подстаканнике: тот же юмор «вещь рисует вещь», что в реф. 1 и 4.',url:'https://www.steakdiane.biz/shop/p/la-fume-coasters-set-of-4',s:()=>S.gingham(C('slate'),C('bottle'))},
- {g:'textile',t:'Doodle Lace Coasters',m:'Dorottya Pardanyi для Areaware',mat:'хлопок',form:'круг с волнистой отстрочкой-завитком в тон',take:'Тональная декоративная строчка по краю. Мягкий аналог канта на красной звезде реф. 3.',url:'https://store.moma.org/products/areaware-doodle-lace-cotton-coasters-set-of-4',s:()=>S.curl(C('blush'),C('fuchsia'))},
- {g:'cut',t:'Cork Coasters «мишени»',m:'Fredericks & Mae',mat:'пробка, шелкография',form:'Ø 9 см, шесть вариантов мишеней для стрельбы из лука',take:'Серия из 6 разных рисунков в одной форме. Удобный формат набора.',url:'https://fredericksandmae.com/products/coasters-trivets',s:()=>S.target(C('signal'),C('paper'),C('bottle'))},
- {g:'cut',t:'Garland Coasters',m:'&Klevering',mat:'набор из 4 цветов',form:'фигурный «цветочный» контур',take:'Один штамп, четыре цвета. Самый дешёвый путь к пёстрому набору.',url:'https://www.appchoose.io/product/klevering-set-of-4-garland-coasters-multicolor-4e7',s:()=>S.garland(C('coral'))},
- {g:'blob',t:'Squiggle Coaster Set',m:'Verloop',mat:'вязание из нераспроданной пряжи',form:'волнистые формы с объёмными цветными блоками',take:'Волнистый край. Хорошо сочетается со звёздами как «мягкая» пара к «острой».',url:'https://another20.com/products/verloop-squiggle-coaster-set',s:()=>S.squigglering(C('pistachio'))},
- {g:'blob',t:'Blob Coaster / Wavy Squiggle',m:'Etsy, независимый мастер',mat:'литой материал; розовый, сиреневый, голубой, мятный, оранжевый',form:'пятно неправильной формы, служит и подносом',take:'Неровная «тарелка-пятно» прямо как бумажные тарелки реф. 1 и 4. Палитра почти совпадает.',url:'https://www.etsy.com/listing/1165685896/blob-coaster-wavy-squiggle-trinket',s:()=>S.blob(C('coral'),7)},
- {g:'star',t:'Atomic Starburst Placemat & Coaster',m:'Inkabilly',mat:'набор плейсмат + подстаканники',form:'четырёхлучевая «атомная» звезда середины века',take:'Плейсмат и подстаканник одной графики. Перекликается со звёздами-разделителями реф. 1.',url:'https://www.inkabilly.com/products/atomic-starburst-placemat-coaster-set',s:()=>S.atomic(C('bottle'),C('coral'))},
- {g:'star',t:'Round Starburst Placemat',m:'House of Blum',mat:'текстиль',form:'круг-солнце с лучами',take:'Многолучевая звезда, как в реф. 3, но в бытовом масштабе. Подстаканник можно сделать её уменьшенной копией.',url:'https://houseofblum.com/products/blue-round-starburst-placemat',s:()=>S.burst(C('signal'),20)},
- {g:'star',t:'Blue Star Felt Coasters',m:'Ganapati Crafts',mat:'шерстяной войлок, ручная работа (Непал)',form:'пятиконечная звезда',take:'Войлок держит острые лучи при толщине от 5 мм. Проверка технологии для звёздной формы.',url:'https://ganapaticrafts.com/products/blue-star-coasters-set-of-4',s:()=>S.felt(C('slate'))},
- {g:'cut',t:'Magnolia Leather Coasters',m:'Holtz Leather',mat:'кожа full grain',form:'шестилепестковый цветок',take:'Лазерная вырубка кожи даёт чистый край без обработки. Вариант премиальной версии набора.',url:'https://www.holtzleather.com/products/magnolia-flower-personalized-fine-leather-coaster-set',s:()=>S.magnolia(C('blush'))},
- {g:'textile',t:'Party Coaster Set',m:'Studio Arhoj',mat:'набор из 6; серии «Flowers of Hokkaido» и «Flowers of Okinawa»',form:'круг с цветочной росписью',take:'Ручная, слегка небрежная роспись, как деревянные силуэты реф. 2.',url:'https://arhoj.com/',s:()=>S.hokkaido(C('sky'),C('coral'))},
- {g:'sculpt',t:'Timber',m:'Adam Goodrum для Normann Copenhagen',mat:'дуб',form:'три детали, складываются в конус',take:'Предмет на столе в собранном виде, разбирается на части. Скульптурное хранение.',url:'https://www.connox.com/categories/kitchenware/trivets/normann-copenhagen-timber-trivet.html',s:()=>S.timber('#c89a63','#a87c4a','#dcb27c')},
- {g:'blob',t:'Colorful Blobs',m:'Kaleiope Studio для ArtWow',mat:'стекло, глянцевый HDF на пробке и др.',form:'квадрат с принтом из цветных пятен',take:'Пятна как принт, а не как форма. Запасной вариант, если вырубка не подходит по бюджету.',url:'https://artwow.co/products/homeware/coasters/kaleiope-studio/colorful-blobs-2',s:()=>S.multi(C('pistachio'),C('fuchsia'),C('coral'))},
- {g:'cut',t:'Irregular Coasters',m:'Zee Designs',mat:'цветной плексиглас',form:'неправильные многоугольники',take:'Цветной акрил в массе: тот же матово-плоский эффект, что у бумаги, но влагостойкий.',url:'https://zeedesigns-plexiglass.com/products/irregular-coasters',s:()=>S.irregular(C('sky'))},
+ {g:'shape',k:'martini',t:'Martini Coasters',by:'Piecework',mat:'100% лён, вышитый край; набор из 4: два бокала мартини, долька лимона, оливка',why:'Ближе всего к реф. 1 и 4: подстаканник вырезан по силуэту бокала и закуски, плоский, с контрастной обводкой.',url:'https://slowdownstudio.com/products/martini-coasters-set-of-4'},
+ {g:'shape',k:'hors',t:"Hors D'Oeuvres Coasters",by:'Piecework',mat:'100% лён; оливка, банка сардин, устрица, кусок сыра',why:'Набор как сервировка в миниатюре: каждый предмет стола становится плоской аппликацией.',url:'https://slowdownstudio.com/products/hors-doeuvres-coasters-set-of-4'},
+ {g:'shape',k:'fruit',t:'Fruit Salad Coasters',by:'Piecework',mat:'лён; апельсин, клубника, арбуз, киви',why:'Сочные локальные цвета и чёткая вырубка, как у бумажных фигур на реф. 4.',url:'https://slowdownstudio.com/products/fruit-salad-coasters-set-of-4'},
+ {g:'shape',k:'shell',t:'Shell Coasters',by:'Piecework',mat:'100% лён; две устрицы и два гребешка в синем',why:'Монохромная версия той же идеи: одна краска, а разнообразие даёт только силуэт.',url:'https://slowdownstudio.com/products/shell-coasters-set-of-4'},
+ {g:'shape',k:'cheese',t:'Cheese Coaster Set',by:'ban.do',mat:'плотная экокожа; гауда, бри, блю, эмменталь, ~9×9 см',why:'Плотный листовой материал режется по любому контуру и держит форму. Вариант технологии для силуэтов.',url:'https://bando.com/products/cheese-coaster-set'},
+ {g:'shape',k:'happyhour',t:'Happy Hour Coasters',by:'Kim Seybert',mat:'стеклянный бисер, пайетки, камни на хлопке; 15×13 см',why:'Подстаканник в форме самого бокала с коктейлем. Та же логика, что у бумажных бокалов на реф. 4.',url:'https://thehappykangaroo.com/products/happy-hour-coaster-in-multi-set-of-4-in-a-gift-bag'},
+ {g:'shape',k:'burger',t:'Cheeseburger Coaster Set',by:'Rainbow Unicorn Birthday Surprise',mat:'8 круглых слоёв Ø 9 см (булки, сыр, котлета, салат…), складываются в бургер',why:'Набор как игра: подстаканники складываются в объект. Цветные плоские слои.',url:'https://parchmentpaperla.com/products/cheeseburger-coaster-set'},
+ {g:'shape',k:'tomato',t:'Tomato Coasters',by:'One & Only Paper',mat:'картон 60 pt, УФ-печать; Ø 9,4 см',why:'Крупное плоское пятно цвета на белом поле. Дешёвая печатная версия эстетики.',url:'https://parchmentpaperla.com/products/tomato-coasters-set-of-four'},
+ {g:'shape',k:'olive',t:'Pimento Olive Coasters',by:'One & Only Paper',mat:'картон 60 pt, УФ-печать; Ø 9,4 см',why:'Оливка с пиментой: две плоские заливки и белый кант. Читается на металлическом столе.',url:'https://parchmentpaperla.com/products/pimento-olive-coasters-set-of-four'},
+ {g:'shape',k:'fumee',t:'La Fumée Coasters',by:'Steak Diane',mat:'двойной хлопок, аппликация и вышивка пепельниц; 11,5 см',why:'Предмет стола нарисован на подстаканнике аппликацией. Юмор «вещь изображает вещь».',url:'https://libbyandmy.com/products/la-fumee-coasters-set'},
+ {g:'wave',k:'misette',t:'Line Drawing Coasters',by:'Misette',mat:'толстый лён, ручная строчка; 15×15 см',why:'Волнистое пятно и тонкая чёрная линия поверх: почти дословно бумажные тарелки с кольцом на реф. 1 и 4.',url:'https://shopbignight.com/products/line-drawing-coasters-set-of-4'},
+ {g:'wave',k:'shrimp',t:'Crudité Coasters, Shrimp',by:'And Here We Are · рисунок Meghan Hughes',mat:'веллум, высокая печать, вырубка; 9,6 см',why:'Фигурный волнистый край с цветным кантом, как у звезды с выделенной кромкой на реф. 3.',url:'https://parchmentpaperla.com/products/crudite-letterpress-vellum-coasters-shrimp-set-of-4-food-seafood-ocean-shrimp-cocktail-foodie-made-in-the-usa'},
+ {g:'wave',k:'strawberry',t:'Strawberry Vellum Coasters',by:'And Here We Are',mat:'веллум, высокая печать неоново-красным',why:'Один яркий цвет, фигурная вырубка и много белого.',url:'https://parchmentpaperla.com/products/everyday-reusable-modern-vellum-coasters-4-strawberry'},
+ {g:'wave',k:'ruffled',t:'Ruffled Coaster Set',by:'Tarta Gelatina',mat:'4 подстаканника, у каждого свой цвет',why:'Рюшевый край и пёстрая палитра. Смотрится как часть общей сервировки, не как отдельный аксессуар.',url:'https://tartagelatina.com/products/ruffled-coaster-set'},
+ {g:'wave',k:'merienda',t:'Merienda Coaster Set',by:'Tarta Gelatina',mat:'уменьшенная копия плейсматов Merienda; 4 цвета',why:'Подстаканник повторяет плейсмат, как звёзды-подстаканники и звёзды-плейсматы на реф. 3.',url:'https://tartagelatina.com/products/merienda-coasters'},
+ {g:'wave',k:'gohar-scallop',t:'Scalloped Coaster Quartet',by:'Gohar World',mat:'рог, ручная резьба (Вьетнам); на лакированном деревянном подносе',why:'Фестончатый край и подача набора на подносе. Сервизная логика.',url:'https://gohar.world/products/scalloped-coaster-quartet-horn'},
+ {g:'wave',k:'gohar-lace',t:'Lace Coasters, Pearls',by:'Gohar World',mat:'кружево баттенберг, пресноводный жемчуг (Египет)',why:'Жемчуг по краю служит утяжелителем, салфеткой можно накрыть бокал. Театральная сервировка в духе реф. 2.',url:'https://gohar.world/products/coaster-lace-with-pearl'},
+ {g:'sun',k:'etoile',t:'Etoile Coasters',by:'Kim Seybert',mat:'стеклянный бисер и камни, рельефный лучистый край, красный акцентный камень; 12,7 см',why:'Солнце-звезда с одной красной точкой. Перекликается со звездой на карточке ANIM (реф. 3).',url:'https://thehappykangaroo.com/products/etoile-coaster-in-champagne-set-of-4-in-a-gift-box'},
+ {g:'sun',k:'ja-soleil',t:'Soleil Coaster Set',by:'Jonathan Adler',mat:'фарфор высокого обжига, серебряные акценты',why:'Многолучевое солнце: графичная звезда, вписанная в круг.',url:'https://jonathanadler.com/products/soleil-coaster-set-set-of-4-35708'},
+ {g:'sun',k:'ja-fleur',t:'Fleur Coasters',by:'Jonathan Adler',mat:'фарфор, золотая обводка; лавандовые лепестки',why:'Фестончатый лепестковый край и смелый цвет. Пример «весёлого» сюрреализма в сервировке.',url:'https://jonathanadler.com/products/fleur-coasters'},
+ {g:'sun',k:'sun-alu',imgs:['sun-alu-0','sun-flame-0','sun-alu-1'],t:'Sun Coasters',by:'Anastasio Home',mat:'литой алюминий, латунь или медь, либо камень; ручная доводка; Ø 9 см',why:'Металлическое «солнце» с волнистым краем. Тот же материал, что стол на референсах, только в форме.',url:'https://anastasiohome.com/products/sun-coaster-set-in-aluminum'},
+ {g:'mat',k:'spiral',t:'Spiral Coasters',by:'Sophie Lou Jacobsen',mat:'литой алюминий с никелированием',why:'Линия вместо плоскости. Рифмуется с тонкими чёрными кольцами на тарелках реф. 1 и 4.',url:'https://sophieloujacobsen.com/products/spiral-coasters'},
+ {g:'mat',k:'pesce',t:'Table-Mates',by:'Gaetano Pesce · Fish Design',mat:'мягкая смола, ручная заливка (Италия); пара «точка + кайма»',why:'Неровные цветные пятна, каждое чуть разное. Живость ручной работы, как на реф. 2.',url:'https://sonofrand.com/products/set-of-2-table-mate-coasters'},
+ {g:'mat',k:'bntile',t:'Tile Coasters',by:'Subtle Art для Big Night',mat:'стеклянная плитка, клетка в два цвета',why:'Яркая клетка и прозрачное стекло. Пример цветного акцента на нейтральной поверхности.',url:'https://shopbignight.com/products/big-night-tile-coaster'},
 ];
-
-const concepts=[
- {t:'Тень предмета',p:'Каждый подстаканник — плоский силуэт своей посуды: чашка, стакан, рюмка, бокал. Ставишь чашку, и она стоит на собственной тени.',spec:'Сталь 1,5 мм, порошковая краска + войлок 1 мм снизу · 6 форм',svg:()=>S.coupe(C('bottle'))},
- {t:'Звезда с кантом',p:'Многолучевая звезда из плотного хлопка с контрастной атласной строчкой по краю, как плейсматы на реф. 3. Подстаканник — уменьшенная копия плейсмата.',spec:'Канвас 2 слоя, строчка зигзагом · Ø 11 см · красный / розовый',svg:()=>S.burst(C('signal'),18)},
- {t:'Тарелка-пятно с кольцом',p:'Мягкое неровное пятно с тонким чёрным смещённым кольцом, как бумажные тарелки реф. 1 и 4. Кольцо показывает, куда ставить стакан.',spec:'Акрил в массе 3 мм, УФ-печать линии · 4 цвета',svg:()=>path(blob(5,40,.12),C('pistachio'))+`<ellipse cx="46" cy="52" rx="20" ry="17" fill="none" stroke="#15181a" stroke-width="2"/>`},
- {t:'Набор-конструктор',p:'Четыре подстаканника разной формы (звезда, пятно, ложка, бокал) складываются в общую подставку под чайник или сотейник.',spec:'Фанера 6 мм с росписью или войлок 5 мм',svg:()=>S.tiles(C('coral'),C('sky'),C('fuchsia'))},
- {t:'Наивная роспись',p:'Деревянные силуэты с грубоватой ручной росписью и светлой кромкой-грунтом, как вилка и бокал на реф. 2.',spec:'Фанера / МДФ, акрил, матовый лак · каждый уникален',svg:()=>path('M24 70 C20 50 40 40 46 30 C50 22 60 16 72 22 C82 28 82 40 72 46 C62 52 54 54 48 62 C42 72 28 82 24 70Z','#e6ddca')+path('M30 66 C28 52 44 44 50 34 C54 28 62 24 70 28 C76 32 76 40 68 44 C60 48 52 52 46 60 C40 68 32 74 30 66Z',C('pistachio'))},
- {t:'Две половины',p:'Парные подстаканники, которые вместе образуют один круг или звезду. Для сервиза на двоих или подарочной упаковки.',spec:'Сталь или кожа · 2 цвета в паре',svg:()=>S.interlock(C('coral'),C('blush'))},
-];
-
-const palette=[['pistachio','фисташка'],['coral','коралл'],['blush','пудра'],['fuchsia','фуксия'],['bottle','бутылочный'],['signal','сигнальный красный'],['sky','небесный'],['slate','графит-голубой'],['paper','бумага']];
-const traits=[
- {t:'Плоскость вместо объёма',d:'Тонкий вырубленный лист лежит на столе как аппликация. Тень почти не видна.',s:()=>S.disc(C('paper'),'#15181a')},
- {t:'Силуэт посуды как форма',d:'Бокалы, вилки, ложки и тарелки нарисованы контуром и выложены рядом с настоящими.',s:()=>S.glass(C('fuchsia'))},
- {t:'Звёзды и лучи',d:'Острые звёзды-разделители (реф. 1, 4) и звезда-плейсмат с кантом (реф. 3).',s:()=>S.burst(C('signal'),8)},
- {t:'Сталь как фон',d:'Матовая нержавейка нейтрализует яркие цвета и делает всё похожим на выставочную витрину.',s:()=>S.steel()},
-];
-
 const $=id=>document.getElementById(id);
-$('hero').innerHTML=[S.burst(C('signal'),9),S.blob(C('pistachio'),5),S.glass(C('sky')),S.interlock(C('coral'),C('blush'))].map(x=>svg(x)).join('');
-$('palette').innerHTML=palette.map(([k,n])=>`<div class="sw"><i style="background:var(--${k})"></i>${n}</div>`).join('');
-$('traits').innerHTML=traits.map(x=>`<div class="trait">${svg(x.s())}<div><b>${x.t}</b><span>${x.d}</span></div></div>`).join('');
-$('concepts').innerHTML=concepts.map(c=>`<article class="concept">${svg(c.svg())}<div><h3>${c.t}</h3><p>${c.p}</p><div class="spec">${c.spec}</div></div></article>`).join('');
+const src=n=>`coasters-img/${n}.jpg`;
+const COUNTS={martini:3,hors:3,fruit:3,shell:3,cheese:3,happyhour:3,tomato:3,olive:1,burger:3,misette:1,shrimp:3,strawberry:3,ruffled:3,'gohar-scallop':3,'gohar-lace':2,etoile:3,'ja-soleil':3,'ja-fleur':3,spiral:3,pesce:1,bntile:3,fumee:3,merienda:3};
+items.forEach(x=>{x.imgs=x.imgs||[...Array(COUNTS[x.k]||1)].map((_,j)=>`${x.k}-${j}`)});
 
-function render(filter){
-  $('grid').innerHTML=items.map((x,i)=>({x,i})).filter(({x})=>filter==='all'||x.g===filter).map(({x,i})=>`
-  <article class="card">
-    <div class="tile"><span class="num">${String(i+1).padStart(2,'0')}</span><span class="tag">${GROUPS[x.g]}</span>${svg(x.s())}</div>
+function card(x,i){
+  const th=x.imgs.length>1?`<div class="thumbs">${x.imgs.map((n,j)=>`<button type="button" data-i="${i}" data-src="${src(n)}" aria-pressed="${j===0}" aria-label="Фото ${j+1}"><img src="${src(n)}" alt="" loading="lazy"></button>`).join('')}</div>`:'';
+  return `<article class="card">
+    <div class="photo"><span class="num">${String(i+1).padStart(2,'0')}</span><img id="main-${i}" src="${src(x.imgs[0])}" alt="${x.t} — ${x.by}" loading="lazy"></div>
+    ${th}
     <h3>${x.t}</h3>
-    <div class="meta"><em>${x.m}</em><span>${x.mat}</span><span>${x.form}</span></div>
-    <p class="take">${x.take}</p>
+    <div class="by"><b>${x.by}</b> · ${GROUPS[x.g]}</div>
+    <p class="mat">${x.mat}</p>
+    <p class="why">${x.why}</p>
     <a class="src" href="${x.url}" target="_blank" rel="noopener">${new URL(x.url).hostname.replace('www.','')} ↗</a>
-  </article>`).join('');
+  </article>`;
 }
+function render(f){$('grid').innerHTML=items.map((x,i)=>(f==='all'||x.g===f)?card(x,i):'').join('')}
+$('grid').addEventListener('click',e=>{const b=e.target.closest('.thumbs button');if(!b)return;
+  $('main-'+b.dataset.i).src=b.dataset.src;b.parentElement.querySelectorAll('button').forEach(t=>t.setAttribute('aria-pressed',t===b))});
 const keys=['all',...Object.keys(GROUPS)];
 $('filters').innerHTML=keys.map(k=>`<button type="button" data-k="${k}" aria-pressed="${k==='all'}">${k==='all'?'Все · '+items.length:GROUPS[k]+' · '+items.filter(x=>x.g===k).length}</button>`).join('');
 $('filters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
