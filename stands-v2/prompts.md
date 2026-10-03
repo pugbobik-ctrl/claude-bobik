@@ -1,100 +1,150 @@
 # Промпты для генерации подставок
 
-Промпты на английском: генераторы понимают его лучше. Внутри каждого блока — что подставить и как варьировать.
-Хвосты `--ar / --style raw / --s` — для Midjourney; для других генераторов просто уберите их.
+Из референсов взят только принцип, а не конкретные формы:
+силуэт подсказывает, что ставить; толщина и срез материала — часть дизайна; на поверхности одна маленькая деталь, не больше;
+форма мягкая и немного смешная, но не мультяшная.
+
+Промпты на английском — генераторы понимают его лучше. Хвосты `--ar / --style raw / --s` — для Midjourney, в других генераторах их можно убрать.
 
 ---
 
-## 1. Базовый стиль (вставляйте в начало любого промпта)
+## 1. Стиль (ставится в начало любого промпта)
 
 ```
-Product photography of die-cut coasters made of thick laminated colored paperboard, 4 layers glued together,
-visible layered edge with a thin pale paper core line, matte velvety surface with fine paper tooth,
-copper hot-foil stamped details, soft rounded playful silhouettes, minimal Scandinavian-Japanese graphic design,
-studio shot, hard afternoon sunlight with crisp long shadows, clean seamless backdrop, high detail, 85mm lens
+Design object photography, tabletop accessory, thick die-cut slab with a clean vertical cut edge,
+the edge shows the material layers, matte surface, one tiny graphic detail only,
+soft simple silhouette, quiet contemporary design, natural light, seamless backdrop, high detail, 85mm lens
 ```
 
 **Негативный промпт** (Stable Diffusion, Flux, Leonardo, OpenArt):
 
 ```
-glossy plastic, 3d render look, cartoon illustration, clutter, text artifacts, logos, watermark, wood grain,
-cork texture, ceramic, fabric, blurry, oversaturated, extra objects, hands
+cartoon face, mascot, cute character, clip art, glossy plastic, 3d render look, clutter, random text, logo,
+watermark, blurry, oversaturated, busy pattern
 ```
 
 ---
 
-## 2. Сеты целиком (как на референсах)
+## 2. Повторяют посуду
 
-**Плоско сверху на чёрном, как на референсе с зелёной, красной, розовой и белой подставками**
-
-```
-Top-down flat lay of four die-cut paperboard coasters on a pure black background: a sage-green shape with three
-rounded bumps on top and a grid of tiny copper foil dots, a coral-red cloud-like scalloped shape with copper
-hashtag-like foil marks, a cream double-oval biscuit shape with copper waffle grid lines and a copper "bitten"
-edge, a pale pink soft bow shape with thin curved copper lines. Even soft light, slight paper thickness visible,
-minimal, editorial --ar 4:3 --style raw --s 150
-```
-
-**Стопки в изометрии, жёсткие тени, как на референсе с варежками**
+**Тень тарелки — под тарелку.** Подставка в форме тени, которую тарелка отбрасывает на закате: тарелка стоит на собственной тени.
 
 ```
-Isometric view of stacks of colorful die-cut paperboard coasters on a warm off-white seamless surface,
-each stack 3 to 5 coasters high with visible layered edges, shapes: a mitten-like circle with a thumb tab,
-a soft cloud, a coral puddle blob, a bone, a soft four-point star. Colors: silver grey, cobalt blue, coral,
-orange, lilac. Thin black circular text "Cosy Dinner" printed around the edge of the grey coaster.
-Strong low sun casting crisp diagonal shadows --ar 3:4 --style raw --s 200
+A dinner plate standing on a coaster cut in the exact shape of its own long evening shadow: a stretched
+elongated ellipse that trails off to one side, made of deep ink-blue felt 6 mm thick, real sunlight casting
+the true shadow in the same direction so the two overlap, overhead shot on a warm sand-colored table --ar 4:5 --style raw
 ```
 
-**В упаковке, как на референсе с коробкой**
+**След бокала — под бокал.** Подставка повторяет кольцо, которое бокал оставляет на скатерти: незамкнутое двойное кольцо с каплей.
 
 ```
-Kraft white cardboard box with a cobalt-blue sleeve, bold condensed lilac uppercase typography "COSY DINNER
-TABLE STANDS", small spec text, simple flat icons of the coaster shapes on the sleeve; beside the box the
-die-cut paperboard coasters themselves scattered on a white table: lilac bellflower with a star-shaped cut-out,
-pink scalloped rosette, sage leaf with a slit, cotton twine. Soft daylight, product photography --ar 4:5 --style raw
+A coaster shaped like the ring stain a wine glass leaves on a tablecloth: an imperfect open double ring with
+a small drip, cut from 5 mm burgundy cork with a darker sealed edge, a wine glass standing on it slightly off
+centre, top-down, soft window light, linen-white backdrop --ar 1:1 --style raw
 ```
 
-**Сервировка — подставки в деле**
+**Уголок салфетки — под приборы.** Треугольная подставка с мягким «загибом», как угол сложенной салфетки. Вилка и нож лежат вдоль сгиба.
 
 ```
-Overhead shot of a dinner table setting on a linen-free pale table: a white plate resting on a large coral
-puddle-shaped paperboard coaster, cutlery laid across a sage-green coaster with three bumps, a wine glass on a
-silver mitten-shaped coaster with circular printed text, a small cup on a sky-blue rounded pebble coaster.
-Hard afternoon sun, long crisp shadows of the glass and cutlery, minimal styling, editorial food magazine --ar 4:5
+A cutlery rest shaped like the folded corner of a napkin: a soft rounded triangle with one corner gently
+lifted and a crisp fold crease, made of thick matte powder-yellow ceramic, a fork and knife resting in the
+crease, low angle 20 degrees, warm afternoon light, terracotta backdrop --ar 4:5 --style raw
+```
+
+**Круги на воде — под миску.** Стопка из 3–4 колец разного размера, каждый слой меньше и другого оттенка — как рябь вокруг миски.
+
+```
+A bowl trivet made of three stacked concentric wavy rings like ripples on water, each layer smaller and a
+slightly different shade of sea-green, visible stepped edges, a ceramic bowl sitting in the centre,
+three-quarter view, soft daylight, pale grey backdrop --ar 1:1 --style raw
+```
+
+**Пар — под чайник.** Плоский силуэт поднимающегося пара, положенный на стол: длинная волнистая форма из трёх «струек», которые сливаются внизу.
+
+```
+A trivet shaped like rising steam laid flat: three soft wavy ribbons merging into one base, cut from thick
+off-white wool felt with a stitched edge, a cast iron teapot standing on the base, overhead shot, morning light,
+charcoal backdrop --ar 3:4 --style raw
+```
+
+**Пустое место ложки — под ложку.** Прямоугольная плитка, в которой насквозь вырезан силуэт ложки, — ложка ложится в свой «негатив».
+
+```
+A spoon rest: a thick rounded rectangle tile with a spoon-shaped cut-out going through it, the real spoon
+lying beside it, made of speckled terrazzo in cream and rust, crisp side light showing the depth of the
+cut-out, minimal, sage backdrop --ar 4:3 --style raw
 ```
 
 ---
 
-## 3. По одной форме
+## 3. Сами по себе
 
-Шаблон: **[базовый стиль] + строка ниже + `, single object centered on a [цвет] seamless backdrop, 3/4 view, stack of [N] --ar 1:1 --style raw`**
+**Топография.** Стопка слоёв, как контурная карта холма; каждый слой своего цвета. Вблизи кажется пейзажем, сверху — подставкой.
 
-| № | Название | Под что | Строка для промпта | Фон |
-|---|---|---|---|---|
-| 01 | Лужа | тарелка | `a large coral-red organic puddle-shaped coaster, soft irregular blob outline wider than a dinner plate, two thin concentric copper foil arcs` | тёплый серо-бежевый |
-| 02 | Варежка | бокал | `a silver-grey mitten-shaped coaster: a circle with a small round thumb tab, black thin circular text "Cosy Dinner · Cosy Dinner" around the rim, small black check mark on the tab` | пудрово-розовый |
-| 03 | Волна | приборы | `a sage-green rectangular coaster with three soft rounded bumps along the top edge, a staggered grid of tiny copper foil dots` | чёрный |
-| 04 | Розетка | пиала | `a blush-pink scalloped round coaster with ten soft lobes like a porcelain jam dish, four thin curved copper lines radiating from the centre` | кобальтово-синий |
-| 05 | Галька | чашка | `a sky-blue soft rounded-rectangle pebble coaster, a minimal deadpan face printed in black: two dots and two short lines` | тёплый серо-бежевый |
-| 06 | Облако | горячее | `a cobalt-blue cloud-shaped trivet, thick stack, three small copper foil hash marks` | молочный |
-| 07 | Печенье | соль и перец | `a cream double-oval biscuit-shaped coaster with copper waffle grid lines in each oval and a bite taken out of one edge, bitten edge covered in copper foil like a baked crust` | чёрный |
-| 08 | Косточка | нож, палочки | `a small orange bone-shaped knife rest made of stacked paperboard, one thin copper line along the middle` | светлый шалфей |
-| 09 | Звезда | свеча, соусник | `a lilac soft four-pointed star coaster with rounded tips, a thin copper foil circle in the centre` | горчично-жёлтый |
+```
+A coaster built as a stacked contour map of a small hill: five thin irregular layers, each one smaller than
+the last, colors stepping from deep olive to pale lime, visible stepped edges, three-quarter macro view,
+low raking light, warm grey backdrop --ar 1:1 --style raw
+```
 
-Дополнительные формы, если хочется больше вариантов:
+**Затмение.** Два диска разного цвета, сдвинутые друг относительно друга; там, где они пересекаются, вырезан полумесяц.
 
-- `a lilac bellflower-shaped bowl coaster with five pointed petals and a six-point star cut out in the centre`
-- `a sage-green leaf-shaped knife rest with a long slit cut along the midrib`
-- `a mustard cup coaster shaped like a cup seen from above: a circle with a round handle loop with a hole`
-- `a pale grey ghost-shaped spoon rest with a wavy bottom edge and sleepy printed eyes`
+```
+A pair of overlapping thick discs, one tomato red and one dusty violet, slightly offset like an eclipse,
+a thin crescent of the table showing through where they overlap, cork core visible on the edge,
+top-down, hard sun with crisp shadow, cream backdrop --ar 1:1 --style raw
+```
+
+**Петля.** Одна толстая лента, завязанная мягкой восьмёркой; приборы лежат в петлях.
+
+```
+A cutlery rest shaped like a thick soft ribbon tied in a loose figure-eight, one continuous rounded form,
+matte cobalt glazed ceramic, a pair of chopsticks resting across both loops, low angle, studio light,
+butter-yellow backdrop --ar 4:3 --style raw
+```
+
+**Крошки.** Россыпь маленьких неровных подставок, как крошки от хлеба, только крупные; ставятся под соль, специи, свечи.
+
+```
+A scattered set of seven small irregular crumb-shaped coasters in different sizes, cut from thick toasted
+brown and cream card stock with rough deckled edges, a salt cellar and a tealight on two of them, top-down,
+soft light, deep chocolate backdrop --ar 4:5 --style raw
+```
+
+**Инициалы — карточка с местом.** Подставка под бокал в форме первой буквы имени гостя: одновременно и рассадка.
+
+```
+Place card coasters cut as single bold rounded letters, chunky soft geometric letterforms, each letter a
+different muted color — clay, moss, ink blue — a wine glass standing on each letter at a set dinner table,
+overhead shot, candle-lit evening mood --ar 3:2 --style raw
+```
 
 ---
 
-## 4. Как варьировать
+## 4. Сцены целиком
 
-- **Материал:** вместо `laminated colored paperboard` — `cork`, `matte glazed ceramic, 8 mm thick`, `colored felt`, `terrazzo` (форма остаётся, меняется ощущение).
-- **Свет:** `hard afternoon sunlight with crisp long shadows` (как на референсе с варежками) ↔ `soft even studio light, no shadows` (как на чёрном фоне).
-- **Ракурс:** `top-down flat lay` / `isometric view` / `low 30° angle, shallow depth of field`.
-- **Палитра:** перечисляйте 4–5 цветов прямо в промпте: `coral, sage, blush pink, cream, cobalt`.
-- **Фольга:** `copper foil` → `gold foil`, `blind deboss (no foil)`, `black screen print`.
-- Если генератор рисует лишние надписи — уберите текст из промпта и добавьте `no text` в негатив; надпись по кругу лучше потом наложить вручную.
+**Стол на закате**
+
+```
+Overhead view of a dinner table at golden hour with a set of sculptural tabletop coasters in muted earthy
+colors — a plate on its own shadow-shaped coaster, a wine glass on a ring-stain coaster, cutlery on a folded
+napkin-corner rest, a teapot on a steam-shaped trivet, long warm shadows across the table, editorial
+interior magazine style --ar 4:5 --style raw --s 200
+```
+
+**Срез крупно**
+
+```
+Extreme macro of the cut edge of stacked coasters, layers of colored card stock, cork and felt visible like
+geological strata, shallow depth of field, soft side light --ar 16:9 --style raw
+```
+
+---
+
+## 5. Как варьировать
+
+- **Материал:** картон, пробка, войлок, керамика, терраццо, литой силикон, крашеный шпон — форма та же, ощущение другое.
+- **Свет:** жёсткое низкое солнце, если идея в тени («Тень тарелки», «Затмение»); мягкий дневной свет для фактуры.
+- **Ракурс:** сверху, если важен силуэт; под углом 20–30°, если важна толщина и срез.
+- **Палитра:** называйте 2–3 цвета прямо в промпте. Приглушённые природные цвета дают более «дизайнерский» результат, чем чистые яркие.
+- Если генератор рисует лишние надписи — добавьте `no text` в негатив.
