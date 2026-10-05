@@ -1,0 +1,306 @@
+[
+ {
+  "group": "Тарелки большие",
+  "file": "01-tarelka-galka",
+  "title": "Тарелка «Галька»",
+  "w": 358,
+  "h": 298,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Тарелки большие",
+  "file": "02-tarelka-volna",
+  "title": "Тарелка «Волна»",
+  "w": 370,
+  "h": 374,
+  "color": "#F6C4CB"
+ },
+ {
+  "group": "Тарелки большие",
+  "file": "03-tarelka-podushka",
+  "title": "Тарелка «Подушка»",
+  "w": 360,
+  "h": 341,
+  "color": "#A3D3EC"
+ },
+ {
+  "group": "Тарелки десертные",
+  "file": "04-desert-galka",
+  "title": "Десертная «Галька»",
+  "w": 223,
+  "h": 187,
+  "color": "#A1DCA3"
+ },
+ {
+  "group": "Тарелки десертные",
+  "file": "05-desert-cvetok",
+  "title": "Десертная «Цветок»",
+  "w": 234,
+  "h": 234,
+  "color": "#EACB79"
+ },
+ {
+  "group": "Тарелки десертные",
+  "file": "06-desert-oval",
+  "title": "Десертная «Овал»",
+  "w": 250,
+  "h": 188,
+  "color": "#B9A7D8"
+ },
+ {
+  "group": "Миски",
+  "file": "07-miska-nozhka",
+  "title": "Миска на ножке",
+  "w": 242,
+  "h": 124,
+  "color": "#F7B58C"
+ },
+ {
+  "group": "Миски",
+  "file": "08-miska-glubokaya",
+  "title": "Миска глубокая",
+  "w": 210,
+  "h": 122,
+  "color": "#B9A7D8"
+ },
+ {
+  "group": "Вилки",
+  "file": "09-vilka-klassika",
+  "title": "Вилка «Классика»",
+  "w": 72,
+  "h": 252,
+  "color": "#B8BEB3"
+ },
+ {
+  "group": "Вилки",
+  "file": "10-vilka-ladon",
+  "title": "Вилка «Ладонь»",
+  "w": 275,
+  "h": 105,
+  "color": "#F9F3DC"
+ },
+ {
+  "group": "Вилки",
+  "file": "11-vilka-trezubec",
+  "title": "Вилка «Трезубец»",
+  "w": 41,
+  "h": 245,
+  "color": "#174C53"
+ },
+ {
+  "group": "Ножи",
+  "file": "12-nozh-klassika",
+  "title": "Нож «Классика»",
+  "w": 67,
+  "h": 274,
+  "color": "#B8BEB3"
+ },
+ {
+  "group": "Ножи",
+  "file": "13-nozh-klin",
+  "title": "Нож «Клин»",
+  "w": 301,
+  "h": 57,
+  "color": "#444C58"
+ },
+ {
+  "group": "Ножи",
+  "file": "14-nozh-maslyanyi",
+  "title": "Нож для масла",
+  "w": 36,
+  "h": 262,
+  "color": "#F6C4CB"
+ },
+ {
+  "group": "Ложки",
+  "file": "15-lozhka-lopatka",
+  "title": "Ложка «Лопатка»",
+  "w": 69,
+  "h": 155,
+  "color": "#F6C4CB"
+ },
+ {
+  "group": "Ложки",
+  "file": "16-lozhka-kostochka",
+  "title": "Ложка «Косточка»",
+  "w": 321,
+  "h": 68,
+  "color": "#A1DCA3"
+ },
+ {
+  "group": "Ложки",
+  "file": "17-lozhka-kaplya",
+  "title": "Ложка «Капля»",
+  "w": 81,
+  "h": 244,
+  "color": "#F0612E"
+ },
+ {
+  "group": "Ложки",
+  "file": "18-chainaya-ledenec",
+  "title": "Чайная «Леденец»",
+  "w": 46,
+  "h": 148,
+  "color": "#E2638E"
+ },
+ {
+  "group": "Ложки",
+  "file": "19-chainaya-volna",
+  "title": "Чайная «Волна»",
+  "w": 36,
+  "h": 166,
+  "color": "#1F4FBF"
+ },
+ {
+  "group": "Бокалы",
+  "file": "20-bokal-kruglyi",
+  "title": "Бокал для вина",
+  "w": 120,
+  "h": 249,
+  "color": "#A3D3EC"
+ },
+ {
+  "group": "Бокалы",
+  "file": "21-bokal-tyulpan",
+  "title": "Бокал «Тюльпан»",
+  "w": 116,
+  "h": 256,
+  "color": "#E2638E"
+ },
+ {
+  "group": "Бокалы",
+  "file": "22-flyute-kosoi",
+  "title": "Флюте косой",
+  "w": 169,
+  "h": 268,
+  "color": "#A3D3EC"
+ },
+ {
+  "group": "Бокалы",
+  "file": "23-flyute-vysokii",
+  "title": "Флюте высокий",
+  "w": 72,
+  "h": 272,
+  "color": "#EACB79"
+ },
+ {
+  "group": "Бокалы",
+  "file": "24-kremanka-kolco",
+  "title": "Креманка с кольцом",
+  "w": 202,
+  "h": 168,
+  "color": "#174C53"
+ },
+ {
+  "group": "Бокалы",
+  "file": "25-martini",
+  "title": "Мартини",
+  "w": 218,
+  "h": 215,
+  "color": "#D8262E"
+ },
+ {
+  "group": "Бокалы",
+  "file": "26-kubok",
+  "title": "Кубок",
+  "w": 108,
+  "h": 227,
+  "color": "#EACB79"
+ },
+ {
+  "group": "Стаканы",
+  "file": "27-stakan",
+  "title": "Стакан",
+  "w": 86,
+  "h": 131,
+  "color": "#A1DCA3"
+ },
+ {
+  "group": "Стаканы",
+  "file": "28-roks",
+  "title": "Рокс",
+  "w": 106,
+  "h": 90,
+  "color": "#1F4FBF"
+ },
+ {
+  "group": "Чашки",
+  "file": "29-chashka-blyudce",
+  "title": "Чашка с блюдцем",
+  "w": 188,
+  "h": 108,
+  "color": "#F6C4CB"
+ },
+ {
+  "group": "Чашки",
+  "file": "30-kruzhka",
+  "title": "Кружка",
+  "w": 126,
+  "h": 112,
+  "color": "#F0612E"
+ },
+ {
+  "group": "Чашки",
+  "file": "31-espresso",
+  "title": "Эспрессо",
+  "w": 126,
+  "h": 63,
+  "color": "#174C53"
+ },
+ {
+  "group": "Чайники и кувшины",
+  "file": "32-chainik-petlya",
+  "title": "Чайник с петлёй",
+  "w": 260,
+  "h": 150,
+  "color": "#E2638E"
+ },
+ {
+  "group": "Чайники и кувшины",
+  "file": "33-chainik-vysokii",
+  "title": "Чайник высокий",
+  "w": 230,
+  "h": 175,
+  "color": "#A1DCA3"
+ },
+ {
+  "group": "Чайники и кувшины",
+  "file": "34-kuvshin-nosik",
+  "title": "Кувшин",
+  "w": 178,
+  "h": 177,
+  "color": "#A1DCA3"
+ },
+ {
+  "group": "Чайники и кувшины",
+  "file": "35-kuvshin-puzatyi",
+  "title": "Кувшин пузатый",
+  "w": 168,
+  "h": 186,
+  "color": "#1F4FBF"
+ },
+ {
+  "group": "Звёзды",
+  "file": "36-zvezda-8",
+  "title": "Звезда 8 лучей",
+  "w": 188,
+  "h": 187,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Звёзды",
+  "file": "37-zvezda-6",
+  "title": "Звезда 6 лучей",
+  "w": 181,
+  "h": 176,
+  "color": "#F0612E"
+ },
+ {
+  "group": "Звёзды",
+  "file": "38-zvezda-4",
+  "title": "Звезда 4 луча",
+  "w": 186,
+  "h": 214,
+  "color": "#B8BEB3"
+ }
+]
