@@ -1,0 +1,116 @@
+<meta charset="utf-8">
+<title>Dinner Table Runner</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    --table: #d8d7d2;
+    --paper: #fbfaf6;
+    --ink: #161616;
+    --font: "Wix Madefor Display", "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --table: #1b1b1a; }
+  }
+  :root[data-theme="dark"] { --table: #1b1b1a; }
+
+  html, body { background: var(--table); margin: 0; }
+  body {
+    min-height: 100vh;
+    display: grid;
+    justify-items: center;
+    align-items: start;
+    padding: 40px 16px 64px;
+    box-sizing: border-box;
+  }
+
+  .roll {
+    width: min(100%, 380px);
+    container-type: inline-size;
+    filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .18)) drop-shadow(0 2px 3px rgba(0, 0, 0, .12));
+  }
+  .receipt {
+    --z: 3.2cqw;
+    padding: calc(var(--z) + 6cqw) 6cqw calc(var(--z) + 6cqw);
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, .035), transparent 6%, transparent 94%, rgba(0, 0, 0, .035)),
+      var(--paper);
+    color: var(--ink);
+    font-family: var(--font);
+    font-variant-numeric: tabular-nums;
+    text-transform: uppercase;
+    -webkit-mask:
+      conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / var(--z) 51% repeat-x,
+      conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / var(--z) 51% repeat-x;
+    mask:
+      conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / var(--z) 51% repeat-x,
+      conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / var(--z) 51% repeat-x;
+  }
+  .receipt p, .receipt ol { margin: 0; padding: 0; }
+
+  /* the long middle of a table runner: one sentence printed over and over */
+  .flow {
+    font-size: 3.1cqw;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: .03em;
+    text-align: justify;
+    hyphens: none;
+  }
+  .flow b { font-weight: 800; }
+
+  .big {
+    margin: 4cqw 0 3cqw;
+    font-size: 22cqw;
+    font-weight: 800;
+    line-height: .85;
+    letter-spacing: -.04em;
+    text-align: center;
+  }
+
+  .names {
+    list-style: none;
+    margin: 6cqw 0 !important;
+    border-block: 1.2cqw solid var(--ink);
+  }
+  .names li {
+    padding: 2.4cqw 0;
+    font-size: 8.4cqw;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -.01em;
+  }
+  .names li + li { border-top: .4cqw solid var(--ink); }
+
+  @media print {
+    @page { margin: 0; }
+    html, body { background: #fff; }
+    body { display: block; min-height: 0; padding: 0; }
+    .roll { width: 72mm; margin: 0 auto; filter: none; }
+    .receipt { background: #fff; color: #000; -webkit-mask: none; mask: none; padding-block: 6mm 10mm; }
+  }
+</style>
+
+<main class="roll">
+  <article class="receipt" aria-label="Colorblock × DNA Dinner, 10 October 2026">
+    <p class="big">Dinner</p>
+    <p class="flow">Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — </p>
+    <p class="big">10.10</p>
+    <p class="flow">Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — </p>
+    <p class="big">18:00</p>
+    <p class="flow">Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — </p>
+    <ol class="names">
+      <li>Tanya Andrianova</li>
+      <li>Igor Zotov</li>
+      <li>Andrey Lee</li>
+      <li>Sasha Chernikov</li>
+      <li>Sophia Zhuravkova</li>
+    </ol>
+    <p class="flow">Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — </p>
+    <p class="big">DNA</p>
+    <p class="flow">Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — Colorblock × DNA — <b>Dinner</b> — 10.10.2026 — Saturday — start 18:00 — DNA Kitchen — Samokatnaya 4s53 — Line-up: <b>Tanya Andrianova</b>, <b>Igor Zotov</b>, <b>Andrey Lee</b>, <b>Sasha Chernikov</b>, <b>Sophia Zhuravkova</b> — </p>
+    <p class="big">Dinner</p>
+  </article>
+</main>
