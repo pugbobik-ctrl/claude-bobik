@@ -13,6 +13,7 @@
 #target illustrator
 
 (function () {
+  try {
     var D = __DATA__;
 
     var ASC = 1.008, DESC = 0.252;     // hhea ascent / descent of the font, in em
@@ -22,6 +23,12 @@
     var doc = app.documents.add(DocumentColorSpace.RGB, 100, 100);
     doc.rulerOrigin = [0, 0];
     var missingFonts = [];
+    var problems = [];
+    var where = "";
+    function note(what, e) {
+        problems.push(where + (what ? " / " + what : "") + ": " + (e && e.message ? e.message : e) +
+                      (e && e.line ? " (line " + e.line + ")" : ""));
+    }
 
     // ---- colours: global swatches so a whole strip recolours from the Swatches panel ----------
     var SW = {};
@@ -30,14 +37,19 @@
         c.red = parseInt(hex.substr(1, 2), 16);
         c.green = parseInt(hex.substr(3, 2), 16);
         c.blue = parseInt(hex.substr(5, 2), 16);
-        var spot = doc.spots.add();
-        spot.name = name;
-        spot.colorType = ColorModel.PROCESS; // global process swatch
-        spot.color = c;
-        var sc = new SpotColor();
-        sc.spot = spot;
-        sc.tint = 100;
-        return sc;
+        try {
+            var spot = doc.spots.add();
+            spot.color = c;
+            spot.colorType = ColorModel.PROCESS; // global process swatch
+            spot.name = name;
+            var sc = new SpotColor();
+            sc.spot = spot;
+            sc.tint = 100;
+            return sc;
+        } catch (e) {
+            note("swatch " + name, e);
+            return c;                         // plain colour: still correct, just not global
+        }
     }
     SW[D.colors.ink] = swatch("Dinner Ink", D.colors.ink);
     SW[D.colors.paper] = swatch("Dinner Paper", D.colors.paper);
@@ -55,11 +67,23 @@
     // ---- fonts and paragraph styles ------------------------------------------------------------
     var FONT_NAMES = {400: "Regular", 500: "Medium", 600: "SemiBold", 700: "Bold", 800: "ExtraBold"};
     var fontCache = {};
+    function squash(s) { return String(s).toLowerCase().replace(/[^a-z]/g, ""); }
     function font(weight) {
         if (fontCache[weight] !== undefined) return fontCache[weight];
         var ps = "WixMadeforDisplay-" + FONT_NAMES[weight];
         var f = null;
-        try { f = app.textFonts.getByName(ps); } catch (e) { missingFonts.push(ps); }
+        try { f = app.textFonts.getByName(ps); } catch (e) { f = null; }
+        if (!f) {
+            // variable-font installs name their instances differently: match family + style instead
+            var want = squash(FONT_NAMES[weight]);
+            for (var i = 0; i < app.textFonts.length && !f; i++) {
+                var tf = app.textFonts[i];
+                try {
+                    if (squash(tf.family).indexOf("wixmadefordisplay") === 0 && squash(tf.style) === want) f = tf;
+                } catch (e2) {}
+            }
+        }
+        if (!f) missingFonts.push(ps);
         fontCache[weight] = f;
         return f;
     }
@@ -81,10 +105,10 @@
         ca.autoLeading = false;
         ca.leading = size * s[2];
         ca.tracking = Math.round(s[3] * 1000);   // Illustrator tracks in 1/1000 em
-        ca.kerningMethod = AutoKernType.AUTO;    // the font's own kerning pairs
-        ca.capitalization = s[4] ? FontCapsOption.ALLCAPS : FontCapsOption.NORMALCAPS;
-        ca.ligature = true;
-        ps.paragraphAttributes.hyphenation = false;
+        try { ca.kerningMethod = AutoKernType.AUTO; } catch (e1) {}   // the font's own kerning pairs
+        try { ca.capitalization = s[4] ? FontCapsOption.ALLCAPS : FontCapsOption.NORMALCAPS; } catch (e2) {}
+        try { ca.ligature = true; } catch (e3) {}
+        try { ps.paragraphAttributes.hyphenation = false; } catch (e4) {}
         styleCache[key] = {ps: ps, size: size, lh: s[2], tr: s[3], weight: s[1]};
         return styleCache[key];
     }
@@ -458,14 +482,19 @@
         tf.contents = plain;
         styleText(tf, st, ctx.ink, "left");
         // first baseline where CSS puts it, so the block sits in the same place as the web version
-        tf.firstBaseline = FirstBaselineType.FIXED;
-        tf.firstBaselineMin = baselineIn(st);
-        var bs = boldStyle();
-        for (k = 0; k < bold.length; k++) {
+        try {
+            tf.firstBaseline = FirstBaselineType.FIXED;
+            tf.firstBaselineMin = baselineIn(st);
+        } catch (e0) {}
+        var bs = null;
+        try { bs = boldStyle(); } catch (e1) { note("bold style", e1); }
+        for (k = 0; bs && k < bold.length; k++) {
             var r = tf.characters[bold[k][0]];
             try { r.length = bold[k][1]; bs.applyTo(r, false); }
             catch (e) {
-                for (var c = 0; c < bold[k][1]; c++) bs.applyTo(tf.characters[bold[k][0] + c], false);
+                try {
+                    for (var c = 0; c < bold[k][1]; c++) bs.applyTo(tf.characters[bold[k][0] + c], false);
+                } catch (e2) { note("bold names", e2); bs = null; }
             }
         }
         var n = tf.lines.length;
@@ -480,8 +509,10 @@
         var tf = (parent || ctx.layer).textFrames.pointText([0, 0]);
         tf.contents = str;
         styleText(tf, st, color || ctx.ink, "left");
-        tf.rotate(-90, true, true, true, true, Transformation.DOCUMENTORIGIN);
-        tf.translate(colRight - baselineIn(st), Y(top));
+        tf.rotate(-90);
+        // turned clockwise, the descender side faces left: put the baseline where CSS has it
+        tf.left = colRight - baselineIn(st) - DESC * st.size;
+        tf.top = Y(top);
         return tf;
     }
 
@@ -532,7 +563,11 @@
             mt *= ctx.cq;
             y += first ? mt : Math.max(pendingMb, mt);
             first = false;
-            y += R[b.t](b, y, left, w);
+            try {
+                y += R[b.t](b, y, left, w);
+            } catch (e) {
+                note(b.t, e);
+            }
             pendingMb = (b.mb || 0) * ctx.cq;
         }
         return y + pendingMb - y0;
@@ -556,9 +591,11 @@
     };
 
     // ---- strips --------------------------------------------------------------------------------
-    var xCursor = 0;
+    var xCursor = 0, boards = 0;
     for (var si = 0; si < D.order.length; si++) {
         var key = D.order[si], S = D.strips[key];
+        where = key;
+        try {
         var W = S.width_mm * MM, cq = W / 100 * (S.scale || 1);
         var layer = doc.layers.add();
         layer.name = key;
@@ -570,7 +607,7 @@
             var y = 0, shapes = [];
             for (var t = 0; t < S.stubs.length; t++) {
                 var stub = S.stubs[t];
-                var pv = (stub.short ? 6 : pad[0]) * (W / 100);
+                var pv = (stub.compact ? 6 : pad[0]) * (W / 100);
                 var typeLayer = layer.groupItems.add();
                 typeLayer.name = "stub " + (t + 1);
                 var savedLayer = ctx.layer, savedInk = ctx.ink;
@@ -603,19 +640,33 @@
             bgp.move(layer, ElementPlacement.PLACEATEND);
         }
 
-        var abRect = [xCursor, 0, xCursor + W, -H];
-        if (si === 0) doc.artboards[0].artboardRect = abRect;
-        else doc.artboards.add(abRect);
-        doc.artboards[si].name = key;
+        var abRect = [xCursor, 0, xCursor + W, -H], ab;
+        if (boards === 0) { ab = doc.artboards[0]; ab.artboardRect = abRect; }
+        else ab = doc.artboards.add(abRect);
+        ab.name = key;
+        boards++;
+        } catch (e) {
+            note("strip", e);
+        }
         xCursor += W + GAP;
     }
 
     // keep the first, empty default layer out of the way
     try { if (doc.layers[doc.layers.length - 1].pageItems.length === 0) doc.layers[doc.layers.length - 1].remove(); } catch (e) {}
 
-    app.executeMenuCommand("fitall");
+    try { app.executeMenuCommand("fitall"); } catch (e) {}
+    var msg = "";
     if (missingFonts.length) {
-        alert("Install Wix Madefor Display, then run again. Missing:\n" + missingFonts.join("\n") +
-              "\n\nLayout is built, but type fell back to the default font.");
+        msg += "Install Wix Madefor Display, then run again. Missing:\n" + missingFonts.join("\n") +
+               "\nLayout is built, but type fell back to the default font.\n\n";
     }
+    if (problems.length) {
+        msg += "Built with " + problems.length + " problem(s); everything else is in place.\n" +
+               "Please send this list back:\n\n" + problems.slice(0, 25).join("\n");
+    }
+    if (msg) alert(msg);
+  } catch (fatal) {
+    alert("Dinner receipts script stopped: " + fatal.message + (fatal.line ? " (line " + fatal.line + ")" : "") +
+          "\nPlease send this message back.");
+  }
 })();

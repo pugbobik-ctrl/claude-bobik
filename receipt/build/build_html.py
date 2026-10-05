@@ -371,7 +371,7 @@ def render(name, s):
 
     if s["edge"] == "stubs":
         body = "".join(article(st["blocks"], st.get("paper", s["paper"]), st.get("ink", s["ink"]),
-                               " short" if st.get("short") else "") for st in s["stubs"])
+                               " short" if st.get("compact") else "") for st in s["stubs"])
         extra += "  .short { padding-block: 6cqw; }\n"
     else:
         body = article(s["blocks"], s["paper"], s["ink"])

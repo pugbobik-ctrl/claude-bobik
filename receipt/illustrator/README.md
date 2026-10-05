@@ -7,6 +7,9 @@ each, at print size (80 mm rolls, 72 mm for the ticket roll, 57 mm for the till 
 Install Wix Madefor Display first (all weights, Regular to ExtraBold, from Google Fonts);
 if a weight is missing the script says which and falls back to the default font.
 
+If any part fails, the script still builds everything else and ends with a list of what went
+wrong and on which line. Send that list back to get it fixed.
+
 Everything stays editable:
 
 - **Type is live text.** Each step of the type scale is a paragraph style named

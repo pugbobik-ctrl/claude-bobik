@@ -148,7 +148,7 @@ STRIPS = {
                 T("body", ADDR, mt=0.6),
             ]),
         ] + [
-            dict(short=True, blocks=[
+            dict(compact=True, blocks=[
                 ROW("micro", LINE_UP, f"0{i}{NB}/{NB}05"),
                 T("name", n, mt=1.6),
             ]) for i, n in enumerate(LINEUP, 1)
