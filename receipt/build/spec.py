@@ -33,6 +33,19 @@ STYLES = {
     "stars":      (4.2, 600, 1.00, 0.600, False),
 }
 
+# rules between blocks, in cqw: hairline-light, so they divide without shouting
+# weight, dash, gap  (double: weight, total height; list: outer, inner)
+RULES = {
+    "dash":       (0.25, 1.6, 1.2),
+    "double":     (0.22, 1.3),
+    "thin":       (0.18, 1.0, 0.8),
+    "thinDouble": (0.18, 1.1, 0.8, 0.8),
+    "list":       (0.4, 0.18),
+}
+
+# the DNA logo is smeared on the poster: gaussian blur along / across the line, in em of its size
+DNA_BLUR = (0.05, 0.015)
+
 # everything black on the lemon paper of the runner
 INK = "#000000"
 LEMON = "#feed95"

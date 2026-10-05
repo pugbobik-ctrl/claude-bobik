@@ -99,8 +99,15 @@ function build(layer, ab) {
     const body = rs.length === 1 && !base.bs ? esc(base.s)
       : rs.map((r) => { const at = runAttrs(r, base); return `<tspan${at ? ' ' + at : ''}>${esc(r.s)}</tspan>`; }).join('');
     const label = t._contents.replace(/\s+/g, ' ').slice(0, 24);
+    let filter = '';
+    if (t.blur) {   // the DNA smear: blur along the line, a little across it (live SVG filter in Illustrator)
+      const fid = id('dna_blur');
+      defs += `<filter id="${fid}" x="-25%" y="-40%" width="150%" height="180%">` +
+        `<feGaussianBlur stdDeviation="${n(D.dna_blur[0] * base.size)} ${n(D.dna_blur[1] * base.size)}"/></filter>`;
+      filter = ` filter="url(#${fid})"`;
+    }
     return `<text id="${id(label)}" x="${x}" y="${y}" ${font(base.w)} font-size="${base.size}"` +
-      `${base.ls ? ` letter-spacing="${base.ls}"` : ''} text-anchor="${anchor}" fill="${fill}"${rot}>${body}</text>`;
+      `${base.ls ? ` letter-spacing="${base.ls}"` : ''} text-anchor="${anchor}" fill="${fill}"${rot}${filter}>${body}</text>`;
   }
 
   // the swirl: instead of blurred rings, a radial gradient with the same stops, on the paper itself

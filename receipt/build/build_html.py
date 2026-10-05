@@ -7,7 +7,7 @@ import json
 import pathlib
 import re
 
-from spec import STRIPS, STYLES, FLOW_UNIT
+from spec import STRIPS, STYLES, FLOW_UNIT, RULES, DNA_BLUR
 
 HERE = pathlib.Path(__file__).parent
 OUT = HERE.parent
@@ -48,6 +48,32 @@ def optical(text, style, side):
     if caps:
         ch = ch.upper()
     return bearing(ch, weight, side)
+
+
+def dna_blur(vertical):
+    """stdDeviation as fractions of the word's box: the box is ~DNA's advance long, ~1.26 em thick."""
+    along, across = DNA_BLUR
+    length = sum(A["advances_dna"]) / 1000
+    fx, fy = along / length, across / 1.26
+    return f"{fmt(fy)} {fmt(fx)}" if vertical else f"{fmt(fx)} {fmt(fy)}"
+
+
+def rules_css():
+    d, db, t, td, ls = (RULES[k] for k in ("dash", "double", "thin", "thinDouble", "list"))
+    dash = lambda w, on, off: (f"height: {fmt(w)}cqw; background: repeating-linear-gradient(90deg, currentColor 0 {fmt(on)}cqw, "
+                               f"transparent {fmt(on)}cqw {fmt(on + off)}cqw);")
+    # a dashed double rule: two dashed hairlines on one gradient each
+    dd = (f"height: {fmt(td[1])}cqw; background: "
+          f"repeating-linear-gradient(90deg, currentColor 0 {fmt(td[2])}cqw, transparent {fmt(td[2])}cqw {fmt(td[2] + td[3])}cqw) top / 100% {fmt(td[0])}cqw no-repeat, "
+          f"repeating-linear-gradient(90deg, currentColor 0 {fmt(td[2])}cqw, transparent {fmt(td[2])}cqw {fmt(td[2] + td[3])}cqw) bottom / 100% {fmt(td[0])}cqw no-repeat;")
+    return "\n".join([
+        f"  .rule-dash {{ {dash(*d)} }}",
+        f"  .rule-double {{ height: {fmt(db[1])}cqw; border-block: {fmt(db[0])}cqw solid; box-sizing: border-box; }}",
+        f"  .rule-thin {{ {dash(*t)} }}",
+        f"  .rule-thinDouble {{ {dd} }}",
+        f"  .ruled {{ border-block: {fmt(ls[0])}cqw solid; }}",
+        f"  .ruled li + li {{ border-top: {fmt(ls[1])}cqw solid; }}",
+    ])
 
 
 def style_css():
@@ -132,7 +158,7 @@ def block(b):
         return wordmark(b["orient"], b["width"], b["align"], css)
     if t == "collab":
         return (f'<p class="collab s-{b["style"]}"{mt(b)}><span>Colorblock</span>'
-                f'<span class="x s-body">×</span><span>DNA</span></p>')
+                f'<span class="x s-body">×</span><span class="dna">DNA</span></p>')
     if t == "barcode":
         return f'<div{mt(b)}>{barcode(b)}</div>' if b.get("mt") else barcode(b)
     if t == "qr":
@@ -154,7 +180,8 @@ def block(b):
         unit = runs(FLOW_UNIT)
         return f'<p class="flow s-flow"{mt(b)}>{unit * b["repeat"]}</p>'
     if t == "hero":
-        side = "".join(f'<span class="{"x s-sub" if s == "×" else ""}">{s}</span>' for s in b["side"])
+        cls = lambda s: "x s-sub" if s == "×" else ("dna-v" if s == "DNA" else "")
+        side = "".join(f'<span class="{cls(s)}">{s}</span>' for s in b["side"])
         return (f'<div class="hero" style="grid-template-columns: {fmt(b["wm_width"])}% 1fr">\n      '
                 f'{wordmark("v", 100)}\n      <p class="side s-side">{side}</p>\n    </div>')
     if t == "vtext":
@@ -279,6 +306,8 @@ BASE = """<html lang="{lang}">
   /* tracking trails the last glyph; give it back so centred and right-set lines sit true */
   .a-center, .a-right {{ margin-right: calc(var(--tr) * -1); }}
   .colon {{ position: relative; top: -.1em; }}
+  .dna {{ filter: url(#dna-blur); }}
+  .dna-v {{ filter: url(#dna-blur-v); }}
   .colon-v {{ position: relative; left: .1em; }} /* same lift, in a column turned clockwise */
 
   .row {{
@@ -298,11 +327,7 @@ BASE = """<html lang="{lang}">
   }}
   .collab .x, .side .x {{ letter-spacing: 0; }}
 
-  .rule {{ height: .7cqw; }}
-  .rule-dash {{ background: repeating-linear-gradient(90deg, currentColor 0 2.2cqw, transparent 2.2cqw 3.6cqw); }}
-  .rule-double {{ height: 2cqw; border-block: .55cqw solid; box-sizing: border-box; }}
-  .rule-thin {{ height: .35cqw; background: repeating-linear-gradient(90deg, currentColor 0 1.4cqw, transparent 1.4cqw 2.4cqw); }}
-  .rule-thinDouble {{ height: 1.4cqw; border-block: .35cqw dashed; box-sizing: border-box; }}
+{rules}
 
   .wm, .barcode, .qr {{ display: block; }}
   .barcode, .qr {{ margin-inline: auto; }}
@@ -315,9 +340,8 @@ BASE = """<html lang="{lang}">
   .list .pre {{ flex: 0 0 1.6em; }}
   .list li {{ white-space: nowrap; }}
   .list li + li {{ margin-top: .1em; }}
-  .ruled {{ border-block: 1.2cqw solid; }}
   .ruled li {{ padding: 2.4cqw 0; }}
-  .ruled li + li {{ margin: 0; border-top: .4cqw solid; }}
+  .ruled li + li {{ margin: 0; }}
 
   /* the runner's long middle: flush left with a considered rag, never hyphenated */
   .flow {{ text-wrap: pretty; hyphens: manual; }}
@@ -346,6 +370,15 @@ BASE = """<html lang="{lang}">
   }}
 </style>
 
+<!-- the DNA logo's smear, as on the poster: blur along the line, a little across it -->
+<svg width="0" height="0" style="position: absolute" aria-hidden="true">
+  <filter id="dna-blur" primitiveUnits="objectBoundingBox" x="-25%" y="-40%" width="150%" height="180%">
+    <feGaussianBlur stdDeviation="{blur_h}"/>
+  </filter>
+  <filter id="dna-blur-v" primitiveUnits="objectBoundingBox" x="-40%" y="-25%" width="180%" height="150%">
+    <feGaussianBlur stdDeviation="{blur_v}"/>
+  </filter>
+</svg>
 <main class="roll">
 {body}</main>
 """
@@ -382,7 +415,8 @@ def render(name, s):
         k=fmt(s.get("scale", 1)), pt=fmt(pt), px_=fmt(px_), pb=fmt(pb),
         paper="transparent" if s["paper"] == "swirl" else s["paper"],
         ink=s["ink"], styles=style_css(), extra=extra, body=body,
-        print_mm=s["width_mm"] - 8, flow_bold=STYLES["flowBold"][1],
+        print_mm=s["width_mm"] - 8, flow_bold=STYLES["flowBold"][1], rules=rules_css(),
+        blur_h=dna_blur(False), blur_v=dna_blur(True),
     )
     (OUT / f"{name}.html").write_text(page)
 

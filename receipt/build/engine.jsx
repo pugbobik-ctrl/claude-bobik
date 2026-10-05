@@ -240,6 +240,14 @@
         return cp;
     }
 
+    // the DNA logo's smear: a live Gaussian Blur, so the type underneath stays editable
+    function smear(tf, size) {
+        try {
+            tf.applyEffect('<LiveEffect name="Adobe PSL Gaussian Blur"><Dict data="R blur ' +
+                           (D.dna_blur[0] * size) + ' "/></LiveEffect>');
+        } catch (e) { note("DNA blur", e); }
+    }
+
     // ---- paper shapes --------------------------------------------------------------------------
     function tornPaper(H, z) {
         var W = ctx.W, n = Math.round(W / z), step = W / n, x0 = ctx.x0, pts = [], k;
@@ -343,17 +351,20 @@
 
     R.rule = function (b, y, left, w) {
         var cq = ctx.cq;
-        if (b.kind === "dash") { line(left, left + w, y + 0.35 * cq, 0.7 * cq, [2.2 * cq, 1.4 * cq]); return 0.7 * cq; }
-        if (b.kind === "double") {
-            line(left, left + w, y + 0.275 * cq, 0.55 * cq);
-            line(left, left + w, y + 2 * cq - 0.275 * cq, 0.55 * cq);
-            return 2 * cq;
+        var r = D.rules[b.kind];                 // weights from spec.RULES, in cqw
+        if (b.kind === "dash" || b.kind === "thin") {
+            line(left, left + w, y + r[0] / 2 * cq, r[0] * cq, [r[1] * cq, r[2] * cq]);
+            return r[0] * cq;
         }
-        if (b.kind === "thin") { line(left, left + w, y + 0.175 * cq, 0.35 * cq, [1.4 * cq, 1 * cq]); return 0.35 * cq; }
+        if (b.kind === "double") {
+            line(left, left + w, y + r[0] / 2 * cq, r[0] * cq);
+            line(left, left + w, y + (r[1] - r[0] / 2) * cq, r[0] * cq);
+            return r[1] * cq;
+        }
         if (b.kind === "thinDouble") {
-            line(left, left + w, y + 0.175 * cq, 0.35 * cq, [1.05 * cq, 1.05 * cq]);
-            line(left, left + w, y + 1.4 * cq - 0.175 * cq, 0.35 * cq, [1.05 * cq, 1.05 * cq]);
-            return 1.4 * cq;
+            line(left, left + w, y + r[0] / 2 * cq, r[0] * cq, [r[2] * cq, r[3] * cq]);
+            line(left, left + w, y + (r[1] - r[0] / 2) * cq, r[0] * cq, [r[2] * cq, r[3] * cq]);
+            return r[1] * cq;
         }
         return 0;
     };
@@ -372,6 +383,7 @@
         var a = text("Colorblock", b.style, 0, base, "left", null, g);
         var times = text("\u00d7", "body", 0, base, "left", null, g);
         var c = text("DNA", b.style, 0, base, "left", null, g);
+        smear(c, pstyle(b.style, ctx.cq).size);
         // centre on the ink: leave out the tracking that trails the last letter of DNA
         var total = a.width + gap + times.width + gap + c.width - st.tr * st.size;
         var x0 = left + (w - total) / 2;
@@ -436,12 +448,12 @@
     R.list = function (b, y, left, w) {
         var st = pstyle(b.style, ctx.cq), lh = st.size * st.lh, cq = ctx.cq, yy = y, i;
         if (b.ruled) {
-            line(left, left + w, yy + 0.6 * cq, 1.2 * cq);
-            yy += 1.2 * cq;
+            line(left, left + w, yy + D.rules.list[0] / 2 * cq, D.rules.list[0] * cq);
+            yy += D.rules.list[0] * cq;
         }
         for (i = 0; i < b.items.length; i++) {
             if (i > 0) {
-                if (b.ruled) { line(left, left + w, yy + 0.2 * cq, 0.4 * cq); yy += 0.4 * cq; }
+                if (b.ruled) { line(left, left + w, yy + D.rules.list[1] / 2 * cq, D.rules.list[1] * cq); yy += D.rules.list[1] * cq; }
                 else yy += 0.1 * st.size;
             }
             if (b.ruled) yy += 2.4 * cq;
@@ -461,8 +473,8 @@
             if (b.ruled) yy += 2.4 * cq;
         }
         if (b.ruled) {
-            line(left, left + w, yy + 0.6 * cq, 1.2 * cq);
-            yy += 1.2 * cq;
+            line(left, left + w, yy + D.rules.list[0] / 2 * cq, D.rules.list[0] * cq);
+            yy += D.rules.list[0] * cq;
         }
         return yy - y;
     };
@@ -541,6 +553,7 @@
                 tf.textRange.characterAttributes.size = st.size * 1.2;
                 tf.textRange.characterAttributes.tracking = -20;
             }
+            if (s === "DNA") smear(tf, tf.textRange.characterAttributes.size);
             frames.push(tf);
         }
         // space-between along the column, inside 18% / 6% padding

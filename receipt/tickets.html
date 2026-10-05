@@ -77,6 +77,8 @@
   /* tracking trails the last glyph; give it back so centred and right-set lines sit true */
   .a-center, .a-right { margin-right: calc(var(--tr) * -1); }
   .colon { position: relative; top: -.1em; }
+  .dna { filter: url(#dna-blur); }
+  .dna-v { filter: url(#dna-blur-v); }
   .colon-v { position: relative; left: .1em; } /* same lift, in a column turned clockwise */
 
   .row {
@@ -96,11 +98,12 @@
   }
   .collab .x, .side .x { letter-spacing: 0; }
 
-  .rule { height: .7cqw; }
-  .rule-dash { background: repeating-linear-gradient(90deg, currentColor 0 2.2cqw, transparent 2.2cqw 3.6cqw); }
-  .rule-double { height: 2cqw; border-block: .55cqw solid; box-sizing: border-box; }
-  .rule-thin { height: .35cqw; background: repeating-linear-gradient(90deg, currentColor 0 1.4cqw, transparent 1.4cqw 2.4cqw); }
-  .rule-thinDouble { height: 1.4cqw; border-block: .35cqw dashed; box-sizing: border-box; }
+  .rule-dash { height: 0.25cqw; background: repeating-linear-gradient(90deg, currentColor 0 1.6cqw, transparent 1.6cqw 2.8cqw); }
+  .rule-double { height: 1.3cqw; border-block: 0.22cqw solid; box-sizing: border-box; }
+  .rule-thin { height: 0.18cqw; background: repeating-linear-gradient(90deg, currentColor 0 1cqw, transparent 1cqw 1.8cqw); }
+  .rule-thinDouble { height: 1.1cqw; background: repeating-linear-gradient(90deg, currentColor 0 0.8cqw, transparent 0.8cqw 1.6cqw) top / 100% 0.18cqw no-repeat, repeating-linear-gradient(90deg, currentColor 0 0.8cqw, transparent 0.8cqw 1.6cqw) bottom / 100% 0.18cqw no-repeat; }
+  .ruled { border-block: 0.4cqw solid; }
+  .ruled li + li { border-top: 0.18cqw solid; }
 
   .wm, .barcode, .qr { display: block; }
   .barcode, .qr { margin-inline: auto; }
@@ -113,9 +116,8 @@
   .list .pre { flex: 0 0 1.6em; }
   .list li { white-space: nowrap; }
   .list li + li { margin-top: .1em; }
-  .ruled { border-block: 1.2cqw solid; }
   .ruled li { padding: 2.4cqw 0; }
-  .ruled li + li { margin: 0; border-top: .4cqw solid; }
+  .ruled li + li { margin: 0; }
 
   /* the runner's long middle: flush left with a considered rag, never hyphenated */
   .flow { text-wrap: pretty; hyphens: manual; }
@@ -171,6 +173,15 @@
   }
 </style>
 
+<!-- the DNA logo's smear, as on the poster: blur along the line, a little across it -->
+<svg width="0" height="0" style="position: absolute" aria-hidden="true">
+  <filter id="dna-blur" primitiveUnits="objectBoundingBox" x="-25%" y="-40%" width="150%" height="180%">
+    <feGaussianBlur stdDeviation="0.022 0.012"/>
+  </filter>
+  <filter id="dna-blur-v" primitiveUnits="objectBoundingBox" x="-40%" y="-25%" width="180%" height="150%">
+    <feGaussianBlur stdDeviation="0.012 0.022"/>
+  </filter>
+</svg>
 <main class="roll">
   <article class="paper" aria-label="Colorblock × DNA Dinner, 10 October 2026">
     <div class="row s-microCaps"><span>Colorblock × DNA</span><span>No. 0001</span></div>
