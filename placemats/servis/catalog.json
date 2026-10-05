@@ -302,5 +302,117 @@
   "w": 186,
   "h": 214,
   "color": "#B8BEB3"
+ },
+ {
+  "group": "Волнистые приборы",
+  "file": "39-lozhka-busy",
+  "title": "Ложка «Бусы»",
+  "w": 64,
+  "h": 302,
+  "color": "#B9BEC4"
+ },
+ {
+  "group": "Волнистые приборы",
+  "file": "40-vilka-busy",
+  "title": "Вилка «Бусы»",
+  "w": 41,
+  "h": 265,
+  "color": "#B9BEC4"
+ },
+ {
+  "group": "Волнистые приборы",
+  "file": "41-nozh-busy",
+  "title": "Нож «Бусы»",
+  "w": 36,
+  "h": 263,
+  "color": "#B9BEC4"
+ },
+ {
+  "group": "Волнистые приборы",
+  "file": "42-vilka-zmeika",
+  "title": "Вилка «Змейка»",
+  "w": 50,
+  "h": 262,
+  "color": "#F4DC7A"
+ },
+ {
+  "group": "Волнистые приборы",
+  "file": "43-lozhka-ryab",
+  "title": "Ложка «Рябь»",
+  "w": 66,
+  "h": 291,
+  "color": "#F27D72"
+ },
+ {
+  "group": "Контурные приборы",
+  "file": "44-lozhka-kontur",
+  "title": "Ложка-контур",
+  "w": 76,
+  "h": 304,
+  "color": "#C5E01C"
+ },
+ {
+  "group": "Контурные приборы",
+  "file": "45-vilka-kontur",
+  "title": "Вилка-контур",
+  "w": 55,
+  "h": 263,
+  "color": "#C5E01C"
+ },
+ {
+  "group": "Контурные приборы",
+  "file": "46-nozh-kontur",
+  "title": "Нож-контур",
+  "w": 33,
+  "h": 260,
+  "color": "#C5E01C"
+ },
+ {
+  "group": "Подложки",
+  "file": "47-podlozhka-risunok",
+  "title": "Подложка с рисунком",
+  "w": 455,
+  "h": 384,
+  "color": "#D6249F"
+ },
+ {
+  "group": "Подложки",
+  "file": "48-podlozhka-pechene",
+  "title": "Подложка «Печенье»",
+  "w": 436,
+  "h": 336,
+  "color": "#D9A066"
+ },
+ {
+  "group": "Подложки",
+  "file": "49-podlozhka-pechene-kruglaya",
+  "title": "Подложка «Печенье» круглая",
+  "w": 407,
+  "h": 405,
+  "color": "#F4DC7A"
+ },
+ {
+  "group": "Подложки",
+  "file": "50-tarelka-luzhica",
+  "title": "Тарелка «Лужица»",
+  "w": 345,
+  "h": 307,
+  "color": "#C5E01C"
+ },
+ {
+  "group": "Посуда с характером",
+  "file": "51-bokal-busy",
+  "title": "Бокал «Бусы»",
+  "w": 113,
+  "h": 238,
+  "color": "#A3D3EC"
+ },
+ {
+  "group": "Посуда с характером",
+  "file": "52-chashka-volna",
+  "title": "Чашка с волной",
+  "w": 162,
+  "h": 98,
+  "color": "#B9A7D8"
  }
 ]
