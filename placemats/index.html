@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Подложки — вектор</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #d9d7d2;
+    --card: #c9c6c0;
+    --ink: #1d1d1b;
+    --muted: #5d5a55;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #262523; --card: #3a3936; --ink: #f1efe9; --muted: #aaa69e; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 ui-sans-serif, system-ui, sans-serif; }
+  main { max-width: 1100px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 28px; margin: 0 0 6px; }
+  p { margin: 0 0 24px; color: var(--muted); max-width: 60ch; }
+  a { color: inherit; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
+  figure { margin: 0; background: var(--card); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+  .pic { aspect-ratio: 1; position: relative; }
+  .pic img { position: absolute; inset: 20px; width: calc(100% - 40px); height: calc(100% - 40px); object-fit: contain; }
+  figcaption { padding: 0 16px 14px; display: grid; gap: 2px; }
+  figcaption span { color: var(--muted); font-size: 13px; }
+  .set { margin-top: 32px; background: var(--card); border-radius: 10px; padding: 16px; }
+  .set img { width: 100%; max-width: 520px; display: block; margin: 0 auto; }
+</style>
+<main>
+  <h1>Подложки под посуду</h1>
+  <p>Векторы, снятые с фотографии сервировки. Каждый файл в натуральную величину (мм), по одной фигуре на файл. Раскладка ниже повторяет расположение на столе.</p>
+  <div class="grid">
+    <figure>
+      <div class="pic"><img src="svg/01-tarelka.svg" alt="Тарелка"></div>
+      <figcaption>
+        <b>Тарелка</b>
+        <span>381 × 318 мм · белая бумага, кольцо чёрное</span>
+        <span><a href="svg/01-tarelka.svg" download>SVG</a> · <a href="pdf/01-tarelka.pdf" download>PDF</a></span>
+      </figcaption>
+    </figure>
+    <figure>
+      <div class="pic"><img src="svg/02-vilka.svg" alt="Вилка"></div>
+      <figcaption>
+        <b>Вилка</b>
+        <span>54 × 248 мм · серый</span>
+        <span><a href="svg/02-vilka.svg" download>SVG</a> · <a href="pdf/02-vilka.pdf" download>PDF</a></span>
+      </figcaption>
+    </figure>
+    <figure>
+      <div class="pic"><img src="svg/03-nozh.svg" alt="Нож"></div>
+      <figcaption>
+        <b>Нож</b>
+        <span>66 × 273 мм · серый</span>
+        <span><a href="svg/03-nozh.svg" download>SVG</a> · <a href="pdf/03-nozh.pdf" download>PDF</a></span>
+      </figcaption>
+    </figure>
+    <figure>
+      <div class="pic"><img src="svg/04-kremanka.svg" alt="Креманка"></div>
+      <figcaption>
+        <b>Креманка</b>
+        <span>200 × 169 мм · тёмно-бирюзовый</span>
+        <span><a href="svg/04-kremanka.svg" download>SVG</a> · <a href="pdf/04-kremanka.pdf" download>PDF</a></span>
+      </figcaption>
+    </figure>
+    <figure>
+      <div class="pic"><img src="svg/05-bokal-flyute.svg" alt="Бокал-флюте"></div>
+      <figcaption>
+        <b>Бокал-флюте</b>
+        <span>219 × 276 мм · голубой</span>
+        <span><a href="svg/05-bokal-flyute.svg" download>SVG</a> · <a href="pdf/05-bokal-flyute.pdf" download>PDF</a></span>
+      </figcaption>
+    </figure>
+    <figure>
+      <div class="pic"><img src="svg/06-lozhka.svg" alt="Ложка"></div>
+      <figcaption>
+        <b>Ложка</b>
+        <span>106 × 113 мм · светло-розовый</span>
+        <span><a href="svg/06-lozhka.svg" download>SVG</a> · <a href="pdf/06-lozhka.pdf" download>PDF</a></span>
+      </figcaption>
+    </figure>
+    <figure>
+      <div class="pic"><img src="svg/07-zvezda.svg" alt="Звезда"></div>
+      <figcaption>
+        <b>Звезда</b>
+        <span>192 × 152 мм · белая бумага</span>
+        <span><a href="svg/07-zvezda.svg" download>SVG</a> · <a href="pdf/07-zvezda.pdf" download>PDF</a></span>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="set">
+    <img src="svg/00-raskladka.svg" alt="Раскладка как на столе">
+    <p style="margin:12px 0 0;text-align:center"><a href="svg/00-raskladka.svg" download>SVG</a> · <a href="pdf/00-raskladka.pdf" download>PDF</a> — вся сервировка, серый фон не печатать</p>
+  </div>
+</main>
+</html>
