@@ -1,5 +1,16 @@
 # Dinner receipts → Illustrator
 
+## Quickest: open the SVGs
+
+`svg/*.svg` (also zipped as `dinner-receipts-svg.zip`) are the seven strips at print size.
+Open one with File → Open: each opens on its own artboard with **live text** in
+Wix Madefor Display (one text object per line, the runner's paragraphs as one object each),
+named groups for paper, type, wordmark, barcode and QR, dashed rules as dashed strokes,
+the caramel swirl as an editable radial gradient. No images, no masks, no patterns.
+They are written by `../build/build_svg.js` from the same layout engine as the script below.
+
+## Fullest: run the script
+
 `dinner-receipts.jsx` builds all seven strips in a new Illustrator document, one artboard
 each, at print size (80 mm rolls, 72 mm for the ticket roll, 57 mm for the till receipt).
 
