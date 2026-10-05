@@ -7,34 +7,35 @@ i.e. percent of the paper width, so both renderers scale them the same way.
 
 # --- type scale --------------------------------------------------------------------------------
 # size (cqw), weight, leading, tracking (em), all caps
-# Wix Madefor Display is drawn for large sizes: small type gets a little air, display type is
-# tightened, and anything set in capitals is tracked out more than mixed case.
+# Set in Wix Madefor Text, spaced the way the poster is. Measured off the poster against the
+# font's own advances and kerning: COLORBLOCK in capitals runs at about +0.17 em, the mixed-case
+# names, date and address at about +0.01 em in SemiBold, lists at about 1.1 leading. So: every
+# capital line gets +0.17 em, every mixed-case line +0.01 em, kerning stays the font's own.
 STYLES = {
-    "micro":      (3.2, 500, 1.30, 0.020, False),
-    "microCaps":  (3.2, 600, 1.30, 0.100, True),
-    "body":       (4.2, 500, 1.40, 0.005, False),
-    "bodyStrong": (4.2, 700, 1.40, 0.000, False),
-    "bodyCaps":   (4.2, 500, 1.40, 0.060, True),
-    "sub":        (5.6, 600, 1.22, -0.010, False),
-    "subCaps":    (5.2, 700, 1.25, 0.030, True),
-    "brand":      (6.0, 700, 1.20, 0.040, True),
-    "name":       (8.4, 700, 1.05, -0.020, False),
-    "title":      (8.0, 700, 1.05, -0.020, False),
-    "titleCaps":  (8.0, 800, 1.05, 0.010, True),
-    "vinfo":      (9.6, 600, 1.12, -0.012, False),
-    "side":       (9.0, 600, 1.00, 0.040, True),
-    "display":    (15.0, 700, 0.95, -0.030, False),
-    "huge":       (17.0, 700, 0.92, -0.035, False),
-    "flow":       (3.1, 500, 1.50, 0.010, False),
-    "flowBold":   (3.1, 800, 1.50, 0.010, False),
-    "sign":       (4.8, 700, 1.30, 0.140, True),
-    "stars":      (4.2, 500, 1.00, 0.600, False),
+    "micro":      (3.2, 600, 1.20, 0.010, False),
+    "microCaps":  (3.2, 600, 1.20, 0.170, True),
+    "body":       (4.2, 600, 1.15, 0.010, False),
+    "bodyStrong": (4.2, 700, 1.15, 0.010, False),
+    "bodyCaps":   (4.2, 600, 1.15, 0.170, True),
+    "sub":        (5.6, 600, 1.10, 0.010, False),
+    "subCaps":    (5.2, 600, 1.10, 0.170, True),
+    "brand":      (6.0, 600, 1.10, 0.170, True),
+    "name":       (8.4, 600, 1.10, 0.010, False),
+    "title":      (8.0, 600, 1.10, 0.010, False),
+    "titleCaps":  (8.0, 600, 1.10, 0.170, True),
+    "vinfo":      (9.6, 600, 1.10, 0.010, False),
+    "side":       (9.0, 600, 1.00, 0.170, True),
+    "display":    (13.0, 600, 1.00, 0.010, False),
+    "huge":       (17.0, 600, 0.95, 0.010, False),
+    "flow":       (3.1, 500, 1.30, 0.010, False),
+    "flowBold":   (3.1, 700, 1.30, 0.010, False),
+    "sign":       (4.8, 600, 1.20, 0.170, True),
+    "stars":      (4.2, 600, 1.00, 0.600, False),
 }
 
-INK = "#161616"
-PAPER = "#fbfaf6"
-BROWN = "#4e2f1b"
-CREAM = "#feed95"
+# everything black on the lemon paper of the runner
+INK = "#000000"
+LEMON = "#feed95"
 
 LINEUP = ["Tanya Andrianova", "Igor Zotov", "Andrey Lee", "Sasha Chernikov", "Sophia Zhuravkova"]
 
@@ -111,17 +112,17 @@ def classic(caps, theme):
 STRIPS = {
     "index": dict(
         title="Dinner Receipt", width_px=380, width_mm=80, edge="torn",
-        paper=PAPER, ink=INK, pad=(10.2, 7.5, 12.2),
+        paper=LEMON, ink=INK, pad=(10.2, 7.5, 12.2),
         blocks=classic(True, "paper"),
     ),
-    "caramel": dict(
-        title="Dinner Caramel Receipt", width_px=380, width_mm=80, edge="torn",
-        paper="swirl", ink=CREAM, pad=(11.2, 7.5, 13.2),
-        blocks=classic(False, "swirl"),
+    "classic": dict(
+        title="Dinner Classic Receipt", width_px=380, width_mm=80, edge="torn",
+        paper=LEMON, ink=INK, pad=(11.2, 7.5, 13.2),
+        blocks=classic(False, "paper"),
     ),
     "poster": dict(
         title="Dinner Poster Strip", width_px=380, width_mm=80, edge="torn",
-        paper="swirl", ink=CREAM, pad=(12.2, 8, 14.2),
+        paper=LEMON, ink=INK, pad=(12.2, 8, 14.2),
         blocks=[
             dict(t="hero", wm_width=62, side=["COLORBLOCK", "×", "DNA"], mt=0),
             dict(t="vtext", style="vinfo", lines=[LINE_UP] + LINEUP, mt=12),
@@ -130,9 +131,9 @@ STRIPS = {
     ),
     "tickets": dict(
         title="Dinner Ticket Roll", width_px=340, width_mm=72, edge="stubs",
-        paper=PAPER, ink=BROWN, pad=(8, 9, 8),
+        paper=LEMON, ink=INK, pad=(8, 9, 8),
         stubs=[
-            dict(paper="swirl", ink=CREAM, blocks=[
+            dict(blocks=[
                 ROW("microCaps", "Colorblock × DNA", f"No.{NB}0001"),
                 WM("h", 100, mt=6),
                 ROW("micro", "Admit one", "Keep this stub", mt=5),
@@ -161,7 +162,7 @@ STRIPS = {
     ),
     "order": dict(
         title="Dinner Order Ticket", width_px=380, width_mm=80, edge="torn",
-        paper=PAPER, ink=INK, pad=(10.2, 6.5, 11.2),
+        paper=LEMON, ink=INK, pad=(10.2, 6.5, 11.2),
         blocks=[
             dict(t="columns", left=35, gap=5, right=[
                 [
@@ -187,7 +188,7 @@ STRIPS = {
     ),
     "fiscal": dict(
         title="Dinner Fiscal Receipt", width_px=300, width_mm=57, edge="torn", lang="ru",
-        paper=PAPER, ink=INK, pad=(11.6, 7, 15.6), scale=1.08,
+        paper=LEMON, ink=INK, pad=(11.6, 7, 15.6), scale=1.08,
         blocks=[
             WM("h", 100),
             COLLAB(mt=5),
@@ -219,7 +220,7 @@ STRIPS = {
     ),
     "runner": dict(
         title="Dinner Table Runner", width_px=380, width_mm=80, edge="torn",
-        paper=CREAM, ink=BROWN, pad=(9.2, 6, 9.2),
+        paper=LEMON, ink=INK, pad=(9.2, 6, 9.2),
         blocks=[
             WM("h", 100, mt=2),
             FLOW("unit", 5, mt=5),
@@ -243,4 +244,4 @@ FLOW_UNIT = (f"COLORBLOCK × DNA{NB}– **Dinner**{NB}– {DATE}{NB}– 18:00{NB
              f"{LINE_UP}: " + ", ".join(f"**{n.replace(' ', NB)}**" for n in LINEUP) + f"{NB}– ")
 
 # order the files are laid out in Illustrator, left to right
-ORDER = ["index", "caramel", "poster", "tickets", "order", "fiscal", "runner"]
+ORDER = ["index", "classic", "poster", "tickets", "order", "fiscal", "runner"]

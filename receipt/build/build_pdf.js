@@ -12,7 +12,7 @@ const { chromium } = require(process.env.PLAYWRIGHT || 'playwright');
 
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'print');
-const STRIPS = { index: 80, caramel: 80, poster: 80, tickets: 72, order: 80, fiscal: 57, runner: 80 };
+const STRIPS = { index: 80, classic: 80, poster: 80, tickets: 72, order: 80, fiscal: 57, runner: 80 };
 
 const PRINT_CSS = `
   html, body { background: none !important; }

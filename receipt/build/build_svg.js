@@ -4,7 +4,7 @@
 //
 // Runs the Illustrator script's own layout engine against ai_dom.js, then writes what it built as
 // plain SVG that Illustrator opens with live type: one <text> per line or paragraph set in
-// Wix Madefor Display, named groups for paper / type / wordmark / barcode, the caramel swirl as a
+// Wix Madefor Text, named groups for paper / type / wordmark / barcode, the caramel swirl as a
 // real radial gradient, dashed rules as dashed strokes. No masks, no patterns, no images.
 const fs = require('fs');
 const path = require('path');
@@ -48,7 +48,7 @@ function build(layer, ab) {
   }
 
   function font(w) {
-    return `font-family="WixMadeforDisplay-${PS[w]}, 'Wix Madefor Display', sans-serif" font-weight="${w}"`;
+    return `font-family="WixMadeforText-${PS[w]}, 'Wix Madefor Text', sans-serif" font-weight="${w}"`;
   }
 
   // split a frame's characters into runs of identical styling

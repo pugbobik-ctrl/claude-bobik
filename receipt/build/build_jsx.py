@@ -6,7 +6,7 @@ import copy
 import json
 import pathlib
 
-from spec import STRIPS, STYLES, FLOW_UNIT, ORDER, INK, PAPER, BROWN, CREAM
+from spec import STRIPS, STYLES, FLOW_UNIT, ORDER, INK, LEMON
 
 HERE = pathlib.Path(__file__).parent
 OUT = HERE.parent / "illustrator" / "dinner-receipts.jsx"
@@ -49,7 +49,7 @@ for s in strips.values():
 data = dict(
     styles={k: list(v) for k, v in STYLES.items()},
     strips=strips, order=ORDER, flow=FLOW_UNIT,
-    colors=dict(ink=INK, paper=PAPER, brown=BROWN, cream=CREAM),
+    colors=dict(ink=INK, lemon=LEMON),
     wm_v=A["wm_v"], wm_h=A["wm_h"], wm_ratio=A["wm_ratio"],
     ean=A["ean"], bars=A["bars"], qr=A["qr"], rings=A["rings"], px=380,
 )
