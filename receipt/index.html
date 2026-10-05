@@ -1,0 +1,211 @@
+<meta charset="utf-8">
+<title>Dinner Receipt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    --table: #d8d7d2;
+    --paper: #fbfaf6;
+    --ink: #161616;
+    --font: "Wix Madefor Display", "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --table: #1b1b1a; }
+  }
+  :root[data-theme="dark"] { --table: #1b1b1a; }
+
+  html, body { background: var(--table); margin: 0; }
+  body {
+    min-height: 100vh;
+    display: grid;
+    justify-items: center;
+    align-items: start;
+    padding: 40px 16px 64px;
+    box-sizing: border-box;
+  }
+
+  /* the shadow lives on the wrapper because the mask clips it off the paper */
+  .roll {
+    width: min(100%, 380px);
+    container-type: inline-size;
+    filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .18)) drop-shadow(0 2px 3px rgba(0, 0, 0, .12));
+  }
+
+  /* 80 mm thermal paper; every size below is in cqw so it scales as one piece */
+  .receipt {
+    --z: 3.2cqw; /* torn-edge tooth */
+    padding: calc(var(--z) + 7cqw) 7.5cqw calc(var(--z) + 9cqw);
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, .035), transparent 6%, transparent 94%, rgba(0, 0, 0, .035)),
+      var(--paper);
+    color: var(--ink);
+    font: 500 4.1cqw/1.45 var(--font);
+    font-variant-numeric: tabular-nums;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    -webkit-mask:
+      conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / var(--z) 51% repeat-x,
+      conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / var(--z) 51% repeat-x;
+    mask:
+      conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / var(--z) 51% repeat-x,
+      conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / var(--z) 51% repeat-x;
+  }
+  .receipt p, .receipt h2, .receipt ol { margin: 0; padding: 0; }
+
+  .collab {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 3.4cqw;
+    font-size: 6.4cqw;
+    font-weight: 700;
+    letter-spacing: .04em;
+  }
+  .collab .x { font-size: 4cqw; font-weight: 500; }
+
+  .wordmark {
+    display: block;
+    width: 62%;
+    margin: 7cqw auto 6cqw;
+  }
+
+  /* receipt rules: dashes and the double line under the total */
+  .cut {
+    height: .7cqw;
+    margin: 4.6cqw 0;
+    background: repeating-linear-gradient(90deg, var(--ink) 0 2.2cqw, transparent 2.2cqw 3.6cqw);
+  }
+  .double {
+    height: 2cqw;
+    margin: 3.6cqw 0 6cqw;
+    border-block: .55cqw solid var(--ink);
+    box-sizing: border-box;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 3cqw;
+  }
+  .row > :last-child { text-align: right; white-space: nowrap; }
+
+  .center { text-align: center; }
+  .label {
+    font-size: 3.3cqw;
+    font-weight: 600;
+    letter-spacing: .18em;
+  }
+  .venue { font-size: 5.2cqw; font-weight: 700; line-height: 1.25; }
+
+  .lineup { list-style: none; counter-reset: guest; }
+  .lineup li {
+    display: grid;
+    grid-template-columns: 7.5cqw 1fr auto;
+    align-items: baseline;
+  }
+  .lineup li { counter-increment: guest; }
+  .lineup li::before {
+    content: counter(guest, decimal-leading-zero);
+    font-size: 3.3cqw;
+    font-weight: 600;
+  }
+  .lineup .qty { padding-left: 3cqw; }
+  .head { margin-bottom: 1.6cqw; }
+
+  .total {
+    margin-top: 1.8cqw;
+    font-size: 8cqw;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -.01em;
+  }
+
+  .barcode {
+    display: block;
+    width: 78%;
+    margin: 0 auto;
+  }
+  .barcode text {
+    font: 500 8.4px var(--font);
+    letter-spacing: .4px;
+  }
+
+  .thanks {
+    margin-top: 8cqw;
+    font-size: 4.8cqw;
+    font-weight: 700;
+    letter-spacing: .14em;
+  }
+  .stars { margin-top: 1.4cqw; letter-spacing: .6em; margin-right: -.6em; }
+
+  /* thermal roll printers: 80 mm paper, 72 mm print area, black only */
+  @media print {
+    @page { margin: 0; }
+    html, body { background: #fff; }
+    body { display: block; min-height: 0; padding: 0; }
+    .roll { width: 72mm; margin: 0 auto; filter: none; }
+    .receipt { background: #fff; color: #000; -webkit-mask: none; mask: none; padding-block: 6mm 10mm; }
+  }
+</style>
+
+<main class="roll">
+  <article class="receipt" aria-label="Colorblock × DNA Dinner, 10 October 2026">
+    <p class="collab"><span>Colorblock</span><span class="x">×</span><span>DNA</span></p>
+
+    <!-- DINNER runs down the strip like on the poster; the goo filter melts the letters into blobs -->
+    <svg class="wordmark" viewBox="0 0 230 760" role="img" aria-label="Dinner">
+      <defs>
+        <filter id="goo" x="-20%" y="-10%" width="140%" height="120%" color-interpolation-filters="sRGB">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="11" result="b"/>
+          <feColorMatrix in="b" type="matrix" values="0 0 0 0 .086  0 0 0 0 .086  0 0 0 0 .086  0 0 0 28 -12"/>
+        </filter>
+      </defs>
+      <g filter="url(#goo)" fill="currentColor" stroke="currentColor" stroke-width="14" stroke-linejoin="round">
+        <text transform="translate(52 22) rotate(90)" font-family="'Wix Madefor Display', sans-serif" font-weight="800" font-size="232" textLength="716" lengthAdjust="spacingAndGlyphs">DINNER</text>
+      </g>
+    </svg>
+
+    <div class="row"><span>Check no.</span><span>0001</span></div>
+    <div class="row"><span>Date</span><span>10 Oct 2026</span></div>
+    <div class="row"><span>Start</span><span>18:00</span></div>
+
+    <div class="cut"></div>
+
+    <p class="label">Venue</p>
+    <p class="venue">DNA Kitchen<br>Samokatnaya 4s53</p>
+
+    <div class="cut"></div>
+
+    <div class="row head label"><span>Line-up</span><span>Qty</span></div>
+    <ol class="lineup">
+      <li><span>Tanya Andrianova</span><span class="qty">1</span></li>
+      <li><span>Igor Zotov</span><span class="qty">1</span></li>
+      <li><span>Andrey Lee</span><span class="qty">1</span></li>
+      <li><span>Sasha Chernikov</span><span class="qty">1</span></li>
+      <li><span>Sophia Zhuravkova</span><span class="qty">1</span></li>
+    </ol>
+
+    <div class="cut"></div>
+
+    <div class="row"><span>Items</span><span>5</span></div>
+    <div class="row total"><span>Total</span><span>Dinner</span></div>
+
+    <div class="double"></div>
+
+    <!-- EAN-13 2026101018001: event date and start time, scannable -->
+    <svg class="barcode" viewBox="-11 0 117 70" role="img" aria-label="Barcode 2026101018001">
+      <g fill="currentColor">
+        <rect x="0" width="1" height="60"/><rect x="2" width="1" height="60"/><rect x="6" width="2" height="54"/><rect x="9" width="1" height="54"/><rect x="12" width="1" height="54"/><rect x="15" width="2" height="54"/><rect x="21" width="1" height="54"/><rect x="23" width="1" height="54"/><rect x="25" width="2" height="54"/><rect x="29" width="2" height="54"/><rect x="34" width="2" height="54"/><rect x="37" width="1" height="54"/><rect x="39" width="2" height="54"/><rect x="43" width="2" height="54"/><rect x="46" width="1" height="60"/><rect x="48" width="1" height="60"/><rect x="50" width="3" height="54"/><rect x="55" width="1" height="54"/><rect x="57" width="2" height="54"/><rect x="61" width="2" height="54"/><rect x="64" width="1" height="54"/><rect x="67" width="1" height="54"/><rect x="71" width="3" height="54"/><rect x="76" width="1" height="54"/><rect x="78" width="3" height="54"/><rect x="83" width="1" height="54"/><rect x="85" width="2" height="54"/><rect x="89" width="2" height="54"/><rect x="92" width="1" height="60"/><rect x="94" width="1" height="60"/>
+        <text x="-3" y="66" text-anchor="end">2</text>
+        <text x="24" y="66" text-anchor="middle">026101</text>
+        <text x="70" y="66" text-anchor="middle">018001</text>
+      </g>
+    </svg>
+
+    <p class="thanks center">Thank you</p>
+    <p class="stars center">***</p>
+  </article>
+</main>
