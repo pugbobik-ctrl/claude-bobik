@@ -414,5 +414,357 @@
   "w": 162,
   "h": 98,
   "color": "#B9A7D8"
+ },
+ {
+  "group": "Кофейные",
+  "file": "53-chashka-bar",
+  "title": "Чашка «Бар»",
+  "w": 218,
+  "h": 114,
+  "color": "#F3E6D3"
+ },
+ {
+  "group": "Кофейные",
+  "file": "54-stopka-chashek",
+  "title": "Стопка чашек",
+  "w": 230,
+  "h": 259,
+  "color": "#F3E6D3"
+ },
+ {
+  "group": "Кофейные",
+  "file": "55-chashka-oblako",
+  "title": "Чашка «Облако»",
+  "w": 202,
+  "h": 126,
+  "color": "#E9B7C7"
+ },
+ {
+  "group": "Кофейные",
+  "file": "56-kruzhka-cvetok",
+  "title": "Кружка с ручкой-цветком",
+  "w": 188,
+  "h": 136,
+  "color": "#A9C2E0"
+ },
+ {
+  "group": "Кофейные",
+  "file": "57-kruzhka-nozhka",
+  "title": "Кружка на ножке",
+  "w": 176,
+  "h": 134,
+  "color": "#F3E6D3"
+ },
+ {
+  "group": "Керамика",
+  "file": "58-vaza-amfora",
+  "title": "Ваза-амфора",
+  "w": 158,
+  "h": 225,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Керамика",
+  "file": "59-butylka",
+  "title": "Бутылка",
+  "w": 85,
+  "h": 224,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Керамика",
+  "file": "60-vaza-shar",
+  "title": "Ваза-шар",
+  "w": 102,
+  "h": 126,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Керамика",
+  "file": "61-gorshok",
+  "title": "Горшок с крышкой",
+  "w": 142,
+  "h": 113,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Керамика",
+  "file": "62-miska-ushki",
+  "title": "Миска с ушками",
+  "w": 218,
+  "h": 82,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Керамика",
+  "file": "63-piala",
+  "title": "Пиала",
+  "w": 222,
+  "h": 68,
+  "color": "#F6CF5A"
+ },
+ {
+  "group": "Керамика",
+  "file": "64-tarelka-bublik",
+  "title": "Тарелка-бублик",
+  "w": 301,
+  "h": 187,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Керамика",
+  "file": "65-kuvshin-konus",
+  "title": "Кувшин-конус",
+  "w": 155,
+  "h": 212,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Керамика",
+  "file": "66-slivochnik",
+  "title": "Сливочник",
+  "w": 207,
+  "h": 112,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Керамика",
+  "file": "67-kremanka-sandei",
+  "title": "Креманка для мороженого",
+  "w": 82,
+  "h": 162,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Керамика",
+  "file": "68-stopka",
+  "title": "Стопка",
+  "w": 70,
+  "h": 89,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Декор",
+  "file": "69-romashka",
+  "title": "Ромашка",
+  "w": 221,
+  "h": 230,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Декор",
+  "file": "70-korall",
+  "title": "Веточка",
+  "w": 172,
+  "h": 204,
+  "color": "#E8461E"
+ },
+ {
+  "group": "Декор",
+  "file": "71-yabloko",
+  "title": "Яблоко",
+  "w": 166,
+  "h": 166,
+  "color": "#6CB3BE"
+ },
+ {
+  "group": "Кофейные",
+  "file": "72-geizernaya",
+  "title": "Гейзерная кофеварка",
+  "w": 133,
+  "h": 184,
+  "color": "#B9BEC4"
+ },
+ {
+  "group": "Кофейные",
+  "file": "73-turka",
+  "title": "Турка",
+  "w": 251,
+  "h": 155,
+  "color": "#D9984F"
+ },
+ {
+  "group": "Кофейные",
+  "file": "74-french-press",
+  "title": "Френч-пресс",
+  "w": 147,
+  "h": 235,
+  "color": "#4A2A22"
+ },
+ {
+  "group": "Кофейные",
+  "file": "75-kofemolka",
+  "title": "Кофемолка",
+  "w": 131,
+  "h": 235,
+  "color": "#D9984F"
+ },
+ {
+  "group": "Кофейные",
+  "file": "76-zerno",
+  "title": "Кофейное зерно",
+  "w": 99,
+  "h": 130,
+  "color": "#4A2A22"
+ },
+ {
+  "group": "Кофейные",
+  "file": "77-stakan-navynos",
+  "title": "Стакан навынос",
+  "w": 102,
+  "h": 168,
+  "color": "#FFF8EC"
+ },
+ {
+  "group": "Кофейные",
+  "file": "78-kapuchino",
+  "title": "Капучино сверху",
+  "w": 250,
+  "h": 222,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Кофейные",
+  "file": "79-chashka-par",
+  "title": "Чашка с паром",
+  "w": 161,
+  "h": 161,
+  "color": "#E8461E"
+ },
+ {
+  "group": "Кофейные",
+  "file": "80-sahar",
+  "title": "Сахар",
+  "w": 81,
+  "h": 115,
+  "color": "#FFFFFF"
+ },
+ {
+  "group": "Кофейные",
+  "file": "81-holder",
+  "title": "Холдер",
+  "w": 244,
+  "h": 96,
+  "color": "#B9BEC4"
+ },
+ {
+  "group": "Пекарня",
+  "file": "82-kruassan",
+  "title": "Круассан",
+  "w": 251,
+  "h": 149,
+  "color": "#D9984F"
+ },
+ {
+  "group": "Пекарня",
+  "file": "83-baget",
+  "title": "Багет",
+  "w": 355,
+  "h": 125,
+  "color": "#D9984F"
+ },
+ {
+  "group": "Пекарня",
+  "file": "84-hleb",
+  "title": "Хлеб",
+  "w": 222,
+  "h": 132,
+  "color": "#D9984F"
+ },
+ {
+  "group": "Пекарня",
+  "file": "85-krendel",
+  "title": "Крендель",
+  "w": 192,
+  "h": 165,
+  "color": "#A9622A"
+ },
+ {
+  "group": "Пекарня",
+  "file": "86-ponchik",
+  "title": "Пончик",
+  "w": 202,
+  "h": 202,
+  "color": "#D9984F"
+ },
+ {
+  "group": "Пекарня",
+  "file": "87-maffin",
+  "title": "Маффин",
+  "w": 130,
+  "h": 158,
+  "color": "#C99A6A"
+ },
+ {
+  "group": "Пекарня",
+  "file": "88-tort",
+  "title": "Кусок торта",
+  "w": 203,
+  "h": 155,
+  "color": "#FFF8EC"
+ },
+ {
+  "group": "Пекарня",
+  "file": "89-ulitka",
+  "title": "Булочка-улитка",
+  "w": 202,
+  "h": 202,
+  "color": "#D9984F"
+ },
+ {
+  "group": "Пекарня",
+  "file": "90-pechene",
+  "title": "Печенье",
+  "w": 183,
+  "h": 181,
+  "color": "#F2D6A2"
+ },
+ {
+  "group": "Пекарня",
+  "file": "91-ekler",
+  "title": "Эклер",
+  "w": 282,
+  "h": 62,
+  "color": "#F2D6A2"
+ },
+ {
+  "group": "Пекарня",
+  "file": "92-makaron",
+  "title": "Макарон",
+  "w": 142,
+  "h": 102,
+  "color": "#F2A0B8"
+ },
+ {
+  "group": "Пекарня",
+  "file": "93-pirog",
+  "title": "Пирог",
+  "w": 269,
+  "h": 267,
+  "color": "#D9984F"
+ },
+ {
+  "group": "Пекарня",
+  "file": "94-skalka",
+  "title": "Скалка",
+  "w": 322,
+  "h": 50,
+  "color": "#C99A6A"
+ },
+ {
+  "group": "Пекарня",
+  "file": "95-venchik",
+  "title": "Венчик",
+  "w": 97,
+  "h": 243,
+  "color": "#B9BEC4"
+ },
+ {
+  "group": "Пекарня",
+  "file": "96-kolpak",
+  "title": "Поварской колпак",
+  "w": 193,
+  "h": 166,
+  "color": "#FFFFFF"
  }
 ]
