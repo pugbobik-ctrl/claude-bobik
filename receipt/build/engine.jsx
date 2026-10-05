@@ -140,13 +140,15 @@
         tf.textRange.paragraphAttributes.justification = j;
         var n = tf.characters.length;
         // tracking trails the last glyph: drop it so centred and right-set lines sit true
-        if (n && align !== "left") tf.characters[n - 1].characterAttributes.tracking = 0;
+        if (n && align !== "left") {
+            try { tf.characters[n - 1].characterAttributes.tracking = 0; } catch (e1) {}
+        }
         // lift colons between figures to the middle of the cap height at display sizes
         if (st.size >= 8 * ctx.cq) {
             var s = tf.contents;
             for (var i = 1; i < s.length - 1; i++) {
                 if (s.charAt(i) === ":" && /\d/.test(s.charAt(i - 1)) && /\d/.test(s.charAt(i + 1))) {
-                    tf.characters[i].characterAttributes.baselineShift = 0.1 * st.size;
+                    try { tf.characters[i].characterAttributes.baselineShift = 0.1 * st.size; } catch (e2) {}
                 }
             }
         }
@@ -368,14 +370,14 @@
         var g = ctx.layer.groupItems.add();
         g.name = "Colorblock \u00d7 DNA";
         var a = text("Colorblock", b.style, 0, base, "left", null, g);
-        var x = text("\u00d7", "body", 0, base, "left", null, g);
+        var times = text("\u00d7", "body", 0, base, "left", null, g);
         var c = text("DNA", b.style, 0, base, "left", null, g);
-        c.characters[c.characters.length - 1].characterAttributes.tracking = 0;
-        var total = a.width + gap + x.width + gap + c.width;
+        // centre on the ink: leave out the tracking that trails the last letter of DNA
+        var total = a.width + gap + times.width + gap + c.width - st.tr * st.size;
         var x0 = left + (w - total) / 2;
         a.left = x0;
-        x.left = x0 + a.width + gap;
-        c.left = x.left + x.width + gap;
+        times.left = x0 + a.width + gap;
+        c.left = times.left + times.width + gap;
         return st.size * st.lh;
     };
 
