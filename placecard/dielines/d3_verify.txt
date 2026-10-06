@@ -1,0 +1,27 @@
+=== D3 v2 verification ===
+PASS no overlaps (max pairwise 0.00e+00 mm2)
+PASS no gaps: uncovered mosaic area 0.00e+00 mm2
+PASS only protrusion = the 4 tabs of the last row (468.0 mm2)
+PASS inside the sheet; left margin 13.0 (gripper >= 10), others >= 4; bounds (13.0, 5.2, 437.0, 314.8)
+PASS creases run along x = the 450 mm side = long grain of a standard SRA3 (grain parallel to creases)
+PASS 12 pieces = 12 distinct outlines (no two congruent by translation)
+PASS divider inclinations [6.0, 7.0, 8.0, 9.0, 10.0, 12.0] deg (6-12)
+INFO inclinations per row (left->right dividers): (6.0, 9.0, 12.0); (-10.0, -7.0, -12.0); (8.0, 12.0, 7.0)
+PASS narrowest F / K leaf width 97.9 mm (name safe 80 + 2 x 6)
+PASS every tab / notch is >= 38.6 mm from the side edges of both pieces
+PASS slit ends >= 25.4 mm from the sides
+PASS closure: depth 21.322 = flap 12.0 + pin 9.322
+PASS B (20.0) ends 1.32 mm short of the F foot
+PASS slit clears the notch bottom by 3.83 mm
+PASS B ear beyond the slit 10.33 mm
+PASS riser 3.0 > B + flap (1.0); fold-over 3.5
+PASS crease pitches [34.5, 34.5, 12.0, 3.0] mm (>= 3.0 for a 0.71 rule + counter)
+PASS slit 0.7 for one board layer (clearance 0.20)
+PASS secondary type 4.9 mm -> caps 3.50 mm (table / seat / date)
+PASS F: name baseline s=14, caption s=25 (cap top 28.5) leaves 6.0 to the ridge; name 13-18 mm above the table
+PASS K: date cap top 22.5 < heavy line 26.8..29.2 < ridge at 34.5
+PASS all names (+ a 19-char one) fit the 80 mm safe width at <= 7.2 mm
+PASS COM y -0.48, z 11.4 between the feet -10.66..10.66; tip-over 42 deg
+INFO tent height 32.8 (v1 34.2), depth 21.32; mosaic 424 x 303 on 450 x 320 = 89.2 %
+INFO cut network 15 straight paths; odd nodes 10 -> 5 passes min on a plotter; die / laser: one hit
+RESULT ALL PASS

@@ -1,0 +1,20 @@
+=== D1 v2 verification ===
+PASS slot 0.7 net for board 0.5: clearance 0.20
+INFO slot depth A 11.0, B 11.6; play angle B in A 1.04 deg, A in B 0.99 deg; A top sways 0.78 mm
+PASS no material overlap at the crossing line; gap 0.60 mm (>= 0.6)
+PASS B never rises above the name: B max 26.38 < name baseline 27.0
+PASS name cap top 32.1 vs dome at x=40 38.1 (margin 5.9)
+PASS "Sophia Zhuravkova" 7.2 mm, 65.4 wide: cap top 32.1 < dome at its edge 40.4 - 4
+PASS "Alexandra Vorontsova" 7.2 mm, 75.6 wide: cap top 32.1 < dome at its edge 38.8 - 4
+PASS "Mikhail Terentyev-Z" 7.2 mm, 67.4 wide: cap top 32.1 < dome at its edge 40.1 - 4
+PASS table/seat line 50.6 wide, cap top 38.8 < dome at its edge 42.3 - 3
+PASS secondary type 4.9 mm -> cap 3.50 mm >= 3.5
+PASS line spacing name / eyebrow 3.2 mm
+PASS B texts fit the 26 mm arm zones
+PASS COM z 18.4; rhombus inradius 27.0 mm -> tip-over 55.7 deg (>= 55; v1 61 deg with B 88 wide)
+PASS A and B fit C6 / DL flat
+PASS min distance between any two pieces / coupons on the sheet 4.00 mm
+PASS all inside the usable area (6.0, 12.0, 314.0, 418.5)
+INFO utilisation 58.8 % ; 15 sets + 4 test coupons per SRA3
+PASS sail variant (sketch, relaxed limit 45): COM y 21.6, z 25.9, hull distance 29.4 -> tip-over 49 deg
+RESULT ALL PASS

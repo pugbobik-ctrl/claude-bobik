@@ -1,0 +1,27 @@
+=== D2 v2 verification ===
+PASS S and P outlines inside the card
+PASS S void and P void do not overlap
+PASS web between voids 8.0 mm (die minimum 3)
+PASS void to card edge 7.5 mm
+PASS 105 x 118 fits C6 (114 x 162)
+INFO footprint 12390 mm2 vs v1 15540 mm2 = 20 % smaller
+PASS triangle closes: S crown [28.282 30.91 ] = P tip [28.282 30.91 ] ; P = 44.29 at 44.3 deg
+INFO S circle: chord 90, height 32 -> R 47.64 (review quoted 33.7; (45^2+32^2)/(2*32) = 47.6). Tangent angle at the hinge ends 70.8 deg
+INFO folds: c1 75, c2 135.7, c3 119.3 deg
+INFO S lean for P 43.79/44.29/44.79: 73.98/75.00/76.03 deg (fold take-up 0.3-0.4 mm per 135 deg fold is inside this window; test 44.0 / 44.3 / 44.6)
+INFO strut flat: I 0.323 mm4, Euler 3.25 N -> push at crown 2.94 N (299 gf)
+INFO strut with 2 flanges: I 36.3 mm4 = 112 x ; Euler 365 N (no longer the limit; limits become the hook lip and crease c2, to be tested)
+PASS flanged strut >= 20 x stiffer than flat
+INFO twin struts 2 x 12 wide: I 0.250 mm4 (each strip alone: Euler 1.26 N) - not stiffer than the flat strut
+PASS flange tips stay behind the back face of S by >= 9.8 mm and above the table
+PASS flange ends are 6 / 8 mm from c2 / c3 (creases >= 3 mm apart)
+PASS web between flange creases >= 17.8 mm
+PASS name "Sophia Zhuravkova" 6.8 mm: 61.8 wide, S half-width at its cap top 74.8
+PASS name "Alexandra Vorontsova" 6.3 mm: 66.0 wide, S half-width at its cap top 75.4
+PASS name "Mikhail Terentyev-Z" 6.8 mm: 63.6 wide, S half-width at its cap top 74.8
+PASS table/seat line 50.6 mm wide at cap top v = 21.0: S width there 60.9
+PASS secondary type 4.9 mm -> cap height 3.50 mm >= 3.5
+PASS lip (v 26-32) clears the table/seat line (cap top 21.0) by 5.0 mm
+PASS name below table/seat line
+INFO imposition: cards stand with their 105 mm side (creases) along the 450 mm side: 4 x 105 + 3 x 3 = 429 mm; 2 x 118 + 3 = 239 mm of 320 -> 8 per SRA3 (grain long, parallel to creases)
+RESULT ALL PASS
