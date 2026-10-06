@@ -20,6 +20,12 @@ assembled views, notes with specs and assembly, and `*_verify.txt` geometry chec
 D2 is the lead direction. Test first: slot widths on the D1 test strip (0.6–0.9 mm),
 the D2 strut flanges, and the D3 tab lock.
 
+## 3D
+
+`3d/index.html` is an interactive model of all three at 1:1 (three.js): rotate, fold
+between flat and assembled, switch variants (D1 sail, D2 black card), view from a seated
+guest. Open it in a browser; `shots/` has stills.
+
 ## Research
 
 - `research/references.md`: 18 artist and designer references, grouped by how the flat form stands.

@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Place Cards 3D</title>
+<meta name="description" content="Interactive 3D viewer of three paper place-card dielines, modelled at 1:1 in millimetres.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#dcdad5; --panel:rgba(252,251,248,.92); --ink:#1b1a17; --ink2:#5d5a52; --line:rgba(27,26,23,.14);
+    --accent:#1b1a17; --accent-ink:#fff; --yellow:#feed95; --gap:16px;
+    --font:'Wix Madefor Text',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;overflow:hidden;
+    -webkit-text-size-adjust:100%}
+  #gl{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;outline:none;cursor:grab}
+  #gl:active{cursor:grabbing}
+  .panel{background:var(--panel);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line);
+    border-radius:12px;box-shadow:0 4px 18px rgba(30,25,10,.12)}
+  header{position:fixed;left:var(--gap);right:var(--gap);top:max(var(--gap),env(safe-area-inset-top));display:flex;gap:10px;align-items:center;
+    justify-content:space-between;pointer-events:none;flex-wrap:wrap}
+  header>*{pointer-events:auto}
+  .brand{font-weight:700;letter-spacing:.02em;font-size:13px;padding:9px 12px;display:flex;gap:8px;align-items:center}
+  .brand i{width:12px;height:12px;border-radius:3px;background:var(--yellow);border:1px solid rgba(0,0,0,.35);display:inline-block}
+  .tabs{display:flex;padding:4px;gap:4px}
+  .tabs button{font:inherit;border:0;background:transparent;color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer;
+    font-weight:500;display:flex;flex-direction:column;align-items:flex-start;line-height:1.15;min-height:44px;justify-content:center}
+  .tabs button b{font-weight:700;font-size:14px}
+  .tabs button span{font-size:11px;color:var(--ink2);margin-top:1px}
+  .tabs button[aria-selected=true]{background:var(--accent);color:var(--accent-ink)}
+  .tabs button[aria-selected=true] span{color:rgba(255,255,255,.72)}
+  .tabs button:focus-visible,.seg button:focus-visible,.chip:focus-visible,.icon:focus-visible{outline:2px solid #2a6fd6;outline-offset:2px}
+
+  #info{position:fixed;left:var(--gap);top:calc(max(var(--gap),env(safe-area-inset-top)) + 66px);width:300px;max-height:calc(100% - 250px);overflow:auto;padding:14px 16px}
+  #info h1{margin:0 0 4px;font-size:16px;line-height:1.25}
+  #info p{margin:0 0 10px;color:var(--ink2);line-height:1.45;font-size:13px}
+  #info dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:12.5px}
+  #info dt{color:var(--ink2)} #info dd{margin:0;font-variant-numeric:tabular-nums}
+  #info label{display:block;font-size:12px;color:var(--ink2);margin:12px 0 4px}
+  #info input[type=text]{width:100%;font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+  .icon{display:none;font:inherit;font-weight:700;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);cursor:pointer;color:var(--ink);background:var(--panel)}
+
+  footer{position:fixed;left:var(--gap);right:var(--gap);bottom:max(var(--gap),env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}
+  footer>*{pointer-events:auto}
+  .bar{display:flex;gap:10px;align-items:center;padding:8px 10px;flex-wrap:wrap;justify-content:center;max-width:100%}
+  .seg{display:flex;background:rgba(27,26,23,.07);border-radius:9px;padding:3px;gap:2px}
+  .seg button{font:inherit;font-weight:500;border:0;background:transparent;color:var(--ink);padding:0 14px;min-height:38px;border-radius:7px;cursor:pointer;white-space:nowrap}
+  .seg button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink)}
+  .opt{display:flex;align-items:center;gap:8px;color:var(--ink2);font-size:12px} .opt[hidden]{display:none}
+  .fold{display:flex;align-items:center;gap:8px;color:var(--ink2);font-size:12px}
+  .fold input{width:150px;accent-color:#1b1a17}
+  .chip{font:inherit;font-weight:500;border:1px solid var(--line);background:#fff;color:var(--ink);padding:0 12px;min-height:38px;border-radius:9px;cursor:pointer;white-space:nowrap}
+  .chip:hover{background:#f4f2ea}
+  .views{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+  .chk{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink2);min-height:38px;cursor:pointer;user-select:none}
+  .chk input{accent-color:#1b1a17;width:16px;height:16px}
+  #hint{position:fixed;right:var(--gap);top:calc(max(var(--gap),env(safe-area-inset-top)) + 66px);font-size:11.5px;color:var(--ink2);text-align:right;line-height:1.4;pointer-events:none}
+  #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg);font-size:14px;color:var(--ink2);z-index:5;transition:opacity .4s}
+  #loading.done{opacity:0;pointer-events:none}
+
+  @media (max-width:760px){
+    :root{--gap:10px}
+    .brand{display:none}
+    header{justify-content:center}
+    .tabs{width:100%}
+    .tabs button{flex:1;align-items:center;padding:6px 4px;text-align:center}
+    .tabs button span{display:none}
+    #info{display:none;width:auto;right:var(--gap);top:calc(max(var(--gap),env(safe-area-inset-top)) + 60px);max-height:46vh}
+    #info.open{display:block}
+    .icon{display:block;position:fixed;right:var(--gap);top:calc(max(var(--gap),env(safe-area-inset-top)) + 60px);z-index:3}
+    #hint{display:none}
+    .bar{gap:6px;padding:6px}
+    .seg button{padding:0 10px;min-height:40px}
+    .chip{padding:0 10px;min-height:40px}
+    .fold input{width:100px}
+    .views{gap:4px}
+    .chk{min-height:30px}
+    .lg{display:none}
+    .bar{flex-wrap:wrap}
+    .opt span{display:none}
+  }
+  @media (max-width:420px){ .fold span{display:none} .fold input{width:84px} .seg button{padding:0 8px} }
+</style>
+</head>
+<body>
+<canvas id="gl" tabindex="0" aria-label="3D viewer: drag to orbit, scroll or pinch to zoom, right-drag or two-finger drag to pan"></canvas>
+<div id="loading">Loading 3D viewer…</div>
+
+<header>
+  <div class="brand panel"><i></i>Place cards · 3D · mm</div>
+  <div class="tabs panel" role="tablist" aria-label="Design">
+    <button role="tab" data-d="d1" aria-selected="true"><b>D1</b><span>Two plates on slots</span></button>
+    <button role="tab" data-d="d2" aria-selected="false"><b>D2</b><span>Form and its void</span></button>
+    <button role="tab" data-d="d3" aria-selected="false"><b>D3</b><span>One sheet, whole table</span></button>
+  </div>
+</header>
+
+<button class="icon" id="infoBtn" aria-label="Show details" aria-expanded="false">i</button>
+<aside id="info" class="panel" aria-live="polite">
+  <h1 id="iTitle"></h1>
+  <p id="iText"></p>
+  <dl id="iDims"></dl>
+  <label for="nameIn">Guest name (reprints the card)</label>
+  <input id="nameIn" type="text" value="Sophia Zhuravkova" maxlength="26" autocomplete="off" spellcheck="false">
+</aside>
+<div id="hint">drag · orbit &nbsp; scroll / pinch · zoom<br>right-drag / two fingers · pan</div>
+
+<footer>
+  <div class="bar panel">
+    <div class="seg" role="group" aria-label="State">
+      <button id="bFlat" aria-pressed="true">Flat</button>
+      <button id="bAsm" aria-pressed="false">Assembled</button>
+    </div>
+    <label class="fold"><span>Fold</span><input id="slider" type="range" min="0" max="1000" value="0" aria-label="Fold progress"></label>
+    <div class="opt" id="opt" hidden><span id="optLabel">Variant</span><div class="seg" id="optSeg" role="group"></div></div>
+    <label class="chk"><input id="gd" type="checkbox" checked> <span>Cut<span class="lg"> / crease</span> lines</span></label>
+  </div>
+  <div class="views" id="views">
+    <button class="chip panel" data-v="overview">Overview</button>
+    <button class="chip panel" data-v="seated" title="Camera at a seated guest's eye height">Seated<span class="lg"> guest</span></button>
+    <button class="chip panel" data-v="top">Top</button>
+    <button class="chip panel" data-v="opposite" title="Camera at the guest opposite">Opposite<span class="lg"> guest</span></button>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>if(!window.THREE){document.write('<script src="vendor/three.min.js"><\/script>');}</script>
+<script>
+(function(){
+'use strict';
+const THREE = window.THREE;
+const V3 = THREE.Vector3;
+const D2R = Math.PI/180;
+
+/* ================================================================ constants (mm) */
+const YEL = '#feed95', INK = '#111111', BACKC = '#f0e08c', EDGEC = '#f2e293';
+const T = 0.5;                                   // board caliper
+const FONT = '"Wix Madefor Text", system-ui, sans-serif';
+let NAME = 'Sophia Zhuravkova';
+const SAMPLE_NAMES = ['Sophia Zhuravkova','Ivan Petrov','Alexandra Vorontsova','Mila Orlova','Tim Gerasimov','Nadezhda Kuznetsova',
+                      'Oleg Sidorov','Anna Li','Maximilian Kovalev','Daria Belova','Pavel Arkhipov','Elena Smirnova'];
+const TABLE_NO = '4', SEAT_NO = '07', CAP_H = 0.715;
+
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const sm=(a,b,x)=>{const t=clamp((x-a)/(b-a),0,1);return t*t*(3-2*t);};
+const col=(hex)=>new THREE.Color(hex).convertSRGBToLinear();
+
+/* font metrics: Wix Madefor Text advance widths measured with canvas at runtime (fit_size equivalent) */
+const mcv=document.createElement('canvas').getContext('2d');
+function textEm(s,weight){ mcv.font=weight+' 100px '+FONT; return mcv.measureText(s).width/100; }
+function fitSize(s,avail,max,weight){ return Math.min(max, avail/textEm(s,weight||500)); }
+
+/* ================================================================ renderer, scene */
+const canvas=document.getElementById('gl');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,powerPreference:'high-performance',preserveDrawingBuffer:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+renderer.outputEncoding=THREE.sRGBEncoding;
+renderer.shadowMap.enabled=true;
+renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+renderer.toneMapping=THREE.NoToneMapping;
+const MAXANI=renderer.capabilities.getMaxAnisotropy();
+
+const scene=new THREE.Scene();
+scene.background=col('#dcdad5');
+scene.fog=new THREE.Fog(col('#dcdad5'),2600,6500);
+const camera=new THREE.PerspectiveCamera(36,1,15,9000);
+
+const hemi=new THREE.HemisphereLight(0xffffff,0xb9b3a8,0.78); scene.add(hemi);
+const key=new THREE.DirectionalLight(0xffffff,0.7);
+key.position.set(-420,820,520); key.castShadow=true;
+key.shadow.mapSize.set(4096,4096); key.shadow.radius=3.5; key.shadow.bias=-0.0004; key.shadow.normalBias=0.15;
+scene.add(key); scene.add(key.target);
+const fill=new THREE.DirectionalLight(0xfff6ea,0.18); fill.position.set(500,300,-300); scene.add(fill);
+
+function setShadowBox(cx,cz,half){
+  const c=key.shadow.camera; c.left=-half;c.right=half;c.top=half;c.bottom=-half;c.near=100;c.far=2800;
+  key.target.position.set(cx,0,cz);
+  key.position.set(cx-0.45*1000,1000*0.88,cz+0.55*1000);
+  c.updateProjectionMatrix(); key.target.updateMatrixWorld();
+}
+
+/* ---------------------------------------------------------------- generic helpers */
+const matCache={};
+function stdMat(hex,opts){
+  const k=hex+JSON.stringify(opts||{});
+  if(!matCache[k]) matCache[k]=new THREE.MeshStandardMaterial(Object.assign({color:col(hex),roughness:.92,metalness:0},opts||{}));
+  return matCache[k];
+}
+function dedupe(pts){
+  const o=[];
+  for(const p of pts){ const q=o[o.length-1]; if(!q||Math.hypot(p[0]-q[0],p[1]-q[1])>1e-6) o.push(p); }
+  while(o.length>1&&Math.hypot(o[0][0]-o[o.length-1][0],o[0][1]-o[o.length-1][1])<1e-6) o.pop();
+  return o;
+}
+
+/* paint registry: canvas textures redrawn when the font arrives or the name changes */
+const paints=[];
+const outlines=[];     // line objects toggled by "guides"
+function makePaint(o){
+  // o: {x0,x1,y0,y1, ppm, yup, draw(ctx,txt)}
+  const w=o.x1-o.x0, h=o.y1-o.y0;
+  const cv=document.createElement('canvas'); cv.width=Math.ceil(w*o.ppm); cv.height=Math.ceil(h*o.ppm);
+  const ctx=cv.getContext('2d');
+  const tex=new THREE.CanvasTexture(cv); tex.encoding=THREE.sRGBEncoding; tex.anisotropy=MAXANI; tex.generateMipmaps=true;
+  tex.minFilter=THREE.LinearMipmapLinearFilter;
+  const rec={tex,w,h,cv,
+    uv:(x,y)=>o.yup?[(x-o.x0)/w,(y-o.y0)/h]:[(x-o.x0)/w,1-(y-o.y0)/h],
+    redraw(){
+      ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,cv.width,cv.height);
+      if(o.yup) ctx.setTransform(o.ppm,0,0,-o.ppm,-o.x0*o.ppm,o.y1*o.ppm);
+      else ctx.setTransform(o.ppm,0,0,o.ppm,-o.x0*o.ppm,-o.y0*o.ppm);
+      if(!o.transparent){ ctx.fillStyle=o.bg?o.bg():YEL; ctx.fillRect(o.x0-1,Math.min(o.y0,o.y1)-1,w+2,h+2); }
+      const txt=(s,x,y,size,opt)=>drawText(ctx,!!o.yup,s,x,y,size,opt||{});
+      o.draw(ctx,txt);
+      tex.needsUpdate=true;
+    }};
+  paints.push(rec); return rec;
+}
+function drawText(ctx,yup,s,x,y,size,{weight=500,track=0,fill=INK,rot=0}){
+  ctx.save(); ctx.translate(x,y); if(yup) ctx.scale(1,-1); if(rot) ctx.rotate(rot*D2R);
+  ctx.scale(0.1,0.1); const px=size*10;
+  ctx.font=weight+' '+px+'px '+FONT; ctx.fillStyle=fill; ctx.textBaseline='alphabetic';
+  if(!track){ ctx.textAlign='center'; ctx.fillText(s,0,0); }
+  else{
+    const chars=[...s]; const ws=chars.map(c=>ctx.measureText(c).width); const gap=track*px;
+    const tot=ws.reduce((a,b)=>a+b,0)+gap*(chars.length-1); let cx=-tot/2; ctx.textAlign='left';
+    chars.forEach((c,i)=>{ctx.fillText(c,cx,0);cx+=ws[i]+gap;});
+  }
+  ctx.restore();
+}
+
+/* thin extruded board from an outline (+holes). Local frame: shape in XY (y up), printed top face at z=0, slab down to z=-T.
+   opts.front / opts.back = {tex, uv(x,y)->[u,v], mirror} ; back without tex = plain board colour */
+function makeBoard(pts,holes,opts){
+  opts=opts||{};
+  const shape=new THREE.Shape(dedupe(pts).map(p=>new THREE.Vector2(p[0],p[1])));
+  (holes||[]).forEach(h=>shape.holes.push(new THREE.Path(dedupe(h).map(p=>new THREE.Vector2(p[0],p[1])))));
+  let g=new THREE.ExtrudeGeometry(shape,{depth:T,bevelEnabled:false,curveSegments:1,steps:1});
+  g.translate(0,0,-T);
+  const pos=g.attributes.position, nor=g.attributes.normal;
+  const g0=g.groups[0], g1=g.groups[1];
+  const triFront=[],triBack=[],triSide=[];
+  for(let t=0;t<g0.count/3;t++){ const z=pos.getZ(g0.start+3*t); (z>-T/2?triFront:triBack).push(g0.start/3+t); }
+  for(let t=0;t<g1.count/3;t++) triSide.push(g1.start/3+t);
+  const order=[...triBack,...triFront,...triSide], n=order.length*3;
+  const P=new Float32Array(n*3),N=new Float32Array(n*3),UV=new Float32Array(n*2);
+  const fr=opts.front,bk=opts.back;
+  order.forEach((tri,ti)=>{
+    const kind=ti<triBack.length?0:(ti<triBack.length+triFront.length?1:2);
+    for(let k=0;k<3;k++){
+      const vi=tri*3+k, o=ti*3+k;
+      const x=pos.getX(vi),y=pos.getY(vi),z=pos.getZ(vi);
+      P[o*3]=x;P[o*3+1]=y;P[o*3+2]=z; N[o*3]=nor.getX(vi);N[o*3+1]=nor.getY(vi);N[o*3+2]=nor.getZ(vi);
+      if(kind===1&&fr&&fr.uv){const u=fr.uv(x,y);UV[o*2]=u[0];UV[o*2+1]=u[1];}
+      else if(kind===0&&bk&&bk.uv){const u=bk.uv(x,y);UV[o*2]=bk.mirror?1-u[0]:u[0];UV[o*2+1]=u[1];}
+    }
+  });
+  const geo=new THREE.BufferGeometry();
+  geo.setAttribute('position',new THREE.BufferAttribute(P,3));
+  geo.setAttribute('normal',new THREE.BufferAttribute(N,3));
+  geo.setAttribute('uv',new THREE.BufferAttribute(UV,2));
+  geo.addGroup(0,triBack.length*3,0); geo.addGroup(triBack.length*3,triFront.length*3,1);
+  geo.addGroup((triBack.length+triFront.length)*3,triSide.length*3,2);
+  const mBack=bk&&bk.tex?new THREE.MeshStandardMaterial({map:bk.tex,roughness:.92}):(opts.backMat||stdMat(BACKC));
+  const mFront=fr&&fr.tex?new THREE.MeshStandardMaterial({map:fr.tex,roughness:.92}):stdMat(YEL);
+  const mesh=new THREE.Mesh(geo,[mBack,mFront,opts.edgeMat||stdMat(EDGEC)]);
+  mesh.castShadow=true; mesh.receiveShadow=true;
+  g.dispose();
+  return mesh;
+}
+function outlineLine(pts,color,opacity,z){
+  const a=dedupe(pts).map(p=>new V3(p[0],p[1],z===undefined?0.03:z));
+  const l=new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(a),new THREE.LineBasicMaterial({color:col(color||'#7b6a22'),transparent:true,opacity:opacity||.55}));
+  outlines.push(l); return l;
+}
+function segLine(a,b,color,opacity){
+  const l=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new V3(a[0],a[1],0.04),new V3(b[0],b[1],0.04)]),
+    new THREE.LineBasicMaterial({color:col(color),transparent:true,opacity:opacity||.8}));
+  outlines.push(l); return l;
+}
+/* mount a board in a group, wrapping so that slab is centred on z=0 (centred=true) */
+function centred(mesh){ const g=new THREE.Group(); mesh.position.z=T/2; g.add(mesh); return g; }
+
+/* ================================================================ table setting: table, plate, napkin, scale bar */
+const setting=new THREE.Group(); scene.add(setting);
+(function buildTable(){
+  const cv=document.createElement('canvas'); cv.width=cv.height=512; const c=cv.getContext('2d');
+  c.fillStyle='#a8a399'; c.fillRect(0,0,512,512);
+  for(let i=0;i<9000;i++){ c.fillStyle='rgba('+(i%2?'255,255,255':'60,50,30')+','+(Math.random()*.05).toFixed(3)+')';
+    const x=Math.random()*512,y=Math.random()*512; if(i%3) c.fillRect(x,y,Math.random()*14+2,1); else c.fillRect(x,y,1,Math.random()*14+2); }
+  const tx=new THREE.CanvasTexture(cv); tx.wrapS=tx.wrapT=THREE.RepeatWrapping; tx.repeat.set(24,16); tx.encoding=THREE.sRGBEncoding; tx.anisotropy=MAXANI;
+  const m=new THREE.Mesh(new THREE.BoxGeometry(7000,60,4600),new THREE.MeshStandardMaterial({map:tx,roughness:.95}));
+  m.position.y=-30; m.receiveShadow=true; scene.add(m);
+  const floor=new THREE.Mesh(new THREE.PlaneGeometry(14000,14000),new THREE.MeshStandardMaterial({color:col('#c9c6bf'),roughness:1}));
+  floor.rotation.x=-Math.PI/2; floor.position.y=-700; scene.add(floor);
+})();
+function buildPlate(){
+  const prof=[[0,3],[60,3],[92,3.4],[104,6],[118,12.5],[128,17.5],[134,21],[135,23],[134,24],[132.6,23.2],[128,19],[116,14],[100,8.5],[90,6],[86,2.2],[84,0.2],[0,0.2]]
+    .map(p=>new THREE.Vector2(p[0],p[1]));
+  const g=new THREE.LatheGeometry(prof,96);
+  const m=new THREE.Mesh(g,new THREE.MeshStandardMaterial({color:col('#d6d4cf'),roughness:.3,metalness:0,side:THREE.DoubleSide}));
+  m.castShadow=true; m.receiveShadow=true; return m;
+}
+function buildNapkin(){
+  const g=new THREE.Group();
+  const cv=document.createElement('canvas'); cv.width=cv.height=256; const c=cv.getContext('2d');
+  c.fillStyle='#e7e2d6'; c.fillRect(0,0,256,256);
+  c.strokeStyle='rgba(120,110,90,.16)'; c.lineWidth=1;
+  for(let i=0;i<256;i+=3){c.beginPath();c.moveTo(i,0);c.lineTo(i,256);c.stroke();c.beginPath();c.moveTo(0,i);c.lineTo(256,i);c.stroke();}
+  const tx=new THREE.CanvasTexture(cv); tx.wrapS=tx.wrapT=THREE.RepeatWrapping; tx.repeat.set(1.5,2.5); tx.encoding=THREE.sRGBEncoding;
+  const mat=new THREE.MeshStandardMaterial({map:tx,roughness:1});
+  const mk=(w,d,h,y,ry)=>{
+    const sh=new THREE.Shape(); const r=4;
+    sh.moveTo(-w/2+r,-d/2);sh.lineTo(w/2-r,-d/2);sh.quadraticCurveTo(w/2,-d/2,w/2,-d/2+r);sh.lineTo(w/2,d/2-r);sh.quadraticCurveTo(w/2,d/2,w/2-r,d/2);
+    sh.lineTo(-w/2+r,d/2);sh.quadraticCurveTo(-w/2,d/2,-w/2,d/2-r);sh.lineTo(-w/2,-d/2+r);sh.quadraticCurveTo(-w/2,-d/2,-w/2+r,-d/2);
+    const geo=new THREE.ExtrudeGeometry(sh,{depth:h,bevelEnabled:true,bevelThickness:1.2,bevelSize:1.2,bevelSegments:2,curveSegments:4});
+    const m=new THREE.Mesh(geo,mat); m.rotation.x=-Math.PI/2; m.position.y=y; m.rotation.z=ry||0; m.castShadow=true; m.receiveShadow=true; return m;
+  };
+  g.add(mk(118,222,3,0,0)); g.add(mk(116,218,3,3.3,0.012)); g.add(mk(112,150,2.6,6.6,-0.02));
+  return g;
+}
+const plate=buildPlate(), napkin=buildNapkin();
+setting.add(plate); setting.add(napkin);
+function placeSetting(px,pz){ plate.position.set(px,0,pz); napkin.position.set(px-218,0,pz+8); napkin.rotation.y=0.07; }
+
+/* scale bar 100 mm (sprite label) */
+const scaleBar=new THREE.Group();
+(function(){
+  const mk=(x,w,h)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(w,1,h),new THREE.MeshBasicMaterial({color:col('#1b1a17')})); m.position.set(x,0.5,0); return m;};
+  scaleBar.add(mk(0,100,2)); scaleBar.add(mk(-50,1.6,12)); scaleBar.add(mk(50,1.6,12)); scaleBar.add(mk(0,1.6,8));
+  const rec=makePaint({x0:0,x1:60,y0:0,y1:14,ppm:12,yup:true,transparent:true,draw:(ctx,t)=>{t('100 mm',30,3.4,8.4,{weight:700,fill:'#1b1a17'});}});
+  const sp=new THREE.Mesh(new THREE.PlaneGeometry(40,9.33),new THREE.MeshBasicMaterial({map:rec.tex,transparent:true,depthWrite:false}));
+  sp.rotation.x=-Math.PI/2; sp.position.set(0,0.3,17); scaleBar.add(sp);
+})();
+scene.add(scaleBar);
+
+/* ================================================================ D1 v2 : two plates on slots (+ sail variant) */
+function buildD1(){
+  const root=new THREE.Group(); const info={};
+  const WA=100,HS=34,HC=45,D_A=11,GAP=0.6,WB=64,BC=22,SW=0.7,CH=0.6,RR=0.7;
+  const FLOOR_B=D_A-GAP, sag=HC-HS, R=((WA/2)**2+sag**2)/(2*sag);
+  const zDip=x=>BC+R-Math.sqrt(R*R-x*x), zDome=x=>HC-R+Math.sqrt(R*R-x*x);
+  const HB_END=zDip(WB/2), m=SW/2+CH, w=SW/2;
+  const NAME_Z=27, EYE_Z=35.3, SEC=4.9;
+
+  /* slot with 0.6 chamfer mouth and O1.4 relief keyhole at the end; ym = mouth height, ye = end height; returns points from +x mouth side to -x */
+  function slotPts(ym,ye){
+    const d=Math.sign(ye-ym), L=Math.abs(ye-ym), cs=L-RR, sw=cs-Math.sqrt(RR*RR-w*w), P=[[m,ym],[w,ym+d*CH],[w,ym+d*sw]];
+    for(let a=150;a>=-150;a-=10) P.push([RR*Math.sin(a*D2R),ym+d*(cs+RR*Math.cos(a*D2R))]);
+    P.push([-w,ym+d*sw],[-w,ym+d*CH],[-m,ym]); return P;
+  }
+  /* generic pair builder: A (x,y), B (u,y); both stand on their bottom edge, B yaws 90 deg to cross A */
+  function makePair(A,B,recA,recB1,recB2,mode,bFlat){
+    const g=new THREE.Group();
+    const mA=makeBoard(A,[],{front:{tex:recA.tex,uv:recA.uv},back:{tex:recA.tex,uv:recA.uv,mirror:true}});
+    const mB=makeBoard(B,[],{front:{tex:recB1.tex,uv:recB1.uv},back:{tex:recB2.tex,uv:recB2.uv,mirror:true}});
+    mA.add(outlineLine(A)); mB.add(outlineLine(B));
+    const aTilt=new THREE.Group(); aTilt.add(centred(mA)); const aOut=new THREE.Group(); aOut.add(aTilt);
+    const bTilt=new THREE.Group(); bTilt.add(centred(mB)); const bOut=new THREE.Group(); bOut.add(bTilt);
+    g.add(aOut,bOut);
+    function setP(p){
+      const st=sm(0,.3,p); let aLift,aMove,aDown,bMove;
+      if(mode==='sail'){ bMove=sm(.3,.55,p); aLift=sm(.5,.6,p)*14; aMove=sm(.58,.8,p); aDown=sm(.8,1,p); }
+      else { aLift=sm(.3,.45,p)*42; bMove=sm(.42,.72,p); aMove=bMove; aDown=sm(.72,1,p); }
+      aTilt.rotation.x=-(1-st)*Math.PI/2; bTilt.rotation.x=-(1-st)*Math.PI/2;
+      const ah=aLift*(1-aDown);
+      aOut.position.set(lerp(-75,0,aMove),(1-st)*T/2+ah,lerp(25,0,aMove));
+      bOut.position.set(lerp(bFlat,0,bMove),(1-st)*T/2,lerp(25,0,bMove));
+      bOut.rotation.y=bMove*Math.PI/2;
+    }
+    return {g,setP};
+  }
+  /* ---------- main variant: name plate A + short fin B ---------- */
+  const A=[[-WA/2,0],[-m,0]]; slotPts(0,D_A).reverse().forEach(p=>A.push(p)); A.push([WA/2,0],[WA/2,HS]);
+  for(let x=WA/2-1;x>-WA/2+0.5;x-=1) A.push([x,zDome(Math.abs(x))]);
+  A.push([-WA/2,HS]);
+  const zm=zDip(m), B=[[-WB/2,0],[WB/2,0],[WB/2,HB_END]];
+  for(let x=WB/2-1;x>m+0.01;x-=1) B.push([x,zDip(x)]);
+  slotPts(zm,FLOOR_B).forEach(p=>B.push(p));
+  for(let x=-m-1;x>-WB/2+0.5;x-=1) B.push([x,zDip(Math.abs(x))]);
+  B.push([-WB/2,HB_END]);
+  const nameSize=()=>fitSize(NAME,80,7.2,500);
+  const recA=makePaint({x0:-WA/2,x1:WA/2,y0:0,y1:HC,ppm:20,yup:true,draw:(ctx,t)=>{
+    t(NAME,0,NAME_Z,nameSize()); t('TABLE '+TABLE_NO+'  ·  SEAT '+SEAT_NO,0,EYE_Z,SEC,{weight:700,track:.05}); }});
+  const bDraw=swap=>(ctx,t)=>{ t(swap?'10 OCT':'DINNER',-17,8,SEC,{weight:700,track:.05}); t(swap?'DINNER':'10 OCT',17,8,SEC,{weight:700,track:.05}); };
+  const recB1=makePaint({x0:-WB/2,x1:WB/2,y0:0,y1:HB_END,ppm:24,yup:true,draw:bDraw(false)});
+  const recB2=makePaint({x0:-WB/2,x1:WB/2,y0:0,y1:HB_END,ppm:24,yup:true,draw:bDraw(true)});
+  const main=makePair(A,B,recA,recB1,recB2,'plates',70);
+
+  /* ---------- sail variant: low plate A + 72 mm fin with big numeral ---------- */
+  const S_WA=100,S_HS=28,S_HC=34,S_DA=10,S_FLOOR=S_DA-GAP,S_TOE=18,S_REAR=74,S_H=72,S_HR=68,yf=SW/2+0.1;
+  const S_R=((S_WA/2)**2+(S_HC-S_HS)**2)/(2*(S_HC-S_HS)), saDome=x=>S_HC-S_R+Math.sqrt(S_R*S_R-x*x);
+  const SA=[[-S_WA/2,0],[-m,0]]; slotPts(0,S_DA).reverse().forEach(p=>SA.push(p)); SA.push([S_WA/2,0],[S_WA/2,S_HS]);
+  for(let x=S_WA/2-1;x>-S_WA/2+0.5;x-=1) SA.push([x,saDome(Math.abs(x))]);
+  SA.push([-S_WA/2,S_HS]);
+  const SB=[[-S_TOE,0],[S_REAR,0],[S_REAR,S_HR]];
+  { // concave arc of radius R from (rear,HR) to (yf,H), bulging down
+    const p0=[yf,S_H],p1=[S_REAR,S_HR],mx=(p0[0]+p1[0])/2,my=(p0[1]+p1[1])/2,dx=p1[0]-p0[0],dy=p1[1]-p0[1],ch=Math.hypot(dx,dy),hh=Math.sqrt(R*R-(ch/2)**2);
+    let nx=-dy/ch,ny=dx/ch; if(ny<0){nx=-nx;ny=-ny;}
+    const cx=mx+nx*hh,cy=my+ny*hh; let a1=Math.atan2(p1[1]-cy,p1[0]-cx),a0=Math.atan2(p0[1]-cy,p0[0]-cx); let da=a0-a1; da=Math.atan2(Math.sin(da),Math.cos(da));
+    for(let i=1;i<24;i++){const a=a1+da*i/24; SB.push([cx+R*Math.cos(a),cy+R*Math.sin(a)]);}
+    SB.push([yf,S_H],[yf,S_FLOOR],[-S_TOE,S_FLOOR]);
+  }
+  const recSA=makePaint({x0:-S_WA/2,x1:S_WA/2,y0:0,y1:S_HC,ppm:20,yup:true,draw:(ctx,t)=>{
+    t(NAME,0,13.5,fitSize(NAME,80,7.2,500)); t('DINNER  ·  10.10.2026',0,24,SEC,{weight:700,track:.05}); }});
+  const recSB=makePaint({x0:-S_TOE,x1:S_REAR,y0:0,y1:S_H,ppm:12,yup:true,draw:(ctx,t)=>{ t(TABLE_NO,32,6,55/CAP_H,{weight:700}); }});
+  const sail=makePair(SA,SB,recSA,recSB,recSB,'sail',70);
+  sail.g.visible=false;
+  root.add(main.g,sail.g);
+
+  let variant=0;
+  const dims=[
+    [['Plate A',WA+' × '+HC+' mm (sides '+HS+'), name baseline z '+NAME_Z],['Plate B (fin)',WB+' × '+BC+' / '+HB_END.toFixed(1)+' mm, DINNER / 10 OCT'],['Dome / dip','R'+R.toFixed(1)+' mm'],
+     ['Slots','A '+D_A.toFixed(1)+' deep · B floor z '+FLOOR_B.toFixed(1)+' → gap '+GAP.toFixed(1)],['Slot','0.70 net, 0.6 chamfer, O1.4 relief'],['Footprint',WA+' × '+WB+' mm rhombus']],
+    [['Plate A (low)',S_WA+' × '+S_HC+' mm (sides '+S_HS+'), slot '+S_DA],['Fin B',(S_TOE+S_REAR)+' mm long (toe '+S_TOE+'), '+S_H+' mm tall, no slot'],['Numeral','cap 55 mm (type '+(55/CAP_H).toFixed(0)+' mm)'],
+     ['Fit','A rests against the fin face (gap 0.2)'],['Tip-over','≈ 49° (sketch, not tooled)']]];
+  const texts=[
+    'Name plate A with the name raised and the table · seat line above it, plus a short fin B (64 wide) that carries DINNER / 10 OCT. A is lowered onto B; the slot ends stay 0.6 mm apart.',
+    'Sail variant: a low plate A and a tall 72 mm fin with a big “4” numeral readable from across the room. A slides over the toe of the fin and rests against its face.'];
+  info.title='D1 · Two plates on slots'; info.text=texts[0]; info.dims=dims[0];
+  function setVariant(v){ variant=v; main.g.visible=v===0; sail.g.visible=v===1; info.text=texts[v]; info.dims=dims[v]; setP(curP); }
+  let curP=0;
+  function setP(p){ curP=p; (variant===0?main:sail).setP(p); }
+  return {root,setP,info,duration:3600,wide:p=>p<.5?.45:-.3,pos:[0,0,-168],variants:['Plates','Sail'],setVariant,
+    views:p=>({overview:{pos:[140,235,205],target:[0,14,-155]},seated:{pos:[0,430,520],target:[0,22,-150]},top:{pos:[0,640,-148],target:[0,0,-150]},opposite:{pos:[0,300,-640],target:[0,18,-150]}}),
+    shadow:[0,-100,330],plate:[0,70],bar:[255,185]};
+}
+
+/* ================================================================ D2 v2 : form and its void, compact, flanged strut */
+let D2CW='lemon';
+function buildD2(){
+  const root=new THREE.Group(); const info={}; const mine=[]; const lines=[];
+  const SHW=105,SHH=118,FRONT=20,S_LEN=32,S_CHORD=90,BRIDGE=8,U_P=FRONT+S_LEN+BRIDGE,P_WH=36,P_WT=26,LIP_W=22,LIP_L=6,FLW=5,FL_A=6,FL_B=8,RR=0.85;
+  const THETA=75*D2R, S_R=((S_CHORD/2)**2+S_LEN**2)/(2*S_LEN);
+  const dS=[Math.cos(THETA),Math.sin(THETA)], TIP=[FRONT+S_LEN*dS[0],S_LEN*dS[1]];
+  const P_LEN=Math.hypot(TIP[0]-U_P,TIP[1]), dP=[(TIP[0]-U_P)/P_LEN,TIP[1]/P_LEN], dLip=[-dS[0],-dS[1]];
+  const ANG_P=Math.atan2(dP[1],-dP[0])/D2R, FOLD_P=180-ANG_P, FOLD_LIP=Math.acos(clamp(dP[0]*dLip[0]+dP[1]*dLip[1],-1,1))/D2R;
+  const U_TIP=U_P+P_LEN, U_END=U_TIP+LIP_L, hw=SHW/2, SEC=4.9;
+  const isBlack=()=>D2CW==='black', bg=()=>isBlack()?'#161616':YEL, ink=()=>isBlack()?YEL:INK;
+  const backMat=new THREE.MeshStandardMaterial({color:col(BACKC),roughness:.92}), edgeMat=new THREE.MeshStandardMaterial({color:col(EDGEC),roughness:.92});
+
+  const sv=x=>(S_LEN-S_R)+Math.sqrt(S_R*S_R-x*x);
+  const Sshape=[[-S_CHORD/2,0],[S_CHORD/2,0]]; for(let x=S_CHORD/2-0.5;x>-S_CHORD/2+0.25;x-=0.5) Sshape.push([x,Math.max(0,sv(x))]);
+  const Shole=Sshape.map(p=>[p[0],FRONT+p[1]]);
+  /* strut P in (x,v); flanges are separate pieces hinged on the flange creases */
+  const xlP=v=>-P_WH/2+(P_WH-P_WT)/2*v/P_LEN, xrP=v=>-xlP(v);
+  const ang=Math.atan(((P_WH-P_WT)/2)/P_LEN), off=FLW/Math.cos(ang), va=FL_A, vb=P_LEN-FL_B;
+  const Pweb=[[xlP(0),0],[xrP(0),0],[xrP(va),va],[xrP(va)-off,va],[xrP(vb)-off,vb],[xrP(vb),vb],[xrP(P_LEN),P_LEN],[xlP(P_LEN),P_LEN],
+              [xlP(vb),vb],[xlP(vb)+off,vb],[xlP(va)+off,va],[xlP(va),va]];
+  const flR=[[xrP(va),va],[xrP(va)-off,va],[xrP(vb)-off,vb],[xrP(vb),vb]];
+  const flL=[[xlP(va),va],[xlP(vb),vb],[xlP(vb)+off,vb],[xlP(va)+off,va]];
+  const rr=2, lipPts=[[-LIP_W/2,0],[LIP_W/2,0],[LIP_W/2,LIP_L-rr]];
+  for(let a=0;a<=90;a+=15){const t=a*D2R; lipPts.push([LIP_W/2-rr+rr*Math.cos(t),LIP_L-rr+rr*Math.sin(t)]);}
+  for(let a=90;a<=180;a+=15){const t=a*D2R; lipPts.push([-LIP_W/2+rr+rr*Math.cos(t),LIP_L-rr+rr*Math.sin(t)]);}
+  lipPts.push([-LIP_W/2,LIP_L-rr]);
+  const Phole=[[-P_WH/2,U_P],[P_WH/2,U_P],[P_WT/2,U_TIP],[LIP_W/2,U_TIP]];
+  for(let i=2;i<lipPts.length-1;i++) Phole.push([lipPts[i][0],U_TIP+lipPts[i][1]]);
+  Phole.push([-LIP_W/2,U_TIP],[-P_WT/2,U_TIP]);
+  const circle=(cx,cy)=>{const o=[];for(let a=0;a<360;a+=30)o.push([cx+RR*Math.cos(a*D2R),cy+RR*Math.sin(a*D2R)]);return o;};
+  const reliefs=[circle(-S_CHORD/2-0.9,FRONT),circle(S_CHORD/2+0.9,FRONT),circle(-P_WH/2-0.9,U_P),circle(P_WH/2+0.9,U_P)];
+  const sheet=[[-hw,0],[hw,0],[hw,SHH],[-hw,SHH]];
+
+  const nameSize=()=>fitSize(NAME,66,6.8,500);
+  const prep=(o)=>{ o.bg=bg; const r=makePaint(o); mine.push(r); return r; };
+  const recBase=prep({x0:-hw,x1:hw,y0:0,y1:SHH,ppm:14,yup:true,draw:(ctx,t)=>{ t('DINNER  10.10.2026',0,7.5,SEC,{weight:700,track:.05,fill:ink()}); }});
+  const recS=prep({x0:-S_CHORD/2,x1:S_CHORD/2,y0:0,y1:S_LEN,ppm:24,yup:true,draw:(ctx,t)=>{
+    t(NAME,0,9,nameSize(),{fill:ink()}); t('TABLE '+TABLE_NO+'  ·  SEAT '+SEAT_NO,0,17.5,SEC,{weight:700,track:.05,fill:ink()}); }});
+  const recP=prep({x0:-P_WH/2,x1:P_WH/2,y0:0,y1:P_LEN,ppm:12,yup:true,draw:()=>{}});
+  const recL=prep({x0:-LIP_W/2,x1:LIP_W/2,y0:0,y1:LIP_L,ppm:12,yup:true,draw:()=>{}});
+  const fr=r=>({tex:r.tex,uv:r.uv});
+  const mk=(pts,holes,rec)=>makeBoard(pts,holes,{front:fr(rec),back:null,backMat,edgeMat});
+  const ol=(pts)=>{const l=outlineLine(pts); lines.push(l); return l;};
+  const base=mk(sheet,[Shole,Phole,...reliefs],recBase); base.add(ol(sheet),ol(Shole),ol(Phole));
+  const mS=mk(Sshape,[],recS); mS.add(ol(Sshape));
+  const mP=mk(Pweb,[],recP); mP.add(ol(Pweb));
+  const mL=mk(lipPts,[],recL); mL.add(ol(lipPts));
+  const hinge=(a,b,c)=>{const l=segLine(a,b,'#0072ce',.9); return l;};
+  mS.add(hinge([-S_CHORD/2,0],[S_CHORD/2,0])); mP.add(hinge([-P_WH/2,0],[P_WH/2,0]),hinge([-P_WT/2,P_LEN],[P_WT/2,P_LEN]));
+  /* flanges */
+  const mkFl=(poly,pa,pb,sign)=>{
+    const rel=poly.map(p=>[p[0]-pa[0],p[1]-pa[1]]);
+    const mesh=makeBoard(rel,[],{front:{tex:recP.tex,uv:(x,y)=>recP.uv(x+pa[0],y+pa[1])},back:null,backMat,edgeMat}); mesh.add(ol(rel));
+    const g=new THREE.Group(); g.position.set(pa[0],pa[1],0); g.add(mesh);
+    return {g,axis:new V3(pb[0]-pa[0],pb[1]-pa[1],0).normalize(),sign};
+  };
+  const fR=mkFl(flR,[xrP(va)-off,va],[xrP(vb)-off,vb],+1), fL=mkFl(flL,[xlP(va)+off,va],[xlP(vb)+off,vb],-1);
+
+  const sheetG=new THREE.Group(); sheetG.rotation.x=-Math.PI/2; sheetG.position.y=T; sheetG.add(base);
+  const sPiv=new THREE.Group(); sPiv.position.set(0,FRONT,0); sPiv.add(mS); sheetG.add(sPiv);
+  const pPiv=new THREE.Group(); pPiv.position.set(0,U_P,0); pPiv.add(mP,fR.g,fL.g); sheetG.add(pPiv);
+  const lPiv=new THREE.Group(); lPiv.position.set(0,P_LEN,0); lPiv.add(mL); pPiv.add(lPiv);
+  root.add(sheetG);
+  function setP(p){
+    const a=sm(0,.45,p), b=sm(.3,.75,p), c=sm(.6,.9,p), f=sm(.45,.8,p);
+    sPiv.rotation.x=75*D2R*a; pPiv.rotation.x=FOLD_P*D2R*b; lPiv.rotation.x=FOLD_LIP*D2R*c;
+    [fR,fL].forEach(o=>o.g.quaternion.setFromAxisAngle(o.axis,o.sign*Math.PI/2*f));
+  }
+  function setColourway(cw){
+    D2CW=cw; const k=isBlack();
+    backMat.color.copy(col(k?'#0e0e0e':BACKC)); edgeMat.color.copy(col(k?'#0c0c0c':EDGEC));
+    lines.forEach(l=>l.material.color.copy(col(k?'#9a8a40':'#7b6a22')));
+    mine.forEach(r=>r.redraw());
+  }
+  info.title='D2 · Form and its void (compact)';
+  info.text='A 105 × 118 card, no glue. Segment S (32 high) is lifted along c1 to 75°; the flanged strut P rises at 44.3° and its lip c3 hooks over the crown of S. The two voids stay as holes in the card. Toggle the colourway to see the black card with lemon type (same die).';
+  info.dims=[['Card','105 × 118 mm, square trim'],['S','chord 90 · height 32 · R'+S_R.toFixed(1)+' · c1 at u='+FRONT],['P','36→26 wide × '+P_LEN.toFixed(2)+' · c2 at u='+U_P],
+    ['Flanges','2 × '+FLW+' mm, 90° up/back (from '+FL_A+' after c2 to '+FL_B+' before c3)'],['Hook lip',LIP_W+' × '+LIP_L+' mm, c3'],
+    ['Folds','c1 75° · c2 '+FOLD_P.toFixed(1)+'° · c3 '+FOLD_LIP.toFixed(1)+'°'],['Reliefs','Ø1.8 at both ends of c1 and c2'],['Crown','S top = P tip at ('+(TIP[0]-FRONT).toFixed(2)+', '+TIP[1].toFixed(2)+')']];
+  return {root,setP,info,duration:2600,wide:-.2,pos:[0,0,-102],variants:['Lemon','Black'],setVariant:v=>setColourway(v?'black':'lemon'),variantLabel:'Colourway',
+    views:p=>({overview:{pos:[170,230,70],target:[0,15,-160]},seated:{pos:[0,430,520],target:[0,22,-165]},top:{pos:[0,660,-160],target:[0,0,-161]},opposite:{pos:[0,300,-620],target:[0,22,-160]}}),
+    shadow:[0,-170,330],plate:[0,70],bar:[255,185],_cw:setColourway};
+}
+
+/* ================================================================ D3 v2 : one sheet for the whole table (skewed straight cuts) */
+function buildD3(){
+  const root=new THREE.Group(); const info={};
+  const SHEET_W=450,SHEET_H=320,NCOL=4,NROW=3,COLW=106,PITCH=101;
+  const ALPHA=72*D2R,F_LEN=34.5,B_LEN=20,FLAP_LEN=12,TAB_W=18,TAB_RISE=3.0,TAB_FO=3.5,TAB_L=TAB_RISE+TAB_FO,SLIT_L=19.5,SLOT_W=0.7,SEC=4.9;
+  const BASE_B=2*F_LEN*Math.cos(ALPHA),X_PIN=BASE_B-FLAP_LEN,H_TENT=F_LEN*Math.sin(ALPHA);
+  const Y_KB=B_LEN,Y_RIDGE=B_LEN+F_LEN,Y_FF=B_LEN+2*F_LEN,Y_BOT=PITCH,Y_SLIT=Y_KB-X_PIN;
+  const X0=(SHEET_W-NCOL*COLW)/2,Y0=(SHEET_H-(NROW*PITCH+TAB_L))/2;
+  const ANG=[[6,9,12],[-10,-7,-12],[8,12,7]], LINE_S=28, LINE_W=2.4;
+  const ytop=r=>Y0+PITCH*r, ymid=r=>ytop(r)+PITCH/2;
+  const xdiv=(r,j,y)=>X0+COLW*(j+1)+Math.tan(ANG[r][j]*D2R)*(y-ymid(r));
+  const xl=(r,c,y)=>c===0?X0:xdiv(r,c-1,y), xr=(r,c,y)=>c===NCOL-1?X0+NCOL*COLW:xdiv(r,c,y);
+  function xTab(r,c){ const y1=ytop(r)+PITCH; let a=xl(r,c,y1),b=xr(r,c,y1); if(r+1<NROW){a=Math.max(a,xl(r+1,c,y1));b=Math.min(b,xr(r+1,c,y1));} return (a+b)/2; }
+  function piecePoly(r,c){
+    const y0=ytop(r),y1=y0+PITCH,pts=[[xl(r,c,y0),y0]];
+    if(r>0){const xt=xTab(r-1,c); pts.push([xt-TAB_W/2,y0],[xt-TAB_W/2,y0+TAB_L],[xt+TAB_W/2,y0+TAB_L],[xt+TAB_W/2,y0]);}
+    pts.push([xr(r,c,y0),y0],[xr(r,c,y1),y1]);
+    const xt=xTab(r,c); pts.push([xt+TAB_W/2,y1],[xt+TAB_W/2,y1+TAB_L],[xt-TAB_W/2,y1+TAB_L],[xt-TAB_W/2,y1],[xl(r,c,y1),y1]);
+    return pts;
+  }
+  function clipY(poly,a,b){
+    const half=(pts,inside,isect)=>{const out=[];for(let i=0;i<pts.length;i++){const p=pts[i],q=pts[(i+1)%pts.length];const ip=inside(p),iq=inside(q);
+      if(ip&&iq) out.push(q); else if(ip&&!iq) out.push(isect(p,q)); else if(!ip&&iq){out.push(isect(p,q));out.push(q);} } return out;};
+    const ix=y=>(p,q)=>{const t=(y-p[1])/(q[1]-p[1]);return [p[0]+t*(q[0]-p[0]),y];};
+    let o=half(poly,p=>p[1]>=a-1e-9,ix(a)); o=half(o,p=>p[1]<=b+1e-9,ix(b)); return dedupe(o);
+  }
+  const centroidX=pts=>{let A=0,cx=0;for(let i=0;i<pts.length;i++){const p=pts[i],q=pts[(i+1)%pts.length];const f=p[0]*q[1]-q[0]*p[1];A+=f;cx+=(p[0]+q[0])*f;}return cx/(3*A);};
+  const xa=X0, xb=X0+NCOL*COLW, mr=xb+6.5, ml=xa-6.5;
+  const lineYs=[0,1,2].map(r=>ytop(r)+Y_KB+LINE_S);
+  function drawSerpentine(ctx){
+    ctx.strokeStyle=INK; ctx.lineWidth=LINE_W; ctx.lineJoin='miter'; ctx.beginPath();
+    const P=[[xa,lineYs[0]],[xb,lineYs[0]],[mr,lineYs[0]],[mr,lineYs[1]],[xb,lineYs[1]],[xa,lineYs[1]],[ml,lineYs[1]],[ml,lineYs[2]],[xa,lineYs[2]],[xb,lineYs[2]]];
+    P.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])); ctx.stroke();
+  }
+
+  function makePiece(r,c,idx,ppm){
+    const y0=ytop(r), xt=xTab(r,c), poly=piecePoly(r,c);
+    const bx0=Math.min(...poly.map(p=>p[0]))-1, bx1=Math.max(...poly.map(p=>p[0]))+1, by0=y0, by1=y0+PITCH+TAB_L;
+    const F=clipY(poly,y0+Y_RIDGE,y0+Y_FF),K=clipY(poly,y0+Y_KB,y0+Y_RIDGE),Bp=clipY(poly,y0,y0+Y_KB),FL=clipY(poly,y0+Y_FF,y0+Y_BOT);
+    const cxF=centroidX(F),cxK=centroidX(K), seat=('0'+(idx+1)).slice(-2), nm=()=>idx===0?NAME:SAMPLE_NAMES[idx%SAMPLE_NAMES.length];
+    const rec=makePaint({x0:bx0,x1:bx1,y0:by0,y1:by1,ppm,yup:false,draw:(ctx,t)=>{
+      const name=nm(),s=fitSize(name,80,7.2,500);
+      t(name,cxF,y0+Y_FF-14,s); t('TABLE '+TABLE_NO+'  ·  SEAT '+seat,cxF,y0+Y_FF-25,SEC,{weight:700,track:.05});
+      t(name,cxK,y0+Y_KB+10,s,{rot:180}); t('DINNER  ·  10.10.2026',cxK,y0+Y_KB+19,SEC,{weight:700,track:.05,rot:180});
+      ctx.fillStyle=INK; ctx.fillRect(bx0,lineYs[r]-LINE_W/2,bx1-bx0,LINE_W);      // heavy line across the rear leaf
+    }});
+    const strip=(poly_,hingeY,holes)=>{
+      const loc=poly_.map(p=>[p[0]-xt,hingeY-p[1]]), uv=(x,y)=>rec.uv(x+xt,hingeY-y);
+      const mesh=makeBoard(loc,holes||[],{front:{tex:rec.tex,uv},back:null}); mesh.add(outlineLine(loc,'#6d5d1c',.5)); return mesh;
+    };
+    const hole=[[-SLIT_L/2,X_PIN-SLOT_W/2],[SLIT_L/2,X_PIN-SLOT_W/2],[SLIT_L/2,X_PIN+SLOT_W/2],[-SLIT_L/2,X_PIN+SLOT_W/2]];
+    const tabRect=(a,b)=>[[xt-TAB_W/2,y0+a],[xt+TAB_W/2,y0+a],[xt+TAB_W/2,y0+b],[xt-TAB_W/2,y0+b]];
+    const root_=new THREE.Group(), Fg=new THREE.Group(); root_.add(Fg); Fg.add(strip(F,y0+Y_FF));
+    const Kg=new THREE.Group(); Kg.position.set(0,F_LEN,0); Fg.add(Kg); Kg.add(strip(K,y0+Y_RIDGE));
+    const Bg=new THREE.Group(); Bg.position.set(0,F_LEN,0); Kg.add(Bg); Bg.add(strip(Bp,y0+Y_KB,[hole]));
+    const Fl=new THREE.Group(); Fg.add(Fl); Fl.add(strip(FL,y0+Y_FF));
+    const Tg=new THREE.Group(); Tg.position.set(0,-FLAP_LEN,0); Fl.add(Tg); Tg.add(strip(tabRect(PITCH,PITCH+TAB_RISE),y0+PITCH));
+    const Og=new THREE.Group(); Og.position.set(0,-TAB_RISE,0); Tg.add(Og); Og.add(strip(tabRect(PITCH+TAB_RISE,PITCH+TAB_L),y0+PITCH+TAB_RISE));
+    const q=new THREE.Quaternion(), v=new V3();
+    function fold(f){
+      Fg.rotation.x=(-90+72*f.tilt)*D2R; Kg.rotation.x=-144*f.ridge*D2R; Fl.rotation.x=108*f.flap*D2R;
+      Bg.rotation.x=-108*f.b*D2R; Tg.rotation.x=90*f.tab*D2R; Og.rotation.x=-90*f.over*D2R;
+      root_.updateMatrixWorld(true);
+      Kg.getWorldQuaternion(q); q.invert(); v.set(0,T*f.b*1.02,0).applyQuaternion(q); Bg.position.set(v.x,F_LEN+v.y,v.z);
+    }
+    return {root:root_,fold,xt,y0};
+  }
+
+  /* ---------- the flat SRA3 sheet: frame with the mosaic cut out, heavy line in the trim margin ---------- */
+  const Yb=Y0+NROW*PITCH, mosaic=[[X0,Y0],[X0+NCOL*COLW,Y0],[X0+NCOL*COLW,Yb]];
+  for(let c=NCOL-1;c>=0;c--){const x=xTab(NROW-1,c);mosaic.push([x+TAB_W/2,Yb],[x+TAB_W/2,Yb+TAB_L],[x-TAB_W/2,Yb+TAB_L],[x-TAB_W/2,Yb]);}
+  mosaic.push([X0,Yb]);
+  const toL=p=>[p[0]-SHEET_W/2,-(p[1]-SHEET_H/2)];
+  const recFrame=makePaint({x0:0,x1:SHEET_W,y0:0,y1:SHEET_H,ppm:5,yup:false,draw:(ctx)=>{ drawSerpentine(ctx); }});
+  const frameOuter=[[0,0],[SHEET_W,0],[SHEET_W,SHEET_H],[0,SHEET_H]];
+  const frameMesh=makeBoard(frameOuter.map(toL),[mosaic.map(toL)],{front:{tex:recFrame.tex,uv:(x,y)=>recFrame.uv(x+SHEET_W/2,SHEET_H/2-y)},back:null});
+  frameMesh.add(outlineLine(frameOuter.map(toL),'#777',.35),outlineLine(mosaic.map(toL),'#6d5d1c',.5));
+  const sheetG=new THREE.Group(); sheetG.rotation.x=-Math.PI/2; sheetG.add(frameMesh);
+  const SHEET_POS=[-330,T,-275]; sheetG.position.set(...SHEET_POS); root.add(sheetG);
+
+  /* ---------- 12 pieces ---------- */
+  const GAP_G=10, GRP=NCOL*COLW+GAP_G, pieces=[];
+  for(let r=0;r<NROW;r++) for(let c=0;c<NCOL;c++){
+    const idx=r*NCOL+c, pc=makePiece(r,c,idx,8);
+    pc.flatPos=new V3(pc.xt-SHEET_W/2+SHEET_POS[0],T,(ytop(r)+Y_FF)-SHEET_H/2+SHEET_POS[2]);
+    // row: the three sheet rows follow each other, every piece keeps its sheet X so neighbours stay mated
+    pc.rowPos=new V3(pc.xt-X0-(NROW*GRP-GAP_G)/2+r*GRP,0.16,262);
+    root.add(pc.root); pieces.push(pc);
+  }
+  const sample=makePiece(0,0,0,16); sample.fold({tilt:1,ridge:1,flap:1,b:1,tab:1,over:1});
+  sample.root.position.set(400,0.16,-330+F_LEN*Math.cos(ALPHA)); root.add(sample.root);
+
+  const NT=pieces.length;
+  function setP(p){
+    pieces.forEach((pc,i)=>{
+      const st=0.55*i/(NT-1), s=clamp((p-st)/0.45,0,1), tt=sm(0.05,0.62,s), ff=sm(0.4,1,s);
+      const lift=Math.sin(Math.PI*tt)*(70+16*(i%4));
+      pc.root.position.lerpVectors(pc.flatPos,pc.rowPos,tt); pc.root.position.y+=lift;
+      pc.fold({tilt:sm(0,.55,ff),ridge:sm(0,.55,ff),flap:sm(.15,.65,ff),b:sm(.35,.85,ff),tab:sm(.65,.92,ff),over:sm(.85,1,ff)});
+    });
+  }
+  setP(0);
+  info.title='D3 · One sheet for the whole table';
+  info.text='Twelve tent cards share one landscape SRA3 mosaic of straight skewed cuts (6–12°), zero offcut. One heavy black line runs across all rear leaves and joins in the trim margin. Slide Fold to lift the pieces out and stand them in sheet order: each row of four closes into one unbroken line.';
+  info.dims=[['Sheet','SRA3 '+SHEET_W+' × '+SHEET_H+' mm landscape, 12 pieces (4 × 3)'],['Piece','~'+COLW+' × '+PITCH+' mm + tab '+TAB_L+', skewed sides'],
+    ['Strips','B '+B_LEN+' · K '+F_LEN+' · F '+F_LEN+' · flap '+FLAP_LEN+' mm'],['Tent','height '+H_TENT.toFixed(1)+' · depth '+BASE_B.toFixed(2)+' · leaves 72°'],
+    ['Lock','slit '+SLIT_L+' × '+SLOT_W+' at '+X_PIN.toFixed(2)+' from crease 2'],['Heavy line',LINE_W+' mm, '+LINE_S+' mm up the rear leaf'],['Tab','riser '+TAB_RISE+' + fold-over '+TAB_FO]];
+  return {root,setP,info,duration:6500,wide:.75,pos:[0,0,0],
+    views:p=>({
+      overview:p<.5?(window.innerWidth<window.innerHeight?{pos:[-10,1000,820],target:[-10,0,-250]}:{pos:[-90,1050,860],target:[-50,0,-250]}):{pos:[60,1750,1300],target:[0,0,40]},
+      seated:{pos:[400,430,170],target:[400,24,-330]},
+      top:p<.5?{pos:[40,1450,-240],target:[40,0,-242]}:{pos:[0,1900,40],target:[0,0,10]},
+      opposite:p<.5?{pos:[400,330,-760],target:[400,24,-330]}:{pos:[0,380,-1000],target:[0,28,262]}}),
+    shadow:[0,-30,1050],plate:[400,-160],bar:[120,-40],pieceCount:NT};
+}
+
+/* ================================================================ orbit controls (own, touch + mouse) */
+class Orbit{
+  constructor(cam,el){
+    this.cam=cam; this.el=el; this.target=new V3(0,20,-150); this.theta=0; this.phi=1; this.radius=700; this.tween=null;
+    this.minR=60; this.maxR=3400; this.ptrs=new Map(); this.lastPinch=0; this.userMoved=false;
+    this.onChange=()=>{}; el.addEventListener('pointerdown',e=>this.down(e)); el.addEventListener('pointermove',e=>{this.move(e);this.onChange();});
+    el.addEventListener('pointerup',e=>this.up(e)); el.addEventListener('pointercancel',e=>this.up(e));
+    el.addEventListener('wheel',e=>{e.preventDefault(); this.tween=null; this.userMoved=true; this.radius=clamp(this.radius*Math.exp(e.deltaY*0.0012),this.minR,this.maxR); this.onChange();},{passive:false});
+    el.addEventListener('contextmenu',e=>e.preventDefault());
+  }
+  setFromPose(pos,tgt){
+    const t=new V3(...tgt), p=new V3(...pos).sub(t); const r=p.length();
+    this.target.copy(t); this.radius=r; this.phi=Math.acos(clamp(p.y/r,-1,1)); this.theta=Math.atan2(p.x,p.z);
+    this.phi=clamp(this.phi,0.02,1.53);
+  }
+  flyTo(pose,ms){
+    const t=new V3(...pose.target), p=new V3(...pose.pos).sub(t), r=p.length();
+    const goal={target:t,radius:r,phi:clamp(Math.acos(clamp(p.y/r,-1,1)),0.02,1.53),theta:Math.atan2(p.x,p.z)};
+    let dth=goal.theta-this.theta; dth=Math.atan2(Math.sin(dth),Math.cos(dth)); goal.theta=this.theta+dth;
+    this.tween={from:{target:this.target.clone(),radius:this.radius,phi:this.phi,theta:this.theta},to:goal,t0:performance.now(),ms:ms||1000};
+  }
+  down(e){ this.canvasFocus(); this.el.setPointerCapture(e.pointerId); this.ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY,btn:e.button,shift:e.shiftKey}); this.tween=null; this.userMoved=true;
+    if(this.ptrs.size===2) this.lastPinch=this.pinchInfo().d; }
+  canvasFocus(){}
+  up(e){ this.ptrs.delete(e.pointerId); if(this.ptrs.size===1){} }
+  pinchInfo(){ const a=[...this.ptrs.values()]; const dx=a[0].x-a[1].x, dy=a[0].y-a[1].y; return {d:Math.hypot(dx,dy),mx:(a[0].x+a[1].x)/2,my:(a[0].y+a[1].y)/2}; }
+  move(e){
+    const p=this.ptrs.get(e.pointerId); if(!p) return;
+    const dx=e.clientX-p.x, dy=e.clientY-p.y;
+    if(this.ptrs.size===1){
+      if(p.btn===2||p.btn===1||e.shiftKey||e.ctrlKey) this.pan(dx,dy); else this.rotate(dx,dy);
+      p.x=e.clientX;p.y=e.clientY;
+    } else if(this.ptrs.size===2){
+      const before=this.pinchInfo(); p.x=e.clientX;p.y=e.clientY; const after=this.pinchInfo();
+      if(this.lastPinch>0) this.radius=clamp(this.radius*this.lastPinch/Math.max(after.d,1),this.minR,this.maxR);
+      this.lastPinch=after.d; this.pan(after.mx-before.mx,after.my-before.my);
+    }
+  }
+  rotate(dx,dy){ const h=this.el.clientHeight; this.theta-=dx*2*Math.PI/h*0.8; this.phi=clamp(this.phi-dy*Math.PI/h*0.8,0.02,1.53); }
+  pan(dx,dy){
+    const h=this.el.clientHeight, k=2*Math.tan(this.cam.fov*D2R/2)*this.radius/h;
+    const right=new V3().setFromMatrixColumn(this.cam.matrix,0), up=new V3().setFromMatrixColumn(this.cam.matrix,1);
+    this.target.addScaledVector(right,-dx*k).addScaledVector(up,dy*k);
+    this.target.x=clamp(this.target.x,-1300,1300); this.target.z=clamp(this.target.z,-800,800); this.target.y=clamp(this.target.y,-5,600);
+  }
+  update(){
+    if(this.tween){
+      const tw=this.tween, u=clamp((performance.now()-tw.t0)/tw.ms,0,1), e=u<.5?4*u*u*u:1-Math.pow(-2*u+2,3)/2;
+      this.target.lerpVectors(tw.from.target,tw.to.target,e); this.radius=lerp(tw.from.radius,tw.to.radius,e);
+      this.phi=lerp(tw.from.phi,tw.to.phi,e); this.theta=lerp(tw.from.theta,tw.to.theta,e); if(u>=1) this.tween=null;
+    }
+    const sp=Math.sin(this.phi);
+    this.cam.position.set(this.target.x+this.radius*sp*Math.sin(this.theta),this.target.y+this.radius*Math.cos(this.phi),this.target.z+this.radius*sp*Math.cos(this.theta));
+    this.cam.up.set(0,1,0); this.cam.lookAt(this.target); this.cam.updateMatrixWorld(); this.cam.matrix.copy(this.cam.matrixWorld);
+  }
+}
+let dirty=true; const invalidate=()=>{dirty=true;};
+const orbit=new Orbit(camera,canvas); orbit.onChange=invalidate;
+
+/* ================================================================ app state + UI */
+const designs={}; let cur=null, curKey='', P=0, targetP=0, animating=false;
+function mount(key){
+  if(!designs[key]) designs[key]={d1:buildD1,d2:buildD2,d3:buildD3}[key]();
+  const d=designs[key];
+  if(cur) scene.remove(cur.root);
+  curKey=key; cur=d; d.root.position.set(...d.pos); scene.add(d.root);
+  placeSetting(d.plate[0],d.plate[1]);
+  setShadowBox(d.shadow[0],d.shadow[1],d.shadow[2]);
+  scaleBar.position.set(d.bar[0],0,d.bar[1]); scaleBar.rotation.y=0;
+  renderInfo(); renderOpts();
+  document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.d===key)));
+  d.setP(P); syncUI(); invalidate();
+}
+function renderInfo(){
+  document.getElementById('iTitle').textContent=cur.info.title; document.getElementById('iText').textContent=cur.info.text;
+  document.getElementById('iDims').innerHTML=cur.info.dims.map(r=>'<dt>'+r[0]+'</dt><dd>'+r[1]+'</dd>').join('');
+}
+function renderOpts(){
+  const box=document.getElementById('opt'), seg=document.getElementById('optSeg');
+  if(!cur.variants){ box.hidden=true; return; }
+  box.hidden=false; document.getElementById('optLabel').textContent=cur.variantLabel||'Variant';
+  seg.innerHTML=''; cur.variants.forEach((n,i)=>{ const b=document.createElement('button'); b.textContent=n; b.setAttribute('aria-pressed',String((cur.sel||0)===i));
+    b.addEventListener('click',()=>{ cur.sel=i; cur.setVariant(i); [...seg.children].forEach((x,j)=>x.setAttribute('aria-pressed',String(j===i))); renderInfo(); invalidate(); }); seg.appendChild(b); });
+}
+function syncUI(){
+  document.getElementById('bFlat').setAttribute('aria-pressed',String(targetP<.5));
+  document.getElementById('bAsm').setAttribute('aria-pressed',String(targetP>=.5));
+  document.getElementById('slider').value=Math.round(P*1000);
+  document.getElementById('bFlat').textContent=curKey==='d3'?'Flat sheet':'Flat';
+  document.getElementById('bAsm').textContent=curKey==='d3'?'Lifted · row':'Assembled';
+}
+function setP(p){ P=clamp(p,0,1); cur.setP(P); invalidate(); document.getElementById('slider').value=Math.round(P*1000); }
+function animateTo(t,instant){
+  targetP=t; if(instant){ setP(t); animating=false; } else animating=true; syncUI();
+}
+function fitPose(v,name){
+  if(camera.aspect>=1||(name!=='overview'&&name!=='top')) return v;
+  const k=1+(1/camera.aspect-1)*(typeof cur.wide==='function'?cur.wide(targetP):(cur.wide===undefined?0.3:cur.wide)), t=new V3(...v.target), p=new V3(...v.pos).sub(t).multiplyScalar(k).add(t);
+  return {pos:[p.x,p.y,p.z],target:v.target};
+}
+function view(name,ms){ const v=cur.views(targetP)[name]; if(v) orbit.flyTo(fitPose(v,name),ms); }
+function setDesign(key,opts){
+  opts=opts||{}; mount(key); invalidate();
+  if(opts.p!==undefined) animateTo(opts.p,true);
+  const nm=opts.view||'overview', w=fitPose(cur.views(P)[nm]||cur.views(P).overview,nm); orbit.setFromPose(w.pos,w.target);
+}
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{ P=0; targetP=0; setDesign(b.dataset.d,{p:0}); }));
+document.getElementById('bFlat').addEventListener('click',()=>{ animateTo(0); if(curKey==='d3') view('overview',1400); });
+document.getElementById('bAsm').addEventListener('click',()=>{ animateTo(1); if(curKey==='d3') view('overview',1800); });
+document.getElementById('slider').addEventListener('input',e=>{ animating=false; targetP=+e.target.value/1000; setP(targetP); document.getElementById('bFlat').setAttribute('aria-pressed',String(targetP<.5)); document.getElementById('bAsm').setAttribute('aria-pressed',String(targetP>=.5)); });
+document.querySelectorAll('#views .chip').forEach(b=>b.addEventListener('click',()=>view(b.dataset.v,1100)));
+document.getElementById('gd').addEventListener('change',e=>{outlines.forEach(l=>l.visible=e.target.checked);invalidate();});
+const infoEl=document.getElementById('info'), infoBtn=document.getElementById('infoBtn');
+infoBtn.addEventListener('click',()=>{const o=infoEl.classList.toggle('open');infoBtn.setAttribute('aria-expanded',String(o));infoBtn.textContent=o?'×':'i';});
+const nameIn=document.getElementById('nameIn');
+nameIn.addEventListener('input',()=>{ NAME=nameIn.value.trim()||'Sophia Zhuravkova'; paints.forEach(p=>p.redraw()); invalidate(); });
+window.addEventListener('keydown',e=>{ if(e.target===nameIn) return; if(e.key==='1')mount2('d1'); if(e.key==='2')mount2('d2'); if(e.key==='3')mount2('d3'); if(e.key===' '){e.preventDefault();animateTo(targetP<.5?1:0);} });
+function mount2(k){ P=0;targetP=0; setDesign(k,{p:0}); }
+
+function resize(){
+  const w=window.innerWidth,h=window.innerHeight; renderer.setSize(w,h,false); camera.aspect=w/h;
+  camera.fov=w/h<0.8?52:(w/h<1.2?44:36);
+  const off=w>900?150:0; if(off) camera.setViewOffset(w,h,-off,0,w,h); else camera.clearViewOffset();
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize',()=>{resize();invalidate();}); resize();
+
+let last=performance.now();
+function frame(now){
+  const dt=Math.min(.25,(now-last)/1000); last=now;
+  if(animating&&cur){
+    const dir=Math.sign(targetP-P), step=dt*1000/cur.duration;
+    if(dir===0) animating=false; else { const np=P+dir*step; if((dir>0&&np>=targetP)||(dir<0&&np<=targetP)){ setP(targetP); animating=false; } else setP(np); }
+  }
+  if(dirty||orbit.tween||animating){ orbit.update(); renderer.render(scene,camera); dirty=false; }
+  requestAnimationFrame(frame);
+}
+
+/* ================================================================ boot: wait for the web font, then paint */
+async function boot(){
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+  try{
+    await Promise.race([Promise.all([document.fonts.load('500 20px "Wix Madefor Text"','Sophia Zhuravkova ·×0123'),
+      document.fonts.load('700 20px "Wix Madefor Text"','TABLE SEAT DINNER ·×0123'),document.fonts.load('400 14px "Wix Madefor Text"')]),sleep(7000)]);
+  }catch(e){}
+  const fontOk=document.fonts.check('500 20px "Wix Madefor Text"');
+  const h=new URLSearchParams(location.hash.slice(1));
+  const key=['d1','d2','d3'].includes(h.get('d'))?h.get('d'):'d1';
+  const p0=h.has('p')?clamp(parseFloat(h.get('p')),0,1):0;
+  P=p0; targetP=p0;
+  mount(key); paints.forEach(p=>p.redraw());
+  setDesign(key,{p:p0,view:h.get('view')||undefined}); invalidate();
+  if(h.has('opt')&&cur.variants){ cur.sel=+h.get('opt'); cur.setVariant(cur.sel); renderOpts(); renderInfo(); cur.setP(P); invalidate(); }
+  if(h.get('nobar')==='1') scaleBar.visible=false;
+  document.fonts.addEventListener&&document.fonts.addEventListener('loadingdone',()=>{paints.forEach(p=>p.redraw());invalidate();});
+  requestAnimationFrame(frame);
+  document.getElementById('loading').classList.add('done');
+  window.__app={invalidate,THREE,scene,camera,orbit,renderer,paints,setDesign:(k,o)=>{setDesign(k,o);},setP:(p)=>{animateTo(p,true);},view:(n,ms)=>view(n,ms),
+    designs,fontOk,get cur(){return cur;},get P(){return P;},setName:(s)=>{nameIn.value=s;nameIn.dispatchEvent(new Event('input'));}};
+  document.body.dataset.ready='1'; document.body.dataset.font=fontOk?'ok':'fallback';
+}
+boot();
+})();
+</script>
+</body>
+</html>
