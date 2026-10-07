@@ -1,0 +1,242 @@
+[
+ {
+  "file": "v1_standup_andrey_lee.svg",
+  "variant": "v1_standup",
+  "artist": "andrey_lee",
+  "width_mm": 210.0,
+  "height_mm": 145.0,
+  "notes": "Flat lemon card 210x145; name anamorph so it stands 3-50 mm above the table from the seat, 14 mm hatched slab behind. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v1_standup_igor_zotov.svg",
+  "variant": "v1_standup",
+  "artist": "igor_zotov",
+  "width_mm": 210.0,
+  "height_mm": 145.0,
+  "notes": "Flat lemon card 210x145; name anamorph so it stands 3-50 mm above the table from the seat, 14 mm hatched slab behind. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v1_standup_sasha_chernikov.svg",
+  "variant": "v1_standup",
+  "artist": "sasha_chernikov",
+  "width_mm": 210.0,
+  "height_mm": 145.0,
+  "notes": "Flat lemon card 210x145; name anamorph so it stands 3-50 mm above the table from the seat, 14 mm hatched slab behind. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v1_standup_sophia_zhuravkova.svg",
+  "variant": "v1_standup",
+  "artist": "sophia_zhuravkova",
+  "width_mm": 210.0,
+  "height_mm": 145.0,
+  "notes": "Flat lemon card 210x145; name anamorph so it stands 3-50 mm above the table from the seat, 14 mm hatched slab behind. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v1_standup_tanya_andrianova.svg",
+  "variant": "v1_standup",
+  "artist": "tanya_andrianova",
+  "width_mm": 210.0,
+  "height_mm": 145.0,
+  "notes": "Flat lemon card 210x145; name anamorph so it stands 3-50 mm above the table from the seat, 14 mm hatched slab behind. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v2_relay_andrey_lee.svg",
+  "variant": "v2_relay",
+  "artist": "andrey_lee",
+  "width_mm": 210.0,
+  "height_mm": 217.0,
+  "notes": "Card 210x135 (lower part of the name, puddle) + clear PET pane 196x64 with tabs (upper part), pane stands 395 mm from the eye in two slots; seam overlaps 1.6 mm. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v2_relay_igor_zotov.svg",
+  "variant": "v2_relay",
+  "artist": "igor_zotov",
+  "width_mm": 210.0,
+  "height_mm": 217.0,
+  "notes": "Card 210x135 (lower part of the name, puddle) + clear PET pane 196x64 with tabs (upper part), pane stands 395 mm from the eye in two slots; seam overlaps 1.6 mm. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v2_relay_sasha_chernikov.svg",
+  "variant": "v2_relay",
+  "artist": "sasha_chernikov",
+  "width_mm": 210.0,
+  "height_mm": 217.0,
+  "notes": "Card 210x135 (lower part of the name, puddle) + clear PET pane 196x64 with tabs (upper part), pane stands 395 mm from the eye in two slots; seam overlaps 1.6 mm. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v2_relay_sophia_zhuravkova.svg",
+  "variant": "v2_relay",
+  "artist": "sophia_zhuravkova",
+  "width_mm": 210.0,
+  "height_mm": 217.0,
+  "notes": "Card 210x135 (lower part of the name, puddle) + clear PET pane 196x64 with tabs (upper part), pane stands 395 mm from the eye in two slots; seam overlaps 1.6 mm. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v2_relay_tanya_andrianova.svg",
+  "variant": "v2_relay",
+  "artist": "tanya_andrianova",
+  "width_mm": 210.0,
+  "height_mm": 217.0,
+  "notes": "Card 210x135 (lower part of the name, puddle) + clear PET pane 196x64 with tabs (upper part), pane stands 395 mm from the eye in two slots; seam overlaps 1.6 mm. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v3_scanimation_andrey_lee.svg",
+  "variant": "v3_scanimation",
+  "artist": "andrey_lee",
+  "width_mm": 210.0,
+  "height_mm": 317.0,
+  "notes": "Card with 4-frame interlaced strips (0.27 mm: crisp, half, approved melt, half), 2.5 mm spacer frame, clear PET grille (bars ink down, pitch 1.0722 mm). Seat sees approved melt; sway 46 mm = one frame. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v3_scanimation_igor_zotov.svg",
+  "variant": "v3_scanimation",
+  "artist": "igor_zotov",
+  "width_mm": 210.0,
+  "height_mm": 317.0,
+  "notes": "Card with 4-frame interlaced strips (0.27 mm: crisp, half, approved melt, half), 2.5 mm spacer frame, clear PET grille (bars ink down, pitch 1.0722 mm). Seat sees approved melt; sway 46 mm = one frame. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v3_scanimation_sasha_chernikov.svg",
+  "variant": "v3_scanimation",
+  "artist": "sasha_chernikov",
+  "width_mm": 210.0,
+  "height_mm": 317.0,
+  "notes": "Card with 4-frame interlaced strips (0.27 mm: crisp, half, approved melt, half), 2.5 mm spacer frame, clear PET grille (bars ink down, pitch 1.0722 mm). Seat sees approved melt; sway 46 mm = one frame. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v3_scanimation_sophia_zhuravkova.svg",
+  "variant": "v3_scanimation",
+  "artist": "sophia_zhuravkova",
+  "width_mm": 210.0,
+  "height_mm": 301.0,
+  "notes": "Card with 4-frame interlaced strips (0.27 mm: crisp, half, approved melt, half), 2.5 mm spacer frame, clear PET grille (bars ink down, pitch 1.0722 mm). Seat sees approved melt; sway 46 mm = one frame. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v3_scanimation_tanya_andrianova.svg",
+  "variant": "v3_scanimation",
+  "artist": "tanya_andrianova",
+  "width_mm": 210.0,
+  "height_mm": 307.0,
+  "notes": "Card with 4-frame interlaced strips (0.27 mm: crisp, half, approved melt, half), 2.5 mm spacer frame, clear PET grille (bars ink down, pitch 1.0722 mm). Seat sees approved melt; sway 46 mm = one frame. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v4_vault_andrey_lee.svg",
+  "variant": "v4_vault",
+  "artist": "andrey_lee",
+  "width_mm": 210.0,
+  "height_mm": 161.381,
+  "notes": "Sheet 210x161 bent into a semicircular arch R38 (crease at the foot), flat apron with live text; name pre-distorted for the arch so it reads straight from the seat. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v4_vault_igor_zotov.svg",
+  "variant": "v4_vault",
+  "artist": "igor_zotov",
+  "width_mm": 210.0,
+  "height_mm": 161.381,
+  "notes": "Sheet 210x161 bent into a semicircular arch R38 (crease at the foot), flat apron with live text; name pre-distorted for the arch so it reads straight from the seat. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v4_vault_sasha_chernikov.svg",
+  "variant": "v4_vault",
+  "artist": "sasha_chernikov",
+  "width_mm": 210.0,
+  "height_mm": 161.381,
+  "notes": "Sheet 210x161 bent into a semicircular arch R38 (crease at the foot), flat apron with live text; name pre-distorted for the arch so it reads straight from the seat. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v4_vault_sophia_zhuravkova.svg",
+  "variant": "v4_vault",
+  "artist": "sophia_zhuravkova",
+  "width_mm": 210.0,
+  "height_mm": 161.381,
+  "notes": "Sheet 210x161 bent into a semicircular arch R38 (crease at the foot), flat apron with live text; name pre-distorted for the arch so it reads straight from the seat. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v4_vault_tanya_andrianova.svg",
+  "variant": "v4_vault",
+  "artist": "tanya_andrianova",
+  "width_mm": 210.0,
+  "height_mm": 161.381,
+  "notes": "Sheet 210x161 bent into a semicircular arch R38 (crease at the foot), flat apron with live text; name pre-distorted for the arch so it reads straight from the seat. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v5_barlens_andrey_lee.svg",
+  "variant": "v5_barlens",
+  "artist": "andrey_lee",
+  "width_mm": 210.0,
+  "height_mm": 120.0,
+  "notes": "Card 210x120 with the name squashed to a ribbon (about 43% height); an acrylic plano-convex bar 200x32x32 (R20, flat down) laid on the ticks restores it. 1-line name. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v5_barlens_igor_zotov.svg",
+  "variant": "v5_barlens",
+  "artist": "igor_zotov",
+  "width_mm": 210.0,
+  "height_mm": 120.0,
+  "notes": "Card 210x120 with the name squashed to a ribbon (about 43% height); an acrylic plano-convex bar 200x32x32 (R20, flat down) laid on the ticks restores it. 1-line name. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v5_barlens_sasha_chernikov.svg",
+  "variant": "v5_barlens",
+  "artist": "sasha_chernikov",
+  "width_mm": 210.0,
+  "height_mm": 120.0,
+  "notes": "Card 210x120 with the name squashed to a ribbon (about 43% height); an acrylic plano-convex bar 200x32x32 (R20, flat down) laid on the ticks restores it. 1-line name. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v5_barlens_sophia_zhuravkova.svg",
+  "variant": "v5_barlens",
+  "artist": "sophia_zhuravkova",
+  "width_mm": 210.0,
+  "height_mm": 120.0,
+  "notes": "Card 210x120 with the name squashed to a ribbon (about 43% height); an acrylic plano-convex bar 200x32x32 (R20, flat down) laid on the ticks restores it. 1-line name. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v5_barlens_tanya_andrianova.svg",
+  "variant": "v5_barlens",
+  "artist": "tanya_andrianova",
+  "width_mm": 210.0,
+  "height_mm": 120.0,
+  "notes": "Card 210x120 with the name squashed to a ribbon (about 43% height); an acrylic plano-convex bar 200x32x32 (R20, flat down) laid on the ticks restores it. 1-line name. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v6_runway_andrey_lee.svg",
+  "variant": "v6_runway",
+  "artist": "andrey_lee",
+  "width_mm": 90.0,
+  "height_mm": 420.0,
+  "notes": "Strip 90x420 lying along the gaze axis, name rotated 90 deg (near to far) and stretched 1.4x-2.2x so it reads upright from the seat; details flat at the near end. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v6_runway_igor_zotov.svg",
+  "variant": "v6_runway",
+  "artist": "igor_zotov",
+  "width_mm": 90.0,
+  "height_mm": 420.0,
+  "notes": "Strip 90x420 lying along the gaze axis, name rotated 90 deg (near to far) and stretched 1.4x-2.2x so it reads upright from the seat; details flat at the near end. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v6_runway_sasha_chernikov.svg",
+  "variant": "v6_runway",
+  "artist": "sasha_chernikov",
+  "width_mm": 90.0,
+  "height_mm": 420.0,
+  "notes": "Strip 90x420 lying along the gaze axis, name rotated 90 deg (near to far) and stretched 1.4x-2.2x so it reads upright from the seat; details flat at the near end. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v6_runway_sophia_zhuravkova.svg",
+  "variant": "v6_runway",
+  "artist": "sophia_zhuravkova",
+  "width_mm": 90.0,
+  "height_mm": 420.0,
+  "notes": "Strip 90x420 lying along the gaze axis, name rotated 90 deg (near to far) and stretched 1.4x-2.2x so it reads upright from the seat; details flat at the near end. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ },
+ {
+  "file": "v6_runway_tanya_andrianova.svg",
+  "variant": "v6_runway",
+  "artist": "tanya_andrianova",
+  "width_mm": 90.0,
+  "height_mm": 420.0,
+  "notes": "Strip 90x420 lying along the gaze axis, name rotated 90 deg (near to far) and stretched 1.4x-2.2x so it reads upright from the seat; details flat at the near end. Plain Wix Madefor Display Bold x0.9 uppercase text is warped first, then melted in the warped space (sigma 0.10 x local cap height, threshold 0.27); counters carved open, per-name letter-spacing from tracks.json."
+ }
+]

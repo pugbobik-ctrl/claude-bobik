@@ -23,3 +23,15 @@ Install Wix Madefor Text (all weights) before running; the script reports any mi
 Input SVG format (one file per card and artist): mm units (`viewBox` 1 unit = 1 mm) and
 top-level groups `layer-cut`, `layer-crease`, `layer-perf`, `layer-art`, `layer-text`,
 `layer-guides`; text as `<text>`; no images.
+
+## Scripts
+
+| Script | What | Sources |
+|---|---|---|
+| `place-cards.jsx` | approved forms: Sit Down, Walk-By, Decoder Ring (+ ring) × 5 artists | `placecard/round3/` |
+| `variants-system.jsx` | V1 Downstream, V2 Wrap, V3 Concertina, V4 Receipt Mass, V5 Line-up Band, V6 Quiet Lockup | `placecard/variants/system/` |
+| `variants-fold.jsx` | Ridge, Napkin flag, Crenel, Elbow, Slope, Bridge | `placecard/variants/fold/` |
+| `variants-edge.jsx` | Overhang, Halo, Bend, Slot, Pop-up, Drip (name breaks the card edge) | `placecard/variants/edge/` |
+| `variants-optic.jsx` | Standup, Relay, Scanimation, Vault, Bar lens, Runway | `placecard/variants/optic/` |
+
+Each `variants/<set>/variants.md` has the idea, construction, ranking and risks of its six variants.
