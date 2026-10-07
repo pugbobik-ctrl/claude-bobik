@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Fold shot</title>
+<style>html,body{margin:0;height:100%;overflow:hidden;background:#dedbd3}canvas{display:block;width:100%;height:100%}</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head><body><canvas id="c"></canvas>
+<script type="module">
+import { buildCard } from './fold.js';
+import { makeScene, viewPose } from './scene.js';
+const q = new URLSearchParams(location.search);
+try {
+  const spec = await fetch(q.get('spec')).then((r) => r.json());
+  const canvas = document.getElementById('c');
+  const { renderer, scene, camera } = makeScene(canvas);
+  renderer.setSize(innerWidth, innerHeight, false);
+  camera.aspect = innerWidth / innerHeight;
+  const card = await buildCard(spec, q.get('tex'));
+  scene.add(card.object);
+  const t = q.has('t') ? parseFloat(q.get('t')) : card.maxStep;
+  card.update(t);
+  const v = viewPose(q.get('view') || 'orbit', card.object, spec, innerWidth / innerHeight);
+  camera.fov = v.fov; camera.position.copy(v.pos); camera.lookAt(v.target); camera.updateProjectionMatrix();
+  renderer.render(scene, camera);
+  renderer.render(scene, camera);
+  window.__info = { maxStep: card.maxStep, steps: card.steps };
+  window.__ready = true;
+} catch (e) { window.__error = String(e && e.stack || e); window.__ready = true; }
+</script></body></html>
