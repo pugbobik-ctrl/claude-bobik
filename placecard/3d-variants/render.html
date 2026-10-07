@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Fold render</title>
+<style>html,body{margin:0;height:100%;overflow:hidden;background:#d3cfc6}canvas{display:block;width:100%;height:100%}</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head><body><canvas id="c"></canvas>
+<script type="module">
+// Batch renderer: window.load(spec, tex) then window.frame(t, view) for each still.
+import * as THREE from 'three';
+import { buildCard, bounds } from './fold.js';
+import { makeScene, viewPose } from './scene.js';
+const canvas = document.getElementById('c');
+const { renderer, scene, camera } = makeScene(canvas);
+renderer.setSize(innerWidth, innerHeight, false);
+camera.aspect = innerWidth / innerHeight;
+let card = null, spec = null, poses = {};
+window.load = async (s, tex) => {
+  if (card) scene.remove(card.object);
+  spec = s;
+  card = await buildCard(s, tex);
+  scene.add(card.object);
+  // one camera per view for the whole sequence: framed on the flat sheet and the finished card together
+  poses = {};
+  for (const v of ['orbit', 'top', 'seat', 'side', 'front']) {
+    card.update(v === 'top' ? 0 : card.maxStep);
+    poses[v] = viewPose(v, card.object, spec, camera.aspect);
+  }
+  card.update(0);
+  const flat = bounds(card.object, true);
+  card.update(card.maxStep);
+  const done = bounds(card.object, true);
+  const both = flat.clone().union(done);
+  const c = both.getCenter(new THREE.Vector3()), r = Math.max(60, both.getSize(new THREE.Vector3()).length() / 2);
+  const d = new THREE.Vector3(0.75, 0.62, 1).normalize();
+  poses.travel = { pos: c.clone().add(d.multiplyScalar(r / Math.sin(THREE.MathUtils.degToRad(17.5)) * 1.0 / Math.min(1, camera.aspect))), target: c, fov: 35 };
+  return { maxStep: card.maxStep, steps: card.steps };
+};
+window.frame = (t, view) => {
+  card.update(t);
+  const v = poses[view];
+  camera.fov = v.fov; camera.position.copy(v.pos); camera.lookAt(v.target); camera.updateProjectionMatrix();
+  renderer.render(scene, camera);
+  return true;
+};
+window.__ready = true;
+</script></body></html>
