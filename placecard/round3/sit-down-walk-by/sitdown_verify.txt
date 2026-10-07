@@ -3,48 +3,48 @@ PASS sheet 164 x 88, two leaves of 82
 PASS free-end height from the level-top rule = 88.0000 (crease end 37.42; round 2 used 38 and 88.5)
 PASS top edge of both leaves projects to one level line in the banner plane (spread 4.6e-14 mm)
 PASS outline area 10284 mm2 = (88 + 37.42) x 82 (notch apex filleted R1)
-FAIL Tanya Andrianova: melted name as SEEN from the seat (cap 10.20 mm, block 96.2 x 25.5 mm) inside the apparent silhouette with >= 1.5 mm margin
+PASS Tanya Andrianova: melted name as SEEN from the seat (cap 9.20 mm, block 87.0 x 23.0 mm) inside the apparent silhouette with >= 1.5 mm margin
 PASS Tanya Andrianova: printed ink inside the outline with >= 0.7 mm to the cut edges
 PASS Tanya Andrianova: melt keeps the letters: 99.0 % of the plain letter area is inked, 0.00 % of the ink lies beyond 0.35 cap from a plain letter
-INFO Tanya Andrianova: seen-from-seat structure: 15 blobs, 8 open counters; stroke weight by position (6 bins, mm) -, 3.5, 2.6, 2.6, 2.6, -; sub-0.7 mm ink features 0.01 %; params track 0.06 thr 0.32 sigma 0.075
-FAIL Igor Zotov: melted name as SEEN from the seat (cap 10.20 mm, block 51.0 x 26.1 mm) inside the apparent silhouette with >= 1.5 mm margin
+INFO Tanya Andrianova: seen-from-seat structure: 15 blobs, 8 open counters; stroke weight by position (6 bins, mm) -, 3.6, 2.2, 2.3, 2.3, -; sub-0.7 mm ink features 0.01 %; params track 0.06 thr 0.32 sigma 0.075
+PASS Igor Zotov: melted name as SEEN from the seat (cap 9.20 mm, block 46.1 x 23.5 mm) inside the apparent silhouette with >= 1.5 mm margin
 PASS Igor Zotov: printed ink inside the outline with >= 0.7 mm to the cut edges
 PASS Igor Zotov: melt keeps the letters: 99.3 % of the plain letter area is inked, 0.00 % of the ink lies beyond 0.35 cap from a plain letter
-INFO Igor Zotov: seen-from-seat structure: 9 blobs, 5 open counters; stroke weight by position (6 bins, mm) -, -, 3.2, 3.2, 2.9, -; sub-0.7 mm ink features 0.00 %; params track 0.09 thr 0.27 sigma 0.1
-FAIL Andrey Lee: melted name as SEEN from the seat (cap 10.20 mm, block 58.7 x 25.5 mm) inside the apparent silhouette with >= 1.5 mm margin
+INFO Igor Zotov: seen-from-seat structure: 9 blobs, 5 open counters; stroke weight by position (6 bins, mm) -, -, 2.8, 2.8, -, -; sub-0.7 mm ink features 0.00 %; params track 0.09 thr 0.27 sigma 0.1
+PASS Andrey Lee: melted name as SEEN from the seat (cap 9.20 mm, block 53.0 x 23.0 mm) inside the apparent silhouette with >= 1.5 mm margin
 PASS Andrey Lee: printed ink inside the outline with >= 0.7 mm to the cut edges
 PASS Andrey Lee: melt keeps the letters: 99.4 % of the plain letter area is inked, 0.00 % of the ink lies beyond 0.35 cap from a plain letter
-INFO Andrey Lee: seen-from-seat structure: 9 blobs, 3 open counters; stroke weight by position (6 bins, mm) -, 4.4, 2.8, 3.4, 2.8, -; sub-0.7 mm ink features 0.01 %; params track 0.09 thr 0.27 sigma 0.075
-FAIL Sasha Chernikov: melted name as SEEN from the seat (cap 10.20 mm, block 83.6 x 26.5 mm) inside the apparent silhouette with >= 1.5 mm margin
+INFO Andrey Lee: seen-from-seat structure: 9 blobs, 3 open counters; stroke weight by position (6 bins, mm) -, 3.5, 2.6, 3.0, 2.5, -; sub-0.7 mm ink features 0.01 %; params track 0.09 thr 0.27 sigma 0.075
+PASS Sasha Chernikov: melted name as SEEN from the seat (cap 9.20 mm, block 75.5 x 23.9 mm) inside the apparent silhouette with >= 1.5 mm margin
 PASS Sasha Chernikov: printed ink inside the outline with >= 0.7 mm to the cut edges
 PASS Sasha Chernikov: melt keeps the letters: 98.9 % of the plain letter area is inked, 0.00 % of the ink lies beyond 0.35 cap from a plain letter
-INFO Sasha Chernikov: seen-from-seat structure: 14 blobs, 4 open counters; stroke weight by position (6 bins, mm) -, 3.2, 4.2, 3.2, 3.2, -; sub-0.7 mm ink features 0.00 %; params track 0.06 thr 0.27 sigma 0.1
-FAIL Sophia Zhuravkova: melted name as SEEN from the seat (cap 10.20 mm, block 103.0 x 25.7 mm) inside the apparent silhouette with >= 1.5 mm margin
+INFO Sasha Chernikov: seen-from-seat structure: 14 blobs, 4 open counters; stroke weight by position (6 bins, mm) -, 2.9, 3.7, 3.0, 2.8, -; sub-0.7 mm ink features 0.01 %; params track 0.06 thr 0.27 sigma 0.1
+PASS Sophia Zhuravkova: melted name as SEEN from the seat (cap 9.20 mm, block 93.0 x 23.2 mm) inside the apparent silhouette with >= 1.5 mm margin
 PASS Sophia Zhuravkova: printed ink inside the outline with >= 0.7 mm to the cut edges
 PASS Sophia Zhuravkova: melt keeps the letters: 98.9 % of the plain letter area is inked, 0.00 % of the ink lies beyond 0.35 cap from a plain letter
-INFO Sophia Zhuravkova: seen-from-seat structure: 16 blobs, 7 open counters; stroke weight by position (6 bins, mm) 3.6, 2.5, 2.7, 2.5, 2.6, 3.6; sub-0.7 mm ink features 0.01 %; params track 0.09 thr 0.32 sigma 0.075
-INFO Tanya Andrianova: ink seen from 330 mm left / right / across the table overlaps the seat reading by 0.19 / 0.22 / 0.11 IoU (low = the name does not assemble elsewhere = intended)
+INFO Sophia Zhuravkova: seen-from-seat structure: 16 blobs, 7 open counters; stroke weight by position (6 bins, mm) -, 2.3, 2.3, 2.3, 2.3, -; sub-0.7 mm ink features 0.01 %; params track 0.09 thr 0.32 sigma 0.075
+INFO Tanya Andrianova: ink seen from 330 mm left / right / across the table overlaps the seat reading by 0.19 / 0.21 / 0.11 IoU (low = the name does not assemble elsewhere = intended)
 INFO Igor Zotov: ink seen from 330 mm left / right / across the table overlaps the seat reading by 0.21 / 0.22 / 0.26 IoU (low = the name does not assemble elsewhere = intended)
-INFO Andrey Lee: ink seen from 330 mm left / right / across the table overlaps the seat reading by 0.24 / 0.23 / 0.21 IoU (low = the name does not assemble elsewhere = intended)
-INFO Sasha Chernikov: ink seen from 330 mm left / right / across the table overlaps the seat reading by 0.24 / 0.28 / 0.18 IoU (low = the name does not assemble elsewhere = intended)
-INFO Sophia Zhuravkova: ink seen from 330 mm left / right / across the table overlaps the seat reading by 0.20 / 0.19 / 0.11 IoU (low = the name does not assemble elsewhere = intended)
---- sensitivity of the seat reading: apparent displacement of the ink in the banner plane (name block of Sophia Zhuravkova, cap 10.2 mm) ---
-INFO eye 30 mm lower (400)              RMS shift   1.6 mm  max   3.2 mm  = 0.16 cap
-INFO eye 30 mm higher (460)             RMS shift   1.5 mm  max   2.9 mm  = 0.15 cap
-INFO eye 50 mm nearer (400 away)        RMS shift   2.5 mm  max   4.8 mm  = 0.25 cap
-INFO eye 50 mm farther (500 away)       RMS shift   2.2 mm  max   4.2 mm  = 0.22 cap
-INFO eye 20 mm sideways                 RMS shift   1.4 mm  max   2.7 mm  = 0.14 cap
-INFO eye 40 mm sideways                 RMS shift   2.8 mm  max   5.4 mm  = 0.28 cap
-INFO eye 80 mm sideways                 RMS shift   5.6 mm  max  10.7 mm  = 0.55 cap
-INFO eye 150 mm sideways                RMS shift  10.5 mm  max  20.1 mm  = 1.03 cap
-INFO eye 330 mm sideways (next seat)    RMS shift  23.2 mm  max  44.3 mm  = 2.27 cap
-INFO walking past (-700, -150)          RMS shift  84.8 mm  max 169.6 mm  = 8.31 cap
-INFO across the table                   RMS shift  81.6 mm  max 140.4 mm  = 8.00 cap
-INFO V opening 80 deg                    RMS shift   3.2 mm  max   5.4 mm  = 0.32 cap
-INFO V opening 85 deg                    RMS shift   1.6 mm  max   2.6 mm  = 0.16 cap
-INFO V opening 95 deg                    RMS shift   1.6 mm  max   2.6 mm  = 0.15 cap
-INFO V opening 100 deg                    RMS shift   3.1 mm  max   5.1 mm  = 0.30 cap
-INFO tolerance to keep the reading clean (RMS displacement <= 0.25 cap = 2.5 mm): eye height +-52 mm, eye distance +-50 mm, sideways +-36 mm, V half-angle +-4.1 deg (V = 90 +-8 deg)
+INFO Andrey Lee: ink seen from 330 mm left / right / across the table overlaps the seat reading by 0.23 / 0.23 / 0.21 IoU (low = the name does not assemble elsewhere = intended)
+INFO Sasha Chernikov: ink seen from 330 mm left / right / across the table overlaps the seat reading by 0.24 / 0.27 / 0.18 IoU (low = the name does not assemble elsewhere = intended)
+INFO Sophia Zhuravkova: ink seen from 330 mm left / right / across the table overlaps the seat reading by 0.19 / 0.18 / 0.11 IoU (low = the name does not assemble elsewhere = intended)
+--- sensitivity of the seat reading: apparent displacement of the ink in the banner plane (name block of Sophia Zhuravkova, cap 9.2 mm) ---
+INFO eye 30 mm lower (400)              RMS shift   1.5 mm  max   2.9 mm  = 0.16 cap
+INFO eye 30 mm higher (460)             RMS shift   1.4 mm  max   2.7 mm  = 0.15 cap
+INFO eye 50 mm nearer (400 away)        RMS shift   2.3 mm  max   4.3 mm  = 0.25 cap
+INFO eye 50 mm farther (500 away)       RMS shift   2.0 mm  max   3.8 mm  = 0.22 cap
+INFO eye 20 mm sideways                 RMS shift   1.3 mm  max   2.4 mm  = 0.14 cap
+INFO eye 40 mm sideways                 RMS shift   2.6 mm  max   4.9 mm  = 0.28 cap
+INFO eye 80 mm sideways                 RMS shift   5.1 mm  max   9.7 mm  = 0.55 cap
+INFO eye 150 mm sideways                RMS shift   9.6 mm  max  18.3 mm  = 1.04 cap
+INFO eye 330 mm sideways (next seat)    RMS shift  21.1 mm  max  40.2 mm  = 2.29 cap
+INFO walking past (-700, -150)          RMS shift  76.7 mm  max 152.2 mm  = 8.33 cap
+INFO across the table                   RMS shift  75.4 mm  max 130.6 mm  = 8.20 cap
+INFO V opening 80 deg                    RMS shift   2.9 mm  max   4.8 mm  = 0.32 cap
+INFO V opening 85 deg                    RMS shift   1.4 mm  max   2.4 mm  = 0.16 cap
+INFO V opening 95 deg                    RMS shift   1.4 mm  max   2.3 mm  = 0.15 cap
+INFO V opening 100 deg                    RMS shift   2.8 mm  max   4.6 mm  = 0.30 cap
+INFO tolerance to keep the reading clean (RMS displacement <= 0.25 cap = 2.3 mm): eye height +-52 mm, eye distance +-50 mm, sideways +-36 mm, V half-angle +-4.1 deg (V = 90 +-8 deg)
 PASS 6 cards nested on SRA3 450 x 320
 PASS min gap between nested cards 3.90 mm (>= 3.0)
 PASS inside gripper 10 / margins 6: bbox [10.0, 6.0, 408.0, 252.0]
@@ -52,4 +52,4 @@ INFO nested crease direction horizontal = parallel to the 450 mm long grain; vs 
 PASS back details at the menu body size: 9.5 pt = 3.351 mm font size (cap 2.40 mm; below the 3.5 mm caps rule, set by the client)
 PASS lockup: COLORBLOCK/DNA Bold 4.798 mm (13.6 pt), x SemiBold 3.351 mm, gap 2.64 mm (0.55 em)
 PASS back type inside the outline with >= 5 mm margin (lockup 52.3, details 43.5 / 53.5 mm wide)
-RESULT FAILURES
+RESULT ALL PASS
