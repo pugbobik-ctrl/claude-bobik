@@ -1,0 +1,17 @@
+C4 RAKING LIGHT geometry + lighting check
+card 118.0 x 64.0 x 1.4 mm board; grating pitch 0.5, depth 0.2, triangle profile -> flank slope atan(2d/p) = 38.7 deg
+letters: Wix Madefor Bold 16.0 mm: 'Zhuravkova' 91.3 mm wide; stem ~ 2.6 mm = 5.1 grating periods (>= 4 needed to read the orientation)
+Lambert simulation of the real height field (numpy, 16 px/mm, gradient normals, clamp at 0), mean brightness inside letters vs ground:
+  diffuse (8 lamps, 45 deg)                letters 0.641   ground 0.640   Weber contrast +0 %
+  B  lamp low at the LEFT, 15 deg          letters 0.442   ground 0.310   Weber contrast +43 %
+  C  lamp low at the FAR EDGE, 15 deg      letters 0.311   ground 0.443   Weber contrast -30 %
+analytic 15 deg: ridges across the beam 0.403  ridges along the beam 0.202  ratio 1.99; flat card 0.259
+Contrast flips sign when the lamp moves 90 deg round: letters bright in B, dark in C. Diffuse light: ~0 -> the name vanishes.
+detectability: human contrast threshold on a plain surface ~ 2-3 %; here >> that at 15 deg (see numbers); at 45 deg lamp it falls (see run).
+  lamp from the left, elevation 10 deg: letters 0.405 ground 0.248  Weber +64 %
+  lamp from the left, elevation 15 deg: letters 0.442 ground 0.310  Weber +43 %
+  lamp from the left, elevation 25 deg: letters 0.509 ground 0.431  Weber +18 %
+  lamp from the left, elevation 35 deg: letters 0.563 ground 0.542  Weber +4 %
+  lamp from the left, elevation 45 deg: letters 0.641 ground 0.640  Weber +0 %
+  lamp from the left, elevation 60 deg: letters 0.758 ground 0.757  Weber +0 %
+Production: polymer (relief) plate per name, blind impression 0.2 mm on 1.4 mm cotton-rich board; 8 names ganged on an A4 plate -> 5 plates for 40 guests.

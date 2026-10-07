@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" font-family="'Wix Madefor Text', sans-serif"><style>@font-face{font-family:'Wix Madefor Text';font-weight:400;src:url('../fonts/WixMadeforText-400.ttf') format('truetype');}@font-face{font-family:'Wix Madefor Text';font-weight:500;src:url('../fonts/WixMadeforText-500.ttf') format('truetype');}@font-face{font-family:'Wix Madefor Text';font-weight:600;src:url('../fonts/WixMadeforText-600.ttf') format('truetype');}@font-face{font-family:'Wix Madefor Text';font-weight:700;src:url('../fonts/WixMadeforText-700.ttf') format('truetype');}</style><rect width="1200" height="900" fill="#f7f5ef"/><text x="48.00" y="78.00" font-size="40" font-weight="700" fill="#141414" text-anchor="start" >06</text>
+<text x="112.00" y="78.00" font-size="40" font-weight="700" fill="#141414" text-anchor="start" >THREE FACES</text>
+<text x="48.00" y="108.00" font-size="16" font-weight="400" fill="#555" text-anchor="start" >A hexagon the size of a coaster. Pinch and flex it: name, then the menu, then the evening. The card is the programme.</text>
+<polygon points="328.00,300.00 264.00,410.85 136.00,410.85 72.00,300.00 136.00,189.15 264.00,189.15" fill="#feed95" stroke="#141414" stroke-width="2.2" stroke-linejoin="round" />
+<line x1="200.00" y1="300.00" x2="328.00" y2="300.00" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="200.00" y1="300.00" x2="264.00" y2="410.85" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="200.00" y1="300.00" x2="136.00" y2="410.85" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="200.00" y1="300.00" x2="72.00" y2="300.00" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="200.00" y1="300.00" x2="136.00" y2="189.15" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="200.00" y1="300.00" x2="264.00" y2="189.15" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<text x="200.00" y="294.00" font-size="30" font-weight="700" fill="#141414" text-anchor="middle" >Sophia</text>
+<text x="200.00" y="326.00" font-size="30" font-weight="700" fill="#141414" text-anchor="middle" >Zhuravkova</text>
+<text x="200.00" y="356.00" font-size="12" font-weight="600" fill="#141414" text-anchor="middle" letter-spacing="1.5" >TABLE 4   SEAT 07</text>
+<text x="200.00" y="464.00" font-size="12" font-weight="700" fill="#8d8a80" text-anchor="middle" letter-spacing="1" >FACE 1: YOU</text>
+<path d="M356,288 q38,-34 76,0" fill="none" stroke="#141414" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
+<polyline points="432.00,288.00 422.00,284.00" fill="none" stroke="#141414" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
+<polyline points="432.00,288.00 428.00,278.00" fill="none" stroke="#141414" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
+<text x="394.00" y="318.00" font-size="12" font-weight="600" fill="#8d8a80" text-anchor="middle" >flex</text>
+<polygon points="728.00,300.00 664.00,410.85 536.00,410.85 472.00,300.00 536.00,189.15 664.00,189.15" fill="#feed95" stroke="#141414" stroke-width="2.2" stroke-linejoin="round" />
+<line x1="600.00" y1="300.00" x2="728.00" y2="300.00" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="600.00" y1="300.00" x2="664.00" y2="410.85" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="600.00" y1="300.00" x2="536.00" y2="410.85" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="600.00" y1="300.00" x2="472.00" y2="300.00" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="600.00" y1="300.00" x2="536.00" y2="189.15" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="600.00" y1="300.00" x2="664.00" y2="189.15" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<text x="530.00" y="276.00" font-size="20" font-weight="700" fill="#141414" text-anchor="start" >I</text>
+<text x="578.00" y="276.00" font-size="26" font-weight="700" fill="#141414" text-anchor="start" >cold</text>
+<text x="530.00" y="314.00" font-size="20" font-weight="700" fill="#141414" text-anchor="start" >II</text>
+<text x="578.00" y="314.00" font-size="26" font-weight="700" fill="#141414" text-anchor="start" >fire</text>
+<text x="530.00" y="352.00" font-size="20" font-weight="700" fill="#141414" text-anchor="start" >III</text>
+<text x="578.00" y="352.00" font-size="26" font-weight="700" fill="#141414" text-anchor="start" >sweet</text>
+<text x="600.00" y="464.00" font-size="12" font-weight="700" fill="#8d8a80" text-anchor="middle" letter-spacing="1" >FACE 2: THE MENU</text>
+<path d="M756,288 q38,-34 76,0" fill="none" stroke="#141414" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
+<polyline points="832.00,288.00 822.00,284.00" fill="none" stroke="#141414" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
+<polyline points="832.00,288.00 828.00,278.00" fill="none" stroke="#141414" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
+<text x="794.00" y="318.00" font-size="12" font-weight="600" fill="#8d8a80" text-anchor="middle" >flex</text>
+<polygon points="1128.00,300.00 1064.00,410.85 936.00,410.85 872.00,300.00 936.00,189.15 1064.00,189.15" fill="#feed95" stroke="#141414" stroke-width="2.2" stroke-linejoin="round" />
+<line x1="1000.00" y1="300.00" x2="1128.00" y2="300.00" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="1000.00" y1="300.00" x2="1064.00" y2="410.85" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="1000.00" y1="300.00" x2="936.00" y2="410.85" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="1000.00" y1="300.00" x2="872.00" y2="300.00" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="1000.00" y1="300.00" x2="936.00" y2="189.15" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<line x1="1000.00" y1="300.00" x2="1064.00" y2="189.15" stroke="#d4be5c" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 4" />
+<text x="1000.00" y="278.00" font-size="26" font-weight="700" fill="#141414" text-anchor="middle" >Colorblock</text>
+<text x="1000.00" y="308.00" font-size="22" font-weight="600" fill="#141414" text-anchor="middle" >x DNA Kitchen</text>
+<text x="1000.00" y="344.00" font-size="12" font-weight="600" fill="#141414" text-anchor="middle" letter-spacing="1.5" >MOSCOW   10.10.2026</text>
+<text x="1000.00" y="464.00" font-size="12" font-weight="700" fill="#8d8a80" text-anchor="middle" letter-spacing="1" >FACE 3: THE EVENING</text>
+<text x="60.00" y="630.00" font-size="12" font-weight="700" fill="#8d8a80" text-anchor="start" letter-spacing="1" >THE STRIP: 9 triangles + glue tab, side 45 mm (drawn x1.7), folded on every dashed line</text>
+<polygon points="60.00,717.55 138.00,717.55 99.00,650.00" fill="#feed95" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" />
+<text x="99.00" y="695.03" font-size="14" font-weight="700" fill="#8d8a80" text-anchor="middle" dy="5">1</text>
+<polygon points="138.00,717.55 99.00,650.00 177.00,650.00" fill="#feed95" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" />
+<text x="138.00" y="672.52" font-size="14" font-weight="700" fill="#8d8a80" text-anchor="middle" dy="5">2</text>
+<polygon points="138.00,717.55 216.00,717.55 177.00,650.00" fill="#feed95" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" />
+<text x="177.00" y="695.03" font-size="14" font-weight="700" fill="#8d8a80" text-anchor="middle" dy="5">3</text>
+<polygon points="216.00,717.55 177.00,650.00 255.00,650.00" fill="#feed95" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" />
+<text x="216.00" y="672.52" font-size="14" font-weight="700" fill="#8d8a80" text-anchor="middle" dy="5">4</text>
+<polygon points="216.00,717.55 294.00,717.55 255.00,650.00" fill="#feed95" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" />
+<text x="255.00" y="695.03" font-size="14" font-weight="700" fill="#8d8a80" text-anchor="middle" dy="5">5</text>
+<polygon points="294.00,717.55 255.00,650.00 333.00,650.00" fill="#feed95" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" />
+<text x="294.00" y="672.52" font-size="14" font-weight="700" fill="#8d8a80" text-anchor="middle" dy="5">6</text>
+<polygon points="294.00,717.55 372.00,717.55 333.00,650.00" fill="#feed95" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" />
+<text x="333.00" y="695.03" font-size="14" font-weight="700" fill="#8d8a80" text-anchor="middle" dy="5">7</text>
+<polygon points="372.00,717.55 333.00,650.00 411.00,650.00" fill="#feed95" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" />
+<text x="372.00" y="672.52" font-size="14" font-weight="700" fill="#8d8a80" text-anchor="middle" dy="5">8</text>
+<polygon points="372.00,717.55 450.00,717.55 411.00,650.00" fill="#feed95" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" />
+<text x="411.00" y="695.03" font-size="14" font-weight="700" fill="#8d8a80" text-anchor="middle" dy="5">9</text>
+<polygon points="450.00,717.55 411.00,650.00 489.00,650.00" fill="#e6c957" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" />
+<text x="450.00" y="672.52" font-size="11" font-weight="700" fill="#8d8a80" text-anchor="middle" dy="5">glue</text>
+<text x="60.00" y="757.55" font-size="13" font-weight="500" fill="#141414" text-anchor="start" >Each triangle is printed both sides; 3 faces x 6 triangles = 18 = 9 x 2.</text>
+<text x="60.00" y="775.10" font-size="13" font-weight="500" fill="#141414" text-anchor="start" >Face layout follows the standard trihexaflexagon template: mock it up in white paper before artwork.</text>
+<text x="880.00" y="644.00" font-size="13" font-weight="500" fill="#141414" text-anchor="start" >Hexagon 90 mm across, 350 gsm</text>
+<text x="880.00" y="661.55" font-size="13" font-weight="500" fill="#141414" text-anchor="start" >lemon card, scored, no glue but the tab.</text>
+<text x="880.00" y="679.10" font-size="13" font-weight="500" fill="#141414" text-anchor="start" ></text>
+<text x="880.00" y="696.65" font-size="13" font-weight="500" fill="#141414" text-anchor="start" >Lies flat beside the plate; faces 2 and 3</text>
+<text x="880.00" y="714.20" font-size="13" font-weight="500" fill="#141414" text-anchor="start" >are found only by playing with it.</text></svg>

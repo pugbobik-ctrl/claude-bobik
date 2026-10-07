@@ -1,0 +1,10 @@
+C3 ONE THREAD geometry / length check (mm)
+sheet 104 x 80 folded once -> booklet 52 x 80, 4 pages; spine along the 80 edge
+holes on the fold at [12.0, 40.0, 68.0]: spacing 28 / 28; end margins 12 / 12
+thread path in the book: inside H2-H1 28, outside long stitch H1-H3 56, inside H3-H2 28 = 112 mm + ~3 x 2 mm for passes
+H2 is passed twice: 2 x 0.6 thread = 1.2 -> pierce H2 at 1.3 mm, H1/H3 at 0.9 mm
+belt round roll 42 dia + booklet 2.2: pi x 46.4 = 146 mm
+bow 2 loops x 45 + 2 tails x 22 = 134; total = 398 mm -> cut 500 mm (20 % spare for the knot, two-turn option adds 146)
+name 'Zhuravkova' at 7.6 mm SemiBold = 42.8 mm on a 52 mm page -> 4.6 mm each side; cap-height 5.4
+'Dinner' at 11 mm Bold = 35.3 mm
+SRA3 320x450 : sheets 104x80 -> 3 x 5 = 15 per sheet (rotated: 16)

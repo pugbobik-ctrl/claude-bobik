@@ -1,0 +1,16 @@
+C2 LANTERN LATTICE geometry check (mm)
+strip 194 x 78; ring circumference C = 170 -> belt radius 27.06 (dia 54.1)
+16 ribbons per row, ribbon width p = 10.625; slit length 18.0, bridge 4.0
+rows: belt 22.0 | 4.0 | slit row A 18.0 | 4.0 | slit row B 18.0 | 4.0 | foot 8.0  = 78.0 mm
+ribbon creased at its middle (mountain, outward); two 9 mm segments; bulge (sagitta) F = 5.0
+compressed chord per ribbon = 2*sqrt(9.0^2 - 5.0^2) = 14.97 -> shortening 3.03 per row (17 %)
+lantern height 78 -> 71.9 mm; ribbon end angle from vertical = 33.7 deg
+check, un-creased sine buckle with same shortening: f = (2/pi) sqrt(L dz) = 4.70 (creased kink gives 5.0); the crease forces the lower-energy bulge to the OUTSIDE
+belt-ring radius 27.06; bulge radius 32.06; circumference at the bulge 201.4 vs ribbons 170.0
+-> gaps open between neighbouring ribbons: 1.96 mm each (ribbons splay; they must not overlap: gap > 0 OK)
+row B is offset by p/2 = 5.31; ribbons of A and B cross at the bridge bands -> brick/diamond pattern
+crease: 350 g/m2 board t = 0.4; kink radius ~ 1.0 -> fold OK; ribbon bending strain at crease ~ t/(2r) = 0.20 (scored) fine
+Zhuravkova: 45.0 mm wide at 8.0 mm; on the belt = 95 deg of arc; at the edges of that arc it is foreshortened to cos(half-arc) = 0.67
+Sophia Zhuravkova (one line): 73.5 mm wide at 8.0 mm; on the belt = 156 deg of arc; at the edges of that arc it is foreshortened to cos(half-arc) = 0.21
+belt text zone: 2 lines of 8 mm type (cap-h 5.7) in 22.0 mm; leading 9.6, margins 3.3
+SRA3 320 x 450: strips 194 x 78 -> 2 across x 4 down = 8 per sheet; 40 guests = 5 sheets

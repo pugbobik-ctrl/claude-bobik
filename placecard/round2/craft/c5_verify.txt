@@ -1,0 +1,25 @@
+C5 FLAG-UP (napkin-triggered pull-flag) mechanism check (mm)
+card 124 x 88; flag 100 x 50 hinged at y = 20; leg hinge a = 15.0, leg l = 30.0
+foot start y_f(0) = 20.0+15.0+30.0 = 65.0  (< flag tip 70, so the folded leg lies under the flag)
+phi(deg)  foot y   stroke   P(y,z)            leg angle   flag tip height
+    0     65.00    0.00   ( 35.0,  0.0)      0.0        0.0
+   10     64.66    0.34   ( 34.8,  2.6)      5.0        8.7
+   20     63.65    1.35   ( 34.1,  5.1)      9.8       17.1
+   30     62.04    2.96   ( 33.0,  7.5)     14.5       25.0
+   40     59.90    5.10   ( 31.5,  9.6)     18.7       32.1
+   50     57.35    7.65   ( 29.6, 11.5)     22.5       38.3
+   60     54.54   10.46   ( 27.5, 13.0)     25.7       43.3
+   70     51.61   13.39   ( 25.1, 14.1)     28.0       47.0
+   78     49.29   15.71   ( 23.1, 14.7)     29.3       48.9
+   85     47.32   17.68   ( 21.3, 14.9)     29.9       49.8
+   90     45.98   19.02   ( 20.0, 15.0)     30.0       50.0
+final stroke to phi = 78 deg: 15.71 mm (guest pulls the tail ~16 mm)
+stop: slider shoulder (16 wide) sits 29.3 mm from the foot fold and meets the 12.6 mm channel mouth at y = 20 exactly when phi = 78 deg: 49.29 - 29.29 = 20
+without the stop the flag would run on to phi = 90 deg at stroke 19.0 mm and then fall toward the guest -> stop is mandatory
+flag mass = 50 cm2 x 0.035 g/cm2 = 1.8 g -> weight 17.2 mN, gravity torque at phi=0 : 0.43 N.mm
+hold at 78 deg: crease spring-back est. M = 1.6 N.mm (350 g board, 0.4 caliper, scored) -> leg force 0.11 N ; friction alone unreliable -> latch tongue (>= 2 N) required
+estimates (to confirm on a hand prototype): pull to erect 0.1-0.3 N; tear of the 8 mm tail perforation 1.0-1.5 N; latch holds > 2 N, so the sequence is erect -> latch -> tear -> napkin free
+tail: slider reaches the edge (y=0) from F (y=65); outside the card 20 mm to the perforation, then 60 mm of tail to the napkin slot. Napkin travel needed = 16 mm
+flag text: 'Zhuravkova' 87.2 mm at 15.5 mm in a 100 wide flag -> margin 6.4; two lines leading 16.5, block centred on the flag
+laminate: A 350 g (0.40) + C 900 um spacer (leg + slider doubled = 0.8) + B 350 g (0.40) = 1.7 mm card
+A, B, C: 124 x 88; SRA3: 2 x 5 = 10 each of A, B, C -> 40 guests need 4 sheets per layer

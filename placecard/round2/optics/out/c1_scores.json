@@ -1,0 +1,50 @@
+{
+ "LED capsule 8 mm": {
+  "r_fixed": 0.9549256563186646,
+  "r_best": 0.9567317962646484
+ },
+ "clear filament 25 mm": {
+  "r_fixed": 0.9258947968482971,
+  "r_best": 0.9317926168441772
+ },
+ "opal globe 45 mm": {
+  "r_fixed": 0.8707818984985352,
+  "r_best": 0.8820042610168457
+ },
+ "opal globe 80 mm": {
+  "r_fixed": 0.7260516881942749,
+  "r_best": 0.7539198398590088
+ },
+ "card cut for lamp 300 mm to the left": {
+  "r_fixed": 0.8508135676383972,
+  "r_best": 0.8776904344558716
+ },
+ "card cut for lamp 600 mm to the left": {
+  "r_fixed": 0.7342792749404907,
+  "r_best": 0.8283721804618835
+ },
+ "lamp placed 60 mm off its mark (sideways)": {
+  "r_fixed": 0.342360258102417,
+  "r_best": 0.9001752138137817
+ },
+ "lamp placed 120 mm off its mark (sideways)": {
+  "r_fixed": 0.3042849898338318,
+  "r_best": 0.8095529675483704
+ },
+ "lamp 100 mm nearer than marked": {
+  "r_fixed": -0.1495366245508194,
+  "r_best": 0.7097960710525513
+ },
+ "lamp 200 mm farther than marked": {
+  "r_fixed": 0.05687203258275986,
+  "r_best": 0.3215980529785156
+ },
+ "lamp 30 mm lower than assumed": {
+  "r_fixed": 0.41302597522735596,
+  "r_best": 0.7681202292442322
+ },
+ "+ neighbour lamp 900 mm along table": {
+  "r_fixed": 0.8933256268501282,
+  "r_best": 0.9120964407920837
+ }
+}

@@ -1,0 +1,14 @@
+C1 KOSODE geometry check (units mm; y up, sheet shown corner-up)
+sheet 200 x 200, half-diagonal R = 141.42
+napkin pack (120, 70, 12), effective footprint (132, 82) (thickness added once)
+cover test (1 mm grid over the pack footprint inset 1.5 mm): 10159/10191 points under at least one folded layer = 99.7 %
+right lapel tip reaches x = -11.4, left lapel tip x = 11.4  -> lapels overlap 22.7 mm (left over right)
+highest point of any lapel layer y = 78.40; apex crease y = 79.90; clearance 1.50 mm (must be > 0 so the apex folds over nothing)
+apex flap height 61.5, width at crease 123.0; lands with tip at y = 18.4 (pack top 41, so flap covers 22.6 of the 82 mm pack height)
+closed footprint 132.0 x 122.6 mm
+Sophia: 40.1 mm wide at 12 mm SemiBold
+Zhuravkova: 67.5 mm wide at 12 mm SemiBold
+Zhuravkova: top of ascenders at y = 101.4; sheet width available there 80.1 mm vs text 67.5 -> margin 6.3 mm per side
+Sophia: top of ascenders at y = 115.4; sheet width available there 52.1 mm vs text 40.1 -> margin 6.0 mm per side
+cord: girth round the pack's short way = 2 x (70 + 12) = 164 mm; bow 2 x 45 loops + 2 x 60 tails -> cut length 394 mm (394, say 400)
+flap walls: crease positions are offset by half the pack thickness (6 mm) so the paper closes tight without bulging.

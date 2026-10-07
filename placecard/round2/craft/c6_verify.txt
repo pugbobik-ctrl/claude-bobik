@@ -1,0 +1,33 @@
+C6 WALK-BY (agamograph pleat) geometry check
+A facet 9.0 mm at +18 deg, B facet at -70 deg; planarity needs a sin(alpha) = b sin(beta) -> b = 2.960
+closure check: a sin a - b sin b = 0.00e+00 (zero = the strip returns to its baseline)
+tooth pitch p = a cos a + b cos b = 8.560 + 1.012 = 9.572; 13 teeth -> panel 124.4 mm wide; tooth depth 2.78 mm
+developed length per tooth 11.96; strip 155.5 + 2 x 8.0 tabs = 171.5 x 34
+name image: Wix Madefor SemiBold 12 mm, 'Sophia Zhuravkova' = 110.3 mm in 111.3 (apparent width at 0 deg); margin 0.5
+B image: 'Dinner' 11 mm Bold = 35.3 mm in 38.5 (apparent width at 70 deg)
+
+what each viewing azimuth sees (theta from the card normal, + toward the side the B facets face):
+ theta   A strip   B strip   B share   A share   verdict
+   -40      8.34      0.00      0.0%    100.0%   NAME clean
+   -30      8.80      0.00      0.0%    100.0%   NAME clean
+   -18      9.00      0.10      1.1%     98.9%   NAME clean
+   -10      8.91      0.51      5.5%     94.5%   NAME clean
+     0      8.56      1.01     10.6%     89.4%   NAME clean
+    10      7.95      1.48     15.7%     84.3%   name readable, striped
+    20      7.09      1.90     21.2%     78.8%   name readable, striped
+    30      6.02      2.27     27.4%     72.6%   mixed - gibberish
+    40      4.77      2.56     35.0%     65.0%   mixed - gibberish
+    50      3.37      2.78     45.2%     54.8%   mixed - gibberish
+    60      1.87      2.91     60.9%     39.1%   mixed - gibberish
+    65      1.10      2.95     72.9%     27.1%   mixed - gibberish
+    70      0.31      2.96     90.4%      9.6%   DINNER clean
+    75      0.00      2.95    100.0%      0.0%   DINNER clean
+    80      0.00      2.91    100.0%      0.0%   DINNER clean
+name stays clean (B share <= 12 %) up to theta = 3 deg; 'Dinner' clean (A share <= 10 %) from theta = 70 deg
+walker passing the seat at lateral distance 0.9 m sees the card at theta = atan(x/0.9): x = 1.0 m -> 48 deg, 2.0 m -> 66, 3.0 m -> 73, 0.3 m -> 18
+-> from the B side: 'Dinner' shows only on cards >= 2.5 m away along the table (70 deg); between 0.4 and 1.9 m the card shimmers (stripes); the name is readable (B share <= 25 %) inside theta <= 26 deg = x <= 0.45 m, i.e. when you are at your seat or looking from the other side (B hidden, clean for theta < 0)
+B ink is confined to the top 12 mm ('Dinner') and bottom 6 mm (date) of the 34 mm strip; the name sits in y = 14..26: at theta = 0 the B facets add lemon slivers and dashes ABOVE and BELOW the name, never through it (see c6_assembled.png)
+placement tip: turn the tent ~15 deg so the seat is at theta = -15 (B share 2 %), where the name is cleanest
+tent: two panels 50 high, apex angle 40 deg -> each leans 20 deg; footprint depth 34.2, height 47.0; tip-over (centre of mass at 40 % height, rough) = atan(17.1/18.8) = 42 deg
+tooth precision: A and B strips must register to the creases within +-0.3 mm; B strip is 2.96 mm wide so a 0.3 mm crease error shifts 10 % of a B strip (print scoring marks: 4 mm crop-style ticks on both edges)
+SRA3: strip 171 x 34 -> 2 x 9 = 18 per sheet; tent 136 x 100 -> 2 x 4

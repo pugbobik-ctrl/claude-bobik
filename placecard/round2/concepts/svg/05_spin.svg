@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" font-family="'Wix Madefor Text', sans-serif"><style>@font-face{font-family:'Wix Madefor Text';font-weight:400;src:url('../fonts/WixMadeforText-400.ttf') format('truetype');}@font-face{font-family:'Wix Madefor Text';font-weight:500;src:url('../fonts/WixMadeforText-500.ttf') format('truetype');}@font-face{font-family:'Wix Madefor Text';font-weight:600;src:url('../fonts/WixMadeforText-600.ttf') format('truetype');}@font-face{font-family:'Wix Madefor Text';font-weight:700;src:url('../fonts/WixMadeforText-700.ttf') format('truetype');}</style><rect width="1200" height="900" fill="#f7f5ef"/><text x="48.00" y="78.00" font-size="40" font-weight="700" fill="#141414" text-anchor="start" >05</text>
+<text x="112.00" y="78.00" font-size="40" font-weight="700" fill="#141414" text-anchor="start" >SPIN</text>
+<text x="48.00" y="108.00" font-size="16" font-weight="400" fill="#555" text-anchor="start" >An empty plate on one side, your name on the other. Roll the threads between your fingers and the name lands on the plate.</text>
+<circle cx="220.00" cy="330.00" r="150.00" fill="#feed95" stroke="#141414" stroke-width="2.4" />
+<circle cx="92.00" cy="330.00" r="6.00" fill="none" stroke="#141414" stroke-width="1.6" />
+<circle cx="348.00" cy="330.00" r="6.00" fill="none" stroke="#141414" stroke-width="1.6" />
+<g transform="rotate(0 220 330)" opacity="1.0">
+<circle cx="220.00" cy="330.00" r="108.00" fill="none" stroke="#141414" stroke-width="3" />
+<circle cx="220.00" cy="330.00" r="84.00" fill="none" stroke="#141414" stroke-width="2" />
+<line x1="92.00" y1="280.00" x2="92.00" y2="392.00" stroke="#141414" stroke-width="4" stroke-linecap="round" />
+<line x1="90.00" y1="274.00" x2="90.00" y2="302.00" stroke="#141414" stroke-width="2.5" stroke-linecap="round" />
+<line x1="98.00" y1="274.00" x2="98.00" y2="302.00" stroke="#141414" stroke-width="2.5" stroke-linecap="round" />
+<line x1="106.00" y1="274.00" x2="106.00" y2="302.00" stroke="#141414" stroke-width="2.5" stroke-linecap="round" />
+<line x1="342.00" y1="274.00" x2="342.00" y2="392.00" stroke="#141414" stroke-width="4" stroke-linecap="round" />
+<path d="M342,274 q18,18 0,52 z" fill="#141414" stroke="#141414" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" />
+</g>
+<text x="220.00" y="516.00" font-size="12" font-weight="700" fill="#8d8a80" text-anchor="middle" letter-spacing="1" >SIDE A</text>
+<text x="220.00" y="536.00" font-size="13" font-weight="500" fill="#141414" text-anchor="middle" >empty plate, knife and fork</text>
+<circle cx="600.00" cy="330.00" r="150.00" fill="#feed95" stroke="#141414" stroke-width="2.4" />
+<circle cx="472.00" cy="330.00" r="6.00" fill="none" stroke="#141414" stroke-width="1.6" />
+<circle cx="728.00" cy="330.00" r="6.00" fill="none" stroke="#141414" stroke-width="1.6" />
+<g transform="rotate(180 600 330)" opacity="1.0">
+<text x="600.00" y="326.00" font-size="25" font-weight="700" fill="#141414" text-anchor="middle" >Sophia</text>
+<text x="600.00" y="356.00" font-size="25" font-weight="700" fill="#141414" text-anchor="middle" >Zhuravkova</text>
+</g>
+<text x="600.00" y="516.00" font-size="12" font-weight="700" fill="#8d8a80" text-anchor="middle" letter-spacing="1" >SIDE B  (printed upside-down)</text>
+<text x="600.00" y="536.00" font-size="13" font-weight="500" fill="#141414" text-anchor="middle" >the name, in the plate's ring</text>
+<circle cx="980.00" cy="330.00" r="150.00" fill="#feed95" stroke="#141414" stroke-width="2.4" />
+<circle cx="852.00" cy="330.00" r="6.00" fill="none" stroke="#141414" stroke-width="1.6" />
+<circle cx="1108.00" cy="330.00" r="6.00" fill="none" stroke="#141414" stroke-width="1.6" />
+<g transform="rotate(0 980 330)" opacity="1.0">
+<circle cx="980.00" cy="330.00" r="108.00" fill="none" stroke="#141414" stroke-width="3" />
+<circle cx="980.00" cy="330.00" r="84.00" fill="none" stroke="#141414" stroke-width="2" />
+<line x1="852.00" y1="280.00" x2="852.00" y2="392.00" stroke="#141414" stroke-width="4" stroke-linecap="round" />
+<line x1="850.00" y1="274.00" x2="850.00" y2="302.00" stroke="#141414" stroke-width="2.5" stroke-linecap="round" />
+<line x1="858.00" y1="274.00" x2="858.00" y2="302.00" stroke="#141414" stroke-width="2.5" stroke-linecap="round" />
+<line x1="866.00" y1="274.00" x2="866.00" y2="302.00" stroke="#141414" stroke-width="2.5" stroke-linecap="round" />
+<line x1="1102.00" y1="274.00" x2="1102.00" y2="392.00" stroke="#141414" stroke-width="4" stroke-linecap="round" />
+<path d="M1102,274 q18,18 0,52 z" fill="#141414" stroke="#141414" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" />
+<text x="980.00" y="326.00" font-size="25" font-weight="700" fill="#141414" text-anchor="middle" >Sophia</text>
+<text x="980.00" y="356.00" font-size="25" font-weight="700" fill="#141414" text-anchor="middle" >Zhuravkova</text>
+</g>
+<rect x="830" y="180" width="300" height="300" fill="none"/>
+<text x="980.00" y="516.00" font-size="12" font-weight="700" fill="#8d8a80" text-anchor="middle" letter-spacing="1" >SPINNING: BOTH AT ONCE</text>
+<text x="980.00" y="536.00" font-size="13" font-weight="500" fill="#141414" text-anchor="middle" >persistence of vision, 12 turns a second</text>
+<text x="410.00" y="334.00" font-size="44" font-weight="400" fill="#8d8a80" text-anchor="middle" >+</text>
+<text x="790.00" y="334.00" font-size="44" font-weight="400" fill="#8d8a80" text-anchor="middle" >=</text>
+<text x="48.00" y="660.00" font-size="12" font-weight="700" fill="#8d8a80" text-anchor="start" letter-spacing="1" >HOW IT IS HELD</text>
+<circle cx="220.00" cy="780.00" r="48.00" fill="#feed95" stroke="#141414" stroke-width="2" />
+<line x1="172.00" y1="780.00" x2="100.00" y2="720.00" stroke="#141414" stroke-width="1.4" stroke-linecap="round" />
+<line x1="268.00" y1="780.00" x2="340.00" y2="720.00" stroke="#141414" stroke-width="1.4" stroke-linecap="round" />
+<ellipse cx="92" cy="714" rx="22" ry="12" fill="#e7dccb" stroke="#8d8a80" stroke-width="1.5"/>
+<ellipse cx="348" cy="714" rx="22" ry="12" fill="#e7dccb" stroke="#8d8a80" stroke-width="1.5"/>
+<text x="92.00" y="692.00" font-size="12" font-weight="600" fill="#8d8a80" text-anchor="middle" >thumb</text>
+<text x="348.00" y="692.00" font-size="12" font-weight="600" fill="#8d8a80" text-anchor="middle" >finger</text>
+<path d="M190,848 q30,14 60,0" fill="none" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" />
+<polyline points="250.00,848.00 258.00,841.00" fill="none" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" />
+<polyline points="250.00,848.00 259.00,853.00" fill="none" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" />
+<text x="220.00" y="874.00" font-size="12" font-weight="500" fill="#141414" text-anchor="middle" >roll the threads</text>
+<text x="420.00" y="690.00" font-size="13" font-weight="500" fill="#141414" text-anchor="start" >Disc 70 mm, 400 gsm lemon card, both sides printed, 2 holes,</text>
+<text x="420.00" y="707.55" font-size="13" font-weight="500" fill="#141414" text-anchor="start" >2 x 150 mm black cotton thread loops tied to the glass stem.</text>
+<text x="420.00" y="725.10" font-size="13" font-weight="500" fill="#141414" text-anchor="start" >Spin it once and it is a toy; every disc is the same plate,</text>
+<text x="420.00" y="742.65" font-size="13" font-weight="500" fill="#141414" text-anchor="start" >only the name changes: one artwork file, 40 names.</text>
+<text x="420.00" y="760.20" font-size="13" font-weight="500" fill="#141414" text-anchor="start" ></text>
+<text x="420.00" y="777.75" font-size="13" font-weight="500" fill="#141414" text-anchor="start" >Variant: side B shows the menu course, so the dish lands on the plate.</text></svg>
