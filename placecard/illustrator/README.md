@@ -13,7 +13,8 @@ Every card for every artist gets its own artboard at 1:1, one row per design. La
 | Crease | folds and scores | spot **Crease** |
 | Perforation | perforations | spot **Perforation** |
 | Text | event details and COLORBLOCK × DNA as live Wix Madefor Text | Dinner Black |
-| Artwork | the melted artist names, as vector compound paths; a light fill in the SVG becomes a lemon flood (the back of the Decoder Ring strip) | Dinner Black, Dinner Lemon |
+| Artwork | the melted artist names, as vector compound paths | Dinner Black |
+| Lemon flood | light fills from the SVGs: the back of the Decoder Ring strip, bleed floods; hide it when printing on lemon board | Dinner Lemon |
 | Board (preview) | the lemon card under the die (non-printing) | Dinner Lemon |
 
 Nothing is a raster image: names are editable curves, text is live, die lines are paths.

@@ -80,6 +80,7 @@
     }
     var L = {};
     L.board = layer("Board (preview)", false);
+    L.flood = layer("Lemon flood", true);
     L.art = layer("Artwork", true);
     L.text = layer("Text", true);
     L.perf = layer("Perforation", true);
@@ -146,7 +147,8 @@
         } else p.stroked = false;
     }
 
-    // artwork is Dinner Black; a light fill is a lemon flood (e.g. printed on the back of the mirror ring board)
+    // artwork is Dinner Black; a light fill is a lemon flood. Floods go to their own layer:
+    // keep it for the mirror ring back, hide or delete it when printing on pre-coloured lemon board
     function ink(hex) {
         var v = parseInt(String(hex).replace("#", ""), 16);
         if (isNaN(v)) return BLACK;
@@ -154,7 +156,7 @@
         return lum > 128 ? LEMON : BLACK;
     }
 
-    function drawPath(container, it, kind) {
+    function drawPath(container, it, kind, grp) {
         var fillCol = null, strokeCol = null;
         if (kind === "cut") strokeCol = CUT;
         else if (kind === "crease") strokeCol = CREASE;
@@ -164,6 +166,7 @@
             fillCol = it.fill ? ink(it.fill) : null;
             strokeCol = it.stroke ? ink(it.stroke) : null;
         }
+        if (kind === "art" && fillCol === LEMON) container = grp("flood");
         if (kind === "art" && it.fill && it.sub.length > 1) {
             var cp = container.compoundPathItems.add();
             for (var j = 0; j < it.sub.length; j++) {
@@ -252,13 +255,14 @@
                 for (n = 0; n < items.length; n++) {
                     try {
                         if (items[n].t === "text") drawText(grp(kind), items[n], kind);
-                        else drawPath(grp(kind), items[n], kind);
+                        else drawPath(grp(kind), items[n], kind, grp);
                     } catch (e3) { note(kind, e3); }
                 }
             }
         } catch (e4) { note("card", e4); }
     }
 
+    try { if (L.flood.pageItems.length === 0) L.flood.remove(); } catch (e6) {}
     try { app.executeMenuCommand("fitall"); } catch (e5) {}
     var msg = "";
     if (missingFonts.length) msg += "Install Wix Madefor Text, then run again. Missing:\n" + missingFonts.join("\n") + "\n\n";

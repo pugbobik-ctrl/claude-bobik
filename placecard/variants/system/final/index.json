@@ -1,0 +1,302 @@
+[
+ {
+  "file": "v1_downstream_tanya_andrianova.svg",
+  "variant": "v1_downstream",
+  "design": "V1 Downstream",
+  "artist": "Tanya Andrianova",
+  "artist_slug": "tanya_andrianova",
+  "width_mm": 172.0,
+  "height_mm": 170.0,
+  "notes": "L-fold 72x120+44 mm; name rotated 90 cw, 2 line(s), cap 18.5 mm (52 pt), runs off the foot; verso: lockup, small name, details Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v1_downstream_igor_zotov.svg",
+  "variant": "v1_downstream",
+  "design": "V1 Downstream",
+  "artist": "Igor Zotov",
+  "artist_slug": "igor_zotov",
+  "width_mm": 172.0,
+  "height_mm": 170.0,
+  "notes": "L-fold 72x120+44 mm; name rotated 90 cw, 1 line(s), cap 19.8 mm (56 pt), runs off the foot; verso: lockup, small name, details Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v1_downstream_andrey_lee.svg",
+  "variant": "v1_downstream",
+  "design": "V1 Downstream",
+  "artist": "Andrey Lee",
+  "artist_slug": "andrey_lee",
+  "width_mm": 172.0,
+  "height_mm": 170.0,
+  "notes": "L-fold 72x120+44 mm; name rotated 90 cw, 1 line(s), cap 20.5 mm (58 pt), runs off the foot; verso: lockup, small name, details Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v1_downstream_sasha_chernikov.svg",
+  "variant": "v1_downstream",
+  "design": "V1 Downstream",
+  "artist": "Sasha Chernikov",
+  "artist_slug": "sasha_chernikov",
+  "width_mm": 172.0,
+  "height_mm": 170.0,
+  "notes": "L-fold 72x120+44 mm; name rotated 90 cw, 2 line(s), cap 20.5 mm (58 pt), runs off the foot; verso: lockup, small name, details Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v1_downstream_sophia_zhuravkova.svg",
+  "variant": "v1_downstream",
+  "design": "V1 Downstream",
+  "artist": "Sophia Zhuravkova",
+  "artist_slug": "sophia_zhuravkova",
+  "width_mm": 172.0,
+  "height_mm": 170.0,
+  "notes": "L-fold 72x120+44 mm; name rotated 90 cw, 2 line(s), cap 17.6 mm (50 pt), runs off the foot; verso: lockup, small name, details Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v2_wrap_tanya_andrianova.svg",
+  "variant": "v2_wrap",
+  "design": "V2 Wrap",
+  "artist": "Tanya Andrianova",
+  "artist_slug": "tanya_andrianova",
+  "width_mm": 408.0,
+  "height_mm": 70.0,
+  "notes": "V-fold 2 x 95 x 64 mm, ridge toward the guest; name 1 line cap 23.2 mm (66 pt), 336 mm long, starts x=9 on the front, last 155 mm continue on the verso (inner faces) Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v2_wrap_igor_zotov.svg",
+  "variant": "v2_wrap",
+  "design": "V2 Wrap",
+  "artist": "Igor Zotov",
+  "artist_slug": "igor_zotov",
+  "width_mm": 408.0,
+  "height_mm": 70.0,
+  "notes": "V-fold 2 x 95 x 64 mm, ridge toward the guest; name 1 line cap 23.2 mm (66 pt), 200 mm long, starts x=9 on the front, last 19 mm continue on the verso (inner faces) Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v2_wrap_andrey_lee.svg",
+  "variant": "v2_wrap",
+  "design": "V2 Wrap",
+  "artist": "Andrey Lee",
+  "artist_slug": "andrey_lee",
+  "width_mm": 408.0,
+  "height_mm": 70.0,
+  "notes": "V-fold 2 x 95 x 64 mm, ridge toward the guest; name 1 line cap 23.2 mm (66 pt), 193 mm long, starts x=9 on the front, last 12 mm continue on the verso (inner faces) Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v2_wrap_sasha_chernikov.svg",
+  "variant": "v2_wrap",
+  "design": "V2 Wrap",
+  "artist": "Sasha Chernikov",
+  "artist_slug": "sasha_chernikov",
+  "width_mm": 408.0,
+  "height_mm": 70.0,
+  "notes": "V-fold 2 x 95 x 64 mm, ridge toward the guest; name 1 line cap 23.2 mm (66 pt), 311 mm long, starts x=9 on the front, last 130 mm continue on the verso (inner faces) Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v2_wrap_sophia_zhuravkova.svg",
+  "variant": "v2_wrap",
+  "design": "V2 Wrap",
+  "artist": "Sophia Zhuravkova",
+  "artist_slug": "sophia_zhuravkova",
+  "width_mm": 408.0,
+  "height_mm": 70.0,
+  "notes": "V-fold 2 x 95 x 64 mm, ridge toward the guest; name 1 line cap 23.2 mm (66 pt), 355 mm long, starts x=9 on the front, last 174 mm continue on the verso (inner faces) Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v3_concertina_tanya_andrianova.svg",
+  "variant": "v3_concertina",
+  "design": "V3 Concertina",
+  "artist": "Tanya Andrianova",
+  "artist_slug": "tanya_andrianova",
+  "width_mm": 476.0,
+  "height_mm": 64.0,
+  "notes": "Zig-zag 16 panels x 14 x 58 mm, +-22 deg when standing; one letter per panel, cap 20 mm (57 pt), letters condensed to panel before melting; word space = blank panel; lockup + details cross the folds Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v3_concertina_igor_zotov.svg",
+  "variant": "v3_concertina",
+  "design": "V3 Concertina",
+  "artist": "Igor Zotov",
+  "artist_slug": "igor_zotov",
+  "width_mm": 308.0,
+  "height_mm": 64.0,
+  "notes": "Zig-zag 10 panels x 14 x 58 mm, +-22 deg when standing; one letter per panel, cap 20 mm (57 pt), letters condensed to panel before melting; word space = blank panel; lockup + details cross the folds Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v3_concertina_andrey_lee.svg",
+  "variant": "v3_concertina",
+  "design": "V3 Concertina",
+  "artist": "Andrey Lee",
+  "artist_slug": "andrey_lee",
+  "width_mm": 308.0,
+  "height_mm": 64.0,
+  "notes": "Zig-zag 10 panels x 14 x 58 mm, +-22 deg when standing; one letter per panel, cap 20 mm (57 pt), letters condensed to panel before melting; word space = blank panel; lockup + details cross the folds Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v3_concertina_sasha_chernikov.svg",
+  "variant": "v3_concertina",
+  "design": "V3 Concertina",
+  "artist": "Sasha Chernikov",
+  "artist_slug": "sasha_chernikov",
+  "width_mm": 448.0,
+  "height_mm": 64.0,
+  "notes": "Zig-zag 15 panels x 14 x 58 mm, +-22 deg when standing; one letter per panel, cap 20 mm (57 pt), letters condensed to panel before melting; word space = blank panel; lockup + details cross the folds Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v3_concertina_sophia_zhuravkova.svg",
+  "variant": "v3_concertina",
+  "design": "V3 Concertina",
+  "artist": "Sophia Zhuravkova",
+  "artist_slug": "sophia_zhuravkova",
+  "width_mm": 504.0,
+  "height_mm": 64.0,
+  "notes": "Zig-zag 17 panels x 14 x 58 mm, +-22 deg when standing; one letter per panel, cap 20 mm (57 pt), letters condensed to panel before melting; word space = blank panel; lockup + details cross the folds Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v4_receipt_mass_tanya_andrianova.svg",
+  "variant": "v4_receipt_mass",
+  "design": "V4 Receipt Mass",
+  "artist": "Tanya Andrianova",
+  "artist_slug": "tanya_andrianova",
+  "width_mm": 228.0,
+  "height_mm": 150.0,
+  "notes": "Tent 100 x 72 mm per leaf (sheet 100 x 144, printed one side, back leaf rotated 180); mass lines ['TANYA', 'ANDRIANOVA'] cap(mm) 20.9, 10.4, each re-melted from text and justified to 99 mm (bleeds 1 mm each side); receipt line 7.3 pt; lockup 13.6 pt Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v4_receipt_mass_igor_zotov.svg",
+  "variant": "v4_receipt_mass",
+  "design": "V4 Receipt Mass",
+  "artist": "Igor Zotov",
+  "artist_slug": "igor_zotov",
+  "width_mm": 228.0,
+  "height_mm": 150.0,
+  "notes": "Tent 100 x 72 mm per leaf (sheet 100 x 144, printed one side, back leaf rotated 180); mass lines ['IGOR', 'ZOTOV'] cap(mm) 18.2, 12.8, each re-melted from text and justified to 99 mm (bleeds 1 mm each side); receipt line 7.3 pt; lockup 13.6 pt Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v4_receipt_mass_andrey_lee.svg",
+  "variant": "v4_receipt_mass",
+  "design": "V4 Receipt Mass",
+  "artist": "Andrey Lee",
+  "artist_slug": "andrey_lee",
+  "width_mm": 228.0,
+  "height_mm": 150.0,
+  "notes": "Tent 100 x 72 mm per leaf (sheet 100 x 144, printed one side, back leaf rotated 180); mass lines ['ANDREY', 'LEE'] cap(mm) 8.8, 21.3, each re-melted from text and justified to 99 mm (bleeds 1 mm each side); receipt line 7.3 pt; lockup 13.6 pt Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v4_receipt_mass_sasha_chernikov.svg",
+  "variant": "v4_receipt_mass",
+  "design": "V4 Receipt Mass",
+  "artist": "Sasha Chernikov",
+  "artist_slug": "sasha_chernikov",
+  "width_mm": 228.0,
+  "height_mm": 150.0,
+  "notes": "Tent 100 x 72 mm per leaf (sheet 100 x 144, printed one side, back leaf rotated 180); mass lines ['SASHA', 'CHERNIKOV'] cap(mm) 19.8, 11.4, each re-melted from text and justified to 99 mm (bleeds 1 mm each side); receipt line 7.3 pt; lockup 13.6 pt Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v4_receipt_mass_sophia_zhuravkova.svg",
+  "variant": "v4_receipt_mass",
+  "design": "V4 Receipt Mass",
+  "artist": "Sophia Zhuravkova",
+  "artist_slug": "sophia_zhuravkova",
+  "width_mm": 228.0,
+  "height_mm": 150.0,
+  "notes": "Tent 100 x 72 mm per leaf (sheet 100 x 144, printed one side, back leaf rotated 180); mass lines ['SOPHIA', 'ZHURAVKOVA'] cap(mm) 18.9, 10.2, each re-melted from text and justified to 99 mm (bleeds 1 mm each side); receipt line 7.3 pt; lockup 13.6 pt Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v5_lineup_band_tanya_andrianova.svg",
+  "variant": "v5_lineup_band",
+  "design": "V5 Line-up Band",
+  "artist": "Tanya Andrianova",
+  "artist_slug": "tanya_andrianova",
+  "width_mm": 228.0,
+  "height_mm": 138.0,
+  "notes": "Tent 100 x 66 mm per leaf (sheet 100 x 132, one side). Cards butt together in order 01-05. First name cap 16 mm, justified to 92 of 92 mm measure; surname cap 10 mm natural width 92 mm; bar 1.3 mm bleeds off both sides and runs across the row; details 9.5 pt two lines; lockup 13.6 pt; label 7.3 pt Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v5_lineup_band_igor_zotov.svg",
+  "variant": "v5_lineup_band",
+  "design": "V5 Line-up Band",
+  "artist": "Igor Zotov",
+  "artist_slug": "igor_zotov",
+  "width_mm": 228.0,
+  "height_mm": 138.0,
+  "notes": "Tent 100 x 66 mm per leaf (sheet 100 x 132, one side). Cards butt together in order 01-05. First name cap 16 mm, justified to 92 of 92 mm measure; surname cap 10 mm natural width 48 mm; bar 1.3 mm bleeds off both sides and runs across the row; details 9.5 pt two lines; lockup 13.6 pt; label 7.3 pt Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v5_lineup_band_andrey_lee.svg",
+  "variant": "v5_lineup_band",
+  "design": "V5 Line-up Band",
+  "artist": "Andrey Lee",
+  "artist_slug": "andrey_lee",
+  "width_mm": 228.0,
+  "height_mm": 138.0,
+  "notes": "Tent 100 x 66 mm per leaf (sheet 100 x 132, one side). Cards butt together in order 01-05. First name cap 16 mm, justified to 92 of 92 mm measure; surname cap 10 mm natural width 23 mm; bar 1.3 mm bleeds off both sides and runs across the row; details 9.5 pt two lines; lockup 13.6 pt; label 7.3 pt Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v5_lineup_band_sasha_chernikov.svg",
+  "variant": "v5_lineup_band",
+  "design": "V5 Line-up Band",
+  "artist": "Sasha Chernikov",
+  "artist_slug": "sasha_chernikov",
+  "width_mm": 228.0,
+  "height_mm": 138.0,
+  "notes": "Tent 100 x 66 mm per leaf (sheet 100 x 132, one side). Cards butt together in order 01-05. First name cap 16 mm, justified to 92 of 92 mm measure; surname cap 10 mm natural width 83 mm; bar 1.3 mm bleeds off both sides and runs across the row; details 9.5 pt two lines; lockup 13.6 pt; label 7.3 pt Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v5_lineup_band_sophia_zhuravkova.svg",
+  "variant": "v5_lineup_band",
+  "design": "V5 Line-up Band",
+  "artist": "Sophia Zhuravkova",
+  "artist_slug": "sophia_zhuravkova",
+  "width_mm": 228.0,
+  "height_mm": 138.0,
+  "notes": "Tent 100 x 66 mm per leaf (sheet 100 x 132, one side). Cards butt together in order 01-05. First name cap 16 mm, justified to 92 of 92 mm measure; surname cap 10 mm natural width 92 mm; bar 1.3 mm bleeds off both sides and runs across the row; details 9.5 pt two lines; lockup 13.6 pt; label 7.3 pt Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v6_quiet_lockup_tanya_andrianova.svg",
+  "variant": "v6_quiet_lockup",
+  "design": "V6 Quiet Lockup",
+  "artist": "Tanya Andrianova",
+  "artist_slug": "tanya_andrianova",
+  "width_mm": 228.0,
+  "height_mm": 94.0,
+  "notes": "L-fold 100x50+38 mm; lockup scaled x2.58 (35 pt Bold caps, COLORBLOCK spans 88 mm) on the upright; melted name cap 4.6 mm (13 pt) on the foot; details 9.5 pt; verso: lockup 13.6 pt + name Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v6_quiet_lockup_igor_zotov.svg",
+  "variant": "v6_quiet_lockup",
+  "design": "V6 Quiet Lockup",
+  "artist": "Igor Zotov",
+  "artist_slug": "igor_zotov",
+  "width_mm": 228.0,
+  "height_mm": 94.0,
+  "notes": "L-fold 100x50+38 mm; lockup scaled x2.58 (35 pt Bold caps, COLORBLOCK spans 88 mm) on the upright; melted name cap 4.6 mm (13 pt) on the foot; details 9.5 pt; verso: lockup 13.6 pt + name Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v6_quiet_lockup_andrey_lee.svg",
+  "variant": "v6_quiet_lockup",
+  "design": "V6 Quiet Lockup",
+  "artist": "Andrey Lee",
+  "artist_slug": "andrey_lee",
+  "width_mm": 228.0,
+  "height_mm": 94.0,
+  "notes": "L-fold 100x50+38 mm; lockup scaled x2.58 (35 pt Bold caps, COLORBLOCK spans 88 mm) on the upright; melted name cap 4.6 mm (13 pt) on the foot; details 9.5 pt; verso: lockup 13.6 pt + name Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v6_quiet_lockup_sasha_chernikov.svg",
+  "variant": "v6_quiet_lockup",
+  "design": "V6 Quiet Lockup",
+  "artist": "Sasha Chernikov",
+  "artist_slug": "sasha_chernikov",
+  "width_mm": 228.0,
+  "height_mm": 94.0,
+  "notes": "L-fold 100x50+38 mm; lockup scaled x2.58 (35 pt Bold caps, COLORBLOCK spans 88 mm) on the upright; melted name cap 4.6 mm (13 pt) on the foot; details 9.5 pt; verso: lockup 13.6 pt + name Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ },
+ {
+  "file": "v6_quiet_lockup_sophia_zhuravkova.svg",
+  "variant": "v6_quiet_lockup",
+  "design": "V6 Quiet Lockup",
+  "artist": "Sophia Zhuravkova",
+  "artist_slug": "sophia_zhuravkova",
+  "width_mm": 228.0,
+  "height_mm": 94.0,
+  "notes": "L-fold 100x50+38 mm; lockup scaled x2.58 (35 pt Bold caps, COLORBLOCK spans 88 mm) on the upright; melted name cap 4.6 mm (13 pt) on the foot; details 9.5 pt; verso: lockup 13.6 pt + name Left artboard = recto, right artboard = verso (turn like a page); 3 mm bleed inside each artboard; origin = top-left of recto bleed box; layers: layer-art (flood + melted name + rules, filled paths), layer-text (live Wix Madefor Text), layer-cut, layer-crease, layer-guides."
+ }
+]
