@@ -1,0 +1,62 @@
+=== DECODER RING - five artist cards + mirror ring ===
+PASS Tanya Andrianova: all 734 outline points hit the mirror (0 polygons clipped)
+PASS Tanya Andrianova: name occupies mirror height z 4.6..43.4 of 48 mm (>= 1.5 mm to rim and base); arc phi -54..54 deg
+PASS Tanya Andrianova: anamorph print x 26.7..123.3, y 69.0..133.2 stays >= 6 mm inside the 150 x 156 card
+PASS Tanya Andrianova: print to straight text clearance 12.1 mm (>= 4)
+PASS Tanya Andrianova: straight text lies outside the ring footprint and the zone it hides from the seat (hidden zone reaches 49 mm behind the ring)
+PASS Tanya Andrianova: ray-trace of the finished print from the seat: IoU 0.890, correlation 0.947 with the intended name
+PASS Tanya Andrianova: best-shape correlation from the seat 1.00 (>= 0.90)
+PASS Tanya Andrianova: from the next seat (+650 mm) the same ring shows a displaced/garbled name: best-shape correlation 0.49 (strict 0.07)
+INFO Tanya Andrianova: zc 32.0; cap height seen from the seat 7.0 mm (picture plane at the ring); physical height on the mirror 9.6 mm at the centre; block 61.3 x 17.0 mm
+PASS Igor Zotov: all 480 outline points hit the mirror (0 polygons clipped)
+PASS Igor Zotov: name occupies mirror height z 10.6..37.4 of 48 mm (>= 1.5 mm to rim and base); arc phi -24..24 deg
+PASS Igor Zotov: anamorph print x 43.4..106.9, y 91.0..126.4 stays >= 6 mm inside the 150 x 156 card
+PASS Igor Zotov: print to straight text clearance 18.8 mm (>= 4)
+PASS Igor Zotov: straight text lies outside the ring footprint and the zone it hides from the seat (hidden zone reaches 49 mm behind the ring)
+PASS Igor Zotov: ray-trace of the finished print from the seat: IoU 0.856, correlation 0.933 with the intended name
+PASS Igor Zotov: best-shape correlation from the seat 1.00 (>= 0.90)
+PASS Igor Zotov: from the next seat (+650 mm) the same ring shows a displaced/garbled name: best-shape correlation 0.57 (strict 0.07)
+INFO Igor Zotov: zc 25.6; cap height seen from the seat 7.0 mm (picture plane at the ring); physical height on the mirror 9.7 mm at the centre; block 32.2 x 17.1 mm
+PASS Andrey Lee: all 525 outline points hit the mirror (0 polygons clipped)
+PASS Andrey Lee: name occupies mirror height z 11.9..36.1 of 48 mm (>= 1.5 mm to rim and base); arc phi -28..28 deg
+PASS Andrey Lee: anamorph print x 32.7..120.9, y 94.1..124.7 stays >= 6 mm inside the 150 x 156 card
+PASS Andrey Lee: print to straight text clearance 20.1 mm (>= 4)
+PASS Andrey Lee: straight text lies outside the ring footprint and the zone it hides from the seat (hidden zone reaches 49 mm behind the ring)
+PASS Andrey Lee: ray-trace of the finished print from the seat: IoU 0.858, correlation 0.933 with the intended name
+PASS Andrey Lee: best-shape correlation from the seat 1.00 (>= 0.90)
+PASS Andrey Lee: from the next seat (+650 mm) the same ring shows a displaced/garbled name: best-shape correlation 0.64 (strict 0.01)
+INFO Andrey Lee: zc 24.5; cap height seen from the seat 7.0 mm (picture plane at the ring); physical height on the mirror 9.7 mm at the centre; block 37.5 x 16.9 mm
+PASS Sasha Chernikov: all 850 outline points hit the mirror (0 polygons clipped)
+PASS Sasha Chernikov: name occupies mirror height z 7.6..40.4 of 48 mm (>= 1.5 mm to rim and base); arc phi -44..44 deg
+PASS Sasha Chernikov: anamorph print x 30.9..119.4, y 75.7..130.1 stays >= 6 mm inside the 150 x 156 card
+PASS Sasha Chernikov: print to straight text clearance 16.3 mm (>= 4)
+PASS Sasha Chernikov: straight text lies outside the ring footprint and the zone it hides from the seat (hidden zone reaches 49 mm behind the ring)
+PASS Sasha Chernikov: ray-trace of the finished print from the seat: IoU 0.888, correlation 0.947 with the intended name
+PASS Sasha Chernikov: best-shape correlation from the seat 1.00 (>= 0.90)
+PASS Sasha Chernikov: from the next seat (+650 mm) the same ring shows a displaced/garbled name: best-shape correlation 0.52 (strict 0.12)
+INFO Sasha Chernikov: zc 28.7; cap height seen from the seat 7.0 mm (picture plane at the ring); physical height on the mirror 9.7 mm at the centre; block 53.8 x 17.1 mm
+PASS Sophia Zhuravkova: all 875 outline points hit the mirror (0 polygons clipped)
+PASS Sophia Zhuravkova: name occupies mirror height z 4.1..43.9 of 48 mm (>= 1.5 mm to rim and base); arc phi -55..55 deg
+PASS Sophia Zhuravkova: anamorph print x 25.2..123.5, y 66.1..134.0 stays >= 6 mm inside the 150 x 156 card
+PASS Sophia Zhuravkova: print to straight text clearance 12.0 mm (>= 4)
+PASS Sophia Zhuravkova: straight text lies outside the ring footprint and the zone it hides from the seat (hidden zone reaches 49 mm behind the ring)
+PASS Sophia Zhuravkova: ray-trace of the finished print from the seat: IoU 0.893, correlation 0.948 with the intended name
+PASS Sophia Zhuravkova: best-shape correlation from the seat 1.00 (>= 0.90)
+PASS Sophia Zhuravkova: from the next seat (+650 mm) the same ring shows a displaced/garbled name: best-shape correlation 0.44 (strict 0.07)
+INFO Sophia Zhuravkova: zc 32.3; cap height seen from the seat 7.0 mm (picture plane at the ring); physical height on the mirror 9.6 mm at the centre; block 62.2 x 17.1 mm
+INFO tolerance (best-shape corr >= 0.75), Sophia Zhuravkova, eye_dx: ok for (-80, 80)   scan [(-80, 0.883), (-40, 0.962), (-20, 0.987), (20, 0.986), (40, 0.961), (80, 0.881)]
+INFO tolerance (best-shape corr >= 0.75), Sophia Zhuravkova, eye_dz: ok for (-60, 60)   scan [(-60, 0.992), (-30, 0.982), (30, 0.99), (60, 0.974)]
+INFO tolerance (best-shape corr >= 0.75), Sophia Zhuravkova, eye_dy: ok for (-100, 100)   scan [(-100, 0.995), (-50, 0.982), (50, 0.982), (100, 0.85)]
+INFO tolerance (best-shape corr >= 0.75), Sophia Zhuravkova, ring_off_x: ok for (-2, 2)   scan [(-4, 0.62), (-2, 0.849), (-1, 0.955), (1, 0.955), (2, 0.849), (4, 0.637)]
+INFO tolerance (best-shape corr >= 0.75), Sophia Zhuravkova, ring_off_y: ok for (-4, 4)   scan [(-4, 0.843), (-2, 0.878), (-1, 0.963), (1, 0.96), (2, 0.88), (4, 0.853)]
+INFO tolerance (best-shape corr >= 0.75), Sophia Zhuravkova, ring_radius_error: ok for (-1.5, 1.5)   scan [(-1.5, 0.861), (-0.75, 0.947), (0.75, 0.952), (1.5, 0.887)]
+INFO Tanya Andrianova: lateral eye tolerance window (-80, 80)
+INFO Igor Zotov: lateral eye tolerance window (-80, 80)
+INFO Andrey Lee: lateral eye tolerance window (-80, 80)
+INFO Sasha Chernikov: lateral eye tolerance window (-80, 80)
+INFO Sophia Zhuravkova: lateral eye tolerance window (-80, 80)
+PASS ring strip incl. tab 278.1 mm fits the 320 mm SRA3 side with >= 6 mm margin
+PASS 8 strips x 48 + gaps fit 450 mm
+PASS 4 cards (156 x 150 rotated) fit SRA3 450 x 320 (usable 444 x 314)
+INFO build time 99 s
+RESULT ALL PASS

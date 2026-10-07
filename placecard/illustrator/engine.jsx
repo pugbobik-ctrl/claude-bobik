@@ -146,13 +146,24 @@
         } else p.stroked = false;
     }
 
+    // artwork is Dinner Black; a light fill is a lemon flood (e.g. printed on the back of the mirror ring board)
+    function ink(hex) {
+        var v = parseInt(String(hex).replace("#", ""), 16);
+        if (isNaN(v)) return BLACK;
+        var lum = 0.299 * ((v >> 16) & 255) + 0.587 * ((v >> 8) & 255) + 0.114 * (v & 255);
+        return lum > 128 ? LEMON : BLACK;
+    }
+
     function drawPath(container, it, kind) {
         var fillCol = null, strokeCol = null;
         if (kind === "cut") strokeCol = CUT;
         else if (kind === "crease") strokeCol = CREASE;
         else if (kind === "perf") strokeCol = PERF;
         else if (kind === "guides") { strokeCol = it.stroke ? GUIDE : null; fillCol = it.fill ? GUIDE : null; }
-        else { fillCol = it.fill ? BLACK : null; strokeCol = it.stroke ? BLACK : null; }
+        else {
+            fillCol = it.fill ? ink(it.fill) : null;
+            strokeCol = it.stroke ? ink(it.stroke) : null;
+        }
         if (kind === "art" && it.fill && it.sub.length > 1) {
             var cp = container.compoundPathItems.add();
             for (var j = 0; j < it.sub.length; j++) {

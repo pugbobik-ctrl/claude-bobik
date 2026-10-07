@@ -1,0 +1,82 @@
+[
+ {
+  "file": "sitdown_tanya_andrianova.svg",
+  "design": "sit-down",
+  "artist": "Tanya Andrianova",
+  "width_mm": 164.0,
+  "height_mm": 188.0,
+  "notes": "Two cards stacked, 12 mm apart: FRONT at y 0-88 (name art warped for the seat), BACK at y 100-188 (live text, drawn as seen from the back; print on the reverse, flip about the vertical axis). 300 g lemon board #feed95, black print. Crease x=82 (valley from the printed face). Artwork = melted uppercase name, plain text warped first then melted in sheet space (blur 0.10 x local cap, thr 0.32, letter-spacing +0.06 cap). Bezier paths, fill only."
+ },
+ {
+  "file": "walkby_tanya_andrianova.svg",
+  "design": "walk-by",
+  "artist": "Tanya Andrianova",
+  "width_mm": 171.47533495754254,
+  "height_mm": 158.0,
+  "notes": "Strip (y 6-40) + tent card (y 58-158) on one proof sheet; separate boards in production (strip 200 g, tent 300 g lemon #feed95). layer-art = interleaved slices of the melted name (A facets) and DINNER + 10.10.2026 (B facets) as filled paths, plus crease ticks as thin filled rects. Tent text is live (rotate 180 about the back-panel centre). Crease positions listed in walkby_geometry.json; valley = score printed face, mountain = score back."
+ },
+ {
+  "file": "sitdown_igor_zotov.svg",
+  "design": "sit-down",
+  "artist": "Igor Zotov",
+  "width_mm": 164.0,
+  "height_mm": 188.0,
+  "notes": "Two cards stacked, 12 mm apart: FRONT at y 0-88 (name art warped for the seat), BACK at y 100-188 (live text, drawn as seen from the back; print on the reverse, flip about the vertical axis). 300 g lemon board #feed95, black print. Crease x=82 (valley from the printed face). Artwork = melted uppercase name, plain text warped first then melted in sheet space (blur 0.10 x local cap, thr 0.27, letter-spacing +0.09 cap). Bezier paths, fill only."
+ },
+ {
+  "file": "walkby_igor_zotov.svg",
+  "design": "walk-by",
+  "artist": "Igor Zotov",
+  "width_mm": 171.47533495754254,
+  "height_mm": 158.0,
+  "notes": "Strip (y 6-40) + tent card (y 58-158) on one proof sheet; separate boards in production (strip 200 g, tent 300 g lemon #feed95). layer-art = interleaved slices of the melted name (A facets) and DINNER + 10.10.2026 (B facets) as filled paths, plus crease ticks as thin filled rects. Tent text is live (rotate 180 about the back-panel centre). Crease positions listed in walkby_geometry.json; valley = score printed face, mountain = score back."
+ },
+ {
+  "file": "sitdown_andrey_lee.svg",
+  "design": "sit-down",
+  "artist": "Andrey Lee",
+  "width_mm": 164.0,
+  "height_mm": 188.0,
+  "notes": "Two cards stacked, 12 mm apart: FRONT at y 0-88 (name art warped for the seat), BACK at y 100-188 (live text, drawn as seen from the back; print on the reverse, flip about the vertical axis). 300 g lemon board #feed95, black print. Crease x=82 (valley from the printed face). Artwork = melted uppercase name, plain text warped first then melted in sheet space (blur 0.10 x local cap, thr 0.27, letter-spacing +0.09 cap). Bezier paths, fill only."
+ },
+ {
+  "file": "walkby_andrey_lee.svg",
+  "design": "walk-by",
+  "artist": "Andrey Lee",
+  "width_mm": 171.47533495754254,
+  "height_mm": 158.0,
+  "notes": "Strip (y 6-40) + tent card (y 58-158) on one proof sheet; separate boards in production (strip 200 g, tent 300 g lemon #feed95). layer-art = interleaved slices of the melted name (A facets) and DINNER + 10.10.2026 (B facets) as filled paths, plus crease ticks as thin filled rects. Tent text is live (rotate 180 about the back-panel centre). Crease positions listed in walkby_geometry.json; valley = score printed face, mountain = score back."
+ },
+ {
+  "file": "sitdown_sasha_chernikov.svg",
+  "design": "sit-down",
+  "artist": "Sasha Chernikov",
+  "width_mm": 164.0,
+  "height_mm": 188.0,
+  "notes": "Two cards stacked, 12 mm apart: FRONT at y 0-88 (name art warped for the seat), BACK at y 100-188 (live text, drawn as seen from the back; print on the reverse, flip about the vertical axis). 300 g lemon board #feed95, black print. Crease x=82 (valley from the printed face). Artwork = melted uppercase name, plain text warped first then melted in sheet space (blur 0.10 x local cap, thr 0.27, letter-spacing +0.06 cap). Bezier paths, fill only."
+ },
+ {
+  "file": "walkby_sasha_chernikov.svg",
+  "design": "walk-by",
+  "artist": "Sasha Chernikov",
+  "width_mm": 171.47533495754254,
+  "height_mm": 158.0,
+  "notes": "Strip (y 6-40) + tent card (y 58-158) on one proof sheet; separate boards in production (strip 200 g, tent 300 g lemon #feed95). layer-art = interleaved slices of the melted name (A facets) and DINNER + 10.10.2026 (B facets) as filled paths, plus crease ticks as thin filled rects. Tent text is live (rotate 180 about the back-panel centre). Crease positions listed in walkby_geometry.json; valley = score printed face, mountain = score back."
+ },
+ {
+  "file": "sitdown_sophia_zhuravkova.svg",
+  "design": "sit-down",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 164.0,
+  "height_mm": 188.0,
+  "notes": "Two cards stacked, 12 mm apart: FRONT at y 0-88 (name art warped for the seat), BACK at y 100-188 (live text, drawn as seen from the back; print on the reverse, flip about the vertical axis). 300 g lemon board #feed95, black print. Crease x=82 (valley from the printed face). Artwork = melted uppercase name, plain text warped first then melted in sheet space (blur 0.10 x local cap, thr 0.32, letter-spacing +0.09 cap). Bezier paths, fill only."
+ },
+ {
+  "file": "walkby_sophia_zhuravkova.svg",
+  "design": "walk-by",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 171.47533495754254,
+  "height_mm": 158.0,
+  "notes": "Strip (y 6-40) + tent card (y 58-158) on one proof sheet; separate boards in production (strip 200 g, tent 300 g lemon #feed95). layer-art = interleaved slices of the melted name (A facets) and DINNER + 10.10.2026 (B facets) as filled paths, plus crease ticks as thin filled rects. Tent text is live (rotate 180 about the back-panel centre). Crease positions listed in walkby_geometry.json; valley = score printed face, mountain = score back."
+ }
+]

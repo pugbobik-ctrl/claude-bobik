@@ -1,0 +1,50 @@
+[
+ {
+  "file": "decoder-ring_tanya-andrianova.svg",
+  "design": "decoder-ring",
+  "artist": "Tanya Andrianova",
+  "width_mm": 150.0,
+  "height_mm": 156.0,
+  "notes": "Card 150 x 156 mm, lemon pre-coloured board. layer-art: anamorphic melted name (computed for the eye 430 up / 450 away; ring axis at (75, 47.5) from top-left) + printed foot ring r 40.45 + seam dot. layer-text: lockup + event lines (live text, Wix Madefor Text 700/600). layer-guides: ring footprint r 40.0, safe area."
+ },
+ {
+  "file": "decoder-ring_igor-zotov.svg",
+  "design": "decoder-ring",
+  "artist": "Igor Zotov",
+  "width_mm": 150.0,
+  "height_mm": 156.0,
+  "notes": "Card 150 x 156 mm, lemon pre-coloured board. layer-art: anamorphic melted name (computed for the eye 430 up / 450 away; ring axis at (75, 47.5) from top-left) + printed foot ring r 40.45 + seam dot. layer-text: lockup + event lines (live text, Wix Madefor Text 700/600). layer-guides: ring footprint r 40.0, safe area."
+ },
+ {
+  "file": "decoder-ring_andrey-lee.svg",
+  "design": "decoder-ring",
+  "artist": "Andrey Lee",
+  "width_mm": 150.0,
+  "height_mm": 156.0,
+  "notes": "Card 150 x 156 mm, lemon pre-coloured board. layer-art: anamorphic melted name (computed for the eye 430 up / 450 away; ring axis at (75, 47.5) from top-left) + printed foot ring r 40.45 + seam dot. layer-text: lockup + event lines (live text, Wix Madefor Text 700/600). layer-guides: ring footprint r 40.0, safe area."
+ },
+ {
+  "file": "decoder-ring_sasha-chernikov.svg",
+  "design": "decoder-ring",
+  "artist": "Sasha Chernikov",
+  "width_mm": 150.0,
+  "height_mm": 156.0,
+  "notes": "Card 150 x 156 mm, lemon pre-coloured board. layer-art: anamorphic melted name (computed for the eye 430 up / 450 away; ring axis at (75, 47.5) from top-left) + printed foot ring r 40.45 + seam dot. layer-text: lockup + event lines (live text, Wix Madefor Text 700/600). layer-guides: ring footprint r 40.0, safe area."
+ },
+ {
+  "file": "decoder-ring_sophia-zhuravkova.svg",
+  "design": "decoder-ring",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 150.0,
+  "height_mm": 156.0,
+  "notes": "Card 150 x 156 mm, lemon pre-coloured board. layer-art: anamorphic melted name (computed for the eye 430 up / 450 away; ring axis at (75, 47.5) from top-left) + printed foot ring r 40.45 + seam dot. layer-text: lockup + event lines (live text, Wix Madefor Text 700/600). layer-guides: ring footprint r 40.0, safe area."
+ },
+ {
+  "file": "decoder-ring_ring.svg",
+  "design": "decoder-ring",
+  "artist": "ring (shared by all five)",
+  "width_mm": 278.07,
+  "height_mm": 48.0,
+  "notes": "Mirror ring flat, inside (lemon) face up, mirror film on the reverse. layer-art = lemon flood (#feed95, printed on the board back); layer-text = lockup on the inside lip; layer-cut = outline + slit. Mirror R 40, H 48, board 0.4 mm."
+ }
+]

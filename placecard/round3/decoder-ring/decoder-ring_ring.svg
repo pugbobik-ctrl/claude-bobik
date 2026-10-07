@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="278.071mm" height="48mm" viewBox="0 0 278.071 48">
+<title>Decoder ring - mirror ring flat</title>
+<g id="layer-art">
+<path d="M266.071,0.000 L0.000,0.000 L0.000,48.000 L266.071,48.000 L266.071,29.000 L276.271,29.000 L278.071,27.200 L278.071,20.800 L276.271,19.000 L266.071,19.000 L266.071,0.000 Z" fill="#feed95" fill-rule="evenodd"/>
+</g>
+<g id="layer-cut">
+<path d="M266.071,0.000 L0.000,0.000 L0.000,48.000 L266.071,48.000 L266.071,29.000 L276.271,29.000 L278.071,27.200 L278.071,20.800 L276.271,19.000 L266.071,19.000 L266.071,0.000 Z" fill="none" stroke="#e2007a" stroke-width="0.25" stroke-linejoin="round"/>
+<path d="M22.250,18.600 L22.250,29.400 L21.750,29.400 L21.750,18.600 L22.250,18.600 Z" fill="none" stroke="#e2007a" stroke-width="0.25"/>
+</g>
+<g id="layer-text">
+<text x="36.341" y="7.2" font-family="Wix Madefor Text" font-weight="700" font-size="4.801" text-anchor="start" letter-spacing="0" fill="#111111">COLORBLOCK</text>
+<text x="73.056" y="6.78" font-family="Wix Madefor Text" font-weight="600" font-size="3.358" text-anchor="start" letter-spacing="0" fill="#111111">×</text>
+<text x="77.82" y="7.2" font-family="Wix Madefor Text" font-weight="700" font-size="4.801" text-anchor="start" letter-spacing="0" fill="#111111">DNA</text>
+</g>
+<g id="layer-guides">
+<rect x="2" y="3" width="12" height="42" fill="none" stroke="#e67e00" stroke-width="0.2" stroke-dasharray="1 0.6"/>
+<text x="2.2" y="19" font-family="Wix Madefor Text" font-weight="500" font-size="2" text-anchor="start" letter-spacing="0" fill="#a05a00">tape zone 8 mm</text>
+<line x1="266.071" y1="0" x2="266.071" y2="48" stroke="#555" stroke-width="0.2" stroke-dasharray="2 1"/>
+<text x="265.071" y="46" font-family="Wix Madefor Text" font-weight="500" font-size="2" text-anchor="end" letter-spacing="0" fill="#555">body end</text>
+<text x="23.2" y="17.4" font-family="Wix Madefor Text" font-weight="500" font-size="2" text-anchor="start" letter-spacing="0" fill="#8a2be2">slit 10.8 x 0.5</text>
+<text x="272.071" y="32.5" font-family="Wix Madefor Text" font-weight="500" font-size="2" text-anchor="middle" letter-spacing="0" fill="#555">tab 12 x 10</text>
+<text x="62.518" y="2.6" font-family="Wix Madefor Text" font-weight="500" font-size="2" text-anchor="middle" letter-spacing="0" fill="#555">lockup on the inside lip = back of the ring</text>
+<text x="139.035" y="46.5" font-family="Wix Madefor Text" font-weight="500" font-size="2" text-anchor="middle" letter-spacing="0" fill="#777">DRAWN: inside (lemon) face up. Mirror film on the other face. Body 266.1 + tab 12 = 278.1 x 48 mm; R 40; board 0.4 mm</text>
+</g>
+</svg>

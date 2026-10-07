@@ -1,0 +1,39 @@
+=== WALK-BY verification ===
+PASS tooth closes: a sin18 - b sin70 = 0.0e+00; b = 2.9596
+PASS profile returns to z = 0 after 13 teeth (z_end = 0.0e+00); panel 124.43 = x_end 124.43
+PASS strip 171.475 x 34, 27 creases (13 valley + 13 mountain + right tab hinge); crease pitch A 9.0 / B 2.960; min crease pitch 2.96 mm (steel-rule creasing rule needs >= 1.5 mm between rules: OK)
+PASS tent slits 5.78 / 130.22 are 124.43 apart = strip body width on the panel; both 5.78 mm from the card edge
+PASS strip y 58-92 on the front panel (crease at 50; tent apex clear by 8 mm)
+PASS tent back type inside the panel with >= 5 mm margin (lockup 52.3 mm wide)
+PASS Tanya Andrianova: melted name block 104.2 x 8.1 mm in apparent width 111.3 (margins 3.5 / 3.5); cap 7.32 mm, y 16.0-24.0
+PASS Tanya Andrianova: B ink only in y < 9.9 (Dinner) and y > 27.5 (date); name zone y 16.0-24.0 stays free of B ink
+PASS Tanya Andrianova: interleaved vector slices reproduce the ideal A image (IoU 0.981) and B image (IoU 0.996)
+INFO Tanya Andrianova: pleat simulator, ink on the facets that face the viewer vs the ideal image: A at theta 0 IoU 0.98, A at -18 0.97, B at 70 0.99 (the rasterised view is blurred by shading; > 0.85 expected)
+PASS Igor Zotov: melted name block 66.0 x 8.4 mm in apparent width 111.3 (margins 22.6 / 22.6); cap 7.32 mm, y 15.8-24.2
+PASS Igor Zotov: B ink only in y < 9.9 (Dinner) and y > 27.5 (date); name zone y 15.8-24.2 stays free of B ink
+PASS Igor Zotov: interleaved vector slices reproduce the ideal A image (IoU 0.991) and B image (IoU 0.996)
+INFO Igor Zotov: pleat simulator, ink on the facets that face the viewer vs the ideal image: A at theta 0 IoU 0.98, A at -18 0.97, B at 70 0.99 (the rasterised view is blurred by shading; > 0.85 expected)
+PASS Andrey Lee: melted name block 59.7 x 8.0 mm in apparent width 111.3 (margins 25.8 / 25.8); cap 7.32 mm, y 16.0-24.0
+PASS Andrey Lee: B ink only in y < 9.9 (Dinner) and y > 27.5 (date); name zone y 16.0-24.0 stays free of B ink
+PASS Andrey Lee: interleaved vector slices reproduce the ideal A image (IoU 0.990) and B image (IoU 0.996)
+INFO Andrey Lee: pleat simulator, ink on the facets that face the viewer vs the ideal image: A at theta 0 IoU 0.98, A at -18 0.97, B at 70 0.99 (the rasterised view is blurred by shading; > 0.85 expected)
+PASS Sasha Chernikov: melted name block 95.5 x 8.2 mm in apparent width 111.3 (margins 7.9 / 7.9); cap 7.32 mm, y 15.9-24.1
+PASS Sasha Chernikov: B ink only in y < 9.9 (Dinner) and y > 27.5 (date); name zone y 15.9-24.1 stays free of B ink
+PASS Sasha Chernikov: interleaved vector slices reproduce the ideal A image (IoU 0.983) and B image (IoU 0.996)
+INFO Sasha Chernikov: pleat simulator, ink on the facets that face the viewer vs the ideal image: A at theta 0 IoU 0.98, A at -18 0.97, B at 70 0.99 (the rasterised view is blurred by shading; > 0.85 expected)
+PASS Sophia Zhuravkova: melted name block 107.3 x 7.8 mm in apparent width 111.3 (margins 2.0 / 2.0); cap 7.32 mm, y 16.1-23.9
+PASS Sophia Zhuravkova: B ink only in y < 9.9 (Dinner) and y > 27.5 (date); name zone y 16.1-23.9 stays free of B ink
+PASS Sophia Zhuravkova: interleaved vector slices reproduce the ideal A image (IoU 0.988) and B image (IoU 0.996)
+INFO Sophia Zhuravkova: pleat simulator, ink on the facets that face the viewer vs the ideal image: A at theta 0 IoU 0.98, A at -18 0.97, B at 70 0.99 (the rasterised view is blurred by shading; > 0.85 expected)
+INFO theta  -18: A 9.00 B 0.10 mm per tooth, B share 1 %
+INFO theta    0: A 8.56 B 1.01 mm per tooth, B share 11 %
+INFO theta   10: A 7.95 B 1.48 mm per tooth, B share 16 %
+INFO theta   26: A 6.47 B 2.13 mm per tooth, B share 25 %
+INFO theta   35: A 5.42 B 2.42 mm per tooth, B share 31 %
+INFO theta   50: A 3.37 B 2.78 mm per tooth, B share 45 %
+INFO theta   65: A 1.10 B 2.95 mm per tooth, B share 73 %
+INFO theta   70: A 0.31 B 2.96 mm per tooth, B share 90 %
+INFO name clean (B share <= 12 %) up to theta = 3 deg; Dinner clean (A share <= 10 %) from theta = 70 deg = a walker 0.9 m away is 2.5 m along the table
+INFO tolerance: crease position +-0.3 mm shifts 10 % of a B facet; facet angle +-1.5 deg changes the apparent A width by 0.5 mm per tooth; closure needs a sin18 = b sin70 to +-0.03 mm (13 teeth => 0.4 mm bow)
+PASS imposition: strips 10 per SRA3 (creases along the long grain; 14 if creases may run across it), tents 9 per SRA3 (3 x 3)
+RESULT ALL PASS
