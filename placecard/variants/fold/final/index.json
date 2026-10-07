@@ -1,0 +1,242 @@
+[
+ {
+  "file": "final/elbow_tanya_andrianova.svg",
+  "variant": "elbow",
+  "artist": "Tanya Andrianova",
+  "width_mm": 132.0,
+  "height_mm": 116.0,
+  "notes": "One sheet, one valley fold. Leaf stands leaning back 10 deg (fold opened to 80 deg), foot lies flat toward the guest. Name is warped across the fold for the seated eye (430 up / 450 away) so it reads straight only at this angle; closed or flattened it breaks at the hinge. Text is straight live text. Name set at cap 13.0 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.03}."
+ },
+ {
+  "file": "final/elbow_igor_zotov.svg",
+  "variant": "elbow",
+  "artist": "Igor Zotov",
+  "width_mm": 132.0,
+  "height_mm": 116.0,
+  "notes": "One sheet, one valley fold. Leaf stands leaning back 10 deg (fold opened to 80 deg), foot lies flat toward the guest. Name is warped across the fold for the seated eye (430 up / 450 away) so it reads straight only at this angle; closed or flattened it breaks at the hinge. Text is straight live text. Name set at cap 14.6 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.03, 1: 0.025}."
+ },
+ {
+  "file": "final/elbow_andrey_lee.svg",
+  "variant": "elbow",
+  "artist": "Andrey Lee",
+  "width_mm": 132.0,
+  "height_mm": 116.0,
+  "notes": "One sheet, one valley fold. Leaf stands leaning back 10 deg (fold opened to 80 deg), foot lies flat toward the guest. Name is warped across the fold for the seated eye (430 up / 450 away) so it reads straight only at this angle; closed or flattened it breaks at the hinge. Text is straight live text. Name set at cap 14.6 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.04}."
+ },
+ {
+  "file": "final/elbow_sasha_chernikov.svg",
+  "variant": "elbow",
+  "artist": "Sasha Chernikov",
+  "width_mm": 132.0,
+  "height_mm": 116.0,
+  "notes": "One sheet, one valley fold. Leaf stands leaning back 10 deg (fold opened to 80 deg), foot lies flat toward the guest. Name is warped across the fold for the seated eye (430 up / 450 away) so it reads straight only at this angle; closed or flattened it breaks at the hinge. Text is straight live text. Name set at cap 14.6 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.035}."
+ },
+ {
+  "file": "final/elbow_sophia_zhuravkova.svg",
+  "variant": "elbow",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 132.0,
+  "height_mm": 116.0,
+  "notes": "One sheet, one valley fold. Leaf stands leaning back 10 deg (fold opened to 80 deg), foot lies flat toward the guest. Name is warped across the fold for the seated eye (430 up / 450 away) so it reads straight only at this angle; closed or flattened it breaks at the hinge. Text is straight live text. Name set at cap 12.3 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.03, 1: 0.045}."
+ },
+ {
+  "file": "final/bridge_tanya_andrianova.svg",
+  "variant": "bridge",
+  "artist": "Tanya Andrianova",
+  "width_mm": 178.0,
+  "height_mm": 104.0,
+  "notes": "One T-shaped sheet. Shelf 126x52 mm on two 26 mm legs (mountain folds); the underside flap folds 180 deg under the shelf (recto down). Line 1 reads directly on the shelf, line 2 is printed on the flap and reads only in a mirror tile (180x120 mm, supplied) under the bridge. Needs mirror; text on shelf is live. Name set at cap 11.6 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.03}."
+ },
+ {
+  "file": "final/bridge_igor_zotov.svg",
+  "variant": "bridge",
+  "artist": "Igor Zotov",
+  "width_mm": 178.0,
+  "height_mm": 104.0,
+  "notes": "One T-shaped sheet. Shelf 126x52 mm on two 26 mm legs (mountain folds); the underside flap folds 180 deg under the shelf (recto down). Line 1 reads directly on the shelf, line 2 is printed on the flap and reads only in a mirror tile (180x120 mm, supplied) under the bridge. Needs mirror; text on shelf is live. Name set at cap 12.5 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.03, 1: 0.025}."
+ },
+ {
+  "file": "final/bridge_andrey_lee.svg",
+  "variant": "bridge",
+  "artist": "Andrey Lee",
+  "width_mm": 178.0,
+  "height_mm": 104.0,
+  "notes": "One T-shaped sheet. Shelf 126x52 mm on two 26 mm legs (mountain folds); the underside flap folds 180 deg under the shelf (recto down). Line 1 reads directly on the shelf, line 2 is printed on the flap and reads only in a mirror tile (180x120 mm, supplied) under the bridge. Needs mirror; text on shelf is live. Name set at cap 12.5 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.04}."
+ },
+ {
+  "file": "final/bridge_sasha_chernikov.svg",
+  "variant": "bridge",
+  "artist": "Sasha Chernikov",
+  "width_mm": 178.0,
+  "height_mm": 104.0,
+  "notes": "One T-shaped sheet. Shelf 126x52 mm on two 26 mm legs (mountain folds); the underside flap folds 180 deg under the shelf (recto down). Line 1 reads directly on the shelf, line 2 is printed on the flap and reads only in a mirror tile (180x120 mm, supplied) under the bridge. Needs mirror; text on shelf is live. Name set at cap 12.5 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.035}."
+ },
+ {
+  "file": "final/bridge_sophia_zhuravkova.svg",
+  "variant": "bridge",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 178.0,
+  "height_mm": 104.0,
+  "notes": "One T-shaped sheet. Shelf 126x52 mm on two 26 mm legs (mountain folds); the underside flap folds 180 deg under the shelf (recto down). Line 1 reads directly on the shelf, line 2 is printed on the flap and reads only in a mirror tile (180x120 mm, supplied) under the bridge. Needs mirror; text on shelf is live. Name set at cap 11.0 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.03, 1: 0.045}."
+ },
+ {
+  "file": "final/slope_tanya_andrianova.svg",
+  "variant": "slope",
+  "artist": "Tanya Andrianova",
+  "width_mm": 140.0,
+  "height_mm": 269.95,
+  "notes": "Triangular wedge, 3 mountain folds + glue tab. Name is set true on the slope (descends away from the guest, 15 deg); the seated eye sees it foreshortened to ~0.5, picked up and held up it reads true. Lockup and details are live text on the front wall. Name set at cap 13.3 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.03}."
+ },
+ {
+  "file": "final/slope_igor_zotov.svg",
+  "variant": "slope",
+  "artist": "Igor Zotov",
+  "width_mm": 140.0,
+  "height_mm": 269.95,
+  "notes": "Triangular wedge, 3 mountain folds + glue tab. Name is set true on the slope (descends away from the guest, 15 deg); the seated eye sees it foreshortened to ~0.5, picked up and held up it reads true. Lockup and details are live text on the front wall. Name set at cap 25.5 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.03, 1: 0.025}."
+ },
+ {
+  "file": "final/slope_andrey_lee.svg",
+  "variant": "slope",
+  "artist": "Andrey Lee",
+  "width_mm": 140.0,
+  "height_mm": 269.95,
+  "notes": "Triangular wedge, 3 mountain folds + glue tab. Name is set true on the slope (descends away from the guest, 15 deg); the seated eye sees it foreshortened to ~0.5, picked up and held up it reads true. Lockup and details are live text on the front wall. Name set at cap 22.2 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.04}."
+ },
+ {
+  "file": "final/slope_sasha_chernikov.svg",
+  "variant": "slope",
+  "artist": "Sasha Chernikov",
+  "width_mm": 140.0,
+  "height_mm": 269.95,
+  "notes": "Triangular wedge, 3 mountain folds + glue tab. Name is set true on the slope (descends away from the guest, 15 deg); the seated eye sees it foreshortened to ~0.5, picked up and held up it reads true. Lockup and details are live text on the front wall. Name set at cap 15.3 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.035}."
+ },
+ {
+  "file": "final/slope_sophia_zhuravkova.svg",
+  "variant": "slope",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 140.0,
+  "height_mm": 269.95,
+  "notes": "Triangular wedge, 3 mountain folds + glue tab. Name is set true on the slope (descends away from the guest, 15 deg); the seated eye sees it foreshortened to ~0.5, picked up and held up it reads true. Lockup and details are live text on the front wall. Name set at cap 12.6 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.03, 1: 0.045}."
+ },
+ {
+  "file": "final/crenel_tanya_andrianova.svg",
+  "variant": "crenel",
+  "artist": "Tanya Andrianova",
+  "width_mm": 206.0,
+  "height_mm": 76.0,
+  "notes": "One strip, 10 mountain/valley folds (square-wave, depth step 10 mm), six 26 mm slices alternate front/back. Name is warped per slice so it assembles only from the seat; from the side the slices separate. Details and lockup are split into live-text fragments, one per front slice. Name set at cap 10.7 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.03}."
+ },
+ {
+  "file": "final/crenel_igor_zotov.svg",
+  "variant": "crenel",
+  "artist": "Igor Zotov",
+  "width_mm": 206.0,
+  "height_mm": 76.0,
+  "notes": "One strip, 10 mountain/valley folds (square-wave, depth step 10 mm), six 26 mm slices alternate front/back. Name is warped per slice so it assembles only from the seat; from the side the slices separate. Details and lockup are split into live-text fragments, one per front slice. Name set at cap 10.7 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.03, 1: 0.025}."
+ },
+ {
+  "file": "final/crenel_andrey_lee.svg",
+  "variant": "crenel",
+  "artist": "Andrey Lee",
+  "width_mm": 206.0,
+  "height_mm": 76.0,
+  "notes": "One strip, 10 mountain/valley folds (square-wave, depth step 10 mm), six 26 mm slices alternate front/back. Name is warped per slice so it assembles only from the seat; from the side the slices separate. Details and lockup are split into live-text fragments, one per front slice. Name set at cap 10.7 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.04}."
+ },
+ {
+  "file": "final/crenel_sasha_chernikov.svg",
+  "variant": "crenel",
+  "artist": "Sasha Chernikov",
+  "width_mm": 206.0,
+  "height_mm": 76.0,
+  "notes": "One strip, 10 mountain/valley folds (square-wave, depth step 10 mm), six 26 mm slices alternate front/back. Name is warped per slice so it assembles only from the seat; from the side the slices separate. Details and lockup are split into live-text fragments, one per front slice. Name set at cap 10.7 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.035}."
+ },
+ {
+  "file": "final/crenel_sophia_zhuravkova.svg",
+  "variant": "crenel",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 206.0,
+  "height_mm": 76.0,
+  "notes": "One strip, 10 mountain/valley folds (square-wave, depth step 10 mm), six 26 mm slices alternate front/back. Name is warped per slice so it assembles only from the seat; from the side the slices separate. Details and lockup are split into live-text fragments, one per front slice. Name set at cap 10.7 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.03, 1: 0.045}."
+ },
+ {
+  "file": "final/napkin-flag_tanya_andrianova.svg",
+  "variant": "napkin-flag",
+  "artist": "Tanya Andrianova",
+  "width_mm": 122.0,
+  "height_mm": 214.23,
+  "notes": "One strip 122 mm wide: flag (64 mm) bends 90 deg then wraps a napkin roll of diameter 44 mm; overlap tab glues behind the flag. Line 1 on the flag, line 2 continues down onto the band (warped over the cylinder for the seat view). Details run along the roll axis as live text. Name set at cap 11.2 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.03}."
+ },
+ {
+  "file": "final/napkin-flag_igor_zotov.svg",
+  "variant": "napkin-flag",
+  "artist": "Igor Zotov",
+  "width_mm": 122.0,
+  "height_mm": 214.23,
+  "notes": "One strip 122 mm wide: flag (64 mm) bends 90 deg then wraps a napkin roll of diameter 44 mm; overlap tab glues behind the flag. Line 1 on the flag, line 2 continues down onto the band (warped over the cylinder for the seat view). Details run along the roll axis as live text. Name set at cap 13.8 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.03, 1: 0.025}."
+ },
+ {
+  "file": "final/napkin-flag_andrey_lee.svg",
+  "variant": "napkin-flag",
+  "artist": "Andrey Lee",
+  "width_mm": 122.0,
+  "height_mm": 214.23,
+  "notes": "One strip 122 mm wide: flag (64 mm) bends 90 deg then wraps a napkin roll of diameter 44 mm; overlap tab glues behind the flag. Line 1 on the flag, line 2 continues down onto the band (warped over the cylinder for the seat view). Details run along the roll axis as live text. Name set at cap 13.8 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.04}."
+ },
+ {
+  "file": "final/napkin-flag_sasha_chernikov.svg",
+  "variant": "napkin-flag",
+  "artist": "Sasha Chernikov",
+  "width_mm": 122.0,
+  "height_mm": 214.23,
+  "notes": "One strip 122 mm wide: flag (64 mm) bends 90 deg then wraps a napkin roll of diameter 44 mm; overlap tab glues behind the flag. Line 1 on the flag, line 2 continues down onto the band (warped over the cylinder for the seat view). Details run along the roll axis as live text. Name set at cap 12.8 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.035}."
+ },
+ {
+  "file": "final/napkin-flag_sophia_zhuravkova.svg",
+  "variant": "napkin-flag",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 122.0,
+  "height_mm": 214.23,
+  "notes": "One strip 122 mm wide: flag (64 mm) bends 90 deg then wraps a napkin roll of diameter 44 mm; overlap tab glues behind the flag. Line 1 on the flag, line 2 continues down onto the band (warped over the cylinder for the seat view). Details run along the roll axis as live text. Name set at cap 10.6 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.03, 1: 0.045}."
+ },
+ {
+  "file": "final/ridge_tanya_andrianova.svg",
+  "variant": "ridge",
+  "artist": "Tanya Andrianova",
+  "width_mm": 132.0,
+  "height_mm": 257.78,
+  "notes": "Triangular low gable, 3 mountain folds + glue tab. Front leaf 76 mm (12 deg) and shorter rear leaf 50 mm (about 18 deg). Letters of line 1 are cut at the ridge: tops on the rear leaf (printed stretched), bottoms on the front leaf; they assemble at the ridge from the seat. Lockup and details are live text on the front leaf. Name set at cap 11.2 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.03}."
+ },
+ {
+  "file": "final/ridge_igor_zotov.svg",
+  "variant": "ridge",
+  "artist": "Igor Zotov",
+  "width_mm": 132.0,
+  "height_mm": 257.78,
+  "notes": "Triangular low gable, 3 mountain folds + glue tab. Front leaf 76 mm (12 deg) and shorter rear leaf 50 mm (about 18 deg). Letters of line 1 are cut at the ridge: tops on the rear leaf (printed stretched), bottoms on the front leaf; they assemble at the ridge from the seat. Lockup and details are live text on the front leaf. Name set at cap 15.5 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.03, 1: 0.025}."
+ },
+ {
+  "file": "final/ridge_andrey_lee.svg",
+  "variant": "ridge",
+  "artist": "Andrey Lee",
+  "width_mm": 132.0,
+  "height_mm": 257.78,
+  "notes": "Triangular low gable, 3 mountain folds + glue tab. Front leaf 76 mm (12 deg) and shorter rear leaf 50 mm (about 18 deg). Letters of line 1 are cut at the ridge: tops on the rear leaf (printed stretched), bottoms on the front leaf; they assemble at the ridge from the seat. Lockup and details are live text on the front leaf. Name set at cap 15.5 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.04}."
+ },
+ {
+  "file": "final/ridge_sasha_chernikov.svg",
+  "variant": "ridge",
+  "artist": "Sasha Chernikov",
+  "width_mm": 132.0,
+  "height_mm": 257.78,
+  "notes": "Triangular low gable, 3 mountain folds + glue tab. Front leaf 76 mm (12 deg) and shorter rear leaf 50 mm (about 18 deg). Letters of line 1 are cut at the ridge: tops on the rear leaf (printed stretched), bottoms on the front leaf; they assemble at the ridge from the seat. Lockup and details are live text on the front leaf. Name set at cap 12.9 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.025, 1: 0.035}."
+ },
+ {
+  "file": "final/ridge_sophia_zhuravkova.svg",
+  "variant": "ridge",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 132.0,
+  "height_mm": 257.78,
+  "notes": "Triangular low gable, 3 mountain folds + glue tab. Front leaf 76 mm (12 deg) and shorter rear leaf 50 mm (about 18 deg). Letters of line 1 are cut at the ridge: tops on the rear leaf (printed stretched), bottoms on the front leaf; they assemble at the ridge from the seat. Lockup and details are live text on the front leaf. Name set at cap 10.6 mm, melt sigma 0.085 cap, thr 0.30, tracking {0: 0.03, 1: 0.045}."
+ }
+]

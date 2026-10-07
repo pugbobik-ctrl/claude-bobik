@@ -161,7 +161,11 @@
         if (kind === "cut") strokeCol = CUT;
         else if (kind === "crease") strokeCol = CREASE;
         else if (kind === "perf") strokeCol = PERF;
-        else if (kind === "guides") { strokeCol = it.stroke ? GUIDE : null; fillCol = it.fill ? GUIDE : null; }
+        else if (kind === "guides") {
+            strokeCol = it.stroke ? GUIDE : null;
+            fillCol = it.fill && ink(it.fill) !== LEMON ? GUIDE : null;   // a lemon "stock" swatch is what Board shows
+            if (!fillCol && !strokeCol) return;
+        }
         else {
             fillCol = it.fill ? ink(it.fill) : null;
             strokeCol = it.stroke ? ink(it.stroke) : null;
