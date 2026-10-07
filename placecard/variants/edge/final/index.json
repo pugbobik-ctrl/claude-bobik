@@ -1,0 +1,242 @@
+[
+ {
+  "file": "final/e1-overhang_tanya-andrianova.svg",
+  "variant": "e1-overhang",
+  "artist": "Tanya Andrianova",
+  "width_mm": 143.81,
+  "height_mm": 136.0,
+  "notes": "Tent (68deg lean). First-name letters poke above the crease: the back panel is notched along their contour, only hinge bridges remain; surname overhangs the side edges. Back panel carries a small name for the opposite seat. Name: TANYA / ANDRIANOVA, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 15.5 mm; counters open 16/16, smallest 0.5 mm2."
+ },
+ {
+  "file": "final/e1-overhang_igor-zotov.svg",
+  "variant": "e1-overhang",
+  "artist": "Igor Zotov",
+  "width_mm": 130.0,
+  "height_mm": 136.0,
+  "notes": "Tent (68deg lean). First-name letters poke above the crease: the back panel is notched along their contour, only hinge bridges remain; surname overhangs the side edges. Back panel carries a small name for the opposite seat. Name: IGOR / ZOTOV, melt sigma 0.08 thr 0.30 tracking +0.035 em, cap 24.7 mm; counters open 8/8, smallest 2.4 mm2."
+ },
+ {
+  "file": "final/e1-overhang_andrey-lee.svg",
+  "variant": "e1-overhang",
+  "artist": "Andrey Lee",
+  "width_mm": 130.0,
+  "height_mm": 136.0,
+  "notes": "Tent (68deg lean). First-name letters poke above the crease: the back panel is notched along their contour, only hinge bridges remain; surname overhangs the side edges. Back panel carries a small name for the opposite seat. Name: ANDREY / LEE, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 18.8 mm; counters open 6/6, smallest 0.8 mm2."
+ },
+ {
+  "file": "final/e1-overhang_sasha-chernikov.svg",
+  "variant": "e1-overhang",
+  "artist": "Sasha Chernikov",
+  "width_mm": 144.34,
+  "height_mm": 136.0,
+  "notes": "Tent (68deg lean). First-name letters poke above the crease: the back panel is notched along their contour, only hinge bridges remain; surname overhangs the side edges. Back panel carries a small name for the opposite seat. Name: SASHA / CHERNIKOV, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 18.0 mm; counters open 8/8, smallest 0.6 mm2."
+ },
+ {
+  "file": "final/e1-overhang_sophia-zhuravkova.svg",
+  "variant": "e1-overhang",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 144.19,
+  "height_mm": 136.0,
+  "notes": "Tent (68deg lean). First-name letters poke above the crease: the back panel is notched along their contour, only hinge bridges remain; surname overhangs the side edges. Back panel carries a small name for the opposite seat. Name: SOPHIA / ZHURAVKOVA, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 14.9 mm; counters open 14/14, smallest 0.5 mm2."
+ },
+ {
+  "file": "final/e2-halo_tanya-andrianova.svg",
+  "variant": "e2-halo",
+  "artist": "Tanya Andrianova",
+  "width_mm": 140.86,
+  "height_mm": 64.96,
+  "notes": "Vertical V-fold (wings 22deg), silhouette = melted name offset 3.4 mm + straight info strip. Plain text stretched 1.28 vertically before the melt to offset the 0.72 foreshortening of an upright wing. Name: TANYA / ANDRIANOVA, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 14.5 mm; counters open 8/8, smallest 3.9 mm2."
+ },
+ {
+  "file": "final/e2-halo_igor-zotov.svg",
+  "variant": "e2-halo",
+  "artist": "Igor Zotov",
+  "width_mm": 122.0,
+  "height_mm": 79.09,
+  "notes": "Vertical V-fold (wings 22deg), silhouette = melted name offset 3.4 mm + straight info strip. Plain text stretched 1.28 vertically before the melt to offset the 0.72 foreshortening of an upright wing. Name: IGOR / ZOTOV, melt sigma 0.08 thr 0.30 tracking +0.035 em, cap 19.0 mm; counters open 4/4, smallest 19.3 mm2."
+ },
+ {
+  "file": "final/e2-halo_andrey-lee.svg",
+  "variant": "e2-halo",
+  "artist": "Andrey Lee",
+  "width_mm": 122.0,
+  "height_mm": 79.21,
+  "notes": "Vertical V-fold (wings 22deg), silhouette = melted name offset 3.4 mm + straight info strip. Plain text stretched 1.28 vertically before the melt to offset the 0.72 foreshortening of an upright wing. Name: ANDREY / LEE, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 19.3 mm; counters open 3/3, smallest 7.1 mm2."
+ },
+ {
+  "file": "final/e2-halo_sasha-chernikov.svg",
+  "variant": "e2-halo",
+  "artist": "Sasha Chernikov",
+  "width_mm": 141.17,
+  "height_mm": 72.4,
+  "notes": "Vertical V-fold (wings 22deg), silhouette = melted name offset 3.4 mm + straight info strip. Plain text stretched 1.28 vertically before the melt to offset the 0.72 foreshortening of an upright wing. Name: SASHA / CHERNIKOV, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 16.8 mm; counters open 4/4, smallest 5.2 mm2."
+ },
+ {
+  "file": "final/e2-halo_sophia-zhuravkova.svg",
+  "variant": "e2-halo",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 141.17,
+  "height_mm": 63.71,
+  "notes": "Vertical V-fold (wings 22deg), silhouette = melted name offset 3.4 mm + straight info strip. Plain text stretched 1.28 vertically before the melt to offset the 0.72 foreshortening of an upright wing. Name: SOPHIA / ZHURAVKOVA, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 13.9 mm; counters open 7/7, smallest 3.6 mm2."
+ },
+ {
+  "file": "final/e3-bend_tanya-andrianova.svg",
+  "variant": "e3-bend",
+  "artist": "Tanya Andrianova",
+  "width_mm": 132.12,
+  "height_mm": 135.66,
+  "notes": "Easel wedge: plate flat on the table, upright leaning 18deg back, strut folding down behind. Name drawn in apparent space, warped per panel (x1.11 upright, x1.45 plate) then melted; second line straddles the crease. Name: TANYA / ANDRIANOVA, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 14.2 mm; counters open 16/16, smallest 0.5 mm2."
+ },
+ {
+  "file": "final/e3-bend_igor-zotov.svg",
+  "variant": "e3-bend",
+  "artist": "Igor Zotov",
+  "width_mm": 120.0,
+  "height_mm": 135.66,
+  "notes": "Easel wedge: plate flat on the table, upright leaning 18deg back, strut folding down behind. Name drawn in apparent space, warped per panel (x1.11 upright, x1.45 plate) then melted; second line straddles the crease. Name: IGOR / ZOTOV, melt sigma 0.08 thr 0.30 tracking +0.035 em, cap 19.1 mm; counters open 8/8, smallest 1.5 mm2."
+ },
+ {
+  "file": "final/e3-bend_andrey-lee.svg",
+  "variant": "e3-bend",
+  "artist": "Andrey Lee",
+  "width_mm": 120.0,
+  "height_mm": 135.66,
+  "notes": "Easel wedge: plate flat on the table, upright leaning 18deg back, strut folding down behind. Name drawn in apparent space, warped per panel (x1.11 upright, x1.45 plate) then melted; second line straddles the crease. Name: ANDREY / LEE, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 19.4 mm; counters open 6/6, smallest 0.5 mm2."
+ },
+ {
+  "file": "final/e3-bend_sasha-chernikov.svg",
+  "variant": "e3-bend",
+  "artist": "Sasha Chernikov",
+  "width_mm": 132.62,
+  "height_mm": 135.66,
+  "notes": "Easel wedge: plate flat on the table, upright leaning 18deg back, strut folding down behind. Name drawn in apparent space, warped per panel (x1.11 upright, x1.45 plate) then melted; second line straddles the crease. Name: SASHA / CHERNIKOV, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 16.5 mm; counters open 8/8, smallest 0.5 mm2."
+ },
+ {
+  "file": "final/e3-bend_sophia-zhuravkova.svg",
+  "variant": "e3-bend",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 132.31,
+  "height_mm": 135.66,
+  "notes": "Easel wedge: plate flat on the table, upright leaning 18deg back, strut folding down behind. Name drawn in apparent space, warped per panel (x1.11 upright, x1.45 plate) then melted; second line straddles the crease. Name: SOPHIA / ZHURAVKOVA, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 13.7 mm; counters open 14/14, smallest 0.5 mm2."
+ },
+ {
+  "file": "final/e4-slot_tanya-andrianova.svg",
+  "variant": "e4-slot",
+  "artist": "Tanya Andrianova",
+  "width_mm": 146.0,
+  "height_mm": 120.45,
+  "notes": "Plate lies flat with a 0.7 mm slot; the name strap is hinged at the far edge (180deg crease), runs under the plate and rises through the slot (90deg crease). Standing part = one-line melted name on a lemon plinth, stretched x1.3. Name: TANYA ANDRIANOVA, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 8.7 mm; counters open 8/8, smallest 1.5 mm2."
+ },
+ {
+  "file": "final/e4-slot_igor-zotov.svg",
+  "variant": "e4-slot",
+  "artist": "Igor Zotov",
+  "width_mm": 146.0,
+  "height_mm": 128.89,
+  "notes": "Plate lies flat with a 0.7 mm slot; the name strap is hinged at the far edge (180deg crease), runs under the plate and rises through the slot (90deg crease). Standing part = one-line melted name on a lemon plinth, stretched x1.3. Name: IGOR ZOTOV, melt sigma 0.08 thr 0.30 tracking +0.035 em, cap 14.6 mm; counters open 4/4, smallest 11.9 mm2."
+ },
+ {
+  "file": "final/e4-slot_andrey-lee.svg",
+  "variant": "e4-slot",
+  "artist": "Andrey Lee",
+  "width_mm": 146.0,
+  "height_mm": 129.07,
+  "notes": "Plate lies flat with a 0.7 mm slot; the name strap is hinged at the far edge (180deg crease), runs under the plate and rises through the slot (90deg crease). Standing part = one-line melted name on a lemon plinth, stretched x1.3. Name: ANDREY LEE, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 15.2 mm; counters open 3/3, smallest 4.5 mm2."
+ },
+ {
+  "file": "final/e4-slot_sasha-chernikov.svg",
+  "variant": "e4-slot",
+  "artist": "Sasha Chernikov",
+  "width_mm": 146.0,
+  "height_mm": 121.63,
+  "notes": "Plate lies flat with a 0.7 mm slot; the name strap is hinged at the far edge (180deg crease), runs under the plate and rises through the slot (90deg crease). Standing part = one-line melted name on a lemon plinth, stretched x1.3. Name: SASHA CHERNIKOV, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 9.5 mm; counters open 4/4, smallest 1.7 mm2."
+ },
+ {
+  "file": "final/e4-slot_sophia-zhuravkova.svg",
+  "variant": "e4-slot",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 146.0,
+  "height_mm": 119.76,
+  "notes": "Plate lies flat with a 0.7 mm slot; the name strap is hinged at the far edge (180deg crease), runs under the plate and rises through the slot (90deg crease). Standing part = one-line melted name on a lemon plinth, stretched x1.3. Name: SOPHIA ZHURAVKOVA, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 8.2 mm; counters open 7/7, smallest 1.4 mm2."
+ },
+ {
+  "file": "final/e5-pop_tanya-andrianova.svg",
+  "variant": "e5-pop",
+  "artist": "Tanya Andrianova",
+  "width_mm": 149.94,
+  "height_mm": 77.81,
+  "notes": "Flat plate; first name cut out along its silhouette and hinged at its near edge, standing 78deg up and leaving a letter-shaped window; surname flat. Both warped for the seat (x1.18 flap, x1.45 plate) before the melt. Name: TANYA / ANDRIANOVA, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 16.2 mm; counters open 8/8, smallest 4.0 mm2."
+ },
+ {
+  "file": "final/e5-pop_igor-zotov.svg",
+  "variant": "e5-pop",
+  "artist": "Igor Zotov",
+  "width_mm": 140.0,
+  "height_mm": 94.62,
+  "notes": "Flat plate; first name cut out along its silhouette and hinged at its near edge, standing 78deg up and leaving a letter-shaped window; surname flat. Both warped for the seat (x1.18 flap, x1.45 plate) before the melt. Name: IGOR / ZOTOV, melt sigma 0.08 thr 0.30 tracking +0.035 em, cap 22.0 mm; counters open 4/4, smallest 22.8 mm2."
+ },
+ {
+  "file": "final/e5-pop_andrey-lee.svg",
+  "variant": "e5-pop",
+  "artist": "Andrey Lee",
+  "width_mm": 140.0,
+  "height_mm": 88.69,
+  "notes": "Flat plate; first name cut out along its silhouette and hinged at its near edge, standing 78deg up and leaving a letter-shaped window; surname flat. Both warped for the seat (x1.18 flap, x1.45 plate) before the melt. Name: ANDREY / LEE, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 20.6 mm; counters open 3/3, smallest 6.2 mm2."
+ },
+ {
+  "file": "final/e5-pop_sasha-chernikov.svg",
+  "variant": "e5-pop",
+  "artist": "Sasha Chernikov",
+  "width_mm": 150.58,
+  "height_mm": 85.69,
+  "notes": "Flat plate; first name cut out along its silhouette and hinged at its near edge, standing 78deg up and leaving a letter-shaped window; surname flat. Both warped for the seat (x1.18 flap, x1.45 plate) before the melt. Name: SASHA / CHERNIKOV, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 18.8 mm; counters open 4/4, smallest 5.4 mm2."
+ },
+ {
+  "file": "final/e5-pop_sophia-zhuravkova.svg",
+  "variant": "e5-pop",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 150.44,
+  "height_mm": 76.87,
+  "notes": "Flat plate; first name cut out along its silhouette and hinged at its near edge, standing 78deg up and leaving a letter-shaped window; surname flat. Both warped for the seat (x1.18 flap, x1.45 plate) before the melt. Name: SOPHIA / ZHURAVKOVA, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 15.5 mm; counters open 7/7, smallest 3.8 mm2."
+ },
+ {
+  "file": "final/e6-drip_tanya-andrianova.svg",
+  "variant": "e6-drip",
+  "artist": "Tanya Andrianova",
+  "width_mm": 139.93,
+  "height_mm": 97.03,
+  "notes": "Roof-bridge (back leg, deck, front lip). First name lies on the deck; surname hangs from a lemon band as free die-cut letters standing on the table. Warped x1.4 before the melt. Name: TANYA / ANDRIANOVA, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 15.1 mm; counters open 16/16, smallest 0.5 mm2."
+ },
+ {
+  "file": "final/e6-drip_igor-zotov.svg",
+  "variant": "e6-drip",
+  "artist": "Igor Zotov",
+  "width_mm": 130.0,
+  "height_mm": 115.53,
+  "notes": "Roof-bridge (back leg, deck, front lip). First name lies on the deck; surname hangs from a lemon band as free die-cut letters standing on the table. Warped x1.4 before the melt. Name: IGOR / ZOTOV, melt sigma 0.08 thr 0.30 tracking +0.035 em, cap 19.0 mm; counters open 8/8, smallest 1.5 mm2."
+ },
+ {
+  "file": "final/e6-drip_andrey-lee.svg",
+  "variant": "e6-drip",
+  "artist": "Andrey Lee",
+  "width_mm": 130.0,
+  "height_mm": 112.42,
+  "notes": "Roof-bridge (back leg, deck, front lip). First name lies on the deck; surname hangs from a lemon band as free die-cut letters standing on the table. Warped x1.4 before the melt. Name: ANDREY / LEE, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 19.0 mm; counters open 6/6, smallest 0.5 mm2."
+ },
+ {
+  "file": "final/e6-drip_sasha-chernikov.svg",
+  "variant": "e6-drip",
+  "artist": "Sasha Chernikov",
+  "width_mm": 140.5,
+  "height_mm": 109.01,
+  "notes": "Roof-bridge (back leg, deck, front lip). First name lies on the deck; surname hangs from a lemon band as free die-cut letters standing on the table. Warped x1.4 before the melt. Name: SASHA / CHERNIKOV, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 17.5 mm; counters open 8/8, smallest 0.5 mm2."
+ },
+ {
+  "file": "final/e6-drip_sophia-zhuravkova.svg",
+  "variant": "e6-drip",
+  "artist": "Sophia Zhuravkova",
+  "width_mm": 140.55,
+  "height_mm": 95.31,
+  "notes": "Roof-bridge (back leg, deck, front lip). First name lies on the deck; surname hangs from a lemon band as free die-cut letters standing on the table. Warped x1.4 before the melt. Name: SOPHIA / ZHURAVKOVA, melt sigma 0.07 thr 0.30 tracking +0.035 em, cap 14.5 mm; counters open 14/14, smallest 0.5 mm2."
+ }
+]

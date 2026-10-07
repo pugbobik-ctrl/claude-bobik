@@ -1,0 +1,14 @@
+# EDGE: type breaking the card edge (6 variants x 5 artists)
+
+Final dielines: `final/<variant>_<artist>.svg` (30 files, 1 unit = 1 mm, groups layer-cut / layer-crease / layer-art / layer-text / layer-guides, no raster, clipPath, mask, filter or use). `final/index.json` lists file, variant, artist, size, notes. Previews: `preview/<variant>_5up.png` (five seat-view renders at eye 430 mm up / 450 mm away + the five flat sheets), single renders `preview/<variant>_<artist>_thumb.png`. Sources: `src/` (make_index.py rebuilds everything; render.py is the preview ray-caster).
+
+Names: plain text is warped first (vertical stretch per panel from the seat's foreshortening), melted afterwards (melt.py recipe, Wix Display 700, stretch 0.9) and fitted to Bezier paths. Refinement: the brand melt (sigma 0.10, thr 0.27) closed the A counters and fused I-G, L-E-E, Z-H once stretched, so every name uses sigma 0.07 (IGOR ZOTOV 0.08), thr 0.30, +0.035 em tracking. Checked per name: all counters open (front names >= 3.6 mm2 at 14 mm cap) and each letter separate.
+
+| # | Variant | Idea | Made by | Risk |
+|---|---|---|---|---|
+| 1 | E1 Overhang | The first name's letters stand above the tent's crease, and the surname overhangs the side edges; the cut follows the letters. | One sheet, one fold; notch cut in the back panel along the letter tops, hinge bridges left at the ends and between words. | Hinge is only the bridges (>= 10 mm each side): paper memory and a slightly weaker apex. |
+| 2 | E6 Drip | The surname hangs from a lemon band as free die-cut letters standing on the table; the first name lies on the deck. | One sheet, two folds (roof-bridge); lip cut = letters, flat feet. | Rack/sway of the open-sided bridge; letters must be cut 0.1 mm inside the ink; deck text is foreshortened. |
+| 3 | E5 Pop-up | The first name is cut out and hinged up from the plate, leaving a letter-shaped window. | One sheet, one fold, die-cut along the silhouette. | The 78 deg flap springs back (score deep or add a glue dot); plate details foreshortened to 0.69. |
+| 4 | E2 Halo | The card silhouette is the name's outline, standing as a V-screen. | One sheet, one vertical fold, contour die-cut plus straight foot. | Fold crosses solid black ink (cracking); stretch 1.28 reads squat from other seats. |
+| 5 | E3 Bend | Giant lettering bends over the crease between upright and plate, the die-cut follows the letters across the bend. | One sheet, two folds (plate, upright, back strut). | Distortion is only right from the seat; the long sheet (about 136 mm) uses more board. |
+| 6 | E4 Slot | The name strap runs under the plate and rises through a slot; the letters continue on the other side of the board. | One sheet, two folds (180 and 90 deg), one 0.7 mm slot. | Slot fit depends on caliper; long names are small (cap 8.7 mm, counters 1.4 mm2); strap bend radius. |
