@@ -14,6 +14,7 @@ LAYOUT.json (all coordinates in output pixels, 1080 x 1350 for a 4:5 post):
   "effects": {"shadow": {"dx": 14, "dy": 10, "blur": 9, "opacity": 0.3},   # optional, all of them
               "texture": 0.5, "blur": 1.2, "grain": 6}
 }
+"details": {...} or a list of them: the small poster-style text block (see details.py), drawn on top.
 A line may give "quad": [[x,y] TL, TR, BR, BL] instead of x/y/align to lie in perspective on a plane.
 `x` is the left, right or centre edge for align left/right/center; `y` is the top of the caps.
 `rot` turns the line about its anchor (degrees, clockwise), for vertical names.
@@ -35,6 +36,9 @@ import cv2
 import numpy as np
 import potrace
 from PIL import Image, ImageDraw, ImageFont
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from details import render_details  # noqa: E402
 
 HERE = pathlib.Path(__file__).resolve().parent
 FONT = os.environ.get("WIX_DISPLAY_700", "/tmp/claude-0/-home-user-claude-bobik/6a3dcf92-132a-5018-88ad-a2068c46056a/scratchpad/wix700.ttf")
@@ -169,12 +173,24 @@ def main(path, outdir=None):
             ink = ink + np.random.default_rng(7).normal(0, fx["grain"], base.shape[:2])[..., None]
         return comp * (1 - alpha[..., None]) + ink * alpha[..., None], alpha
 
+    blocks = L.get("details") or []
+    blocks = [blocks] if isinstance(blocks, dict) else blocks
+
+    def with_details(arr, k):
+        im = Image.fromarray(arr.clip(0, 255).astype(np.uint8)).convert("RGBA")
+        for b in blocks:
+            sb = dict(b, x=b["x"] * k, y=b["y"] * k, size=b.get("size", 28) * k)
+            if b.get("lockup"):
+                sb["lockup"] = b["lockup"] * k
+            im.alpha_composite(render_details(sb, im.width, im.height)[0])
+        return im.convert("RGB")
+
     comp, alpha = composite(photo, person, 1.0)
-    Image.fromarray(comp.clip(0, 255).astype(np.uint8)).save(outdir / f"{stem}.png")
+    with_details(comp, 1.0).save(outdir / f"{stem}.png")
     box_hi = (round(cx), round(cy), round(cx + cw), round(cy + ch))
     ph = np.asarray(Image.open(mpath).convert("L").crop(box_hi).resize(photo_hi.size), np.float32) / 255
     hi, _ = composite(photo_hi, ph, photo_hi.width / W)
-    Image.fromarray(hi.clip(0, 255).astype(np.uint8)).save(outdir / f"{stem}@src.png")
+    with_details(hi, photo_hi.width / W).save(outdir / f"{stem}@src.png")
 
     # editable SVG: photo, name paths, the person on top (photo clipped to the silhouette)
     d_name = trace(nm, 1 / SS)
@@ -186,7 +202,7 @@ def main(path, outdir=None):
 <g id="photo"><image width="{W}" height="{H}" preserveAspectRatio="none" xlink:href="data:image/jpeg;base64,{b64}"/></g>
 <g id="name"><path d="{d_name}" fill="{L.get('color', '#000000')}" fill-rule="evenodd"/></g>
 ''' + (f'''<g id="person-over-name" clip-path="url(#person-clip)"><image width="{W}" height="{H}" preserveAspectRatio="none" xlink:href="data:image/jpeg;base64,{b64}"/></g>
-''' if L.get("behind", True) else "") + "</svg>\n"
+''' if L.get("behind", True) else "") + "".join(render_details(b, W, H)[1] for b in blocks) + "\n</svg>\n"
     (outdir / f"{stem}.svg").write_text(svg)
 
     # check image: name, person outline (red), 5 % margins (blue), the profile grid's 3:4 crop (green), name boxes (orange)
