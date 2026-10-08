@@ -1,0 +1,137 @@
+{
+ "tanya-andrianova": {
+  "name": "Tanya Andrianova",
+  "files": {
+   "2line": "tanya-andrianova_2line.svg",
+   "first": "tanya-andrianova_first.svg",
+   "last": "tanya-andrianova_last.svg",
+   "1line": "tanya-andrianova_1line.svg"
+  },
+  "size_cap100": {
+   "2line": [
+    843.25,
+    232.75
+   ],
+   "first": [
+    390.75,
+    108.75
+   ],
+   "last": [
+    843.25,
+    114.0
+   ],
+   "1line": [
+    1269.0,
+    114.0
+   ]
+  }
+ },
+ "igor-zotov": {
+  "name": "Igor Zotov",
+  "files": {
+   "2line": "igor-zotov_2line.svg",
+   "first": "igor-zotov_first.svg",
+   "last": "igor-zotov_last.svg",
+   "1line": "igor-zotov_1line.svg"
+  },
+  "size_cap100": {
+   "2line": [
+    419.0,
+    238.0
+   ],
+   "first": [
+    318.75,
+    114.0
+   ],
+   "last": [
+    419.0,
+    114.0
+   ],
+   "1line": [
+    772.75,
+    114.0
+   ]
+  }
+ },
+ "andrey-lee": {
+  "name": "Andrey Lee",
+  "files": {
+   "2line": "andrey-lee_2line.svg",
+   "first": "andrey-lee_first.svg",
+   "last": "andrey-lee_last.svg",
+   "1line": "andrey-lee_1line.svg"
+  },
+  "size_cap100": {
+   "2line": [
+    522.5,
+    233.0
+   ],
+   "first": [
+    522.5,
+    111.5
+   ],
+   "last": [
+    213.5,
+    111.5
+   ],
+   "1line": [
+    771.0,
+    111.5
+   ]
+  }
+ },
+ "sasha-chernikov": {
+  "name": "Sasha Chernikov",
+  "files": {
+   "2line": "sasha-chernikov_2line.svg",
+   "first": "sasha-chernikov_first.svg",
+   "last": "sasha-chernikov_last.svg",
+   "1line": "sasha-chernikov_1line.svg"
+  },
+  "size_cap100": {
+   "2line": [
+    750.75,
+    237.75
+   ],
+   "first": [
+    433.5,
+    113.75
+   ],
+   "last": [
+    750.75,
+    114.0
+   ],
+   "1line": [
+    1219.25,
+    114.0
+   ]
+  }
+ },
+ "sophia-zhuravkova": {
+  "name": "Sophia Zhuravkova",
+  "files": {
+   "2line": "sophia-zhuravkova_2line.svg",
+   "first": "sophia-zhuravkova_first.svg",
+   "last": "sophia-zhuravkova_last.svg",
+   "1line": "sophia-zhuravkova_1line.svg"
+  },
+  "size_cap100": {
+   "2line": [
+    859.25,
+    238.0
+   ],
+   "first": [
+    495.5,
+    114.0
+   ],
+   "last": [
+    859.25,
+    114.0
+   ],
+   "1line": [
+    1389.75,
+    114.0
+   ]
+  }
+ }
+}
