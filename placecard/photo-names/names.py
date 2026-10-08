@@ -36,9 +36,9 @@ ARTISTS = [("Tanya Andrianova", "tanya-andrianova"), ("Igor Zotov", "igor-zotov"
            ("Sasha Chernikov", "sasha-chernikov"), ("Sophia Zhuravkova", "sophia-zhuravkova")]
 # hand corrections: extra space for a pair (× cap, + = looser), and how far a letter's counters reopen
 PAIRS = {"TA": 0.05, "EY": 0.02, "AN": 0.0, "NY": 0.06, "YA": 0.04, "EE": 0.10, "LE": 0.02, "RE": 0.02,
-         "PH": 0.05, "HI": 0.07, "IA": 0.06, "OP": 0.02, "AV": 0.05, "VK": 0.06, "KO": 0.05, "RA": 0.02,
-         "UR": 0.02, "ZH": 0.02, "RI": 0.04, "NI": 0.04, "IK": 0.05, "RN": 0.02, "ER": 0.02, "NO": 0.02}
-OPEN = {"A": 1.15, "R": 1.1, "O": 1.0, "D": 1.0, "P": 1.3, "E": 2.6, "B": 1.0, "G": 1.0}
+         "PH": 0.05, "HI": 0.02, "IA": 0.03, "OP": 0.02, "AV": 0.0, "VK": 0.06, "KO": 0.05, "RA": 0.02,
+         "UR": 0.02, "ZH": 0.02, "RI": 0.04, "NI": 0.0, "IK": 0.0, "RN": 0.02, "ER": 0.02, "NO": 0.02}
+OPEN = {"A": 1.15, "R": 1.1, "O": 1.0, "D": 1.0, "P": 1.3, "E": 2.6, "B": 1.0, "G": 1.0, "Y": 1.6, "V": 1.3, "K": 1.3}
 
 
 def glyph(ch, cap):
@@ -107,6 +107,26 @@ def set_word(word, cap):
     return canvas, letters
 
 
+def cleanup(M, cap, hole=0.012, speck=0.01):
+    """Fill enclosed holes smaller than hole × cap² and drop ink specks smaller than speck × cap²."""
+    M = M.astype(np.uint8)
+    inv = 1 - M
+    n, lab, st, _ = cv2.connectedComponentsWithStats(inv, 8)
+    H, W = M.shape
+    for i in range(1, n):
+        x, y, w, h, a = st[i]
+        if x > 0 and y > 0 and x + w < W and y + h < H:
+            region = lab == i
+            thin = cv2.distanceTransform(region.astype(np.uint8), cv2.DIST_L2, 3).max() < 0.02 * cap
+            if a < hole * cap * cap or thin:          # pinholes and hairline crescents
+                M[region] = 1
+    n, lab, st, _ = cv2.connectedComponentsWithStats(M, 8)
+    for i in range(1, n):
+        if st[i, 4] < speck * cap * cap:
+            M[lab == i] = 0
+    return M.astype(bool)
+
+
 def melt_word(word, cap=CAP):
     canvas, letters = set_word(word, cap)
     pad = int(cap * 0.6)
@@ -136,8 +156,15 @@ def melt_word(word, cap=CAP):
                 ext[:, dx:] |= conc[:, :-dx]
             conc = ext & (1 - union_light)
         M = M & ~conc.astype(bool)
-    # final soft round-off so carved edges melt like the rest
-    M = cv2.GaussianBlur(M.astype(np.float32), (0, 0), 0.025 * cap) > 0.5
+    # clean-up: no pinholes, no stray specks, no sharp nicks; carved edges melt like the rest
+    M = cleanup(M, cap)
+    # white features thinner than 0.035 cap (slits, hairlines, needle-sharp notch tips) are filled
+    white = 1 - M.astype(np.uint8)
+    kw = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (int(0.035 * cap) | 1,) * 2)
+    M = (M.astype(np.uint8) | (white & (1 - cv2.morphologyEx(white, cv2.MORPH_OPEN, kw))))
+    M = cv2.morphologyEx(M, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (int(0.04 * cap) | 1,) * 2))
+    M = cv2.GaussianBlur(M.astype(np.float32), (0, 0), 0.035 * cap) > 0.5
+    M = cleanup(M, cap)
     ys, xs = np.nonzero(M)
     return M[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
 
